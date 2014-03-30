@@ -1,0 +1,4 @@
+container:start
+~ ;copy-resources;aux-compile
+container:start
+~ ;copy-resources;aux-compile
