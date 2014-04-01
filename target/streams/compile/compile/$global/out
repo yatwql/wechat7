@@ -1,15 +1,31 @@
 [0m[[0mdebug[0m] [0m[0m
 [0m[[0mdebug[0m] [0mInitial source changes: [0m
 [0m[[0mdebug[0m] [0m	removed:Set()[0m
-[0m[[0mdebug[0m] [0m	added: Set()[0m
+[0m[[0mdebug[0m] [0m	added: Set(/Users/wang/work/zooBox/wechat7/src/main/scala/JettyLauncher.scala)[0m
 [0m[[0mdebug[0m] [0m	modified: Set()[0m
 [0m[[0mdebug[0m] [0mRemoved products: Set()[0m
 [0m[[0mdebug[0m] [0mModified external sources: Set()[0m
 [0m[[0mdebug[0m] [0mModified binary dependencies: Set()[0m
-[0m[[0mdebug[0m] [0mInitial directly invalidated sources: Set()[0m
+[0m[[0mdebug[0m] [0mInitial directly invalidated sources: Set(/Users/wang/work/zooBox/wechat7/src/main/scala/JettyLauncher.scala)[0m
 [0m[[0mdebug[0m] [0m[0m
 [0m[[0mdebug[0m] [0mSources indirectly invalidated by:[0m
 [0m[[0mdebug[0m] [0m	product: Set()[0m
 [0m[[0mdebug[0m] [0m	binary dep: Set()[0m
 [0m[[0mdebug[0m] [0m	external source: Set()[0m
-[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set()[0m
+[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(/Users/wang/work/zooBox/wechat7/src/main/scala/JettyLauncher.scala)[0m
+[0m[[0minfo[0m] [0mCompiling 1 Scala source to /Users/wang/work/zooBox/wechat7/target/scala-2.10/classes...[0m
+[0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.10.3[0m
+[0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.10.3[0m
+[0m[[0mdebug[0m] [0mRunning cached compiler 650f5b42, interfacing (CompilerInterface) with Scala compiler version 2.10.3[0m
+[0m[[0mdebug[0m] [0mCalling Scala compiler with arguments  (CompilerInterface):[0m
+[0m[[0mdebug[0m] [0m	-bootclasspath[0m
+[0m[[0mdebug[0m] [0m	/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/jre/classes:/Users/wang/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.3.jar[0m
+[0m[[0mdebug[0m] [0m	-classpath[0m
+[0m[[0mdebug[0m] [0m	/Users/wang/work/zooBox/wechat7/target/scala-2.10/classes:/Users/wang/.ivy2/cache/org.scalatra/scalatra_2.10/jars/scalatra_2.10-2.2.2.jar:/Users/wang/.ivy2/cache/org.scalatra/scalatra-common_2.10/jars/scalatra-common_2.10-2.2.2.jar:/Users/wang/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.5.jar:/Users/wang/.ivy2/cache/org.clapper/grizzled-slf4j_2.10/jars/grizzled-slf4j_2.10-1.0.1.jar:/Users/wang/.ivy2/cache/org.scalatra.rl/rl_2.10/jars/rl_2.10-0.4.4.jar:/Users/wang/.ivy2/cache/com.googlecode.juniversalchardet/juniversalchardet/jars/juniversalchardet-1.0.3.jar:/Users/wang/.ivy2/cache/eu.medsea.mimeutil/mime-util/bundles/mime-util-2.1.3.jar:/Users/wang/.ivy2/cache/joda-time/joda-time/jars/joda-time-2.2.jar:/Users/wang/.ivy2/cache/org.joda/joda-convert/jars/joda-convert-1.2.jar:/Users/wang/.ivy2/cache/com.typesafe.akka/akka-actor_2.10/bundles/akka-actor_2.10-2.1.2.jar:/Users/wang/.ivy2/cache/com.typesafe/config/bundles/config-1.0.0.jar:/Users/wang/.ivy2/cache/org.scalatra/scalatra-scalate_2.10/jars/scalatra-scalate_2.10-2.2.2.jar:/Users/wang/.ivy2/cache/org.fusesource.scalate/scalate-core_2.10/bundles/scalate-core_2.10-1.6.1.jar:/Users/wang/.ivy2/cache/org.fusesource.scalate/scalate-util_2.10/bundles/scalate-util_2.10-1.6.1.jar:/Users/wang/.ivy2/cache/org.scala-lang/scala-compiler/jars/scala-compiler-2.10.0.jar:/Users/wang/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.10.0.jar:/Users/wang/.ivy2/cache/org.eclipse.jetty/jetty-webapp/jars/jetty-webapp-8.1.8.v20121106.jar:/Users/wang/.ivy2/cache/org.eclipse.jetty/jetty-xml/jars/jetty-xml-8.1.8.v20121106.jar:/Users/wang/.ivy2/cache/org.eclipse.jetty/jetty-util/jars/jetty-util-8.1.8.v20121106.jar:/Users/wang/.ivy2/cache/org.eclipse.jetty/jetty-servlet/jars/jetty-servlet-8.1.8.v20121106.jar:/Users/wang/.ivy2/cache/org.eclipse.jetty/jetty-security/jars/jetty-security-8.1.8.v20121106.jar:/Users/wang/.ivy2/cache/org.eclipse.jetty/jetty-server/jars/jetty-server-8.1.8.v20121106.jar:/Users/wang/.ivy2/cache/org.eclipse.jetty.orbit/javax.servlet/jars/javax.servlet-3.0.0.v201112011016.jar:/Users/wang/.ivy2/cache/org.eclipse.jetty/jetty-continuation/jars/jetty-continuation-8.1.8.v20121106.jar:/Users/wang/.ivy2/cache/org.eclipse.jetty/jetty-http/jars/jetty-http-8.1.8.v20121106.jar:/Users/wang/.ivy2/cache/org.eclipse.jetty/jetty-io/jars/jetty-io-8.1.8.v20121106.jar[0m
+[0m[[0mdebug[0m] [0mScala compilation took 4.0827 s[0m
+[0m[[0mdebug[0m] [0mInvalidated by transitive public inheritance: Set(/Users/wang/work/zooBox/wechat7/src/main/scala/JettyLauncher.scala)[0m
+[0m[[0mdebug[0m] [0mInvalidated by direct dependency: Set()[0m
+[0m[[0mdebug[0m] [0mNew invalidations:[0m
+[0m[[0mdebug[0m] [0m	Set()[0m
+[0m[[0mdebug[0m] [0mPreviously invalidated, but (transitively) depend on new invalidations:[0m
+[0m[[0mdebug[0m] [0m	Set()[0m
