@@ -7,7 +7,7 @@
 		revision="0.1.0-SNAPSHOT"
 		conf="scalate"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool, container, scalate"
-		date="20140331021417"/>
+		date="20140402015610"/>
 	<dependencies>
 		<module organisation="com.mojolly.scalate" name="scalate-generator_2.10">
 			<revision name="0.4.2" status="release" pubdate="20130118182601" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://github.com/backchatio/xsbt-scalate-generate" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="0">

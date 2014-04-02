@@ -7,7 +7,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.scala-lang#scala-library;2.10.3 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.10.3 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1511d1c6[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@6d23f66c[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.10.3[0m
 [0m[[0mdebug[0m] [0m	local: revision in cache: org.scala-lang#scala-library;2.10.3[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.10.3 in sbt-chain[0m
@@ -277,108 +277,108 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-scalate_2.10;2.2.2->org.fusesource.scalate#scalate-core_2.10;1.6.1 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-scalate_2.10;2.2.2->org.fusesource.scalate#scalate-core_2.10;1.6.1 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.scalatra#scalatra-scalate_2.10;2.2.2 [compile->master][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->default(compile)][0m
-[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 {compile=[default(compile)], container=[default(compile)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-webapp;8.1.8.v20121106[0m
-[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-webapp;8.1.8.v20121106[0m
-[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 in sbt-chain[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->runtime][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-xml;8.1.8.v20121106 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-xml;8.1.8.v20121106 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-xml;8.1.8.v20121106[0m
-[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-xml;8.1.8.v20121106[0m
-[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-xml;8.1.8.v20121106 in sbt-chain[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-util;8.1.8.v20121106 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-util;8.1.8.v20121106 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-util;8.1.8.v20121106[0m
-[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-util;8.1.8.v20121106[0m
-[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-util;8.1.8.v20121106 in sbt-chain[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [compile->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-servlet;8.1.8.v20121106[0m
-[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-servlet;8.1.8.v20121106[0m
-[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 in sbt-chain[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-security;8.1.8.v20121106 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-security;8.1.8.v20121106 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-security;8.1.8.v20121106[0m
-[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-security;8.1.8.v20121106[0m
-[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-security;8.1.8.v20121106 in sbt-chain[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-server;8.1.8.v20121106 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-server;8.1.8.v20121106 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-server;8.1.8.v20121106[0m
-[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-server;8.1.8.v20121106[0m
-[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-server;8.1.8.v20121106 in sbt-chain[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->default(compile)][0m
+[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 {compile=[default(compile)], container=[default(compile)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-webapp;8.1.10.v20130312[0m
+[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-webapp;8.1.10.v20130312[0m
+[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-xml;8.1.10.v20130312 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-xml;8.1.10.v20130312 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-xml;8.1.10.v20130312[0m
+[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-xml;8.1.10.v20130312[0m
+[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-xml;8.1.10.v20130312 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-util;8.1.10.v20130312 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-util;8.1.10.v20130312 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-util;8.1.10.v20130312[0m
+[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-util;8.1.10.v20130312[0m
+[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-util;8.1.10.v20130312 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [compile->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-servlet;8.1.10.v20130312[0m
+[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-servlet;8.1.10.v20130312[0m
+[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-security;8.1.10.v20130312 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-security;8.1.10.v20130312 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-security;8.1.10.v20130312[0m
+[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-security;8.1.10.v20130312[0m
+[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-security;8.1.10.v20130312 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-server;8.1.10.v20130312 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-server;8.1.10.v20130312 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-server;8.1.10.v20130312[0m
+[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-server;8.1.10.v20130312[0m
+[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-server;8.1.10.v20130312 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->master(*)][0m
 [0m[[0minfo[0m] [0mResolving org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016[0m
 [0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016[0m
 [0m[[0mdebug[0m] [0m	found org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 in sbt-chain[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->default(compile)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->runtime][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->master][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-continuation;8.1.8.v20121106[0m
-[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-continuation;8.1.8.v20121106[0m
-[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 in sbt-chain[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-http;8.1.8.v20121106 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-http;8.1.8.v20121106 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-http;8.1.8.v20121106[0m
-[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-http;8.1.8.v20121106[0m
-[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-http;8.1.8.v20121106 in sbt-chain[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-io;8.1.8.v20121106 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-io;8.1.8.v20121106 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-io;8.1.8.v20121106[0m
-[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-io;8.1.8.v20121106[0m
-[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-io;8.1.8.v20121106 in sbt-chain[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [compile->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-continuation;8.1.10.v20130312[0m
+[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-continuation;8.1.10.v20130312[0m
+[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-http;8.1.10.v20130312 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-http;8.1.10.v20130312 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-http;8.1.10.v20130312[0m
+[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-http;8.1.10.v20130312[0m
+[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-http;8.1.10.v20130312 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-io;8.1.10.v20130312 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-io;8.1.10.v20130312 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-io;8.1.10.v20130312[0m
+[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-io;8.1.10.v20130312[0m
+[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-io;8.1.10.v20130312 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [compile->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile][0m
@@ -555,50 +555,50 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.0->org.scala-lang#scala-library;2.10.3 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.0->org.scala-lang#scala-library;2.10.3 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.scalatra#scalatra-scalate_2.10;2.2.2 [compile->master][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->default(compile)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->runtime][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile][0m
@@ -804,50 +804,50 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.0->org.scala-lang#scala-library;2.10.3 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.0->org.scala-lang#scala-library;2.10.3 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.scalatra#scalatra-scalate_2.10;2.2.2 [compile->master][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->default(compile)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->runtime][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile][0m
@@ -891,114 +891,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.clapper#grizzled-slf4j_2.10;1.0.1 [compile->master(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.clapper#grizzled-slf4j_2.10;1.0.1 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->master(*)][0m
-[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-webapp;8.1.10.v20130312[0m
-[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-webapp;8.1.10.v20130312[0m
-[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [compile->master(*)][0m
-[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-xml;8.1.10.v20130312 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-xml;8.1.10.v20130312 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-xml;8.1.10.v20130312[0m
-[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-xml;8.1.10.v20130312[0m
-[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-xml;8.1.10.v20130312 in sbt-chain[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->master(*)][0m
-[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-util;8.1.10.v20130312 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-util;8.1.10.v20130312 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-util;8.1.10.v20130312[0m
-[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-util;8.1.10.v20130312[0m
-[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-util;8.1.10.v20130312 in sbt-chain[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [compile->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [compile->master(*)][0m
-[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-servlet;8.1.10.v20130312[0m
-[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-servlet;8.1.10.v20130312[0m
-[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 in sbt-chain[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [compile->master(*)][0m
-[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-security;8.1.10.v20130312 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-security;8.1.10.v20130312 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-security;8.1.10.v20130312[0m
-[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-security;8.1.10.v20130312[0m
-[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-security;8.1.10.v20130312 in sbt-chain[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [compile->master(*)][0m
-[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-server;8.1.10.v20130312 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-server;8.1.10.v20130312 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-server;8.1.10.v20130312[0m
-[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-server;8.1.10.v20130312[0m
-[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-server;8.1.10.v20130312 in sbt-chain[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [compile->master(*)][0m
-[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-continuation;8.1.10.v20130312[0m
-[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-continuation;8.1.10.v20130312[0m
-[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 in sbt-chain[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [compile->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [compile->master(*)][0m
-[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-http;8.1.10.v20130312 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-http;8.1.10.v20130312 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-http;8.1.10.v20130312[0m
-[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-http;8.1.10.v20130312[0m
-[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-http;8.1.10.v20130312 in sbt-chain[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [compile->master(*)][0m
-[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-io;8.1.10.v20130312 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.eclipse.jetty#jetty-io;8.1.10.v20130312 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.eclipse.jetty#jetty-io;8.1.10.v20130312[0m
-[0m[[0mdebug[0m] [0m	local: revision in cache: org.eclipse.jetty#jetty-io;8.1.10.v20130312[0m
-[0m[[0mdebug[0m] [0m	found org.eclipse.jetty#jetty-io;8.1.10.v20130312 in sbt-chain[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [compile->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [compile->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [compile->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [compile->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [compile->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->default(compile)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->runtime][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->master][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->runtime][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->master(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.mockito#mockito-all;1.9.5 [compile->master(*)][0m
@@ -1366,50 +1259,50 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.0->org.scala-lang#scala-library;2.10.3 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.0->org.scala-lang#scala-library;2.10.3 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.scalatra#scalatra-scalate_2.10;2.2.2 [compile->master][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->default(compile)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->runtime][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile][0m
@@ -1599,50 +1492,50 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.0->org.scala-lang#scala-library;2.10.3 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.0->org.scala-lang#scala-library;2.10.3 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.scalatra#scalatra-scalate_2.10;2.2.2 [compile->master][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->default(compile)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->runtime][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile][0m
@@ -1849,50 +1742,50 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.0->org.scala-lang#scala-library;2.10.3 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.0->org.scala-lang#scala-library;2.10.3 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.scalatra#scalatra-scalate_2.10;2.2.2 [compile->master][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->default(compile)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->runtime][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile][0m
@@ -1927,26 +1820,6 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.clapper#grizzled-slf4j_2.10;1.0.1 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->master(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->master(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.mockito#mockito-all;1.9.5 [compile->master(*)][0m
@@ -2012,26 +1885,6 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.clapper#grizzled-slf4j_2.10;1.0.1 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra#scalatra-test_2.10;2.2.2->org.mockito#mockito-all;1.9.5 [runtime->runtime(*)][0m
@@ -2154,50 +2007,50 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.scala-lang#scala-library;2.10.3 [scala-tool->optional(default)][0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'container'[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT [container][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [container->default(compile)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [container->runtime][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [container->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-xml;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.8.v20121106->org.eclipse.jetty#jetty-servlet;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.8.v20121106->org.eclipse.jetty#jetty-security;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.8.v20121106->org.eclipse.jetty#jetty-server;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-continuation;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.8.v20121106->org.eclipse.jetty#jetty-http;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.8.v20121106->org.eclipse.jetty#jetty-io;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->runtime(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.8.v20121106->org.eclipse.jetty#jetty-util;8.1.8.v20121106 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.8.v20121106 [container->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [container->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [container->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [container->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-xml;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-xml;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-webapp;8.1.10.v20130312->org.eclipse.jetty#jetty-servlet;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-servlet;8.1.10.v20130312->org.eclipse.jetty#jetty-security;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-security;8.1.10.v20130312->org.eclipse.jetty#jetty-server;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-continuation;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-server;8.1.10.v20130312->org.eclipse.jetty#jetty-http;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-http;8.1.10.v20130312->org.eclipse.jetty#jetty-io;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.eclipse.jetty#jetty-io;8.1.10.v20130312->org.eclipse.jetty#jetty-util;8.1.10.v20130312 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty#jetty-webapp;8.1.10.v20130312 [container->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [container->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [container->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016 [container->compile][0m
@@ -2272,28 +2125,12 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.0->org.scala-lang#scala-library;2.10.0 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.0->org.scala-lang#scala-library;2.10.0 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT->com.mojolly.scalate#scalate-generator_2.10;0.4.2 [scalate->master][0m
-[0m[[0mdebug[0m] [0mall callers are evicted for org.eclipse.jetty#jetty-servlet;8.1.8.v20121106: evicting too[0m
-[0m[[0mdebug[0m] [0mall callers are evicted for org.eclipse.jetty#jetty-servlet;8.1.8.v20121106: evicting too[0m
-[0m[[0mdebug[0m] [0mall callers are evicted for org.eclipse.jetty#jetty-security;8.1.8.v20121106: evicting too[0m
-[0m[[0mdebug[0m] [0mall callers are evicted for org.eclipse.jetty#jetty-security;8.1.8.v20121106: evicting too[0m
-[0m[[0mdebug[0m] [0mall callers are evicted for org.eclipse.jetty#jetty-server;8.1.8.v20121106: evicting too[0m
-[0m[[0mdebug[0m] [0mall callers are evicted for org.eclipse.jetty#jetty-server;8.1.8.v20121106: evicting too[0m
-[0m[[0mdebug[0m] [0mall callers are evicted for org.eclipse.jetty#jetty-http;8.1.8.v20121106: evicting too[0m
-[0m[[0mdebug[0m] [0mall callers are evicted for org.eclipse.jetty#jetty-http;8.1.8.v20121106: evicting too[0m
-[0m[[0mdebug[0m] [0mall callers are evicted for org.eclipse.jetty#jetty-io;8.1.8.v20121106: evicting too[0m
-[0m[[0mdebug[0m] [0mall callers are evicted for org.eclipse.jetty#jetty-io;8.1.8.v20121106: evicting too[0m
-[0m[[0mdebug[0m] [0mall callers are evicted for org.eclipse.jetty#jetty-continuation;8.1.8.v20121106: evicting too[0m
-[0m[[0mdebug[0m] [0mall callers are evicted for org.eclipse.jetty#jetty-continuation;8.1.8.v20121106: evicting too[0m
-[0m[[0mdebug[0m] [0mall callers are evicted for org.eclipse.jetty#jetty-xml;8.1.8.v20121106: evicting too[0m
-[0m[[0mdebug[0m] [0mall callers are evicted for org.eclipse.jetty#jetty-xml;8.1.8.v20121106: evicting too[0m
-[0m[[0mdebug[0m] [0mall callers are evicted for org.eclipse.jetty#jetty-util;8.1.8.v20121106: evicting too[0m
-[0m[[0mdebug[0m] [0mall callers are evicted for org.eclipse.jetty#jetty-util;8.1.8.v20121106: evicting too[0m
 [0m[[0mdebug[0m] [0m	resolved ivy file produced in /Users/wang/work/zooBox/wechat7/target/resolution-cache/com.dragonstudio/dragon-studio-webchat-app_2.10/0.1.0-SNAPSHOT/resolved.xml.xml[0m
 [0m[[0mdebug[0m] [0m:: downloading artifacts ::[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-library;2.10.3!scala-library.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scalatra#scalatra_2.10;2.2.2!scalatra_2.10.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scalatra#scalatra-scalate_2.10;2.2.2!scalatra-scalate_2.10.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.eclipse.jetty#jetty-webapp;8.1.8.v20121106!jetty-webapp.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.eclipse.jetty#jetty-webapp;8.1.10.v20130312!jetty-webapp.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016!javax.servlet.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scalatra#scalatra-common_2.10;2.2.2!scalatra-common_2.10.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-library;2.10.0!scala-library.jar[0m
@@ -2311,24 +2148,6 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.slf4j#slf4j-api;1.6.1!slf4j-api.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-compiler;2.10.0!scala-compiler.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-reflect;2.10.0!scala-reflect.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.eclipse.jetty#jetty-xml;8.1.8.v20121106!jetty-xml.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.eclipse.jetty#jetty-servlet;8.1.8.v20121106!jetty-servlet.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.eclipse.jetty#jetty-util;8.1.8.v20121106!jetty-util.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.eclipse.jetty#jetty-security;8.1.8.v20121106!jetty-security.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.eclipse.jetty#jetty-server;8.1.8.v20121106!jetty-server.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.eclipse.jetty#jetty-continuation;8.1.8.v20121106!jetty-continuation.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.eclipse.jetty#jetty-http;8.1.8.v20121106!jetty-http.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.eclipse.jetty#jetty-io;8.1.8.v20121106!jetty-io.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] ch.qos.logback#logback-classic;1.0.6!logback-classic.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] ch.qos.logback#logback-core;1.0.6!logback-core.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scalatra#scalatra-specs2_2.10;2.2.2!scalatra-specs2_2.10.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scalatra#scalatra-test_2.10;2.2.2!scalatra-test_2.10.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.specs2#specs2_2.10;1.14!specs2_2.10.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.eclipse.jetty#jetty-webapp;8.1.10.v20130312!jetty-webapp.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.mockito#mockito-all;1.9.5!mockito-all.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.apache.commons#commons-lang3;3.1!commons-lang3.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.apache.httpcomponents#httpclient;4.2.3!httpclient.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.apache.httpcomponents#httpmime;4.2.3!httpmime.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.eclipse.jetty#jetty-xml;8.1.10.v20130312!jetty-xml.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.eclipse.jetty#jetty-servlet;8.1.10.v20130312!jetty-servlet.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.eclipse.jetty#jetty-util;8.1.10.v20130312!jetty-util.jar[0m
@@ -2337,6 +2156,15 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.eclipse.jetty#jetty-continuation;8.1.10.v20130312!jetty-continuation.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.eclipse.jetty#jetty-http;8.1.10.v20130312!jetty-http.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.eclipse.jetty#jetty-io;8.1.10.v20130312!jetty-io.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] ch.qos.logback#logback-classic;1.0.6!logback-classic.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] ch.qos.logback#logback-core;1.0.6!logback-core.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scalatra#scalatra-specs2_2.10;2.2.2!scalatra-specs2_2.10.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scalatra#scalatra-test_2.10;2.2.2!scalatra-test_2.10.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.specs2#specs2_2.10;1.14!specs2_2.10.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.mockito#mockito-all;1.9.5!mockito-all.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.apache.commons#commons-lang3;3.1!commons-lang3.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.apache.httpcomponents#httpclient;4.2.3!httpclient.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.apache.httpcomponents#httpmime;4.2.3!httpmime.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.apache.httpcomponents#httpcore;4.2.2!httpcore.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] commons-logging#commons-logging;1.1.1!commons-logging.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] commons-codec#commons-codec;1.6!commons-codec.jar[0m
@@ -2349,7 +2177,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.3!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.mojolly.scalate#scalate-generator_2.10;0.4.2!scalate-generator_2.10.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 2537ms :: artifacts dl 73ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 2655ms :: artifacts dl 57ms[0m
 [0m[[0mdebug[0m] [0m	report for com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT compile produced in /Users/wang/work/zooBox/wechat7/target/resolution-cache/reports/com.dragonstudio-dragon-studio-webchat-app_2.10-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT runtime produced in /Users/wang/work/zooBox/wechat7/target/resolution-cache/reports/com.dragonstudio-dragon-studio-webchat-app_2.10-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT test produced in /Users/wang/work/zooBox/wechat7/target/resolution-cache/reports/com.dragonstudio-dragon-studio-webchat-app_2.10-test.xml[0m
@@ -2365,5 +2193,5 @@
 [0m[[0mdebug[0m] [0m	report for com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT scala-tool produced in /Users/wang/work/zooBox/wechat7/target/resolution-cache/reports/com.dragonstudio-dragon-studio-webchat-app_2.10-scala-tool.xml[0m
 [0m[[0mdebug[0m] [0m	report for com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT container produced in /Users/wang/work/zooBox/wechat7/target/resolution-cache/reports/com.dragonstudio-dragon-studio-webchat-app_2.10-container.xml[0m
 [0m[[0mdebug[0m] [0m	report for com.dragonstudio#dragon-studio-webchat-app_2.10;0.1.0-SNAPSHOT scalate produced in /Users/wang/work/zooBox/wechat7/target/resolution-cache/reports/com.dragonstudio-dragon-studio-webchat-app_2.10-scalate.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (2537ms resolve - 73ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (2655ms resolve - 57ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m
