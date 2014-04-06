@@ -41,3 +41,21 @@ container:start
 last
 compile
 container:start
+~ ; copy-resources ;aux-compile
+container:start
+~ ;copy-resources ;aux-compile
+container:start
+~;copy-resources;aux-compile
+list resolvers
+history
+help
+tasks
+settings
+version
+scalaVersion
+name
+help
+about
+exit
+quit
+exit

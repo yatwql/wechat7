@@ -26,7 +26,7 @@ class WechatController extends WechatAppStack
     contentType = "text/html"
     PageDao.pages find (_.slug == params("slug")) match {
       case Some(page) => ssp("/pages/show", "page" -> page)
-      case None => halt(404, "not found")
+      case None => halt(404, "Can not locate the page - "+params("slug"))
     }
   }
 

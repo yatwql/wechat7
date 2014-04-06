@@ -474,7 +474,6 @@
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: com.typesafe.sbt#sbt-start-script;0.10.0[0m
 [0m[[0mdebug[0m] [0m	typesafe-ivy-releases: revision in cache: com.typesafe.sbt#sbt-start-script;0.10.0[0m
 [0m[[0mdebug[0m] [0m	found com.typesafe.sbt#sbt-start-script;0.10.0 in sbt-chain[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#wechat7-build;0.1-SNAPSHOT->com.typesafe.sbteclipse#sbteclipse-plugin;2.4.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'runtime'[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#wechat7-build;0.1-SNAPSHOT [runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#wechat7-build;0.1-SNAPSHOT [compile][0m
@@ -653,7 +652,6 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.apache.tomcat.embed#tomcat-embed-jasper;7.0.22->org.apache.tomcat.embed#tomcat-embed-core;7.0.22 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra.sbt#scalatra-sbt;0.3.2->com.earldouglas#xsbt-web-plugin;0.4.0 [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#wechat7-build;0.1-SNAPSHOT->com.typesafe.sbt#sbt-start-script;0.10.0 [compile->default(compile)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#wechat7-build;0.1-SNAPSHOT->com.typesafe.sbteclipse#sbteclipse-plugin;2.4.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'test'[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#wechat7-build;0.1-SNAPSHOT [test][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#wechat7-build;0.1-SNAPSHOT [runtime][0m
@@ -833,12 +831,11 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.apache.tomcat.embed#tomcat-embed-jasper;7.0.22->org.apache.tomcat.embed#tomcat-embed-core;7.0.22 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra.sbt#scalatra-sbt;0.3.2->com.earldouglas#xsbt-web-plugin;0.4.0 [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#wechat7-build;0.1-SNAPSHOT->com.typesafe.sbt#sbt-start-script;0.10.0 [compile->default(compile)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#wechat7-build;0.1-SNAPSHOT->com.typesafe.sbteclipse#sbteclipse-plugin;2.4.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'provided'[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#wechat7-build;0.1-SNAPSHOT [provided][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#wechat7-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.2 [provided->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.10.2 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@64a9963[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@293b863e[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.10.2[0m
 [0m[[0mdebug[0m] [0m	typesafe-ivy-releases: revision in cache: org.scala-lang#scala-library;2.10.2[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.10.2 in sbt-chain[0m
@@ -1573,7 +1570,6 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.apache.tomcat.embed#tomcat-embed-jasper;7.0.22->org.apache.tomcat.embed#tomcat-embed-core;7.0.22 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra.sbt#scalatra-sbt;0.3.2->com.earldouglas#xsbt-web-plugin;0.4.0 [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#wechat7-build;0.1-SNAPSHOT->com.typesafe.sbt#sbt-start-script;0.10.0 [compile->default(compile)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#wechat7-build;0.1-SNAPSHOT->com.typesafe.sbteclipse#sbteclipse-plugin;2.4.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#wechat7-build;0.1-SNAPSHOT [optional][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#wechat7-build;0.1-SNAPSHOT [provided][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#wechat7-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.2 [provided->default(compile)][0m
@@ -2086,7 +2082,6 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.apache.tomcat.embed#tomcat-embed-jasper;7.0.22->org.apache.tomcat.embed#tomcat-embed-core;7.0.22 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra.sbt#scalatra-sbt;0.3.2->com.earldouglas#xsbt-web-plugin;0.4.0 [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#wechat7-build;0.1-SNAPSHOT->com.typesafe.sbt#sbt-start-script;0.10.0 [compile->default(compile)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#wechat7-build;0.1-SNAPSHOT->com.typesafe.sbteclipse#sbteclipse-plugin;2.4.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#wechat7-build;0.1-SNAPSHOT [optional][0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'test-internal'[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#wechat7-build;0.1-SNAPSHOT [test-internal][0m
@@ -2274,7 +2269,6 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.apache.tomcat.embed#tomcat-embed-jasper;7.0.22->org.apache.tomcat.embed#tomcat-embed-core;7.0.22 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatra.sbt#scalatra-sbt;0.3.2->com.earldouglas#xsbt-web-plugin;0.4.0 [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#wechat7-build;0.1-SNAPSHOT->com.typesafe.sbt#sbt-start-script;0.10.0 [compile->default(compile)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#wechat7-build;0.1-SNAPSHOT->com.typesafe.sbteclipse#sbteclipse-plugin;2.4.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#wechat7-build;0.1-SNAPSHOT [optional][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#wechat7-build;0.1-SNAPSHOT [provided][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#wechat7-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.2 [provided->default(compile)][0m
@@ -2763,7 +2757,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.0!apply-macro.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.2!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 2775ms :: artifacts dl 53ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 6617ms :: artifacts dl 99ms[0m
 [0m[[0mdebug[0m] [0m	report for default#wechat7-build;0.1-SNAPSHOT compile produced in /Users/wang/work/zooBox/wechat7/project/target/resolution-cache/reports/default-wechat7-build-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#wechat7-build;0.1-SNAPSHOT runtime produced in /Users/wang/work/zooBox/wechat7/project/target/resolution-cache/reports/default-wechat7-build-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#wechat7-build;0.1-SNAPSHOT test produced in /Users/wang/work/zooBox/wechat7/project/target/resolution-cache/reports/default-wechat7-build-test.xml[0m
@@ -2777,5 +2771,5 @@
 [0m[[0mdebug[0m] [0m	report for default#wechat7-build;0.1-SNAPSHOT docs produced in /Users/wang/work/zooBox/wechat7/project/target/resolution-cache/reports/default-wechat7-build-docs.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#wechat7-build;0.1-SNAPSHOT pom produced in /Users/wang/work/zooBox/wechat7/project/target/resolution-cache/reports/default-wechat7-build-pom.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#wechat7-build;0.1-SNAPSHOT scala-tool produced in /Users/wang/work/zooBox/wechat7/project/target/resolution-cache/reports/default-wechat7-build-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (2775ms resolve - 53ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (6617ms resolve - 99ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m
