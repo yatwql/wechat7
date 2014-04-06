@@ -19,6 +19,20 @@
   <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.fusesource.scalate/scalate-core_2.10/bundles/scalate-core_2.10-1.6.1.jar"/>
   <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.fusesource.scalate/scalate-util_2.10/bundles/scalate-util_2.10-1.6.1.jar"/>
   <classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_COMPILER_CONTAINER"/>
+  <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.scalatra/scalatra-atmosphere_2.10/jars/scalatra-atmosphere_2.10-2.2.2.jar"/>
+  <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.scalatra/scalatra-json_2.10/jars/scalatra-json_2.10-2.2.2.jar"/>
+  <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.json4s/json4s-core_2.10/jars/json4s-core_2.10-3.2.4.jar"/>
+  <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.json4s/json4s-ast_2.10/jars/json4s-ast_2.10-3.2.4.jar"/>
+  <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/com.thoughtworks.paranamer/paranamer/jars/paranamer-2.5.2.jar"/>
+  <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.scala-lang/scalap/jars/scalap-2.10.0.jar"/>
+  <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.atmosphere/atmosphere-runtime/bundles/atmosphere-runtime-1.0.12.jar"/>
+  <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.atmosphere/atmosphere-compat-jbossweb/bundles/atmosphere-compat-jbossweb-1.0.12.jar"/>
+  <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.atmosphere/atmosphere-compat-tomcat/bundles/atmosphere-compat-tomcat-1.0.12.jar"/>
+  <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.atmosphere/atmosphere-compat-tomcat7/bundles/atmosphere-compat-tomcat7-1.0.12.jar"/>
+  <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.json4s/json4s-jackson_2.10/jars/json4s-jackson_2.10-3.1.0.jar"/>
+  <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/com.fasterxml.jackson.core/jackson-databind/jars/jackson-databind-2.1.2.jar"/>
+  <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/com.fasterxml.jackson.core/jackson-annotations/jars/jackson-annotations-2.1.1.jar"/>
+  <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/jars/jackson-core-2.1.1.jar"/>
   <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.eclipse.jetty/jetty-webapp/jars/jetty-webapp-8.1.10.v20130312.jar"/>
   <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.eclipse.jetty/jetty-xml/jars/jetty-xml-8.1.10.v20130312.jar"/>
   <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.eclipse.jetty/jetty-util/jars/jetty-util-8.1.10.v20130312.jar"/>
@@ -45,6 +59,7 @@
   <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.specs2/specs2-scalaz-concurrent_2.10/jars/specs2-scalaz-concurrent_2.10-7.0.0.jar"/>
   <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.specs2/scalaz-effect_2.10/jars/scalaz-effect_2.10-7.0.0.jar"/>
   <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.specs2/scalaz-core_2.10/jars/scalaz-core_2.10-7.0.0.jar"/>
+  <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.eclipse.jetty/jetty-websocket/jars/jetty-websocket-8.1.10.v20130312.jar"/>
   <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
   <classpathentry kind="output" path="bin"/>
 </classpath>

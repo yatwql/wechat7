@@ -2,6 +2,7 @@ import org.eclipse.jetty.server.Server
 import org.eclipse.jetty.servlet.{ DefaultServlet, ServletContextHandler }
 import org.eclipse.jetty.webapp.WebAppContext
 import org.scalatra.servlet.ScalatraListener
+//import org.scalatra.atmosphere.ScalatraAtmosphereListener
 
 object JettyLauncher {
   def main(args: Array[String]) {

@@ -4,3 +4,40 @@ container:start
 ~ ;copy-resources;aux-compile
 container:start
 ~;copy-resources;aux-compile;
+container:start
+~ ; copy-resources;aux-compile.
+~ ;copy-resources;aux-comile
+~ ;copy-resources;aux-compile.
+exit
+container:start
+~ ;copy-resources;aux-compile
+~ ; copy-resources;aux-comile
+~ ;copy-resources ;aux-compile
+exit
+container:start
+~ ; copy-resources;aux-compile
+quit
+exit
+compile
+last
+quit
+exit
+container:start
+~ ; copy-resources; aux-compile
+compile
+quit
+exit
+container:start
+compile
+~; copy-resources ;aux-compile
+container:start
+~ ;copy-resoruces ;aux-compile
+~ ; copy-resources ;aux-compile
+container:start
+compile
+container:start
+~ ;copy-resources ;aux-compile
+container:start
+last
+compile
+container:start

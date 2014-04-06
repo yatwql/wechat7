@@ -1,0 +1,19 @@
+<%@ import val page: org.dragonstudio.wechat.Page %>
+
+<div class="row">
+    <div class="span6">
+        <h2><%= page.title %> </h2>
+        <p class="lead"><%= page.summary %></p>
+        <%= page.body %>
+    </div>
+    <!-- add a second column to your page: -->
+    <div class="span4 well" id="people">
+      <div class="row">
+          <div class="span6">
+              <p>Connected:
+                <i id="connection-indicator"
+      </div>
+  </div>
+</div>
+    <!-- end sidebar -->
+</div>
