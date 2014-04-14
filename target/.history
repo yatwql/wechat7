@@ -59,3 +59,5 @@ about
 exit
 quit
 exit
+container:start
+!;copy-resources;aux-compile

@@ -8,6 +8,7 @@ import ScalateKeys._
 object DragonStudioWebchatAppBuild extends Build {
   val Organization = "com.dragonstudio"
   val Name = "Dragon Studio Wechat App"
+    
   val Version = "0.1.0-SNAPSHOT"
   val ScalaVersion = "2.10.3"
   val ScalatraVersion = "2.2.2"
@@ -31,7 +32,10 @@ object DragonStudioWebchatAppBuild extends Build {
         "org.json4s"   %% "json4s-jackson" % "3.1.0",
         "org.eclipse.jetty" % "jetty-websocket" % "8.1.10.v20130312" % "container;provided",
         "org.eclipse.jetty" % "jetty-webapp" % "8.1.10.v20130312" % "compile;container",
-        "org.eclipse.jetty.orbit" % "javax.servlet" % "3.0.0.v201112011016" % "compile;container;provided;test" artifacts (Artifact("javax.servlet", "jar", "jar"))
+        "org.eclipse.jetty.orbit" % "javax.servlet" % "3.0.0.v201112011016" % "compile;container;provided;test" artifacts (Artifact("javax.servlet", "jar", "jar")),
+        "com.typesafe.slick" %% "slick" % "2.0.1",
+         "c3p0" % "c3p0" % "0.9.1.2",
+        "org.slf4j" % "slf4j-nop" % "1.6.4"
       ),
       scalateTemplateConfig in Compile <<= (sourceDirectory in Compile){ base =>
         Seq(

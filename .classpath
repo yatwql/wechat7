@@ -43,6 +43,8 @@
   <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.eclipse.jetty/jetty-continuation/jars/jetty-continuation-8.1.10.v20130312.jar"/>
   <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.eclipse.jetty/jetty-http/jars/jetty-http-8.1.10.v20130312.jar"/>
   <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.eclipse.jetty/jetty-io/jars/jetty-io-8.1.10.v20130312.jar"/>
+  <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/com.typesafe.slick/slick_2.10/jars/slick_2.10-2.0.1.jar"/>
+  <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.slf4j/slf4j-nop/jars/slf4j-nop-1.6.4.jar"/>
   <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/ch.qos.logback/logback-classic/jars/logback-classic-1.0.6.jar"/>
   <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/ch.qos.logback/logback-core/jars/logback-core-1.0.6.jar"/>
   <classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.scalatra/scalatra-specs2_2.10/jars/scalatra-specs2_2.10-2.2.2.jar"/>
