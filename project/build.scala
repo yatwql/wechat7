@@ -15,8 +15,7 @@ object DragonStudioWebchatAppBuild extends Build {
   val ScalaVersion = "2.10.3"
   val ScalatraVersion = "2.2.2"      
       
-  lazy val project = Project (
-      
+  lazy val project = Project (    
     "dragon-studio-webchat-app",
     file("."),
     settings = seq(com.typesafe.sbt.SbtStartScript.startScriptForClassesSettings: _*) ++ Defaults.defaultSettings ++ ScalatraPlugin.scalatraWithJRebel ++ scalateSettings ++

@@ -104,3 +104,4 @@ compile
 container:start
 quit
 exit
+container:start
