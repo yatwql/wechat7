@@ -20,7 +20,7 @@ object DragonStudioWebchatAppBuild extends Build {
     file("."),
     settings = seq(com.typesafe.sbt.SbtStartScript.startScriptForClassesSettings: _*) ++ Defaults.defaultSettings ++ ScalatraPlugin.scalatraWithJRebel ++ scalateSettings ++
     ScalatraPlugin.scalatraSettings ++
-     Seq(port in container.Configuration := 80) ++
+//     Seq(port in container.Configuration := 80) ++
     Seq(
       organization := Organization,
       name := Name,
