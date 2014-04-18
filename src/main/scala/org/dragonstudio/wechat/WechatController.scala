@@ -16,7 +16,7 @@ import scala.concurrent._
 import ExecutionContext.Implicits.global
 
 class WechatController extends WechatAppStack {
-  val TOKEN = "WANGQL"
+  val TOKEN = "weixin"
 
   get("/") {
     contentType = "text/html"
@@ -79,18 +79,26 @@ class WechatController extends WechatAppStack {
   def checkSignature(): String =
     {
       val signature = params.getOrElse("signature", "")
+      println("signature = "+signature)
       val timestamp = params.getOrElse("timestamp", "")
+       println("timestamp = "+timestamp)
       val nonce = params.getOrElse("nonce", "")
+       println("nonce = "+nonce)
       val echostr = params.getOrElse("echostr", "")
+       println("echostr = "+echostr)
 
       val token = TOKEN
+      println("token = "+token)
       val tmpArr = Array(token, timestamp, nonce).sortWith(_ < _)
 
       val tmpStr = tmpArr.mkString("")
+       println("tmpStr - "+tmpStr)
 
-      val md = java.security.MessageDigest.getInstance("SHA")
+      val md = java.security.MessageDigest.getInstance("SHA1")
 
       val ha = (new sun.misc.BASE64Encoder).encode(md.digest(tmpStr.getBytes))
+      
+       println("ha - "+ha)
 
       if (ha == signature) {
         echostr
