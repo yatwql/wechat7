@@ -16,7 +16,7 @@ import scala.concurrent._
 import ExecutionContext.Implicits.global
 
 class WechatController extends WechatAppStack {
-  val TOKEN = ""
+  val TOKEN = "WANGQL"
 
   get("/") {
     contentType = "text/html"
@@ -27,7 +27,7 @@ class WechatController extends WechatAppStack {
     contentType = "text/html"
     val result = checkSignature()
     println(result)
-result
+    result
   }
 
   get("/pages/:slug") {
