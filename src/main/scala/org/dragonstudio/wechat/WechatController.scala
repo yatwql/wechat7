@@ -34,15 +34,6 @@ class WechatController extends WechatAppStack {
     val result = checkSignature()
     println(result)
 
-    val el = XML.loadString(request.body)
-    val prices: Seq[(String, Double)] = for {
-      book <- el \ "book"
-      title <- book \ "title"
-      price <- book \ "price"
-    } yield (title.text, price.text.toDouble)
-    // do something with prices
-    prices foreach println
-
   }
 
   post("/wechatauth") {
@@ -50,14 +41,26 @@ class WechatController extends WechatAppStack {
     println("request body is -> " + request.body)
     //request.body
 
-     val wxl= XML.loadString(request.body)
-     val toUser=     ( wxl \ "ToUserName").text
-     
-     println("toUser is "+toUser)
-    
-     val content=     ( wxl \ "Content").text
-    println("content is "+content)
-    
+    val wxl = XML.loadString(request.body)
+    val toUser = (wxl \ "ToUserName").text
+
+    println("toUser is " + toUser)
+
+    val fromUser = (wxl \ "FromUserName").text
+
+    println("FromUserName is " + fromUser)
+
+    val content = (wxl \ "Content").text
+    println("content is " + content)
+
+    <xml>
+      <ToUserName><![CDATA[oIySzjiralAU2LFHbklct2m0Mdcw]]></ToUserName>
+      <FromUserName><![CDATA[gh_c2bb951675bb]]></FromUserName>
+      <CreateTime>12345678</CreateTime>
+      <MsgType><![CDATA[text]]></MsgType>
+      <Content><![CDATA[你好]]></Content>
+    </xml>
+
   }
 
   get("/pages/:slug") {
