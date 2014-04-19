@@ -1,6 +1,7 @@
 package org.dragonstudio.wechat
 
 import org.scalatra._
+import scala.xml._
 import sun.misc.BASE64Encoder
 import scalate.ScalateSupport
 
@@ -23,19 +24,40 @@ class WechatController extends WechatAppStack {
     ssp("/pages/index")
   }
 
+  get("/chat") {
+    contentType = "text/html"
+    ssp("/pages/chat")
+  }
+
   get("/wechatauth") {
     contentType = "text/html"
     val result = checkSignature()
     println(result)
-    result
+
+    val el = XML.loadString(request.body)
+    val prices: Seq[(String, Double)] = for {
+      book <- el \ "book"
+      title <- book \ "title"
+      price <- book \ "price"
+    } yield (title.text, price.text.toDouble)
+    // do something with prices
+    prices foreach println
+
   }
-  
-  post("/wechatauth"){
-    contentType = "text/html"
-      println(request.body)
-      request.body
-      
-    // val x= XML.loadString(request.body)
+
+  post("/wechatauth") {
+    contentType = "xml"
+    println("request body is -> " + request.body)
+    //request.body
+
+     val wxl= XML.loadString(request.body)
+     val toUser=     ( wxl \ "ToUserName").text
+     
+     println("toUser is "+toUser)
+    
+     val content=     ( wxl \ "Content").text
+    println("content is "+content)
+    
   }
 
   get("/pages/:slug") {

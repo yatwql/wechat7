@@ -1,6 +1,8 @@
 package org.dragonstudio.wechat
 
-object ws {;import org.scalaide.worksheet.runtime.library.WorksheetSupport._; def main(args: Array[String])=$execute{;$skip(88); 
+
+
+object ws {;import org.scalaide.worksheet.runtime.library.WorksheetSupport._; def main(args: Array[String])=$execute{;$skip(90); 
   println("Welcome to the Scala worksheet");$skip(61); 
   val signature = "1ed54a688723d48dd90e745d595f76710f3e177f";System.out.println("""signature  : String = """ + $show(signature ));$skip(31); 
   val timestamp = "1397838353";System.out.println("""timestamp  : String = """ + $show(timestamp ));$skip(27); 
@@ -14,11 +16,10 @@ object ws {;import org.scalaide.worksheet.runtime.library.WorksheetSupport._; de
 
   val md = java.security.MessageDigest.getInstance("SHA1");System.out.println("""md  : java.security.MessageDigest = """ + $show(md ));$skip(39); 
 
-  val ha = md.digest(tmpStr.getBytes);System.out.println("""ha  : Array[Byte] = """ + $show(ha ));$skip(76); val res$0 = 
+  val ha = md.digest(tmpStr.getBytes);System.out.println("""ha  : Array[Byte] = """ + $show(ha ));$skip(70); val res$0 = 
 
-  
+  md.digest(tmpStr.getBytes("UTF-8")).map("%02x".format(_)).mkString;System.out.println("""res0: String = """ + $show(res$0))}
 
  
-  md.digest(tmpStr.getBytes("UTF-8")).map("%02x".format(_)).mkString;System.out.println("""res0: String = """ + $show(res$0))}
-  
+
 }

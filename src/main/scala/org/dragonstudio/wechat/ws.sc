@@ -1,5 +1,7 @@
 package org.dragonstudio.wechat
 
+
+
 object ws {
   println("Welcome to the Scala worksheet")       //> Welcome to the Scala worksheet
   val signature = "1ed54a688723d48dd90e745d595f76710f3e177f"
@@ -22,10 +24,9 @@ object ws {
   val ha = md.digest(tmpStr.getBytes)             //> ha  : Array[Byte] = Array(30, -43, 74, 104, -121, 35, -44, -115, -39, 14, 11
                                                   //| 6, 93, 89, 95, 118, 113, 15, 62, 23, 127)
 
-  
-
- 
   md.digest(tmpStr.getBytes("UTF-8")).map("%02x".format(_)).mkString
                                                   //> res0: String = 1ed54a688723d48dd90e745d595f76710f3e177f
-  
+
+ 
+
 }
