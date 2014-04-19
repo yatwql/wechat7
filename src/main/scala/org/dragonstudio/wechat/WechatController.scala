@@ -16,7 +16,7 @@ import scala.concurrent._
 import ExecutionContext.Implicits.global
 
 class WechatController extends WechatAppStack {
-  val TOKEN = "weixin"
+  val TOKEN = "WANGQL"
 
   get("/") {
     contentType = "text/html"
@@ -79,26 +79,27 @@ class WechatController extends WechatAppStack {
   def checkSignature(): String =
     {
       val signature = params.getOrElse("signature", "")
-      println("signature = "+signature)
+      println("signature = " + signature)
       val timestamp = params.getOrElse("timestamp", "")
-       println("timestamp = "+timestamp)
+      println("timestamp = " + timestamp)
       val nonce = params.getOrElse("nonce", "")
-       println("nonce = "+nonce)
+      println("nonce = " + nonce)
       val echostr = params.getOrElse("echostr", "")
-       println("echostr = "+echostr)
+      println("echostr = " + echostr)
 
       val token = TOKEN
-      println("token = "+token)
-      val tmpArr = Array(token, timestamp, nonce).sortWith(_ < _)
+      println("token = " + token)
+      val tmpStr = Array(token, timestamp, nonce).sortWith(_ < _).mkString
 
-      val tmpStr = tmpArr.mkString("")
-       println("tmpStr - "+tmpStr)
+      println("tmpStr - " + tmpStr)
 
       val md = java.security.MessageDigest.getInstance("SHA1")
 
-      val ha = (new sun.misc.BASE64Encoder).encode(md.digest(tmpStr.getBytes))
-      
-       println("ha - "+ha)
+      val ha = md.digest(tmpStr.getBytes("UTF-8")).map("%02x".format(_)).mkString
+
+      println("ha - " + ha)
+
+      println("signature - " + signature)
 
       if (ha == signature) {
         echostr
@@ -107,6 +108,21 @@ class WechatController extends WechatAppStack {
       }
 
     }
+
+}
+
+object Hex {
+  def hex2Bytes(hex: String): Array[Byte] = {
+
+    (for { i <- 0 to hex.length - 1 by 2 if i > 0 || !hex.startsWith("0x") }
+
+      yield hex.substring(i, i + 2))
+
+      .map(Integer.parseInt(_, 16).toByte).toArray
+
+  }
+
+  def valueOf(buf: Array[Byte]): String = buf.map("%02X" format _).mkString
 
 }
 
