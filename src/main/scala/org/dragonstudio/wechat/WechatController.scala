@@ -29,6 +29,14 @@ class WechatController extends WechatAppStack {
     println(result)
     result
   }
+  
+  post("/wechatauth"){
+    contentType = "text/html"
+      println(request.body)
+      request.body
+      
+    // val x= XML.loadString(request.body)
+  }
 
   get("/pages/:slug") {
     contentType = "text/html"
@@ -91,15 +99,15 @@ class WechatController extends WechatAppStack {
       println("token = " + token)
       val tmpStr = Array(token, timestamp, nonce).sortWith(_ < _).mkString
 
-      println("tmpStr - " + tmpStr)
+      println("tmpStr = " + tmpStr)
 
       val md = java.security.MessageDigest.getInstance("SHA1")
 
       val ha = md.digest(tmpStr.getBytes("UTF-8")).map("%02x".format(_)).mkString
 
-      println("ha - " + ha)
+      println("ha = " + ha)
 
-      println("signature - " + signature)
+      println("signature = " + signature)
 
       if (ha == signature) {
         echostr

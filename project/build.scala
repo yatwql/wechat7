@@ -28,9 +28,6 @@ object DragonStudioWebchatAppBuild extends Build {
       scalaVersion := ScalaVersion,
       resolvers += Classpaths.typesafeReleases,
       resolvers += "Typesafe Repo" at "http://repo.typesafe.com/typesafe/releases/",
-      resolvers ++= Seq(
-    "RoundEights" at "http://maven.spikemark.net/roundeights"
-),
 
       libraryDependencies ++= Seq(
         "org.scalatra" %% "scalatra" % ScalatraVersion,
@@ -44,8 +41,7 @@ object DragonStudioWebchatAppBuild extends Build {
         "org.eclipse.jetty.orbit" % "javax.servlet" % "3.0.0.v201112011016" % "compile;container;provided;test" artifacts (Artifact("javax.servlet", "jar", "jar")),
         "com.typesafe.slick" %% "slick" % "2.0.1",
          "c3p0" % "c3p0" % "0.9.1.2",
-        "org.slf4j" % "slf4j-nop" % "1.6.4",
-        "com.roundeights" %% "hasher" % "1.0.0"
+        "org.slf4j" % "slf4j-nop" % "1.6.4"
       ),
       
       scalateTemplateConfig in Compile <<= (sourceDirectory in Compile){ base =>
