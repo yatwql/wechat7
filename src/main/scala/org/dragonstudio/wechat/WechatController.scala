@@ -1,20 +1,25 @@
 package org.dragonstudio.wechat
 
-import org.scalatra._
-import scala.xml._
-import sun.misc.BASE64Encoder
-import scalate.ScalateSupport
-
-import atmosphere._
-import org.scalatra.json.{ JValueResult, JacksonJsonSupport }
-import org.json4s._
-import JsonDSL._
 import java.util.Date
-import java.text.SimpleDateFormat
-import org.fusesource.scalate.Template
 
-import scala.concurrent._
-import ExecutionContext.Implicits.global
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.xml.XML
+
+import org.json4s.JValue
+import org.json4s.JsonDSL.jobject2assoc
+import org.json4s.JsonDSL.pair2Assoc
+import org.json4s.JsonDSL.pair2jvalue
+import org.json4s.JsonDSL.string2jvalue
+import org.json4s.jvalue2extractable
+import org.json4s.jvalue2monadic
+import org.scalatra.atmosphere.AtmoReceive
+import org.scalatra.atmosphere.AtmosphereClient
+import org.scalatra.atmosphere.ClientDisconnected
+import org.scalatra.atmosphere.Connected
+import org.scalatra.atmosphere.Disconnected
+import org.scalatra.atmosphere.JsonMessage
+import org.scalatra.atmosphere.ServerDisconnected
+import org.scalatra.atmosphere.TextMessage
 
 class WechatController extends WechatAppStack {
   val TOKEN = "WANGQL"
@@ -42,24 +47,31 @@ class WechatController extends WechatAppStack {
     //request.body
 
     val wxl = XML.loadString(request.body)
-    val toUser = (wxl \ "ToUserName").text
 
+    val toUser = (wxl \ "ToUserName").text
     println("toUser is " + toUser)
 
     val fromUser = (wxl \ "FromUserName").text
-
     println("FromUserName is " + fromUser)
 
     val content = (wxl \ "Content").text
     println("content is " + content)
 
-    <xml>
-      <ToUserName><![CDATA[oIySzjiralAU2LFHbklct2m0Mdcw]]></ToUserName>
-      <FromUserName><![CDATA[gh_c2bb951675bb]]></FromUserName>
-      <CreateTime>12345678</CreateTime>
-      <MsgType><![CDATA[text]]></MsgType>
-      <Content><![CDATA[你好]]></Content>
-    </xml>
+    val msgType = (wxl \ "MsgType").text
+    println("msgType is " + msgType)
+
+    val now = new Date().getTime()
+    val res =
+      <xml>
+        <ToUserName>{ fromUser }</ToUserName>
+        <FromUserName>{ toUser }</FromUserName>
+        <Content><![CDATA[你好]]></Content>
+        <CreateTime>{ now }</CreateTime>
+        <MsgType><![CDATA[text]]></MsgType>
+      </xml>
+
+    println(" response is " + res)
+    res
 
   }
 

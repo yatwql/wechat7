@@ -1,6 +1,7 @@
 package org.dragonstudio.wechat
 import scala.xml._
-object xml {;import org.scalaide.worksheet.runtime.library.WorksheetSupport._; def main(args: Array[String])=$execute{;$skip(107); 
+import java.util.Date
+object xml {;import org.scalaide.worksheet.runtime.library.WorksheetSupport._; def main(args: Array[String])=$execute{;$skip(129); 
   println("Welcome to the Scala worksheet");$skip(278); 
   val books = """<books>
       <book>
@@ -35,13 +36,19 @@ object xml {;import org.scalaide.worksheet.runtime.library.WorksheetSupport._; d
 <MsgId>6004068790553573078</MsgId>
 </xml>""";System.out.println("""wxr  : String = """ + $show(wxr ));$skip(33); 
 
-  val wxl = XML.loadString(wxr);System.out.println("""wxl  : scala.xml.Elem = """ + $show(wxl ));$skip(453); 
-                                        //    val toUser=     ( wxl \ "ToUserName").text
-                                                  
-                                                  val b: Seq[(String, String, Long,String)] = for {
-    toUser  <- wxl \ "ToUserName"
-    fromUser <- wxl \ "FromUserName"
-    createTime <- wxl \ "CreateTime"
-    msgType <= wxl \"MsgType"
-  } yield (toUser.text, fromUser.text,createTime.text.toLong,msgType.text);System.out.println("""b  : Seq[(String, String, Long, String)] = """ + $show(b ))}
+  val wxl = XML.loadString(wxr);System.out.println("""wxl  : scala.xml.Elem = """ + $show(wxl ));$skip(41); 
+  val toUser = (wxl \ "ToUserName").text;System.out.println("""toUser  : String = """ + $show(toUser ));$skip(45); 
+  val fromUser = (wxl \ "FromUserName").text;System.out.println("""fromUser  : String = """ + $show(fromUser ));$skip(34); 
+
+  val now = new Date().getTime();System.out.println("""now  : Long = """ + $show(now ));$skip(247); 
+
+  val response =
+    <xml>
+      <ToUserName>{fromUser}</ToUserName>
+      <FromUserName>{toUser}</FromUserName>
+      <Content><![CDATA[ccc]]></Content>
+      <CreateTime>{ now }</CreateTime>
+      <MsgType><![CDATA[text]]></MsgType>
+    </xml>;System.out.println("""response  : scala.xml.Elem = """ + $show(response ))}
+
 }
