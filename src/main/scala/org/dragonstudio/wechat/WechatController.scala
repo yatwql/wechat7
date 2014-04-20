@@ -9,8 +9,6 @@ import org.json4s.jackson.JsonMethods._
 import org.dragonstudio.wechat.util._
 
 class WechatController extends WechatAppStack with ChatRoomController {
-  
- 
 
   get("/") {
     contentType = "text/html"
@@ -19,7 +17,7 @@ class WechatController extends WechatAppStack with ChatRoomController {
 
   get("/wechatauth") {
     contentType = "text/html"
-    val result = checkSignature()
+    val result = WechatUtils.checkSignature(params)
     println(result)
 
   }
@@ -52,37 +50,8 @@ class WechatController extends WechatAppStack with ChatRoomController {
   }
 
   post("/createmenu") {
-    val jsonMenu = "{\"button\":[{\"name\":\"生活助手\",\"sub_button\":[{\"key\":\"11\",\"name\":\"天气预报\",\"type\":\"click\"},{\"key\":\"12\",\"name\":\"公交查询\",\"type\":\"click\"}]},{\"name\":\"音智达\",\"sub_button\":[{\"key\":\"21\",\"name\":\"好东西哦\",\"type\":\"click\"},{\"key\":\"22\",\"name\":\"人脸识别\",\"type\":\"click\"}]},{\"name\":\"更多体验\",\"sub_button\":[{\"key\":\"33\",\"name\":\"幽默笑话\",\"type\":\"click\"},{\"name\":\"View类型的\",\"type\":\"view\",\"url\":\"http://m.baidu.com\"}]}]}";
 
-    try {
-      val access_token=getAccess_token
-      val menu_create = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + access_token;
-      val url = new URL(menu_create);
-      val conn = url.openConnection()
-      val http: HttpURLConnection = conn.asInstanceOf[HttpURLConnection]
-
-      http.setRequestMethod("POST");
-      http.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-      http.setDoOutput(true);
-      http.setDoInput(true);
-      System.setProperty("sun.net.client.defaultConnectTimeout", "30000"); //连接超时30秒
-      System.setProperty("sun.net.client.defaultReadTimeout", "30000"); //读取超时30秒
-      http.connect();
-      val os = http.getOutputStream();
-      os.write(jsonMenu.getBytes("UTF-8")); //传入参数    
-      os.flush();
-      os.close();
-
-      val is = http.getInputStream();
-      val size = is.available();
-      val jsonBytes = new Array[Byte](size)
-      is.read(jsonBytes);
-      val message = new String(jsonBytes, "UTF-8");
-      println(" create menu -> " + jsonMenu)
-
-    } catch {
-      case e: Exception => e.printStackTrace();
-    }
+    WechatUtils.createMenu()
   }
 
   def write(content: String) {
@@ -108,74 +77,6 @@ class WechatController extends WechatAppStack with ChatRoomController {
       contentType = "text/html"
       layoutTemplate(path)
     } orElse serveStaticResource() getOrElse resourceNotFound()
-  }
-
-  def checkSignature(): String =
-    {
-      val signature = params.getOrElse("signature", "")
-      println("signature = " + signature)
-      val timestamp = params.getOrElse("timestamp", "")
-      println("timestamp = " + timestamp)
-      val nonce = params.getOrElse("nonce", "")
-      println("nonce = " + nonce)
-      val echostr = params.getOrElse("echostr", "")
-      println("echostr = " + echostr)
-
-      val token = Constants.TOKEN
-      println("token = " + token)
-      val tmpStr = Array(token, timestamp, nonce).sortWith(_ < _).mkString
-
-      println("tmpStr = " + tmpStr)
-
-      val md = java.security.MessageDigest.getInstance("SHA1")
-
-      val ha = md.digest(tmpStr.getBytes("UTF-8")).map("%02x".format(_)).mkString
-
-      println("ha = " + ha)
-
-      println("signature = " + signature)
-
-      if (ha == signature) {
-        echostr
-      } else {
-        "InvalidSigatureResult"
-      }
-
-    }
-
-  def getAccess_token() { // 获得ACCESS_TOKEN
-
-    val url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" + Constants.appId + "&secret=" + Constants.appSecret;
-
-    try {
-      val urlGet = new URL(url);
-      val http = urlGet.openConnection().asInstanceOf[HttpURLConnection]
-
-      http.setRequestMethod("GET"); //必须是get方式请求    
-      http.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-      http.setDoOutput(true);
-      http.setDoInput(true);
-      System.setProperty("sun.net.client.defaultConnectTimeout", "30000"); //连接超时30秒
-      System.setProperty("sun.net.client.defaultReadTimeout", "30000"); //读取超时30秒
-
-      http.connect();
-
-      val is = http.getInputStream();
-      val size = is.available();
-      val jsonBytes = new Array[Byte](size);
-      is.read(jsonBytes);
-      val message = new String(jsonBytes, "UTF-8");
-      //  org.json4s.JsonInput
-      val demoJson = parse(message)
-
-      println(message)
-      val accessToken = compact(render(demoJson \\ "access_token"))
-println(accessToken)
-      accessToken
-    } catch {
-      case e: Exception => e.printStackTrace();
-    }
-
   }
 
 }

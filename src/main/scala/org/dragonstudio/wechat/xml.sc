@@ -82,12 +82,12 @@ object xml {
   val toUser = (wxl \ "ToUserName").text          //> toUser  : String = gh_c2bb951675bb
   val fromUser = (wxl \ "FromUserName").text      //> fromUser  : String = oIySzjrizSaAyqnlB57ggb0j2WNc
 
-  val now = new Date().getTime()                  //> now  : Long = 1397972346187
+  val now = new Date().getTime()                  //> now  : Long = 1398002701397
 
   val response =
     <xml>
-      <ToUserName>{fromUser}</ToUserName>
-      <FromUserName>{toUser}</FromUserName>
+      <ToUserName>{ fromUser }</ToUserName>
+      <FromUserName>{ toUser }</FromUserName>
       <Content><![CDATA[ccc]]></Content>
       <CreateTime>{ now }</CreateTime>
       <MsgType><![CDATA[text]]></MsgType>
@@ -95,7 +95,7 @@ object xml {
                                                   //|       <ToUserName>oIySzjrizSaAyqnlB57ggb0j2WNc</ToUserName>
                                                   //|       <FromUserName>gh_c2bb951675bb</FromUserName>
                                                   //|       <Content>ccc</Content>
-                                                  //|       <CreateTime>1397972346187</CreateTime>
+                                                  //|       <CreateTime>1398002701397</CreateTime>
                                                   //|       <MsgType>text</MsgType>
                                                   //|     </xml>
 

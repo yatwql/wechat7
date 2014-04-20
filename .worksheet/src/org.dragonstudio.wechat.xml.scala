@@ -40,12 +40,12 @@ object xml {;import org.scalaide.worksheet.runtime.library.WorksheetSupport._; d
   val toUser = (wxl \ "ToUserName").text;System.out.println("""toUser  : String = """ + $show(toUser ));$skip(45); 
   val fromUser = (wxl \ "FromUserName").text;System.out.println("""fromUser  : String = """ + $show(fromUser ));$skip(34); 
 
-  val now = new Date().getTime();System.out.println("""now  : Long = """ + $show(now ));$skip(247); 
+  val now = new Date().getTime();System.out.println("""now  : Long = """ + $show(now ));$skip(251); 
 
   val response =
     <xml>
-      <ToUserName>{fromUser}</ToUserName>
-      <FromUserName>{toUser}</FromUserName>
+      <ToUserName>{ fromUser }</ToUserName>
+      <FromUserName>{ toUser }</FromUserName>
       <Content><![CDATA[ccc]]></Content>
       <CreateTime>{ now }</CreateTime>
       <MsgType><![CDATA[text]]></MsgType>
