@@ -65,9 +65,10 @@ class WechatController extends WechatAppStack {
       <xml>
         <ToUserName>{ fromUser }</ToUserName>
         <FromUserName>{ toUser }</FromUserName>
-        <Content><![CDATA[你好]]></Content>
+        <Content><![CDATA[How are you]]></Content>
         <CreateTime>{ now }</CreateTime>
         <MsgType><![CDATA[text]]></MsgType>
+        <FuncFlag>0</FuncFlag>
       </xml>
 
     println(" response is " + res)
