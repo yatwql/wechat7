@@ -24,9 +24,9 @@ object HttpUtils {
 
       val is = http.getInputStream();
       val size = is.available();
-      val jsonBytes = new Array[Byte](size)
-      is.read(jsonBytes);
-      val message = new String(jsonBytes, "UTF-8");
+      val responseData = new Array[Byte](size)
+      is.read(responseData);
+      val message = new String(responseData, "UTF-8");
       message
     } catch {
       case e: Exception => e.printStackTrace(); "";
@@ -49,9 +49,9 @@ object HttpUtils {
 
       val is = http.getInputStream();
       val size = is.available();
-      val jsonBytes = new Array[Byte](size)
-      is.read(jsonBytes);
-      val message = new String(jsonBytes, "UTF-8");
+      val responseData = new Array[Byte](size)
+      is.read(responseData);
+      val message = new String(responseData, "UTF-8");
       message
     } catch {
       case e: Exception => e.printStackTrace(); "";

@@ -16,16 +16,16 @@
             ]
         }, 
         {
-            "name": "小王的好东西", 
+            "name": "红酒调查", 
             "sub_button": [
                 {
                     "key": "21", 
-                    "name": "好东西哦", 
+                    "name": "智利", 
                     "type": "click"
                 }, 
                 {
                     "key": "22", 
-                    "name": "人脸识别", 
+                    "name": "法国", 
                     "type": "click"
                 }
             ]
@@ -39,9 +39,14 @@
                     "type": "click"
                 }, 
                 {
-                    "name": "View类型的", 
+                    "name": "百度", 
                     "type": "view", 
                     "url": "http://m.baidu.com"
+                }
+                {
+                    "name": "Google", 
+                    "type": "view", 
+                    "url": "http://www.google.com/ncr"
                 }
             ]
         }

@@ -1,0 +1,10 @@
+
+
+<div class="row">
+    <div class="span6">
+        <h2>Send the message to URL : <%= url %> </h2>
+        <p class="lead"><%= menu %></p>
+        
+    </div>
+ 
+</div>

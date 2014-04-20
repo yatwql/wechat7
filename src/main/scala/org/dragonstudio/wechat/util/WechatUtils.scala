@@ -5,7 +5,7 @@ import java.io._
 import scala.xml.XML
 import org.json4s.jackson.JsonMethods._
 object WechatUtils {
-
+implicit val formats = DefaultFormats
   def checkSignature(params: org.scalatra.Params): String =
     {
       val signature = params.getOrElse("signature", "")
@@ -42,16 +42,16 @@ object WechatUtils {
   def getAccess_token(): String = { // 获得ACCESS_TOKEN
 
     val url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" + Constants.appId + "&secret=" + Constants.appSecret;
-    implicit val formats = DefaultFormats
+    
     try {
       val message = HttpUtils.get(url)
 
-      val demoJson = parse(message)
+      val json = parse(message)
 
       println("The return message -> " + message)
-      //val accessToken = compact(render(demoJson \\ "access_token"))
+      //val accessToken = compact(render(json \\ "access_token"))
 
-      val accessToken = (demoJson \ "access_token").extract[String]
+      val accessToken = (json \ "access_token").extract[String]
       println("The accessToken -> " + accessToken)
       accessToken
     } catch {
@@ -71,16 +71,29 @@ object WechatUtils {
 
   def createMenu(): String = {
     try {
-      val access_token = WechatUtils.getAccess_token
+      //val access_token = WechatUtils.getAccess_token
+      val access_token = "Testing"
       println(" access_token -> " + access_token)
       val menu_create_url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + access_token;
       val menu = loadMenuItems
       println(" Will post to " + menu_create_url)
-     HttpUtils.post(menu_create_url, menu);
-
+       val message=HttpUtils.post(menu_create_url, menu);
+      val json = parse(message)
+      val errcode= (json \\ "errcode").extract[Int]
+      val errmsg = (json \\ "errmsg").extract[String]
+      
+      println(" errcode -> "+errcode)
+      
       println(" create menu -> " + menu)
 
-      "URL -> " + menu_create_url + ", Menu -> " + menu
+      val responseMsg ="URL -> " + menu_create_url + " </br>  Menu -> " + menu + "<>"
+      
+      if ( errcode!= 0){
+        responseMsg + " </b> Failed to create menu due to "+errmsg
+      }else{
+        responseMsg
+      }
+     
 
     } catch {
       case e: Exception => e.printStackTrace(); "";
