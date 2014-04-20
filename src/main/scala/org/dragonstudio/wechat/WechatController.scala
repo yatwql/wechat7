@@ -2,26 +2,7 @@ package org.dragonstudio.wechat
 
 import java.util.Date
 
-import scala.concurrent.ExecutionContext.Implicits.global
 import scala.xml.XML
-import org.dragonstudio.wechat.persistent._
-import org.dragonstudio.wechat.util._
-
-import org.json4s.JValue
-import org.json4s.JsonDSL.jobject2assoc
-import org.json4s.JsonDSL.pair2Assoc
-import org.json4s.JsonDSL.pair2jvalue
-import org.json4s.JsonDSL.string2jvalue
-import org.json4s.jvalue2extractable
-import org.json4s.jvalue2monadic
-import org.scalatra.atmosphere.AtmoReceive
-import org.scalatra.atmosphere.AtmosphereClient
-import org.scalatra.atmosphere.ClientDisconnected
-import org.scalatra.atmosphere.Connected
-import org.scalatra.atmosphere.Disconnected
-import org.scalatra.atmosphere.JsonMessage
-import org.scalatra.atmosphere.ServerDisconnected
-import org.scalatra.atmosphere.TextMessage
 
 class WechatController extends WechatAppStack with ChatRoomController {
   val TOKEN = "WANGQL"
@@ -30,8 +11,6 @@ class WechatController extends WechatAppStack with ChatRoomController {
     contentType = "text/html"
     ssp("/pages/index")
   }
-
-  
 
   get("/wechatauth") {
     contentType = "text/html"
@@ -56,22 +35,27 @@ class WechatController extends WechatAppStack with ChatRoomController {
       <xml>
         <ToUserName>{ fromUser }</ToUserName>
         <FromUserName>{ toUser }</FromUserName>
-        <Content><![CDATA[How are you,]]>{ fromUser }</Content>
+        <Content><![CDATA[Hello,]]>, your content is { content }, { fromUser }</Content>
         <CreateTime>{ now }</CreateTime>
         <MsgType><![CDATA[text]]></MsgType>
         <FuncFlag>0</FuncFlag>
       </xml>
 
     println(" response is " + res)
-    res.toString()
-
-    val writer = response.getWriter()
-    writer.write(res.toString())
-    writer.close()
+    write(res.toString())
 
   }
-
   
+  def write(content:String){
+    val writer = response.getWriter()
+    try {
+      writer.write(content)
+    } catch {
+      case e: Exception =>
+    } finally {
+      writer.close()
+    }
+  }
 
   error {
     case t: Throwable => t.printStackTrace()
