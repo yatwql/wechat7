@@ -1,5 +1,6 @@
 package org.dragonstudio.wechat.util
 import org.json4s._
+import java.io._
 
 import scala.xml.XML
 import org.json4s.jackson.JsonMethods._
@@ -59,21 +60,30 @@ object WechatUtils {
 
   }
 
-  def createMenu() :String ={
+  def loadMenuItems: String = {
+    val in: InputStream = getClass().getResourceAsStream("/menu.json")
+    val size = in.available();
+    val data = new Array[Byte](size)
+    in.read(data);
+    val message = new String(data, "UTF-8");
+    message
+  }
+
+  def createMenu(): String = {
     try {
       val access_token = WechatUtils.getAccess_token
       println(" access_token -> " + access_token)
       val menu_create_url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + access_token;
-      val menu = Constants.jsonMenu
+      val menu = loadMenuItems
       println(" Will post to " + menu_create_url)
-     // HttpUtils.post(menu_create_url, menu);
+     HttpUtils.post(menu_create_url, menu);
 
       println(" create menu -> " + menu)
 
-      "URL -> "+menu_create_url+", Menu -> "+menu
+      "URL -> " + menu_create_url + ", Menu -> " + menu
 
     } catch {
-      case e: Exception => e.printStackTrace();"";
+      case e: Exception => e.printStackTrace(); "";
     }
   }
 }
