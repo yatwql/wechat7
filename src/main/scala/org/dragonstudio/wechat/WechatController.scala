@@ -4,6 +4,8 @@ import java.util.Date
 import java.net._
 import org.json4s._
 
+import org.dragonstudio.wechat.util.WechatUtils
+
 import scala.xml.XML
 import org.json4s.jackson.JsonMethods._
 import org.dragonstudio.wechat.util._
@@ -23,7 +25,7 @@ class WechatController extends WechatAppStack with ChatRoomController {
   }
 
   post("/wechatauth") {
-    contentType = "xml"
+    contentType = "xml;charset=utf-8"
     println("request body is -> " + request.body)
 
     val requestXml = XML.loadString(request.body)
@@ -47,7 +49,7 @@ class WechatController extends WechatAppStack with ChatRoomController {
     }
     println(" Message Type is " + msgType)
     println(" response message class is " + message.getClass().getName())
-    println(" response message is " + message)
+    println(" response message is " + message.toString())
     val now = new Date().getTime()
     val message1 =
       <xml>
@@ -60,11 +62,34 @@ class WechatController extends WechatAppStack with ChatRoomController {
       </xml>
         
         println(" response message 1 class  is " + message1.getClass().getName())
-        println(" response message  1 is " + message1)
+        println(" response message  1 is " + message1.toString())
         
      
    
-    write(message.toString())
+   // write(message.toString())
+    
+    val message2 =
+      <xml>
+        <ToUserName>{ fromUser }</ToUserName>
+        <FromUserName>{ toUser }</FromUserName>
+        <Content>{ fromUser }, { content }</Content>
+        <CreateTime>{ now }</CreateTime>
+        <MsgType><![CDATA[news]]></MsgType>
+        <ArticleCount>1</ArticleCount>
+        <Articles>
+          <item>
+            <Title>Here is news</Title>
+            <Description>I am description</Description>
+            <PicUrl>http://www.iteye.com/upload/logo/user/603624/2dc5ec35-073c-35e7-9b88-274d6b39d560.jpg</PicUrl>
+            <Url>http://www.iteye.com</Url>
+          </item>
+        </Articles>
+        <FuncFlag>0</FuncFlag>
+      </xml>
+        
+        println(" response message 2 class  is " + message2.getClass().getName())
+        println(" response message  2 is " + message2.toString())
+    write(message2.toString())
 
   }
 

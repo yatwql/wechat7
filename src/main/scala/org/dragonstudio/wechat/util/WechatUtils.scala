@@ -1,4 +1,5 @@
 package org.dragonstudio.wechat.util
+
 import org.json4s._
 import java.util._
 import java.io._
