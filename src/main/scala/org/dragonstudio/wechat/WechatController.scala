@@ -44,7 +44,7 @@ class WechatController extends WechatAppStack with ChatRoomController {
       case Constants.REQ_MESSAGE_TYPE_LOCATION => println(" Here is location")
       case Constants.REQ_MESSAGE_TYPE_LINK => println(" Here is link")
       case Constants.REQ_MESSAGE_TYPE_EVENT => println(" Here is event")
-      case _ =>
+      case _ => println( " Unknown message type ")
     }
     
     val res =
