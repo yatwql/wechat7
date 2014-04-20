@@ -34,11 +34,24 @@ class WechatController extends WechatAppStack with ChatRoomController {
     val msgType = (wxl \ "MsgType").text
 
     val now = new Date().getTime()
+    
+
+    msgType match {
+      case Constants.REQ_MESSAGE_TYPE_TEXT => println(" Here is text")
+      case Constants.REQ_MESSAGE_TYPE_IMAGE => println(" Here is Image")
+      case Constants.REQ_MESSAGE_TYPE_VOICE => println(" Here is voice")
+      case Constants.REQ_MESSAGE_TYPE_VIDEO => println(" Here is video")
+      case Constants.REQ_MESSAGE_TYPE_LOCATION => println(" Here is location")
+      case Constants.REQ_MESSAGE_TYPE_LINK => println(" Here is link")
+      case Constants.REQ_MESSAGE_TYPE_EVENT => println(" Here is event")
+      case _ =>
+    }
+    
     val res =
       <xml>
         <ToUserName>{ fromUser }</ToUserName>
         <FromUserName>{ toUser }</FromUserName>
-        <Content>{ fromUser }, your content is { content } </Content>
+        <Content>{ fromUser }, your content is { content } , your msg type is {msgType }</Content>
         <CreateTime>{ now }</CreateTime>
         <MsgType><![CDATA[text]]></MsgType>
         <FuncFlag>0</FuncFlag>
