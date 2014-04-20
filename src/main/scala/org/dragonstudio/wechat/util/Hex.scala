@@ -11,6 +11,6 @@ object Hex {
 
   }
 
-  def valueOf(buf: Array[Byte]): String = buf.map("%02X" format _).mkString
+  def bytes2Hex(buf: Array[Byte]): String = buf.map("%02X" format _).mkString
 
 }

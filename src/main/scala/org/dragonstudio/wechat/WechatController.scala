@@ -2,13 +2,15 @@ package org.dragonstudio.wechat
 
 import java.util.Date
 import java.net._
+import org.json4s._
 
 import scala.xml.XML
+import org.json4s.jackson.JsonMethods._
+import org.dragonstudio.wechat.util._
 
 class WechatController extends WechatAppStack with ChatRoomController {
-  val TOKEN = "WANGQL"
-
-  val MENU_CREATE = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + TOKEN;
+  
+ 
 
   get("/") {
     contentType = "text/html"
@@ -51,9 +53,11 @@ class WechatController extends WechatAppStack with ChatRoomController {
 
   post("/createmenu") {
     val jsonMenu = "{\"button\":[{\"name\":\"生活助手\",\"sub_button\":[{\"key\":\"11\",\"name\":\"天气预报\",\"type\":\"click\"},{\"key\":\"12\",\"name\":\"公交查询\",\"type\":\"click\"}]},{\"name\":\"音智达\",\"sub_button\":[{\"key\":\"21\",\"name\":\"好东西哦\",\"type\":\"click\"},{\"key\":\"22\",\"name\":\"人脸识别\",\"type\":\"click\"}]},{\"name\":\"更多体验\",\"sub_button\":[{\"key\":\"33\",\"name\":\"幽默笑话\",\"type\":\"click\"},{\"name\":\"View类型的\",\"type\":\"view\",\"url\":\"http://m.baidu.com\"}]}]}";
-    //  post(MENU_CREATE, jsonMenu)
+
     try {
-      val url = new URL(MENU_CREATE);
+      val access_token=getAccess_token
+      val menu_create = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + access_token;
+      val url = new URL(menu_create);
       val conn = url.openConnection()
       val http: HttpURLConnection = conn.asInstanceOf[HttpURLConnection]
 
@@ -74,7 +78,7 @@ class WechatController extends WechatAppStack with ChatRoomController {
       val jsonBytes = new Array[Byte](size)
       is.read(jsonBytes);
       val message = new String(jsonBytes, "UTF-8");
-      println(" create menu -> "+jsonMenu)
+      println(" create menu -> " + jsonMenu)
 
     } catch {
       case e: Exception => e.printStackTrace();
@@ -117,7 +121,7 @@ class WechatController extends WechatAppStack with ChatRoomController {
       val echostr = params.getOrElse("echostr", "")
       println("echostr = " + echostr)
 
-      val token = TOKEN
+      val token = Constants.TOKEN
       println("token = " + token)
       val tmpStr = Array(token, timestamp, nonce).sortWith(_ < _).mkString
 
@@ -139,11 +143,40 @@ class WechatController extends WechatAppStack with ChatRoomController {
 
     }
 
+  def getAccess_token() { // 获得ACCESS_TOKEN
+
+    val url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" + Constants.appId + "&secret=" + Constants.appSecret;
+
+    try {
+      val urlGet = new URL(url);
+      val http = urlGet.openConnection().asInstanceOf[HttpURLConnection]
+
+      http.setRequestMethod("GET"); //必须是get方式请求    
+      http.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+      http.setDoOutput(true);
+      http.setDoInput(true);
+      System.setProperty("sun.net.client.defaultConnectTimeout", "30000"); //连接超时30秒
+      System.setProperty("sun.net.client.defaultReadTimeout", "30000"); //读取超时30秒
+
+      http.connect();
+
+      val is = http.getInputStream();
+      val size = is.available();
+      val jsonBytes = new Array[Byte](size);
+      is.read(jsonBytes);
+      val message = new String(jsonBytes, "UTF-8");
+      //  org.json4s.JsonInput
+      val demoJson = parse(message)
+
+      println(message)
+      val accessToken = compact(render(demoJson \\ "access_token"))
+println(accessToken)
+      accessToken
+    } catch {
+      case e: Exception => e.printStackTrace();
+    }
+
+  }
+
 }
-
-
-
-
-
-
 
