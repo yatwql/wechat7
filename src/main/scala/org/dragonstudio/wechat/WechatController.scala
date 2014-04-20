@@ -26,12 +26,12 @@ class WechatController extends WechatAppStack with ChatRoomController {
     contentType = "xml"
     println("request body is -> " + request.body)
 
-    val wxl = XML.loadString(request.body)
+    val requestXml = XML.loadString(request.body)
 
-    val toUser = (wxl \ "ToUserName").text
-    val fromUser = (wxl \ "FromUserName").text
-    val content = (wxl \ "Content").text
-    val msgType = (wxl \ "MsgType").text
+    val toUser = (requestXml \ "ToUserName").text
+    val fromUser = (requestXml \ "FromUserName").text
+    val content = (requestXml \ "Content").text
+    val msgType = (requestXml \ "MsgType").text
 
     val responseContent = " your content is " + content + " , your msg type is " + msgType
 
@@ -60,10 +60,11 @@ class WechatController extends WechatAppStack with ChatRoomController {
       </xml>
         
         println(" response message 1 class  is " + message1.getClass().getName())
+        println(" response message  1 is " + message1)
         
-        val message2 =WechatUtils.getNewsMsg(toUser, fromUser, responseContent)
+     
    
-    write(message2.toString())
+    write(message.toString())
 
   }
 
