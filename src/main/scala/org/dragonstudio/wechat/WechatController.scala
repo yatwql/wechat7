@@ -47,18 +47,11 @@ class WechatController extends WechatAppStack with ChatRoomController {
       case _ => println( " Unknown message type ")
     }
     
-    val res =
-      <xml>
-        <ToUserName>{ fromUser }</ToUserName>
-        <FromUserName>{ toUser }</FromUserName>
-        <Content>{ fromUser }, your content is { content } , your msg type is {msgType }</Content>
-        <CreateTime>{ now }</CreateTime>
-        <MsgType><![CDATA[text]]></MsgType>
-        <FuncFlag>0</FuncFlag>
-      </xml>
-
-    println(" response is " + res)
-    write(res.toString())
+    val responseContent = " your content is "+ content +" , your msg type is "+msgType 
+    val message = WechatUtils.getTextMsg(toUser, fromUser, responseContent)
+     
+    println(" response message is " + message)
+    write(message)
 
   }
 

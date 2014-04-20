@@ -1,11 +1,12 @@
 package org.dragonstudio.wechat.util
 import org.json4s._
+import java.util._
 import java.io._
 
 import scala.xml.XML
 import org.json4s.jackson.JsonMethods._
 object WechatUtils {
-implicit val formats = DefaultFormats
+  implicit val formats = DefaultFormats
   def checkSignature(params: org.scalatra.Params): String =
     {
       val signature = params.getOrElse("signature", "")
@@ -42,7 +43,7 @@ implicit val formats = DefaultFormats
   def getAccess_token(): String = { // 获得ACCESS_TOKEN
 
     val url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" + Constants.appId + "&secret=" + Constants.appSecret;
-    
+
     try {
       val message = HttpUtils.get(url)
 
@@ -77,26 +78,39 @@ implicit val formats = DefaultFormats
       val menu_create_url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + access_token;
       val menu = loadMenuItems
       println(" Will post to " + menu_create_url)
-       val message=HttpUtils.post(menu_create_url, menu);
+      val message = HttpUtils.post(menu_create_url, menu);
       val json = parse(message)
-      val errcode= (json \\ "errcode").extract[Int]
+      val errcode = (json \\ "errcode").extract[Int]
       val errmsg = (json \\ "errmsg").extract[String]
-      
-      println(" errcode -> "+errcode)
-      
+
+      println(" errcode -> " + errcode)
+
       println(" create menu -> " + menu)
 
-      val responseMsg ="URL -> " + menu_create_url + " </br>  Menu -> " + menu + "<>"
-      
-      if ( errcode!= 0){
-        responseMsg + " </b> Failed to create menu due to "+errmsg
-      }else{
+      val responseMsg = "URL -> " + menu_create_url + " </br>  Menu -> " + menu + "<>"
+
+      if (errcode != 0) {
+        responseMsg + " </b> Failed to create menu due to " + errmsg
+      } else {
         responseMsg
       }
-     
 
     } catch {
       case e: Exception => e.printStackTrace(); "";
     }
+  }
+
+  def getTextMsg(fromUser: String, toUser: String, content: String): String = {
+    val now = new Date().getTime()
+    val message =
+      <xml>
+        <ToUserName>{ fromUser }</ToUserName>
+        <FromUserName>{ toUser }</FromUserName>
+        <Content>{ fromUser }, { content }</Content>
+        <CreateTime>{ now }</CreateTime>
+        <MsgType><![CDATA[text]]></MsgType>
+        <FuncFlag>0</FuncFlag>
+      </xml>
+    message.toString()
   }
 }
