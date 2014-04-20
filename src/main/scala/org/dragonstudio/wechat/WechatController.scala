@@ -1,11 +1,14 @@
 package org.dragonstudio.wechat
 
 import java.util.Date
+import java.net._
 
 import scala.xml.XML
 
 class WechatController extends WechatAppStack with ChatRoomController {
   val TOKEN = "WANGQL"
+
+  val MENU_CREATE = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + TOKEN;
 
   get("/") {
     contentType = "text/html"
@@ -35,7 +38,7 @@ class WechatController extends WechatAppStack with ChatRoomController {
       <xml>
         <ToUserName>{ fromUser }</ToUserName>
         <FromUserName>{ toUser }</FromUserName>
-        <Content><![CDATA[Hello,]]>, your content is { content }, { fromUser }</Content>
+        <Content>{ fromUser }, your content is { content } </Content>
         <CreateTime>{ now }</CreateTime>
         <MsgType><![CDATA[text]]></MsgType>
         <FuncFlag>0</FuncFlag>
@@ -45,8 +48,40 @@ class WechatController extends WechatAppStack with ChatRoomController {
     write(res.toString())
 
   }
-  
-  def write(content:String){
+
+  post("/createmenu") {
+    val jsonMenu = "{\"button\":[{\"name\":\"生活助手\",\"sub_button\":[{\"key\":\"11\",\"name\":\"天气预报\",\"type\":\"click\"},{\"key\":\"12\",\"name\":\"公交查询\",\"type\":\"click\"}]},{\"name\":\"音智达\",\"sub_button\":[{\"key\":\"21\",\"name\":\"好东西哦\",\"type\":\"click\"},{\"key\":\"22\",\"name\":\"人脸识别\",\"type\":\"click\"}]},{\"name\":\"更多体验\",\"sub_button\":[{\"key\":\"33\",\"name\":\"幽默笑话\",\"type\":\"click\"},{\"name\":\"View类型的\",\"type\":\"view\",\"url\":\"http://m.baidu.com\"}]}]}";
+    //  post(MENU_CREATE, jsonMenu)
+    try {
+      val url = new URL(MENU_CREATE);
+      val conn = url.openConnection()
+      val http: HttpURLConnection = conn.asInstanceOf[HttpURLConnection]
+
+      http.setRequestMethod("POST");
+      http.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+      http.setDoOutput(true);
+      http.setDoInput(true);
+      System.setProperty("sun.net.client.defaultConnectTimeout", "30000"); //连接超时30秒
+      System.setProperty("sun.net.client.defaultReadTimeout", "30000"); //读取超时30秒
+      http.connect();
+      val os = http.getOutputStream();
+      os.write(jsonMenu.getBytes("UTF-8")); //传入参数    
+      os.flush();
+      os.close();
+
+      val is = http.getInputStream();
+      val size = is.available();
+      val jsonBytes = new Array[Byte](size)
+      is.read(jsonBytes);
+      val message = new String(jsonBytes, "UTF-8");
+      println(" create menu -> "+jsonMenu)
+
+    } catch {
+      case e: Exception => e.printStackTrace();
+    }
+  }
+
+  def write(content: String) {
     val writer = response.getWriter()
     try {
       writer.write(content)
