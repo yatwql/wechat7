@@ -47,7 +47,18 @@ class WechatController extends WechatAppStack with ChatRoomController {
     }
     println(" Message Type is " + msgType)
     println(" response message is " + message)
-    write(message)
+    val now = new Date().getTime()
+    val message1 =
+      <xml>
+        <ToUserName>{ fromUser }</ToUserName>
+        <FromUserName>{ toUser }</FromUserName>
+        <Content>{ fromUser }, { content }</Content>
+        <CreateTime>{ now }</CreateTime>
+        <MsgType><![CDATA[text]]></MsgType>
+        <FuncFlag>0</FuncFlag>
+      </xml>
+   
+    write(message1.toString())
 
   }
 
