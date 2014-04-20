@@ -52,13 +52,15 @@ class WechatController extends WechatAppStack with ChatRoomController {
       <xml>
         <ToUserName>{ fromUser }</ToUserName>
         <FromUserName>{ toUser }</FromUserName>
-        <Content>{ fromUser }, { content }</Content>
+        <Content>{ fromUser }, { content },message type { msgType}</Content>
         <CreateTime>{ now }</CreateTime>
         <MsgType><![CDATA[text]]></MsgType>
         <FuncFlag>0</FuncFlag>
       </xml>
+        
+        val message2 =WechatUtils.getNewsMsg(toUser, fromUser, responseContent)
    
-    write(message1.toString())
+    write(message2)
 
   }
 
