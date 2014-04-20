@@ -41,7 +41,7 @@ class WechatController extends WechatAppStack {
 
   }
 
-  post("/wechatauth") {
+  post("/wechatauth")  {
     contentType = "xml"
     println("request body is -> " + request.body)
     //request.body
@@ -72,7 +72,11 @@ class WechatController extends WechatAppStack {
       </xml>
 
     println(" response is " + res)
-    res
+    //res
+    
+   val writer= response.getWriter()
+   writer.write(res.toString())
+   writer.close()
 
   }
 
