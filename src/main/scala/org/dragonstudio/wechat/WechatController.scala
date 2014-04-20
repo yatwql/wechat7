@@ -49,9 +49,11 @@ class WechatController extends WechatAppStack with ChatRoomController {
 
   }
 
-  post("/createmenu") {
-
+  get("/createmenu") {
+    contentType = "text/html"
+    println("This is route for create menu")
     WechatUtils.createMenu()
+
   }
 
   def write(content: String) {
