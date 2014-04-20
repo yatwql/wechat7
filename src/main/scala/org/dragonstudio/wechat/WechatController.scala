@@ -4,6 +4,8 @@ import java.util.Date
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.xml.XML
+import org.dragonstudio.wechat.persistent._
+import org.dragonstudio.wechat.util._
 
 import org.json4s.JValue
 import org.json4s.JsonDSL.jobject2assoc
@@ -65,18 +67,19 @@ class WechatController extends WechatAppStack {
       <xml>
         <ToUserName>{ fromUser }</ToUserName>
         <FromUserName>{ toUser }</FromUserName>
-        <Content><![CDATA[How are you]]></Content>
+        <Content><![CDATA[How are you,]]>{ fromUser }</Content>
         <CreateTime>{ now }</CreateTime>
         <MsgType><![CDATA[text]]></MsgType>
         <FuncFlag>0</FuncFlag>
       </xml>
 
     println(" response is " + res)
-    //res
+    res.toString()
     
+    /*
    val writer= response.getWriter()
    writer.write(res.toString())
-   writer.close()
+   writer.close() */
 
   }
 
@@ -161,46 +164,9 @@ class WechatController extends WechatAppStack {
 
 }
 
-object Hex {
-  def hex2Bytes(hex: String): Array[Byte] = {
 
-    (for { i <- 0 to hex.length - 1 by 2 if i > 0 || !hex.startsWith("0x") }
 
-      yield hex.substring(i, i + 2))
 
-      .map(Integer.parseInt(_, 16).toByte).toArray
 
-  }
 
-  def valueOf(buf: Array[Byte]): String = buf.map("%02X" format _).mkString
-
-}
-
-case class Page(slug: String, title: String, summary: String, body: String)
-
-object PageDao {
-  val pages = List(
-    Page("bacon-ipsum",
-      "Bacon ipsum dolor sit amet hamburger",
-      """Shankle pancetta turkey ullamco exercitation laborum ut
-        officia corned beef voluptate.""",
-      """Fugiat mollit, spare ribs pork belly flank voluptate ground
-        round do sunt laboris jowl. Meatloaf excepteur hamburger pork
-        chop fatback drumstick frankfurter pork aliqua.
-        Pork belly meatball meatloaf labore. Exercitation commodo nisi
-        shank, beef drumstick duis. Venison eu shankle sunt commodo short
-        loin dolore chicken prosciutto beef swine elit quis beef ribs.
-        Short ribs enim shankle ribeye andouille bresaola corned beef
-        jowl ut beef.Tempor do boudin, pariatur nisi biltong id elit
-        dolore non sunt proident sed. Boudin consectetur jowl ut dolor
-        sunt consequat tempor pork chop capicola pastrami mollit short
-        loin."""),
-    Page("veggie-ipsum",
-      "Arugula prairie turnip desert raisin sierra leone",
-      """Veggies sunt bona vobis, proinde vos postulo esse magis napa
-      cabbage beetroot dandelion radicchio.""",
-      """Brussels sprout mustard salad jícama grape nori chickpea
-      dulse tatsoi. Maize broccoli rabe collard greens jícama wattle
-      seed nori garbanzo epazote coriander mustard."""))
-}
 
