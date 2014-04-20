@@ -23,7 +23,7 @@ import org.scalatra.atmosphere.JsonMessage
 import org.scalatra.atmosphere.ServerDisconnected
 import org.scalatra.atmosphere.TextMessage
 
-class WechatController extends WechatAppStack {
+class WechatController extends WechatAppStack with ChatRoomController {
   val TOKEN = "WANGQL"
 
   get("/") {
@@ -31,10 +31,7 @@ class WechatController extends WechatAppStack {
     ssp("/pages/index")
   }
 
-  get("/chat") {
-    contentType = "text/html"
-    ssp("/pages/chat")
-  }
+  
 
   get("/wechatauth") {
     contentType = "text/html"
@@ -43,24 +40,16 @@ class WechatController extends WechatAppStack {
 
   }
 
-  post("/wechatauth")  {
+  post("/wechatauth") {
     contentType = "xml"
     println("request body is -> " + request.body)
-    //request.body
 
     val wxl = XML.loadString(request.body)
 
     val toUser = (wxl \ "ToUserName").text
-    println("toUser is " + toUser)
-
     val fromUser = (wxl \ "FromUserName").text
-    println("FromUserName is " + fromUser)
-
     val content = (wxl \ "Content").text
-    println("content is " + content)
-
     val msgType = (wxl \ "MsgType").text
-    println("msgType is " + msgType)
 
     val now = new Date().getTime()
     val res =
@@ -75,45 +64,14 @@ class WechatController extends WechatAppStack {
 
     println(" response is " + res)
     res.toString()
-    
-    /*
-   val writer= response.getWriter()
-   writer.write(res.toString())
-   writer.close() */
+
+    val writer = response.getWriter()
+    writer.write(res.toString())
+    writer.close()
 
   }
 
-  get("/pages/:slug") {
-    contentType = "text/html"
-    PageDao.pages find (_.slug == params("slug")) match {
-      case Some(page) => ssp("/pages/show", "page" -> page)
-      case None => halt(404, "Can not locate the page - " + params("slug"))
-    }
-  }
-
-  atmosphere("/the-chat") {
-    new AtmosphereClient {
-      def receive: AtmoReceive = {
-        case Connected =>
-          println("Client %s is connected" format uuid)
-          broadcast(("author" -> "Someone") ~ ("message" -> "joined the room") ~ ("time" -> (new Date().getTime.toString)), Everyone)
-
-        case Disconnected(ClientDisconnected, _) =>
-          broadcast(("author" -> "Someone") ~ ("message" -> "has left the room") ~ ("time" -> (new Date().getTime.toString)), Everyone)
-
-        case Disconnected(ServerDisconnected, _) =>
-          println("Server disconnected the client %s" format uuid)
-        case _: TextMessage =>
-          send(("author" -> "system") ~ ("message" -> "Only json is allowed") ~ ("time" -> (new Date().getTime.toString)))
-
-        case JsonMessage(json) =>
-          println("Got message %s from %s".format((json \ "message").extract[String], (json \ "author").extract[String]))
-          val msg = json merge (("time" -> (new Date().getTime().toString)): JValue)
-          broadcast(msg) // by default a broadcast is to everyone but self
-        //  send(msg) // also send to the sender
-      }
-    }
-  }
+  
 
   error {
     case t: Throwable => t.printStackTrace()
