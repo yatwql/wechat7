@@ -20,6 +20,7 @@ build/*
 *.class
 *.lock
 *.DS_Store
+.cache
 /.lib/
 log/*
 tmp/*

@@ -71,8 +71,8 @@ implicit val formats = DefaultFormats
 
   def createMenu(): String = {
     try {
-      //val access_token = WechatUtils.getAccess_token
-      val access_token = "Testing"
+      val access_token = WechatUtils.getAccess_token
+      //val access_token = "Testing"
       println(" access_token -> " + access_token)
       val menu_create_url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + access_token;
       val menu = loadMenuItems
