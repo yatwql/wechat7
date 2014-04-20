@@ -33,8 +33,6 @@ class WechatController extends WechatAppStack with ChatRoomController {
     val content = (wxl \ "Content").text
     val msgType = (wxl \ "MsgType").text
 
-    val now = new Date().getTime()
-
     val responseContent = " your content is " + content + " , your msg type is " + msgType
 
     val message = msgType match {
@@ -49,7 +47,7 @@ class WechatController extends WechatAppStack with ChatRoomController {
     }
     println(" Message Type is " + msgType)
     println(" response message is " + message)
-    write(message.toString())
+    write(message)
 
   }
 
