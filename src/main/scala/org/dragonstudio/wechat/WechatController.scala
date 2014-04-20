@@ -38,18 +38,18 @@ class WechatController extends WechatAppStack with ChatRoomController {
     val responseContent = " your content is " + content + " , your msg type is " + msgType
 
     val message = msgType match {
-      case Constants.REQ_MESSAGE_TYPE_TEXT => println(" Here is text"); WechatUtils.getTextMsg(toUser, fromUser, responseContent);
-      case Constants.REQ_MESSAGE_TYPE_IMAGE => println(" Here is Image"); WechatUtils.getTextMsg(toUser, fromUser, responseContent);
-      case Constants.REQ_MESSAGE_TYPE_VOICE => println(" Here is voice"); WechatUtils.getTextMsg(toUser, fromUser, responseContent);
-      case Constants.REQ_MESSAGE_TYPE_VIDEO => println(" Here is video"); WechatUtils.getTextMsg(toUser, fromUser, responseContent);
-      case Constants.REQ_MESSAGE_TYPE_LOCATION => println(" Here is location"); WechatUtils.getTextMsg(toUser, fromUser, responseContent);
-      case Constants.REQ_MESSAGE_TYPE_LINK => println(" Here is link"); WechatUtils.getTextMsg(toUser, fromUser, responseContent);
-      case Constants.REQ_MESSAGE_TYPE_EVENT => println(" Here is event"); WechatUtils.getNewsMsg(toUser, fromUser, responseContent);
-      case _ => println(" Unknown message type "); WechatUtils.getTextMsg(toUser, fromUser, responseContent);
+      case Constants.REQ_MESSAGE_TYPE_TEXT => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
+      case Constants.REQ_MESSAGE_TYPE_IMAGE => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
+      case Constants.REQ_MESSAGE_TYPE_VOICE => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
+      case Constants.REQ_MESSAGE_TYPE_VIDEO => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
+      case Constants.REQ_MESSAGE_TYPE_LOCATION => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
+      case Constants.REQ_MESSAGE_TYPE_LINK => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
+      case Constants.REQ_MESSAGE_TYPE_EVENT => WechatUtils.getNewsMsg(toUser, fromUser, responseContent);
+      case _ => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
     }
-
+    println(" Message Type is " + msgType)
     println(" response message is " + message)
-    write(message)
+    write(message.toString())
 
   }
 
