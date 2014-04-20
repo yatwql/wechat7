@@ -100,7 +100,7 @@ object WechatUtils {
     }
   }
 
-  def getTextMsg(fromUser: String, toUser: String, content: String): String = {
+  def getTextMsg(fromUser: String, toUser: String, content: String) {
     val now = new Date().getTime()
     val message =
       <xml>
@@ -111,10 +111,10 @@ object WechatUtils {
         <MsgType><![CDATA[text]]></MsgType>
         <FuncFlag>0</FuncFlag>
       </xml>
-    message.toString()
+    
   }
 
-  def getNewsMsg(fromUser: String, toUser: String, content: String): String = {
+  def getNewsMsg(fromUser: String, toUser: String, content: String) {
     val now = new Date().getTime()
     val message =
       <xml>
@@ -126,7 +126,7 @@ object WechatUtils {
         <ArticleCount>1</ArticleCount>
         <Articles>
           <item>
-            <Title>我是一条单图文消息</Title>
+            <Title>Here is news</Title>
             <Description>I am description</Description>
             <PicUrl>http://www.iteye.com/upload/logo/user/603624/2dc5ec35-073c-35e7-9b88-274d6b39d560.jpg</PicUrl>
             <Url>http://www.iteye.com</Url>
@@ -134,6 +134,6 @@ object WechatUtils {
         </Articles>
         <FuncFlag>0</FuncFlag>
       </xml>
-    message.toString()
+    
   }
 }
