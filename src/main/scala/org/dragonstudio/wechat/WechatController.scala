@@ -34,22 +34,20 @@ class WechatController extends WechatAppStack with ChatRoomController {
     val msgType = (wxl \ "MsgType").text
 
     val now = new Date().getTime()
-    
 
-    msgType match {
-      case Constants.REQ_MESSAGE_TYPE_TEXT => println(" Here is text")
-      case Constants.REQ_MESSAGE_TYPE_IMAGE => println(" Here is Image")
-      case Constants.REQ_MESSAGE_TYPE_VOICE => println(" Here is voice")
-      case Constants.REQ_MESSAGE_TYPE_VIDEO => println(" Here is video")
-      case Constants.REQ_MESSAGE_TYPE_LOCATION => println(" Here is location")
-      case Constants.REQ_MESSAGE_TYPE_LINK => println(" Here is link")
-      case Constants.REQ_MESSAGE_TYPE_EVENT => println(" Here is event")
-      case _ => println( " Unknown message type ")
+    val responseContent = " your content is " + content + " , your msg type is " + msgType
+
+    val message = msgType match {
+      case Constants.REQ_MESSAGE_TYPE_TEXT => println(" Here is text"); WechatUtils.getTextMsg(toUser, fromUser, responseContent);
+      case Constants.REQ_MESSAGE_TYPE_IMAGE => println(" Here is Image"); WechatUtils.getTextMsg(toUser, fromUser, responseContent);
+      case Constants.REQ_MESSAGE_TYPE_VOICE => println(" Here is voice"); WechatUtils.getTextMsg(toUser, fromUser, responseContent);
+      case Constants.REQ_MESSAGE_TYPE_VIDEO => println(" Here is video"); WechatUtils.getTextMsg(toUser, fromUser, responseContent);
+      case Constants.REQ_MESSAGE_TYPE_LOCATION => println(" Here is location"); WechatUtils.getTextMsg(toUser, fromUser, responseContent);
+      case Constants.REQ_MESSAGE_TYPE_LINK => println(" Here is link"); WechatUtils.getTextMsg(toUser, fromUser, responseContent);
+      case Constants.REQ_MESSAGE_TYPE_EVENT => println(" Here is event"); WechatUtils.getNewsMsg(toUser, fromUser, responseContent);
+      case _ => println(" Unknown message type "); WechatUtils.getTextMsg(toUser, fromUser, responseContent);
     }
-    
-    val responseContent = " your content is "+ content +" , your msg type is "+msgType 
-    val message = WechatUtils.getTextMsg(toUser, fromUser, responseContent)
-     
+
     println(" response message is " + message)
     write(message)
 
