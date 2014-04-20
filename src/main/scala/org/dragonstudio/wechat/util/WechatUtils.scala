@@ -100,7 +100,7 @@ object WechatUtils {
     }
   }
 
-  def getTextMsg(fromUser: String, toUser: String, content: String) {
+  def getTextMsg(fromUser: String, toUser: String, content: String): scala.xml.Elem = {
     val now = new Date().getTime()
     val message =
       <xml>
@@ -111,10 +111,11 @@ object WechatUtils {
         <MsgType><![CDATA[text]]></MsgType>
         <FuncFlag>0</FuncFlag>
       </xml>
-    
+    message
+
   }
 
-  def getNewsMsg(fromUser: String, toUser: String, content: String) {
+  def getNewsMsg(fromUser: String, toUser: String, content: String): scala.xml.Elem = {
     val now = new Date().getTime()
     val message =
       <xml>
@@ -134,6 +135,7 @@ object WechatUtils {
         </Articles>
         <FuncFlag>0</FuncFlag>
       </xml>
-    
+    message
+
   }
 }
