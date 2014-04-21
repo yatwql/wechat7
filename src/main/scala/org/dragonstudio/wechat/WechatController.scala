@@ -115,6 +115,7 @@ class WechatController extends WechatAppStack with ChatRoomController {
   def write(content: String) {
     val writer = response.getWriter()
     try {
+      println(" Writer content -> "+content)
       writer.write(content)
     } catch {
       case e: Exception =>
