@@ -59,14 +59,14 @@
                     "type": "click"
                 }, 
                 {
-                    "name": "百度", 
+                    "name": "利设商贸-淘宝店", 
                     "type": "view", 
-                    "url": "http://m.baidu.com"
+                    "url": "http://shop33621990.taobao.com/shop/view_shop.htm?user_number_id=37346388"
                 },
                 {
-                    "name": "Google", 
+                    "name": "利设商贸-大众点评", 
                     "type": "view", 
-                    "url": "http://www.google.com/ncr"
+                    "url": "http://www.dianping.com/shop/17180808"
                 }
             ]
         }
