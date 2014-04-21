@@ -25,17 +25,39 @@ class WechatController extends WechatAppStack with ChatRoomController {
   }
 
   post("/wechatauth") {
-    contentType = "xml;charset=utf-8"
+
     println("request body is -> " + request.body)
 
     val requestXml = XML.loadString(request.body)
+    wechatRouter(Some(requestXml))
+  }
 
-    val toUser = (requestXml \ "ToUserName").text
-    val fromUser = (requestXml \ "FromUserName").text
-    val content = (requestXml \ "Content").text
-    val msgType = (requestXml \ "MsgType").text
+  get("/test") {
+    val requestXml = <xml>
+                       <ToUserName><![CDATA[gh_c2bb951675bb]]></ToUserName>
+                       <Content><![CDATA[To test the function]]></Content>
+                       <FromUserName><![CDATA[oIySzjrizSaAyqnlB57ggb0j2WNc]]></FromUserName>
+                       <MsgType><![CDATA[text]]></MsgType>
+                     </xml>
+    wechatRouter(Some(requestXml))
+  }
 
-    val responseContent = " your content is " + content + " , your msg type is " + msgType
+  get("/createmenu") {
+    contentType = "text/html"
+    println("This is route for create menu")
+    WechatUtils.createMenu()
+
+  }
+
+  def wechatRouter(requestXml: Option[scala.xml.Elem]) {
+    contentType = "xml;charset=utf-8"
+
+    val toUser = (requestXml.get \ "ToUserName").text
+    val fromUser = (requestXml.get \ "FromUserName").text
+    val content = (requestXml.get \ "Content").text
+    val msgType = (requestXml.get \ "MsgType").text
+
+    val responseContent = " your content is '" + content + "' , your msg type is " + msgType
 
     val message = msgType match {
       case Constants.REQ_MESSAGE_TYPE_TEXT => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
@@ -55,19 +77,17 @@ class WechatController extends WechatAppStack with ChatRoomController {
       <xml>
         <ToUserName>{ fromUser }</ToUserName>
         <FromUserName>{ toUser }</FromUserName>
-        <Content>{ fromUser }, { content },message type { msgType}</Content>
+        <Content>{ fromUser }, { content },message type { msgType }</Content>
         <CreateTime>{ now }</CreateTime>
         <MsgType><![CDATA[text]]></MsgType>
         <FuncFlag>0</FuncFlag>
       </xml>
-        
-        println(" response message 1 class  is " + message1.getClass().getName())
-        println(" response message  1 is " + message1.toString())
-        
-     
-   
-   // write(message.toString())
-    
+
+    println(" response message 1 class  is " + message1.getClass().getName())
+    println(" response message  1 is " + message1.toString())
+
+    // write(message.toString())
+
     val message2 =
       <xml>
         <ToUserName>{ fromUser }</ToUserName>
@@ -86,18 +106,10 @@ class WechatController extends WechatAppStack with ChatRoomController {
         </Articles>
         <FuncFlag>0</FuncFlag>
       </xml>
-        
-        println(" response message 2 class  is " + message2.getClass().getName())
-        println(" response message  2 is " + message2.toString())
-    write(message2.toString())
 
-  }
-
-  get("/createmenu") {
-    contentType = "text/html"
-    println("This is route for create menu")
-    WechatUtils.createMenu()
-
+    println(" response message 2 class  is " + message2.getClass().getName())
+    println(" response message  2 is " + message2.toString())
+    write(message.toString())
   }
 
   def write(content: String) {
