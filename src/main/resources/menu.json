@@ -1,7 +1,7 @@
 {
     "button": [
         {
-            "name": "生活助手", 
+            "name": "看文章...", 
             "sub_button": [
                 {
                     "key": "11", 
@@ -12,6 +12,11 @@
                     "key": "12", 
                     "name": "公交查询", 
                     "type": "click"
+                },
+                 {
+                    "name": "更多文章", 
+                    "type": "view", 
+                    "url": "http://www.google.com/ncr"
                 }
             ]
         }, 
@@ -27,6 +32,11 @@
                     "key": "22", 
                     "name": "法国", 
                     "type": "click"
+                },
+                {
+                    "key": "23", 
+                    "name": "巴拉圭", 
+                    "type": "click"
                 }
             ]
         }, 
@@ -34,15 +44,25 @@
             "name": "更多体验", 
             "sub_button": [
                 {
+                    "key": "31", 
+                    "name": "关于我们", 
+                    "type": "click"
+                }, 
+                 {
+                    "key": "32", 
+                    "name": "如何投稿", 
+                    "type": "click"
+                }, 
+                {
                     "key": "33", 
-                    "name": "幽默笑话", 
+                    "name": "商务联系", 
                     "type": "click"
                 }, 
                 {
                     "name": "百度", 
                     "type": "view", 
                     "url": "http://m.baidu.com"
-                }
+                },
                 {
                     "name": "Google", 
                     "type": "view", 
