@@ -88,10 +88,10 @@ object WechatUtils {
 
       println(" create menu -> " + menu)
 
-      val responseMsg = "URL -> " + menu_create_url + " </br>  Menu -> " + menu + "<>"
+      val responseMsg = "URL -> " + menu_create_url + " </br></br>  Menu -> " + menu 
 
       if (errcode != 0) {
-        responseMsg + " </b> Failed to create menu due to " + errmsg
+        responseMsg + " </br></br> Failed to create menu due to " + errmsg
       } else {
         responseMsg
       }

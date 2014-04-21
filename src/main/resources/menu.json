@@ -1,11 +1,11 @@
 {
     "button": [
         {
-            "name": "看文章...", 
+            "name": "推荐阅读...", 
             "sub_button": [
                 {
                     "key": "11", 
-                    "name": "天气预报", 
+                    "name": "红酒鉴赏小知识", 
                     "type": "click"
                 }, 
                 {
