@@ -129,9 +129,9 @@ object WechatUtils {
         <Articles>
           <item>
             <Title>Here is news</Title>
-            <Description>I am description</Description>
-            <PicUrl>http://www.iteye.com/upload/logo/user/603624/2dc5ec35-073c-35e7-9b88-274d6b39d560.jpg</PicUrl>
-            <Url>http://www.iteye.com</Url>
+            <Description>I love redwine</Description>
+            <PicUrl>http://www.cnyangjiu.com/html/UploadFiles/201051975110330.jpg</PicUrl>
+            <Url>http://www.dianping.com/shop/17180808/photos</Url>
           </item>
         </Articles>
         <FuncFlag>0</FuncFlag>

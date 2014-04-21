@@ -72,21 +72,7 @@ class WechatController extends WechatAppStack with ChatRoomController {
     println(" Message Type is " + msgType)
     println(" response message class is " + message.getClass().getName())
     println(" response message is " + message.toString())
-    val now = new Date().getTime()
-    val message1 =
-      <xml>
-        <ToUserName>{ fromUser }</ToUserName>
-        <FromUserName>{ toUser }</FromUserName>
-        <Content>{ fromUser }, { content },message type { msgType }</Content>
-        <CreateTime>{ now }</CreateTime>
-        <MsgType><![CDATA[text]]></MsgType>
-        <FuncFlag>0</FuncFlag>
-      </xml>
-
-    println(" response message 1 class  is " + message1.getClass().getName())
-    println(" response message  1 is " + message1.toString())
-
-    // write(message.toString())
+    val now = new Date().getTime() 
 
     val message2 =
       <xml>
@@ -109,12 +95,14 @@ class WechatController extends WechatAppStack with ChatRoomController {
 
     println(" response message 2 class  is " + message2.getClass().getName())
     println(" response message  2 is " + message2.toString())
-    write(message.toString())
+    
+    write(message2.toString())
   }
 
   def write(content: String) {
     val writer = response.getWriter()
     try {
+      println(" response.contentType -> "+response.getContentType())
       println(" Writer content -> "+content)
       writer.write(content)
     } catch {
