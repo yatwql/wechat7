@@ -1,6 +1,7 @@
 package org.dragonstudio.wechat
 
 import java.util.Date
+import scala.xml.Elem
 import java.net._
 import org.json4s._
 
@@ -96,19 +97,23 @@ class WechatController extends WechatAppStack with ChatRoomController {
     println(" response message 2 class  is " + message2.getClass().getName())
     println(" response message  2 is " + message2.toString)
     
-    write(message.toString)
+    write(message)
   }
 
-  def write(content: String) {
+  def write (responseXml:Elem){
+    write(responseXml.toString())
+  }
+  def write(content:String) {
     val writer = response.getWriter()
     try {
       println(" response.contentType -> "+response.getContentType())
       println(" Writer content -> "+content)
-      writer.write(content)
+      writer.write(content.toString())
     } catch {
       case e: Exception =>
     } finally {
       writer.close()
+      response.flushBuffer()
     }
   }
 
