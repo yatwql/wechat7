@@ -92,11 +92,11 @@ class WechatController extends WechatAppStack with ChatRoomController {
         </Articles>
         <FuncFlag>0</FuncFlag>
       </xml>
-
+//message2.text
     println(" response message 2 class  is " + message2.getClass().getName())
-    println(" response message  2 is " + message2.toString())
+    println(" response message  2 is " + message2.toString)
     
-    write(message2.toString())
+    write(message.toString)
   }
 
   def write(content: String) {
