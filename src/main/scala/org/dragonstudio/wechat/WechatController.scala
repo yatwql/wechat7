@@ -70,41 +70,11 @@ class WechatController extends WechatAppStack with ChatRoomController {
       case Constants.REQ_MESSAGE_TYPE_EVENT => WechatUtils.getNewsMsg(toUser, fromUser, responseContent);
       case _ => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
     }
-    println(" Message Type is " + msgType)
-  //  println(" response message class is " + message.getClass().getName())
-  //  println(" response message is " + message.toString())
-    val now = new Date().getTime() 
-
-    val message2 =
-      <xml>
-        <ToUserName>{ fromUser }</ToUserName>
-        <FromUserName>{ toUser }</FromUserName>
-        <Content>{ fromUser }, { content }</Content>
-        <CreateTime>{ now }</CreateTime>
-        <MsgType><![CDATA[news]]></MsgType>
-        <ArticleCount>1</ArticleCount>
-        <Articles>
-          <item>
-            <Title>Here is news</Title>
-            <Description>I love redwine</Description>
-            <PicUrl>http://www.cnyangjiu.com/html/UploadFiles/201051975110330.jpg</PicUrl>
-            <Url>http://www.dianping.com/shop/17180808/photos</Url>
-          </item>
-        </Articles>
-        <FuncFlag>0</FuncFlag>
-      </xml>
-    
-       
-    write(message)
+    println("Get Message Type  " + msgType+" from user "+fromUser)
+    write(message.toString())
   }
   
- 
 
-  def write (responseXml:Elem){
-    println(" write xml to response")
-    println(" response message class is " + responseXml.getClass().getName())
-    write(responseXml.toString())
-  }
   def write(content:String) {
     val writer = response.getWriter()
     try {
@@ -115,7 +85,6 @@ class WechatController extends WechatAppStack with ChatRoomController {
       case e: Exception =>
     } finally {
       writer.close()
-      response.flushBuffer()
     }
   }
 
