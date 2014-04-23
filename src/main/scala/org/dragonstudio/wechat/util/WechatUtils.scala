@@ -107,7 +107,7 @@ object WechatUtils {
       <xml>
         <ToUserName>{ toUser }</ToUserName>
         <FromUserName>{ fromUser }</FromUserName>
-        <Content>{ fromUser }, { content }</Content>
+        <Content>{ toUser }, { content }</Content>
         <CreateTime>{ now }</CreateTime>
         <MsgType><![CDATA[text]]></MsgType>
         <FuncFlag>0</FuncFlag>
@@ -122,7 +122,7 @@ object WechatUtils {
       <xml>
         <ToUserName>{ toUser }</ToUserName>
         <FromUserName>{ fromUser }</FromUserName>
-        <Content>{ fromUser }, { content }</Content>
+        <Content>{ toUser }, { content }</Content>
         <CreateTime>{ now }</CreateTime>
         <MsgType><![CDATA[news]]></MsgType>
         <ArticleCount>1</ArticleCount>
