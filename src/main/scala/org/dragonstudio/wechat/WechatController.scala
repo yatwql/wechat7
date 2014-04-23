@@ -71,8 +71,8 @@ class WechatController extends WechatAppStack with ChatRoomController {
       case _ => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
     }
     println(" Message Type is " + msgType)
-    println(" response message class is " + message.getClass().getName())
-    println(" response message is " + message.toString())
+  //  println(" response message class is " + message.getClass().getName())
+  //  println(" response message is " + message.toString())
     val now = new Date().getTime() 
 
     val message2 =
@@ -94,8 +94,8 @@ class WechatController extends WechatAppStack with ChatRoomController {
         <FuncFlag>0</FuncFlag>
       </xml>
 //message2.text
-    println(" response message 2 class  is " + message2.getClass().getName())
-    println(" response message  2 is " + message2.toString)
+   // println(" response message 2 class  is " + message2.getClass().getName())
+   // println(" response message  2 is " + message2.toString)
     
     write(message)
   }
