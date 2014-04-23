@@ -94,8 +94,11 @@ class WechatController extends WechatAppStack with ChatRoomController {
         <FuncFlag>0</FuncFlag>
       </xml>
     
+       
     write(message)
   }
+  
+ 
 
   def write (responseXml:Elem){
     println(" write xml to response")

@@ -105,8 +105,8 @@ object WechatUtils {
     val now = new Date().getTime()
     val message =
       <xml>
-        <ToUserName>{ fromUser }</ToUserName>
-        <FromUserName>{ toUser }</FromUserName>
+        <ToUserName>{ toUser }</ToUserName>
+        <FromUserName>{ fromUser }</FromUserName>
         <Content>{ fromUser }, { content }</Content>
         <CreateTime>{ now }</CreateTime>
         <MsgType><![CDATA[text]]></MsgType>
@@ -120,8 +120,8 @@ object WechatUtils {
     val now = new Date().getTime()
     val message =
       <xml>
-        <ToUserName>{ fromUser }</ToUserName>
-        <FromUserName>{ toUser }</FromUserName>
+        <ToUserName>{ toUser }</ToUserName>
+        <FromUserName>{ fromUser }</FromUserName>
         <Content>{ fromUser }, { content }</Content>
         <CreateTime>{ now }</CreateTime>
         <MsgType><![CDATA[news]]></MsgType>
