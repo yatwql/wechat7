@@ -4,6 +4,7 @@ project/target/*/*
 
 
 target/
+bin/
 project/boot
 lib_managed/*
 project/build/target

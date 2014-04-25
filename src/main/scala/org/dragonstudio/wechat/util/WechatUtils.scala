@@ -1,11 +1,15 @@
 package org.dragonstudio.wechat.util
 
-import org.json4s._
-import java.util._
-import java.io._
+import java.io.InputStream
+import java.util.Date
 
-import scala.xml.XML
-import org.json4s.jackson.JsonMethods._
+import scala.xml.Elem
+
+import org.json4s.DefaultFormats
+import org.json4s.jackson.JsonMethods.parse
+import org.json4s.jvalue2extractable
+import org.json4s.jvalue2monadic
+import org.json4s.string2JsonInput
 object WechatUtils {
   implicit val formats = DefaultFormats
   def checkSignature(params: org.scalatra.Params): String =
@@ -101,7 +105,7 @@ object WechatUtils {
     }
   }
 
-  def getTextMsg(fromUser: String, toUser: String, content: String): scala.xml.Elem = {
+  def getTextMsg(fromUser: String, toUser: String, content: String): Elem = {
     val now = new Date().getTime()
     val message =
       <xml>
@@ -116,7 +120,7 @@ object WechatUtils {
 
   }
 
-  def getNewsMsg(fromUser: String, toUser: String, content: String): scala.xml.Elem = {
+  def getNewsMsg(fromUser: String, toUser: String, content: String): Elem = {
     val now = new Date().getTime()
     val message =
       <xml>

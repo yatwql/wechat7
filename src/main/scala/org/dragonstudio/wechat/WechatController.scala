@@ -36,7 +36,7 @@ class WechatController extends WechatAppStack with ChatRoomController {
   get("/test") {
     val requestXml = <xml>
                        <ToUserName><![CDATA[gh_c2bb951675bb]]></ToUserName>
-                       <Content><![CDATA[To test the function]]></Content>
+                       <Content><![CDATA[To test the function 您好]]></Content>
                        <FromUserName><![CDATA[oIySzjrizSaAyqnlB57ggb0j2WNc]]></FromUserName>
                        <MsgType><![CDATA[text]]></MsgType>
                      </xml>
@@ -50,7 +50,7 @@ class WechatController extends WechatAppStack with ChatRoomController {
 
   }
 
-  def wechatRouter(requestXml: Option[scala.xml.Elem]) {
+  def wechatRouter(requestXml: Option[Elem]) {
     contentType = "xml;charset=utf-8"
 
     val toUser = (requestXml.get \ "ToUserName").text
@@ -58,7 +58,7 @@ class WechatController extends WechatAppStack with ChatRoomController {
     val content = (requestXml.get \ "Content").text
     val msgType = (requestXml.get \ "MsgType").text
 
-    val responseContent = " your content is '" + content + "' , your msg type is " + msgType
+    val responseContent = " Thanks for your information '" + content + "' with msg type " + msgType
 
     val message = msgType match {
       case Constants.REQ_MESSAGE_TYPE_TEXT => WechatUtils.getTextMsg(toUser, fromUser, responseContent);

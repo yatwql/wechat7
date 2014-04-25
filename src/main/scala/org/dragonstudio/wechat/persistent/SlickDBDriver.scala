@@ -12,7 +12,7 @@ val PROD = "prod"
 def getDriver: JdbcProfile = {
 scala.util.Properties.envOrElse("runMode", "prod") match {
 case TEST => H2Driver
-case DEV => MySQLDriver
+case DEV => PostgresDriver
 case PROD => PostgresDriver
 case _ => PostgresDriver
 }

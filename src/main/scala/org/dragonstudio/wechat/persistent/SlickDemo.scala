@@ -8,20 +8,27 @@ class SlickDemo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
  conn.dbObject withSession { implicit session: Session =>
  // create  table  selected environment
  try {
- employees.ddl.create
+    
+   //appUsers.ddl.drop
+ appUsers.ddl.create
+  articles.ddl.create
+  voteTopics.ddl.create
+  voteResults.ddl.create
  } catch {
  case ex: Exception => println(ex.getMessage)
  }
- // insert employees into database
- employees.insert(Employee("satendra", "satendra@knoldus.com", "consultant", Date.valueOf("2013-06-03")))
- employees.insert(Employee("anand", "anand@knoldus.com", "consultant", Date.valueOf("2013-07-03")))
+ 
+ // insert AppUser into database
+ appUsers.insert(AppUser("stallman","Stallman","stallman.wang@foxmail.com", "stallman","admin"))
+  appUsers.insert(AppUser("yatwql","joe","yatwql@qq.com", "yatwql","admin"))
+  appUsers.insert(AppUser("test","joe","yatwql@qq.com", "test","admin"))
  println("======================retrieve from database ====================")
- employees.list foreach println
+ appUsers.list foreach println
  // delete
- val query = for { emp <- employees if (emp.name === "satendra") } yield emp
+ val query = for { emp <- appUsers if (emp.name === "test") } yield emp
  query.delete
  println("======================retrieve after delete ====================")
- employees.list foreach println
+ appUsers.list foreach println
  }
  }
  }

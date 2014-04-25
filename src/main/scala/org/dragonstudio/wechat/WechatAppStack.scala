@@ -1,6 +1,7 @@
 package org.dragonstudio.wechat
 
 import org.scalatra._
+
 import org.scalatra.scalate.ScalateSupport
 import org.fusesource.scalate.TemplateEngine
 import org.fusesource.scalate.layout.DefaultLayoutStrategy
