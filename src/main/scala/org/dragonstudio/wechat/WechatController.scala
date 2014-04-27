@@ -40,6 +40,7 @@ class WechatController extends WechatAppStack with ChatRoomController with Slick
                        <FromUserName><![CDATA[oIySzjrizSaAyqnlB57ggb0j2WNc]]></FromUserName>
                        <MsgType><![CDATA[text]]></MsgType>
                      </xml>
+    contentType = "xml;charset=utf-8"
     wechatRouter(Some(requestXml))
   }
 
@@ -52,26 +53,7 @@ class WechatController extends WechatAppStack with ChatRoomController with Slick
 
   def wechatRouter(requestXml: Option[Elem]) {
     contentType = "xml;charset=utf-8"
-
-    val toUser = (requestXml.get \ "ToUserName").text
-    val fromUser = (requestXml.get \ "FromUserName").text
-    val content = (requestXml.get \ "Content").text
-    val msgType = (requestXml.get \ "MsgType").text
-
-    val responseContent = " Thanks for your information '" + content + "' with msg type " + msgType
-
-    val message = msgType match {
-      case Constants.REQ_MESSAGE_TYPE_TEXT => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
-      case Constants.REQ_MESSAGE_TYPE_IMAGE => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
-      case Constants.REQ_MESSAGE_TYPE_VOICE => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
-      case Constants.REQ_MESSAGE_TYPE_VIDEO => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
-      case Constants.REQ_MESSAGE_TYPE_LOCATION => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
-      case Constants.REQ_MESSAGE_TYPE_LINK => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
-      case Constants.REQ_MESSAGE_TYPE_EVENT => WechatUtils.getNewsMsg(toUser, fromUser, responseContent);
-      case _ => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
-    }
-    println("Get Message Type  " + msgType+" from user "+fromUser)
-    write(message.toString())
+    write(WechatUtils.getResponse(requestXml))
   }
   
 

@@ -143,4 +143,27 @@ object WechatUtils {
     message
 
   }
+  
+  def getResponse(requestXml: Option[Elem]) :String ={
+    
+    val toUser = (requestXml.get \ "ToUserName").text
+    val fromUser = (requestXml.get \ "FromUserName").text
+    val content = (requestXml.get \ "Content").text
+    val msgType = (requestXml.get \ "MsgType").text
+
+    val responseContent = " Thanks for your information '" + content + "' with msg type " + msgType
+
+    val message = msgType match {
+      case Constants.REQ_MESSAGE_TYPE_TEXT => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
+      case Constants.REQ_MESSAGE_TYPE_IMAGE => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
+      case Constants.REQ_MESSAGE_TYPE_VOICE => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
+      case Constants.REQ_MESSAGE_TYPE_VIDEO => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
+      case Constants.REQ_MESSAGE_TYPE_LOCATION => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
+      case Constants.REQ_MESSAGE_TYPE_LINK => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
+      case Constants.REQ_MESSAGE_TYPE_EVENT => WechatUtils.getNewsMsg(toUser, fromUser, responseContent);
+      case _ => WechatUtils.getTextMsg(toUser, fromUser, responseContent);
+    }
+    println("Get Message Type  " + msgType+" from user "+fromUser)
+    message.toString()
+  }
 }
