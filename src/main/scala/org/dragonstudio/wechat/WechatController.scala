@@ -11,7 +11,7 @@ import scala.xml.XML
 import org.json4s.jackson.JsonMethods._
 import org.dragonstudio.wechat.util._
 
-class WechatController extends WechatAppStack with ChatRoomController {
+class WechatController extends WechatAppStack with ChatRoomController with SlickController {
 
   get("/") {
     contentType = "text/html"
