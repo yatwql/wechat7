@@ -123,24 +123,15 @@ object WechatUtils {
    
       println(" access_token -> " + access_token)
       val menu_url = url+ access_token;
+      println(" menu ul -> "+menu_url)
       val message = HttpUtils.get(menu_url)
-
-     
-      val json = parse(message)
-      val errcode = (json \\ "errcode").extract[Int]
-      val errmsg = (json \\ "errmsg").extract[String]
-
-      println(" errcode -> " + errcode)
 
       println(action+" -> " + message)
 
       val responseMsg = "URL -> " + menu_url + " </br></br>  Menu -> " + message 
 
-      if (errcode != 0) {
-        responseMsg + " </br></br> Failed to "+action+" due to " + errmsg
-      } else {
         responseMsg
-      }
+      
 
     } catch {
       case e: Exception => e.printStackTrace(); "";
