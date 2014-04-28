@@ -8,14 +8,11 @@ import wechat7.util.WechatUtils
 
 
 trait WechatController extends WechatAppStack {
-
-  
-
   get("/wechatauth") {
     contentType = "text/html"
     val result = WechatUtils.checkSignature(params)
     println(result)
-
+    result
   }
 
   post("/wechatauth") {
