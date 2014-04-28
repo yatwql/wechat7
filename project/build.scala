@@ -9,7 +9,7 @@ import com.earldouglas.xsbtwebplugin.WebPlugin._
 
 object DragonStudioWebchatAppBuild extends Build {
   val Organization = "com.dragonstudio"
-  val Name = "Dragon Studio Wechat App"
+  val Name = "Dragon Studio Wechat7 App"
     
   val Version = "0.1.0-SNAPSHOT"
   val ScalaVersion = "2.10.3"

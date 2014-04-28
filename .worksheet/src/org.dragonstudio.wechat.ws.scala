@@ -1,4 +1,4 @@
-package org.dragonstudio.wechat
+package wechat7
 
 
 

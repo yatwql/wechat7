@@ -1,8 +1,8 @@
-package org.dragonstudio.wechat
+package wechat7
 import org.json4s._
 import org.json4s.jackson.JsonMethods._
 import java.net._
-import org.dragonstudio.wechat.util._
+import wechat7.util._
 object json {;import org.scalaide.worksheet.runtime.library.WorksheetSupport._; def main(args: Array[String])=$execute{;$skip(205); 
   println("Welcome to the Scala worksheet")
   case class tokenClass(access_token:String,expires_in:String);$skip(104); 

@@ -1,4 +1,4 @@
-<%@ import val page: org.dragonstudio.wechat.persistent.Page %>
+<%@ import val page: wechat7.persistent.Page %>
 
 <div class="row">
     <div class="span6">

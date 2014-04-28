@@ -1,4 +1,4 @@
-package org.dragonstudio.wechat
+package wechat7
 import scala.xml._
 import java.util.Date
 object xml {;import org.scalaide.worksheet.runtime.library.WorksheetSupport._; def main(args: Array[String])=$execute{;$skip(129); 
