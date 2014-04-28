@@ -7,7 +7,7 @@ import wechat7.WechatAppStack
 import wechat7.util.WechatUtils
 
 
-trait WechatController extends WechatAppStack {
+trait WechatController extends WechatAppStack with SlickController {
   get("/wechatauth") {
     contentType = "text/html"
     val result = WechatUtils.checkSignature(params)
@@ -38,7 +38,9 @@ trait WechatController extends WechatAppStack {
 
   def wechatRouter(requestXml: Option[Elem]) {
     contentType = "xml;charset=utf-8"
-    this.write(WechatUtils.getResponse(requestXml))
+    // ssp("/wechat/text","layout" -> "","fromUser" -> "123","toUser" -> "abc", "content"->"ccc", "now" -> 2222)
+     
+    write(WechatUtils.getResponse(requestXml))
   }
   
 

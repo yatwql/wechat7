@@ -1,0 +1,13 @@
+<%@ import val fromUser: String%>
+<%@ import val toUser:String%>
+<%@ import val content:String%>
+<%@ import val now:Int%>
+ 
+<xml>
+        <ToUserName><%=toUser%></ToUserName>
+        <FromUserName><%=fromUser%></FromUserName>
+        <Content><%=content%></Content>
+        <CreateTime><%=now%></CreateTime>
+        <MsgType><![CDATA[text]]></MsgType>
+        <FuncFlag>0</FuncFlag>
+      </xml>

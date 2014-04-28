@@ -23,5 +23,14 @@ object PageDao {
       cabbage beetroot dandelion radicchio.""",
       """Brussels sprout mustard salad jícama grape nori chickpea
       dulse tatsoi. Maize broccoli rabe collard greens jícama wattle
-      seed nori garbanzo epazote coriander mustard."""))
+      seed nori garbanzo epazote coriander mustard."""),
+      Page("create-table",
+      "Arugula prairie turnip desert raisin sierra leone",
+      """Veggies sunt bona vobis, proinde vos postulo esse magis napa
+      cabbage beetroot dandelion radicchio.""",
+      """Brussels sprout mustard salad jícama grape nori chickpea
+      dulse tatsoi. Maize broccoli rabe collard greens jícama wattle
+      seed nori garbanzo epazote coriander mustard.""")
+      
+  )
 }

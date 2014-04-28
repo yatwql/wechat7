@@ -67,7 +67,11 @@ class SlickUtils(override val profile: JdbcProfile = SlickDBDriver.getDriver) ex
       }
     }
   }
-   
+   def insert(message:Message):Unit ={
+         conn.dbObject withSession { implicit session: Session =>
+           messages.insert(message)
+         }
+   }
    def populate: Unit = {
       conn.dbObject withSession { implicit session: Session =>
       // create  table  selected environment

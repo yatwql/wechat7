@@ -1,6 +1,7 @@
 package wechat7.util
 
 import java.io.InputStream
+import wechat7.persistent._
 import java.util.Date
 
 import scala.xml.Elem
@@ -12,6 +13,7 @@ import org.json4s.jvalue2monadic
 import org.json4s.string2JsonInput
 object WechatUtils {
   implicit val formats = DefaultFormats
+   val slick = new SlickUtils
   def checkSignature(params: org.scalatra.Params): String =
     {
       val signature = params.getOrElse("signature", "")
@@ -80,10 +82,10 @@ object WechatUtils {
       val access_token = WechatUtils.getAccess_token
       //val access_token = "Testing"
       println(" access_token -> " + access_token)
-      val menu_create_url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + access_token;
+      val menu_url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + access_token;
       val menu = loadMenuItems
-      println(" Will post to " + menu_create_url)
-      val message = HttpUtils.post(menu_create_url, menu);
+      println(" Will post to " + menu_url)
+      val message = HttpUtils.post(menu_url, menu);
       val json = parse(message)
       val errcode = (json \\ "errcode").extract[Int]
       val errmsg = (json \\ "errmsg").extract[String]
@@ -92,10 +94,40 @@ object WechatUtils {
 
       println(" create menu -> " + menu)
 
-      val responseMsg = "URL -> " + menu_create_url + " </br></br>  Menu -> " + menu 
+      val responseMsg = "URL -> " + menu_url + " </br></br>  Menu -> " + menu 
 
       if (errcode != 0) {
         responseMsg + " </br></br> Failed to create menu due to " + errmsg
+      } else {
+        responseMsg
+      }
+
+    } catch {
+      case e: Exception => e.printStackTrace(); "";
+    }
+  }
+  
+  def getMenu(): String = {
+    try {
+      val access_token = WechatUtils.getAccess_token
+      //val access_token = "Testing"
+      println(" access_token -> " + access_token)
+      val menu_url = "https://api.weixin.qq.com/cgi-bin/menu/get?access_token=" + access_token;
+      val message = HttpUtils.get(menu_url)
+
+     
+      val json = parse(message)
+      val errcode = (json \\ "errcode").extract[Int]
+      val errmsg = (json \\ "errmsg").extract[String]
+
+      println(" errcode -> " + errcode)
+
+      println(" get menu -> " + message)
+
+      val responseMsg = "URL -> " + menu_url + " </br></br>  Menu -> " + message 
+
+      if (errcode != 0) {
+        responseMsg + " </br></br> Failed to get menu due to " + errmsg
       } else {
         responseMsg
       }
@@ -152,6 +184,8 @@ object WechatUtils {
     val msgType = (requestXml.get \ "MsgType").text
 
     val responseContent = " Thanks for your information '" + content + "' with msg type " + msgType
+   
+   // slick.insert(Message(fromUser,toUser,msgType,content,new java.util.Date()))
 
     val message = msgType match {
       case Constants.REQ_MESSAGE_TYPE_TEXT => WechatUtils.getTextMsg(toUser, fromUser, responseContent);

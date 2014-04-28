@@ -7,7 +7,7 @@ import org.specs2.runner.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class WechatControllerSpec  extends ScalatraSpec { def is =
-  "GET / on MyScalatraServlet"                     ^
+  "GET /wechatauth on WechatController"                     ^
     "should return status 200"                  ! auth^
                                                 end
 

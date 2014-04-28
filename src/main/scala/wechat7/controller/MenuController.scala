@@ -8,7 +8,16 @@ trait MenuController  extends WechatAppStack{
   get("/wechat/menu/create") {
     contentType = "text/html"
     println("This is route for create menu")
-    WechatUtils.createMenu()
+    val responseMsg=WechatUtils.createMenu()
+    responseMsg
   }
+  
+   get("/wechat/menu/get") {
+    contentType = "text/html"
+    println("This is route for get menu")
+    val responseMsg=WechatUtils.getMenu()
+    responseMsg
+  }
+
 
 }
