@@ -11,14 +11,14 @@ trait WechatController extends WechatAppStack {
 
   
 
-  get("/wechatauth") {
+  get("/wechat") {
     contentType = "text/html"
     val result = WechatUtils.checkSignature(params)
     println(result)
 
   }
 
-  post("/wechatauth") {
+  post("/wechat") {
 
     println("request body is -> " + request.body)
 
