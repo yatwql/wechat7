@@ -8,7 +8,7 @@ import org.fusesource.scalate.layout.DefaultLayoutStrategy
 import javax.servlet.http.HttpServletRequest
 import collection.mutable
 
-trait WechatAppStack extends ScalatraServlet with ScalateSupport with AtmosphereStack{
+trait WechatAppStack extends ScalatraServlet with ScalateSupport{
 
   /* wire up the precompiled templates */
   override protected def defaultTemplatePath: List[String] = List("/WEB-INF/templates/views")
@@ -25,6 +25,22 @@ trait WechatAppStack extends ScalatraServlet with ScalateSupport with Atmosphere
     super.templateAttributes ++ mutable.Map.empty // Add extra attributes here, they need bindings in the build file
   }
   
+  def write(content:String) {
+    val writer = response.getWriter()
+    try {
+      println(" response.contentType -> "+response.getContentType())
+      println(" Writer content -> "+content)
+      writer.write(content.toString())
+    } catch {
+      case e: Exception =>
+    } finally {
+      writer.close()
+    }
+  }
+  
+  error {
+    case t: Throwable => t.printStackTrace()
+  }
 
   notFound {
     // remove content type in case it was set through an action

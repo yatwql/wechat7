@@ -28,6 +28,12 @@ class SlickUtils(override val profile: JdbcProfile = SlickDBDriver.getDriver) ex
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
+      
+        try {
+        messages.ddl.drop
+      } catch {
+        case ex: Exception => println(ex.getMessage)
+      }
     }
   }
   
@@ -50,6 +56,12 @@ class SlickUtils(override val profile: JdbcProfile = SlickDBDriver.getDriver) ex
       }
        try {
         voteResults.ddl.create
+      } catch {
+        case ex: Exception => println(ex.getMessage)
+      }
+      
+       try {
+        messages.ddl.create
       } catch {
         case ex: Exception => println(ex.getMessage)
       }

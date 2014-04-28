@@ -52,5 +52,18 @@ class VoteResults(tag: Tag) extends Table[VoteResult](tag, "vote_results") {
   def * = (fromUser, voteId, fromLocationX,fromLocationY,id) <> (VoteResult.tupled, VoteResult.unapply)
 }
 val voteResults= TableQuery[VoteResults]
+
+case class Message(fromUser:String,toUser:String,msgType:String, content:String,creationTime:Date,id: Int =0)
+class Messages(tag: Tag) extends Table[Message](tag, "messages") {
+  def id = column[Int]("id", O.PrimaryKey , O.AutoInc)
+  def fromUser = column[String]("fromUser", O.NotNull, O.DBType("VARCHAR(100)"))
+  def toUser = column[String]("toUser", O.NotNull, O.DBType("VARCHAR(100)"))
+  def msgType = column[String]("msgType", O.NotNull, O.DBType("VARCHAR(20)"))
+  def content = column[String]("content", O.Default(""), O.DBType("VARCHAR(1000)"))
+  def creationTime = column[Date]("creationTime", O.Default(new Date( (new java.util.Date()).getTime())), O.DBType("Time"))
+  def * = (fromUser, toUser, msgType,content,creationTime,id) <> (Message.tupled, Message.unapply)
+}
+
+val messages= TableQuery[Messages]
 }
 
