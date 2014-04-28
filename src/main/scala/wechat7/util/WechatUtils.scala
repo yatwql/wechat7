@@ -108,11 +108,21 @@ object WechatUtils {
   }
   
   def getMenu(): String = {
+    val menu_url = "https://api.weixin.qq.com/cgi-bin/menu/get?access_token="
+    visitPageByToken("Get menu",menu_url)
+  }
+  
+   def deleteMenu(): String = {
+    val menu_url = "https://api.weixin.qq.com/cgi-bin/menu/delete?access_token="
+    visitPageByToken("Delete menu",menu_url)
+  }
+  
+  def visitPageByToken(action:String,url:String):String={
     try {
       val access_token = WechatUtils.getAccess_token
-      //val access_token = "Testing"
+   
       println(" access_token -> " + access_token)
-      val menu_url = "https://api.weixin.qq.com/cgi-bin/menu/get?access_token=" + access_token;
+      val menu_url = url+ access_token;
       val message = HttpUtils.get(menu_url)
 
      
@@ -122,12 +132,12 @@ object WechatUtils {
 
       println(" errcode -> " + errcode)
 
-      println(" get menu -> " + message)
+      println(action+" -> " + message)
 
       val responseMsg = "URL -> " + menu_url + " </br></br>  Menu -> " + message 
 
       if (errcode != 0) {
-        responseMsg + " </br></br> Failed to get menu due to " + errmsg
+        responseMsg + " </br></br> Failed to "+action+" due to " + errmsg
       } else {
         responseMsg
       }
