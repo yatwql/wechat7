@@ -5,7 +5,7 @@ import wechat7.util.WechatUtils
 
 trait MenuController  extends WechatAppStack{
   
-  get("/menu/create") {
+  get("/wechat/menu/create") {
     contentType = "text/html"
     println("This is route for create menu")
     WechatUtils.createMenu()

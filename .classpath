@@ -17,7 +17,7 @@
 	<classpathentry kind="lib" path="/Users/wang/.ivy2/cache/joda-time/joda-time/jars/joda-time-2.2.jar"/>
 	<classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.joda/joda-convert/jars/joda-convert-1.2.jar"/>
 	<classpathentry kind="lib" path="/Users/wang/.ivy2/cache/com.typesafe.akka/akka-actor_2.10/bundles/akka-actor_2.10-2.1.2.jar"/>
-	<classpathentry kind="lib" path="/Users/wang/.ivy2/cache/com.typesafe/config/bundles/config-1.0.0.jar"/>
+	<classpathentry kind="lib" path="/Users/wang/.ivy2/cache/com.typesafe/config/bundles/config-1.2.0.jar"/>
 	<classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.scalatra/scalatra-scalate_2.10/jars/scalatra-scalate_2.10-2.2.2.jar"/>
 	<classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.fusesource.scalate/scalate-core_2.10/bundles/scalate-core_2.10-1.6.1.jar"/>
 	<classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.fusesource.scalate/scalate-util_2.10/bundles/scalate-util_2.10-1.6.1.jar"/>
@@ -66,6 +66,7 @@
 	<classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.specs2/specs2-scalaz-concurrent_2.10/jars/specs2-scalaz-concurrent_2.10-7.0.0.jar"/>
 	<classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.specs2/scalaz-effect_2.10/jars/scalaz-effect_2.10-7.0.0.jar"/>
 	<classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.specs2/scalaz-core_2.10/jars/scalaz-core_2.10-7.0.0.jar"/>
+	<classpathentry kind="lib" path="/Users/wang/.ivy2/cache/junit/junit/jars/junit-4.8.1.jar"/>
 	<classpathentry kind="lib" path="/Users/wang/.ivy2/cache/org.eclipse.jetty/jetty-websocket/jars/jetty-websocket-8.1.10.v20130312.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>

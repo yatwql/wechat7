@@ -44,7 +44,8 @@ object DragonStudioWebchatAppBuild extends Build {
          "c3p0" % "c3p0" % "0.9.1.2",
          "com.typesafe" % "config" % "1.2.0",
         "org.slf4j" % "slf4j-nop" % "1.6.4",
-        "com.h2database" % "h2" % "1.3.166"
+        "com.h2database" % "h2" % "1.3.166",
+        "junit" % "junit" % "4.8.1" % "test"
       ),
       
       scalateTemplateConfig in Compile <<= (sourceDirectory in Compile){ base =>

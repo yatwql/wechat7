@@ -29,13 +29,7 @@ trait ChatRoomController extends WechatAppStack with AtmosphereStack {
     contentType = "text/html"
     ssp("/pages/chat")
   }
-  get("/pages/:slug") {
-    contentType = "text/html"
-    PageDao.pages find (_.slug == params("slug")) match {
-      case Some(page) => ssp("/pages/show", "page" -> page)
-      case None => halt(404, "Can not locate the page - " + params("slug"))
-    }
-  }
+ 
 
   atmosphere("/the-chat") {
     new AtmosphereClient {
