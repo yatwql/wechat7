@@ -153,27 +153,14 @@ object WechatUtils {
   }
 
   def getNewsMsg(fromUser: String, toUser: String, content: String): String = {
-    val now = new Date().getTime()
-    val message =
-      <xml>
-        <ToUserName>{ toUser }</ToUserName>
-        <FromUserName>{ fromUser }</FromUserName>
-        <Content>{ content }</Content>
-        <CreateTime>{ now }</CreateTime>
-        <MsgType><![CDATA[news]]></MsgType>
-        <ArticleCount>1</ArticleCount>
-        <Articles>
-          <item>
-            <Title>Here is news</Title>
-            <Description>I love redwine</Description>
-            <PicUrl>http://www.cnyangjiu.com/html/UploadFiles/201051975110330.jpg</PicUrl>
-            <Url>http://www.dianping.com/shop/17180808/photos</Url>
-          </item>
-        </Articles>
-        <FuncFlag>0</FuncFlag>
-      </xml>
-
-    message.toString
+    val item = <item>
+                 <Title>Here is news</Title>
+                 <Description>I love redwine</Description>
+                 <PicUrl>http://www.cnyangjiu.com/html/UploadFiles/201051975110330.jpg</PicUrl>
+                 <Url>http://www.dianping.com/shop/17180808/photos</Url>
+               </item>
+    val items = Seq(item)
+    getNewsMsg(fromUser, toUser, content, items)
 
   }
 
@@ -194,7 +181,7 @@ object WechatUtils {
       </xml>
 
     val message = XmlUtils.addChildren(oldXML, "Articles", items)
-//println(message.toString().length())
+    //println(message.toString().length())
     message.toString
   }
 

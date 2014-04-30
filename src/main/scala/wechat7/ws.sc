@@ -26,7 +26,16 @@ object ws {
 
   md.digest(tmpStr.getBytes("UTF-8")).map("%02x".format(_)).mkString
                                                   //> res0: String = 1ed54a688723d48dd90e745d595f76710f3e177f
+  
+val name :String = "news33"                       //> name  : String = news33
 
- 
+val Pattern = "news(\\d+)".r                      //> Pattern  : scala.util.matching.Regex = news(\d+)
 
+  name match {
+    case "name" => println("PK")
+    case Pattern(amount) => println(s"The amount is $amount")
+    case _ => println(name)
+  }                                               //> The amount is 33
+
+  println("ccc")                                  //> ccc
 }
