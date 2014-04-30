@@ -59,7 +59,7 @@ class Messages(tag: Tag) extends Table[Message](tag, "messages") {
   def fromUser = column[String]("fromUser", O.NotNull, O.DBType("VARCHAR(100)"))
   def toUser = column[String]("toUser", O.NotNull, O.DBType("VARCHAR(100)"))
   def msgType = column[String]("msgType", O.NotNull, O.DBType("VARCHAR(20)"))
-  def content = column[String]("content", O.Default(""), O.DBType("VARCHAR(1000)"))
+  def content = column[String]("content", O.Default(""), O.DBType("VARCHAR(10000)"))
   def creationTime = column[java.sql.Timestamp]("creationTime", O.Default(new java.sql.Timestamp(new java.util.Date().getTime())), O.DBType("Timestamp"))
   def * = (fromUser, toUser, msgType,content,creationTime,id) <> (Message.tupled, Message.unapply)
 }

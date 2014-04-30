@@ -1,7 +1,7 @@
 package wechat7.routing
 import wechat7.util._
 class TextRouter extends Router {
-  override def responseImpl(fromUser: String, appUserId: String, msgType: String, requestContent: String): String = {
+  override def responseImpl(fromUser: String, appUserId: String, msgType: String, requestXmlContent:String,requestContent: String): String = {
     val Pattern = "(\\d+)".r
     requestContent match {
       case "news" => {

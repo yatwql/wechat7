@@ -11,21 +11,22 @@ class Router(override val profile: JdbcProfile = SlickDBDriver.getDriver) extend
   
   
 
-  def response(fromUser: String, appUserId: String, msgType: String, requestContent: String): String = {
+  def response(fromUser: String, appUserId: String, msgType: String, requestXmlContent:String,requestContent: String): String = {
   
-   savedb(fromUser, appUserId, msgType, requestContent)
-     responseImpl(fromUser, appUserId, msgType, requestContent)
-   
+   savedb(fromUser, appUserId, msgType, requestXmlContent)
+     val responseContent=responseImpl(fromUser, appUserId, msgType, requestXmlContent,requestContent)
+     savedb(appUserId,fromUser,msgType,responseContent)
+   responseContent.toString()
   }
   
-  def responseImpl(fromUser: String, appUserId: String, msgType: String, requestContent: String): String = {
+  def responseImpl(fromUser: String, appUserId: String, msgType: String, requestXmlContent:String,requestContent: String): String = {
      val responseContent = " Thanks for your information '" + requestContent + "' with msg type " + msgType
     WechatUtils.getTextMsg(appUserId, fromUser, responseContent);
   }
   
-  def savedb(fromUser: String, appUserId: String, msgType: String, requestContent: String): Unit = {
+  def savedb(fromUser: String, appUserId: String, msgType: String, requestXmlContent: String): Unit = {
       conn.dbObject withSession { implicit session: Session =>
-      messages.insert(Message(fromUser, appUserId, msgType, requestContent))
+      messages.insert(Message(fromUser, appUserId, msgType, requestXmlContent))
     }
   }
 
@@ -37,6 +38,7 @@ object Rounter {
     val fromUser = (requestXml.get \ "FromUserName").text
     val requestContent = (requestXml.get \ "Content").text
     val msgType = (requestXml.get \ "MsgType").text
+    val requestXmlContent=requestXml.toString
 
     val rounter: Router =
       msgType match {
@@ -51,7 +53,7 @@ object Rounter {
       }
 
     println("Get Message Type  " + msgType + " from user " + fromUser)
-    rounter.response(fromUser, appUserId, msgType, requestContent)
+    rounter.response(fromUser, appUserId, msgType, requestXmlContent,requestContent)
 
   }
 }
