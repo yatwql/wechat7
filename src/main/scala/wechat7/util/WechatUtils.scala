@@ -4,7 +4,7 @@ import java.io.InputStream
 import wechat7.persistent._
 import java.util.Date
 
-import scala.xml.Elem
+import scala.xml._
 
 import org.json4s.DefaultFormats
 import org.json4s.jackson.JsonMethods.parse
@@ -13,7 +13,7 @@ import org.json4s.jvalue2monadic
 import org.json4s.string2JsonInput
 object WechatUtils {
   implicit val formats = DefaultFormats
-   val slick = new SlickUtils
+  val slick = new SlickUtils
   def checkSignature(params: org.scalatra.Params): String =
     {
       val signature = params.getOrElse("signature", "")
@@ -94,7 +94,7 @@ object WechatUtils {
 
       println(" create menu -> " + menu)
 
-      val responseMsg = "URL -> " + menu_url + " </br></br>  Menu -> " + menu 
+      val responseMsg = "URL -> " + menu_url + " </br></br>  Menu -> " + menu
 
       if (errcode != 0) {
         responseMsg + " </br></br> Failed to create menu due to " + errmsg
@@ -106,32 +106,31 @@ object WechatUtils {
       case e: Exception => e.printStackTrace(); "";
     }
   }
-  
+
   def getMenu(): String = {
     val menu_url = "https://api.weixin.qq.com/cgi-bin/menu/get?access_token="
-    visitPageByToken("Get menu",menu_url)
+    visitPageByToken("Get menu", menu_url)
   }
-  
-   def deleteMenu(): String = {
+
+  def deleteMenu(): String = {
     val menu_url = "https://api.weixin.qq.com/cgi-bin/menu/delete?access_token="
-    visitPageByToken("Delete menu",menu_url)
+    visitPageByToken("Delete menu", menu_url)
   }
-  
-  def visitPageByToken(action:String,url:String):String={
+
+  def visitPageByToken(action: String, url: String): String = {
     try {
       val access_token = WechatUtils.getAccess_token
-   
+
       println(" access_token -> " + access_token)
-      val menu_url = url+ access_token;
-      println(" menu ul -> "+menu_url)
+      val menu_url = url + access_token;
+      println(" menu ul -> " + menu_url)
       val message = HttpUtils.get(menu_url)
 
-      println(action+" -> " + message)
+      println(action + " -> " + message)
 
-      val responseMsg = "URL -> " + menu_url + " </br></br>  Menu -> " + message 
+      val responseMsg = "URL -> " + menu_url + " </br></br>  Menu -> " + message
 
-        responseMsg
-      
+      responseMsg
 
     } catch {
       case e: Exception => e.printStackTrace(); "";
@@ -173,9 +172,30 @@ object WechatUtils {
         </Articles>
         <FuncFlag>0</FuncFlag>
       </xml>
+
     message.toString
 
   }
-  
- 
+
+  def getNewsMsg(fromUser: String, toUser: String, content: String, items: Seq[Node]): String = {
+
+    val now = new Date().getTime()
+    val oldXML =
+      <xml>
+        <ToUserName>{ toUser }</ToUserName>
+        <FromUserName>{ fromUser }</FromUserName>
+        <Content>{ content }</Content>
+        <CreateTime>{ now }</CreateTime>
+        <MsgType><![CDATA[news]]></MsgType>
+        <ArticleCount>{ items.size }</ArticleCount>
+        <Articles>
+        </Articles>
+        <FuncFlag>0</FuncFlag>
+      </xml>
+
+    val message = XmlUtils.addChildren(oldXML, "Articles", items)
+//println(message.toString().length())
+    message.toString
+  }
+
 }

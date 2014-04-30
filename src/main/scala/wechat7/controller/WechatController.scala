@@ -43,6 +43,19 @@ trait WechatController extends WechatAppStack with SlickController {
     contentType = "xml;charset=utf-8"
     wechatRouter(Some(requestXml))
   }
+  
+    get("/test/news/:slug") {
+    val slug =params("slug")
+   
+    val requestXml = <xml>
+                       <ToUserName><![CDATA[gh_c2bb951675bb]]></ToUserName>
+                       <Content>news{slug}</Content>
+                       <FromUserName><![CDATA[oIySzjrizSaAyqnlB57ggb0j2WNc]]></FromUserName>
+                       <MsgType><![CDATA[text]]></MsgType>
+                     </xml>
+    contentType = "xml;charset=utf-8"
+    wechatRouter(Some(requestXml))
+  }
 
   def wechatRouter(requestXml: Option[Elem]) {
     contentType = "xml;charset=utf-8"

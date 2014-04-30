@@ -1,6 +1,8 @@
 package wechat7
 import scala.xml._
 import java.util.Date
+import wechat7.util._
+import scala.xml.transform._
 object xml {
   println("Welcome to the Scala worksheet")       //> Welcome to the Scala worksheet
   val books = """<books>
@@ -82,7 +84,7 @@ object xml {
   val toUser = (wxl \ "ToUserName").text          //> toUser  : String = gh_c2bb951675bb
   val fromUser = (wxl \ "FromUserName").text      //> fromUser  : String = oIySzjrizSaAyqnlB57ggb0j2WNc
 
-  val now = new Date().getTime()                  //> now  : Long = 1398002701397
+  val now = new Date().getTime()                  //> now  : Long = 1398877226913
 
   val response =
     <xml>
@@ -90,13 +92,117 @@ object xml {
       <FromUserName>{ toUser }</FromUserName>
       <Content><![CDATA[ccc]]></Content>
       <CreateTime>{ now }</CreateTime>
+      <articles></articles>
       <MsgType><![CDATA[text]]></MsgType>
     </xml>                                        //> response  : scala.xml.Elem = <xml>
                                                   //|       <ToUserName>oIySzjrizSaAyqnlB57ggb0j2WNc</ToUserName>
                                                   //|       <FromUserName>gh_c2bb951675bb</FromUserName>
                                                   //|       <Content>ccc</Content>
-                                                  //|       <CreateTime>1398002701397</CreateTime>
+                                                  //|       <CreateTime>1398877226913</CreateTime>
+                                                  //|       <articles></articles>
                                                   //|       <MsgType>text</MsgType>
                                                   //|     </xml>
 
+  (response \\ "FromUserName").text               //> res0: String = gh_c2bb951675bb
+
+  val i1 = <item>cc1 </item>                      //> i1  : scala.xml.Elem = <item>cc1 </item>
+  val i2 = <item> lsdkjf22</item>                 //> i2  : scala.xml.Elem = <item> lsdkjf22</item>
+
+  val items = Seq(i1, i2)                         //> items  : Seq[scala.xml.Elem] = List(<item>cc1 </item>, <item> lsdkjf22</ite
+                                                  //| m>)
+
+
+  val dd = XmlUtils.addChildren(response, "articles", items)
+                                                  //> List(<xml>
+                                                  //|       <ToUserName>oIySzjrizSaAyqnlB57ggb0j2WNc</ToUserName>
+                                                  //|       <FromUserName>gh_c2bb951675bb</FromUserName>
+                                                  //|       <Content>ccc</Content>
+                                                  //|       <CreateTime>1398877226913</CreateTime>
+                                                  //|       <articles></articles>
+                                                  //|       <MsgType>text</MsgType>
+                                                  //|     </xml>, <item>cc1 </item>, <item> lsdkjf22</item>)
+                                                  //| dd  : scala.xml.Node = <xml>
+                                                  //|       <ToUserName>oIySzjrizSaAyqnlB57ggb0j2WNc</ToUserName>
+                                                  //|       <FromUserName>gh_c2bb951675bb</FromUserName>
+                                                  //|       <Content>ccc</Content>
+                                                  //|       <CreateTime>1398877226913</CreateTime>
+                                                  //|       <articles><item>cc1 </item><item> lsdkjf22</item></articles>
+                                                  //|       <MsgType>text</MsgType>
+                                                  //|     </xml>
+                                                  
+  val m=WechatUtils.getNewsMsg("a", "b", "c", items)
+                                                  //> SLF4J: Class path contains multiple SLF4J bindings.
+                                                  //| SLF4J: Found binding in [jar:file:/Users/wang/.ivy2/cache/org.slf4j/slf4j-n
+                                                  //| op/jars/slf4j-nop-1.6.4.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+                                                  //| SLF4J: Found binding in [jar:file:/Users/wang/.ivy2/cache/ch.qos.logback/lo
+                                                  //| gback-classic/jars/logback-classic-1.0.6.jar!/org/slf4j/impl/StaticLoggerBi
+                                                  //| nder.class]
+                                                  //| SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explana
+                                                  //| tion.
+                                                  //| SLF4J: Actual binding is of type [org.slf4j.helpers.NOPLoggerFactory]
+                                                  //| List(<xml>
+                                                  //|         <ToUserName>b</ToUserName>
+                                                  //|         <FromUserName>a</FromUserName>
+                                                  //|         <Content>c</Content>
+                                                  //|         <CreateTime>1398877227352</CreateTime>
+                                                  //|         <MsgType>news</MsgType>
+                                                  //|         <ArticleCount>2</ArticleCount>
+                                                  //|         <Articles>
+                                                  //|         </Articles>
+                                                  //|         <FuncFlag>0</FuncFlag>
+                                                  //|       </xml>, <item>cc1 </item>, <item> lsdkjf22</item>)
+                                                  //| 348
+                                                  //| m  : String =
+                                                  //| Output exceeds cutoff limit.
+                       
+                       
+                                           
+                                               
+    val oldXML =
+      <xml>
+        <ToUserName>a</ToUserName>
+        <FromUserName>b</FromUserName>
+        <Content>c</Content>
+        <CreateTime>now</CreateTime>
+        <MsgType><![CDATA[news]]></MsgType>
+        <ArticleCount>2</ArticleCount>
+        <Articles>
+        </Articles>
+        <FuncFlag>0</FuncFlag>
+      </xml>                                      //> oldXML  : scala.xml.Elem = <xml>
+                                                  //|         <ToUserName>a</ToUserName>
+                                                  //|         <FromUserName>b</FromUserName>
+                                                  //|         <Content>c</Content>
+                                                  //|         <CreateTime>now</CreateTime>
+                                                  //|         <MsgType>news</MsgType>
+                                                  //|         <ArticleCount>2</ArticleCount>
+                                                  //|         <Articles>
+                                                  //|         </Articles>
+                                                  //|         <FuncFlag>0</FuncFlag>
+                                                  //|       </xml>
+
+    val message = XmlUtils.addChildren(oldXML, "Articles", items)
+                                                  //> List(<xml>
+                                                  //|         <ToUserName>a</ToUserName>
+                                                  //|         <FromUserName>b</FromUserName>
+                                                  //|         <Content>c</Content>
+                                                  //|         <CreateTime>now</CreateTime>
+                                                  //|         <MsgType>news</MsgType>
+                                                  //|         <ArticleCount>2</ArticleCount>
+                                                  //|         <Articles>
+                                                  //|         </Articles>
+                                                  //|         <FuncFlag>0</FuncFlag>
+                                                  //|       </xml>, <item>cc1 </item>, <item> lsdkjf22</item>)
+                                                  //| message  : scala.xml.Node = <xml>
+                                                  //|         <ToUserName>a</ToUserName>
+                                                  //|         <FromUserName>b</FromUserName>
+                                                  //|         <Content>c</Content>
+                                                  //|         <CreateTime>now</CreateTime>
+                                                  //|         <MsgType>news</MsgType>
+                                                  //|         <ArticleCount>2</ArticleCount>
+                                                  //|         <Articles>
+                                                  //|         <item>cc1 </item><item> lsdkjf22</item></Articles>
+                                                  //|         <FuncFlag>0</FuncFlag>
+                                                  //|       </xml>
+                                                  
 }
