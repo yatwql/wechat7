@@ -23,7 +23,6 @@ trait WechatController extends WechatAppStack with SlickController {
   post("/wechatauth") {
     println("request body is -> " + request.body)
     val requestXml = XML.loadString(request.body)
-    // write(Rounter.response(Some(requestXml)))
     wechatRouter(Some(requestXml))
   }
   

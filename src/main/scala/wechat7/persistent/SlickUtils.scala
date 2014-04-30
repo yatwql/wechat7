@@ -96,6 +96,17 @@ class SlickUtils(override val profile: JdbcProfile = SlickDBDriver.getDriver) ex
     createTables
     populate
   }
+  
+  def test:Unit ={
+     conn.dbObject withSession { implicit session: Session =>
+     
+       try {
+        messages.ddl.create
+      } catch {
+        case ex: Exception => println(ex.getMessage)
+      }
+    }
+  }
 }
 object SlickUtilsApp extends App {
   (new SlickUtils).flush
