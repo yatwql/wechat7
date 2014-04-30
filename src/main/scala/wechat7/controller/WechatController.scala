@@ -1,6 +1,7 @@
 package wechat7.controller
 
 import scala.xml.Elem
+import wechat7.routing._
 import scala.xml.XML
 
 import wechat7.WechatAppStack
@@ -14,16 +15,22 @@ trait WechatController extends WechatAppStack with SlickController {
     println(result)
     result
   }
+  
+  get("/wechat"){
+    redirect("/wechatauth")
+  }
 
   post("/wechatauth") {
-
     println("request body is -> " + request.body)
-
     val requestXml = XML.loadString(request.body)
     wechatRouter(Some(requestXml))
   }
+  
+   post("/wechat"){
+    redirect("/wechatauth")
+  }
 
-  get("/test") {
+  get("/test/text") {
     val requestXml = <xml>
                        <ToUserName><![CDATA[gh_c2bb951675bb]]></ToUserName>
                        <Content><![CDATA[To test the function 您好]]></Content>
@@ -40,7 +47,7 @@ trait WechatController extends WechatAppStack with SlickController {
     contentType = "xml;charset=utf-8"
     // ssp("/wechat/text","layout" -> "","fromUser" -> "123","toUser" -> "abc", "content"->"ccc", "now" -> 2222)
      
-    write(WechatUtils.getResponse(requestXml))
+    write(Rounter.response(requestXml))
   }
   
 

@@ -7,7 +7,7 @@ import org.fusesource.scalate.TemplateEngine
 import org.fusesource.scalate.layout.DefaultLayoutStrategy
 import javax.servlet.http.HttpServletRequest
 import collection.mutable
-
+//(override val profile: JdbcProfile = SlickDBDriver.getDriver) extends DomainComponent with Profile {
 trait WechatAppStack extends ScalatraServlet with ScalateSupport{
 
   /* wire up the precompiled templates */
