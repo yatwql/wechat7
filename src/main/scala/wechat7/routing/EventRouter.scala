@@ -1,16 +1,18 @@
 package wechat7.routing
-import wechat7.util._
+
 import scala.xml._
+
+import wechat7.util._
 class EventRouter extends Router {
   override def responseImpl(fromUser: String, appUserId: String, msgType: String,requestXml:  Option[Elem], requestContent: String): Node = {
-   
+     import wechat7.util.Constants
     val event= (requestXml.get \ "Event").text
-     val responseContent = " Thanks for your information '" + requestContent + "' this is news for event "+event
+     val responseContent = " I love redwine for '" + requestContent + "' and event "+event
      
      event match {
-      case "subscribe" => {
+      case Constants.EVT_TYP_SUBSCRIBE => {
          val item1 = <item>
-                      <Title>Welcome you to subscript my account - {fromUser}</Title>
+                      <Title>Welcome you - {fromUser}</Title>
                       <Description>I love redwine</Description>
                       <PicUrl>http://www.cnyangjiu.com/html/UploadFiles/201051975110330.jpg</PicUrl>
                       <Url>http://www.dianping.com/shop/17180808/photos</Url>
@@ -18,12 +20,12 @@ class EventRouter extends Router {
 
 
         val items = Seq(item1)
-        WechatUtils.getNewsMsg(appUserId, fromUser, "subscript news", items)
+        WechatUtils.getNewsMsg(appUserId, fromUser,  items)
        
         }
-      case "unsubscribe" => {
+      case Constants.EVT_TYP_UNSUBSCRIBE => {
          val item1 = <item>
-                      <Title>It's a pity that you leave me alone- {fromUser}</Title>
+                      <Title>bye bye- {fromUser}</Title>
                       <Description>I love redwine</Description>
                       <PicUrl>http://www.cnyangjiu.com/html/UploadFiles/201051975110330.jpg</PicUrl>
                       <Url>http://www.dianping.com/shop/17180808/photos</Url>
@@ -31,14 +33,14 @@ class EventRouter extends Router {
 
 
         val items = Seq(item1)
-        WechatUtils.getNewsMsg(appUserId, fromUser, "subscript news", items)
+        WechatUtils.getNewsMsg(appUserId, fromUser,  items)
        
         }
-      case "SCAN" =>WechatUtils.getNewsMsg(appUserId, fromUser, responseContent);
-      case "LOCATION" =>WechatUtils.getNewsMsg(appUserId, fromUser, responseContent);
-      case "CLICK" =>WechatUtils.getNewsMsg(appUserId, fromUser, responseContent);
-      case "VIEW" =>WechatUtils.getNewsMsg(appUserId, fromUser, responseContent);
-      case _ =>WechatUtils.getNewsMsg(appUserId, fromUser, responseContent);
+      case Constants.EVT_TYP_SCAN =>WechatUtils.getNewsMsg(appUserId, fromUser, "Hello world ",responseContent,Constants.REDWINE_PIC,Constants.SHOP_AT_DIANPING);
+      case Constants.EVT_TYP_LOCATION =>WechatUtils.getNewsMsg(appUserId, fromUser, "Hello world ",responseContent,Constants.REDWINE_PIC,Constants.SHOP_AT_DIANPING);
+      case Constants.EVT_TYP_CLICK =>WechatUtils.getNewsMsg(appUserId, fromUser, "Hello world ",responseContent,Constants.REDWINE_PIC,Constants.SHOP_AT_DIANPING);
+      case Constants.EVT_TYP_VIEW =>WechatUtils.getNewsMsg(appUserId, fromUser, "Hello world ",responseContent,Constants.REDWINE_PIC,Constants.SHOP_AT_DIANPING);
+      case _ =>WechatUtils.getNewsMsg(appUserId, fromUser, "Hello world ",responseContent,Constants.REDWINE_PIC,Constants.SHOP_AT_DIANPING);
     }
     
   }

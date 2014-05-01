@@ -152,26 +152,25 @@ object WechatUtils {
 
   }
 
-  def getNewsMsg(fromUser: String, toUser: String, content: String): Node = {
+  def getNewsMsg(fromUser: String, toUser: String, title:String,content: String,picUrl:String,url:String): Node = {
     val item = <item>
-                 <Title>Here is news</Title>
-                 <Description>I love redwine</Description>
-                 <PicUrl>http://www.cnyangjiu.com/html/UploadFiles/201051975110330.jpg</PicUrl>
-                 <Url>http://www.dianping.com/shop/17180808/photos</Url>
+                 <Title>{title}</Title>
+                 <Description>{content }</Description>
+                 <PicUrl>{picUrl}</PicUrl>
+                 <Url>{url}</Url>
                </item>
     val items = Seq(item)
-    getNewsMsg(fromUser, toUser, content, items)
+    getNewsMsg(fromUser, toUser,  items)
 
   }
 
-  def getNewsMsg(fromUser: String, toUser: String, content: String, items: Seq[Node]): Node = {
+  def getNewsMsg(fromUser: String, toUser: String, items: Seq[Node]): Node = {
 
     val now = new Date().getTime()
     val oldXML =
       <xml>
         <ToUserName>{ toUser }</ToUserName>
         <FromUserName>{ fromUser }</FromUserName>
-        <Content>{ content }</Content>
         <CreateTime>{ now }</CreateTime>
         <MsgType><![CDATA[news]]></MsgType>
         <ArticleCount>{ items.size }</ArticleCount>

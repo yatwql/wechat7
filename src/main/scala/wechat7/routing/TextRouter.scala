@@ -7,7 +7,7 @@ class TextRouter extends Router {
     requestContent match {
       case "news" => {
         val item1 = <item>
-                      <Title>Here is news 1</Title>
+                      <Title>Here is news</Title>
                       <Description>I love redwine</Description>
                       <PicUrl>http://www.cnyangjiu.com/html/UploadFiles/201051975110330.jpg</PicUrl>
                       <Url>http://www.dianping.com/shop/17180808/photos</Url>
@@ -15,7 +15,7 @@ class TextRouter extends Router {
 
 
         val items = Seq(item1)
-        WechatUtils.getNewsMsg(appUserId, fromUser, "PK news", items)
+        WechatUtils.getNewsMsg(appUserId, fromUser, items)
       }
       case Pattern(s) => {
         val item = <item>
@@ -26,7 +26,7 @@ class TextRouter extends Router {
                    </item>
         val items = Seq(item,item,item)
        
-        WechatUtils.getNewsMsg(appUserId, fromUser, "PK news "+s, items)
+        WechatUtils.getNewsMsg(appUserId, fromUser,  items)
       }
 
       case _ => {

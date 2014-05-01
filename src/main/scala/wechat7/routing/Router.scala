@@ -43,13 +43,13 @@ object Rounter {
 
     val rounter: Router =
       msgType match {
-        case Constants.REQ_MESSAGE_TYPE_TEXT => new TextRouter
-        case Constants.REQ_MESSAGE_TYPE_IMAGE => new ImageRouter
-        case Constants.REQ_MESSAGE_TYPE_VOICE => new VoiceRouter
-        case Constants.REQ_MESSAGE_TYPE_VIDEO => new VideoRouter
-        case Constants.REQ_MESSAGE_TYPE_LOCATION => new LocationRouter
-        case Constants.REQ_MESSAGE_TYPE_LINK => new LinkRouter
-        case Constants.REQ_MESSAGE_TYPE_EVENT => new EventRouter
+        case Constants.REQ_MSG_TYP_TEXT => new TextRouter
+        case Constants.REQ_MSG_TYP_IMAGE => new ImageRouter
+        case Constants.REQ_MSG_TYP_VOICE => new VoiceRouter
+        case Constants.REQ_MSG_TYP_VIDEO => new VideoRouter
+        case Constants.REQ_MSG_TYP_LOCATION => new LocationRouter
+        case Constants.REQ_MSG_TYP_LINK => new LinkRouter
+        case Constants.REQ_MSG_TYP_EVENT => new EventRouter
         case _ => new DefaultRouter
       }
 
