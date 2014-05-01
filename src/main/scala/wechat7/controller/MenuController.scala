@@ -7,7 +7,7 @@ import org.scalatra.servlet.FileUploadSupport
 import org.scalatra.ScalatraServlet
 import org.scalatra.servlet.FileItem
 
-@MultipartConfig(maxFileSize=10240)
+@MultipartConfig(maxFileSize=10240,location="src/main/resources/")
 trait MenuController extends WechatAppStack with FileUploadSupport{
   self: ScalatraServlet =>
  
@@ -53,9 +53,10 @@ trait MenuController extends WechatAppStack with FileUploadSupport{
   
 post("/wechat/menu/update") {
   val item: FileItem = fileParams.get("document").getOrElse(halt(500))
-  val mediaBase = "src/main/resources/"
+  val mediaBase = "media"
   val uuid = java.util.UUID.randomUUID()
-  val targetFile = "%s/%s".format(mediaBase, uuid)
+  val tm = "menu22.json"
+  val targetFile = "%s/%s".format(mediaBase, tm)
   item.write(targetFile)
   <html>
     <head>
@@ -65,7 +66,7 @@ post("/wechat/menu/update") {
       <p>Name: {item.name}</p>
       <p>content type: {item.contentType.getOrElse("unknown")}</p>
       <p>Size: {item.size}</p>
-      <p>Saved to: {uuid}</p>
+      <p>Saved to: {targetFile}</p>
     </body>
   </html>
 
