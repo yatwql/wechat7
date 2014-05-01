@@ -2,8 +2,8 @@ package wechat7.routing
 import wechat7.util._
 import scala.xml._
 class TextRouter extends Router {
-  override def responseImpl(fromUser: String, appUserId: String, msgType: String, requestXml:  Option[Elem],requestContent: String): Node = {
-    val nickname =getNickname(fromUser).get
+  override def responseImpl(openId: String, appUserId: String, msgType: String, requestXml:  Option[Elem],requestContent: String): Node = {
+    val nickname =getNickname(openId).get
     val Pattern = "(\\d+)".r
     requestContent match {
       case "news" => {
@@ -16,7 +16,7 @@ class TextRouter extends Router {
 
 
         val items = Seq(item1)
-        WechatUtils.getNewsMsg(appUserId, fromUser, items)
+        WechatUtils.getNewsMsg(appUserId, openId, items)
       }
       case Pattern(s) => {
         val item = <item>
@@ -27,12 +27,12 @@ class TextRouter extends Router {
                    </item>
         val items = Seq(item,item,item)
        
-        WechatUtils.getNewsMsg(appUserId, fromUser,  items)
+        WechatUtils.getNewsMsg(appUserId, openId,  items)
       }
 
       case _ => {
         val responseContent = nickname+" say '" + requestContent + "'  " 
-        WechatUtils.getTextMsg(appUserId, fromUser, responseContent)
+        WechatUtils.getTextMsg(appUserId, openId, responseContent)
       }
     }
   }

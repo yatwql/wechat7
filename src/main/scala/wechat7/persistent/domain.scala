@@ -53,14 +53,15 @@ trait DomainComponent { this: Profile =>
   
   tables + ("voteTopics" -> voteTopics)
 
-  case class VoteResult(fromUser: String, voteId: Int, fromLocationX: String = "", fromLocationY: String = "", id: Int = 0)
+  case class VoteResult(openId: String, voteId: Int, option:String,fromLocationX: String = "", fromLocationY: String = "", id: Int = 0)
   class VoteResults(tag: Tag) extends Table[VoteResult](tag, "vote_results") {
     def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
-    def fromUser = column[String]("fromUser", O.NotNull, O.DBType("VARCHAR(100)"))
+    def openId = column[String]("openId", O.NotNull, O.DBType("VARCHAR(100)"))
     def voteId = column[Int]("voteId", O.NotNull)
+     def option = column[String]("option", O.NotNull)
     def fromLocationX = column[String]("fromLocationX", O.Default(""), O.DBType("VARCHAR(100)"))
     def fromLocationY = column[String]("fromLocationY", O.Default(""), O.DBType("VARCHAR(100)"))
-    def * = (fromUser, voteId, fromLocationX, fromLocationY, id) <> (VoteResult.tupled, VoteResult.unapply)
+    def * = (openId, voteId, option,fromLocationX, fromLocationY, id) <> (VoteResult.tupled, VoteResult.unapply)
   }
   val voteResults = TableQuery[VoteResults]
   

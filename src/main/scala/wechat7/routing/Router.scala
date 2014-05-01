@@ -5,27 +5,27 @@ import scala.slick.driver.JdbcProfile
 import wechat7.persistent._
 
 import scala.xml._
-class Router extends SlickRepo  {
+class Router extends SlickRepo with UserRepo with VoteRepo {
  import profile.simple._
 
   def response(requestXml: Option[Elem]): Node = {
     val appUserId = (requestXml.get \ "ToUserName").text
-    val fromUser = (requestXml.get \ "FromUserName").text
+    val openId = (requestXml.get \ "FromUserName").text
     val requestContent = (requestXml.get \ "Content").text
     val msgType = (requestXml.get \ "MsgType").text
     val requestXmlContent = requestXml.toString
-    println("Get Message Type  " + msgType + " from user " + fromUser)
-    audit(fromUser, appUserId, msgType, requestXmlContent)
-    val responseXml = responseImpl(fromUser, appUserId, msgType, requestXml, requestContent)
+    println("Get Message Type  " + msgType + " from user " + openId)
+    audit(openId, appUserId, msgType, requestXmlContent)
+    val responseXml = responseImpl(openId, appUserId, msgType, requestXml, requestContent)
     val responseContent=responseXml.toString()
     val responseMsgType=(responseXml \\ "MsgType").text
-    audit(appUserId, fromUser, responseMsgType, responseContent)
+    audit(appUserId, openId, responseMsgType, responseContent)
     responseXml
   }
 
-  def responseImpl(fromUser: String, appUserId: String, msgType: String, requestXml:  Option[Elem], requestContent: String): Node = {
+  def responseImpl(openId: String, appUserId: String, msgType: String, requestXml:  Option[Elem], requestContent: String): Node = {
     val responseContent = " Thanks for your information '" + requestContent + "' with msg type " + msgType
-    WechatUtils.getTextMsg(appUserId, fromUser, responseContent);
+    WechatUtils.getTextMsg(appUserId, openId, responseContent);
   }
   
   override def getNickname(openId:String):Option[String]={
