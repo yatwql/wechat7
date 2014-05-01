@@ -5,7 +5,7 @@ import wechat7.WechatAppStack
 trait SlickController extends WechatAppStack {
   val slick = new SlickRepo
   get("/tables/create") {
-    //contentType = "text/html"
+    contentType = "text/html"
     val message =slick.createTables
     println(message)
     ssp("/pages/showMessage", "title" -> "Create tables", "message" -> message)
@@ -23,6 +23,10 @@ trait SlickController extends WechatAppStack {
     val message=slick.flush
     println(message)
     ssp("/pages/showMessage", "title" -> "Flush tables", "message" -> message)
+  }
+  
+  get("/audit/list"){
+     contentType = "text/html"
   }
 
 }

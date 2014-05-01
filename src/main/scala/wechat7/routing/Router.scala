@@ -16,14 +16,14 @@ class Router extends SlickRepo  {
     val requestXmlContent = requestXml.toString
     println("Get Message Type  " + msgType + " from user " + fromUser)
     audit(fromUser, appUserId, msgType, requestXmlContent)
-    val responseXml = responseImpl(fromUser, appUserId, msgType, requestXmlContent, requestContent)
+    val responseXml = responseImpl(fromUser, appUserId, msgType, requestXml, requestContent)
     val responseContent=responseXml.toString()
     val responseMsgType=(responseXml \\ "MsgType").text
     audit(appUserId, fromUser, responseMsgType, responseContent)
     responseXml
   }
 
-  def responseImpl(fromUser: String, appUserId: String, msgType: String, requestXmlContent: String, requestContent: String): Node = {
+  def responseImpl(fromUser: String, appUserId: String, msgType: String, requestXml:  Option[Elem], requestContent: String): Node = {
     val responseContent = " Thanks for your information '" + requestContent + "' with msg type " + msgType
     WechatUtils.getTextMsg(appUserId, fromUser, responseContent);
   }
