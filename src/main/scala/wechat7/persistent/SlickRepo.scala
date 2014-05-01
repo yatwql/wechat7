@@ -113,11 +113,7 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
     populate
   }
 
-  def audit(fromUser: String, toUser: String, msgType: String, requestXmlContent: String): Unit = {
-    conn.dbObject withSession { implicit session: Session =>
-      auditLogs.insert(AuditLog(fromUser, toUser, msgType, requestXmlContent))
-    }
-  }
+  
 
   
 
