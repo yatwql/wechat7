@@ -6,23 +6,23 @@ trait SlickController extends WechatAppStack {
   val slick = new SlickRepo
   get("/tables/create") {
     //contentType = "text/html"
-    slick.createTables
-    println("Create tables")
-    ssp("/pages/showMessage", "title" -> "Create tables", "message" -> "Create tables")
+    val message =slick.createTables
+    println(message)
+    ssp("/pages/showMessage", "title" -> "Create tables", "message" -> message)
 
   }
   get("/tables/drop") {
     contentType = "text/html"
-    slick.dropTables
-    println("Drop tables")
-    ssp("/pages/showMessage", "title" -> "Drop tables", "message" -> "Drop tables")
+    val message=slick.dropTables
+    println(message)
+    ssp("/pages/showMessage", "title" -> "Drop tables", "message" -> message)
   }
 
   get("/tables/flush") {
     contentType = "text/html"
-    slick.flush
-    println("Flush tables")
-    ssp("/pages/showMessage", "title" -> "Flush tables", "message" -> "Flush tables")
+    val message=slick.flush
+    println(message)
+    ssp("/pages/showMessage", "title" -> "Flush tables", "message" -> message)
   }
 
 }

@@ -4,7 +4,7 @@ import java.sql.Date
 class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) extends DomainComponent with Profile {
   import profile.simple._
   val conn = new DBConnection(profile)
-  def dropTables: Unit = {
+  def dropTables: String = {
     conn.dbObject withSession { implicit session: Session =>
       try {
         appUsers.ddl.drop
@@ -28,7 +28,7 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
       }
       
         try {
-        logMessages.ddl.drop
+        auditLogs.ddl.drop
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
@@ -38,10 +38,13 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
       } catch{
         case ex: Exception => println(ex.getMessage)
       }
+      "Table decreation - OK"
     }
   }
   
-   def createTables: Unit = {
+  
+  
+   def createTables: String = {
     conn.dbObject withSession { implicit session: Session =>
       try {
         appUsers.ddl.create
@@ -65,7 +68,7 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
       }
       
        try {
-        logMessages.ddl.create
+        auditLogs.ddl.create
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
@@ -75,10 +78,11 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
+      "Table creation - OK"
     }
   }
    
-   def populate: Unit = {
+   def populate: String = {
       conn.dbObject withSession { implicit session: Session =>
       // create  table  selected environment
      
@@ -94,10 +98,11 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
       query.delete
       println("======================retrieve after delete ====================")
       appUsers.list foreach println
+      "population OK"
     }
   }
 
-  def flush: Unit = {
+  def flush: String = {
     dropTables
     createTables
     populate

@@ -137,7 +137,7 @@ object WechatUtils {
     }
   }
 
-  def getTextMsg(fromUser: String, toUser: String, content: String): String = {
+  def getTextMsg(fromUser: String, toUser: String, content: String): Node = {
     val now = new Date().getTime()
     val message =
       <xml>
@@ -148,11 +148,11 @@ object WechatUtils {
         <MsgType><![CDATA[text]]></MsgType>
         <FuncFlag>0</FuncFlag>
       </xml>
-    message.toString
+    message
 
   }
 
-  def getNewsMsg(fromUser: String, toUser: String, content: String): String = {
+  def getNewsMsg(fromUser: String, toUser: String, content: String): Node = {
     val item = <item>
                  <Title>Here is news</Title>
                  <Description>I love redwine</Description>
@@ -164,7 +164,7 @@ object WechatUtils {
 
   }
 
-  def getNewsMsg(fromUser: String, toUser: String, content: String, items: Seq[Node]): String = {
+  def getNewsMsg(fromUser: String, toUser: String, content: String, items: Seq[Node]): Node = {
 
     val now = new Date().getTime()
     val oldXML =
@@ -182,7 +182,7 @@ object WechatUtils {
 
     val message = XmlUtils.addChildren(oldXML, "Articles", items)
     //println(message.toString().length())
-    message.toString
+    message
   }
 
 }
