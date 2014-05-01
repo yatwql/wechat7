@@ -8,11 +8,13 @@ class EventRouter extends Router {
   override def responseImpl(fromUser: String, appUserId: String, msgType: String, requestXml: Option[Elem], requestContent: String): Node = {
     import wechat7.util.Constants
     val event = (requestXml.get \ "Event").text
-    val responseContent = " I love redwine for '" + requestContent + "' and event " + event
+     val nickname=getNickname(fromUser).get
+    val responseContent = nickname+"  love redwine for event " + event
+   
 
     event match {
       case Constants.EVT_TYP_SUBSCRIBE => {
-        val nickname =addUser(WechatUtils.getUserInfo(fromUser))
+      //  val nickname =addUser(WechatUtils.getUserInfo(fromUser))
         val item1 = <item>
                       <Title>Welcome you - { nickname }</Title>
                       <Description>I love redwine</Description>
@@ -26,7 +28,7 @@ class EventRouter extends Router {
       }
       case Constants.EVT_TYP_UNSUBSCRIBE => {
         val item1 = <item>
-                      <Title>bye bye- { fromUser }</Title>
+                      <Title>bye bye- { nickname }</Title>
                       <Description>I love redwine</Description>
                        <PicUrl>{Constants.REDWINE_PIC}</PicUrl>
                       <Url>{Constants.SHOP_AT_DIANPING}</Url>
