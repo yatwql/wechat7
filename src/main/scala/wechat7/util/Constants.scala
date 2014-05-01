@@ -22,4 +22,6 @@ object Constants {
 
   val REDWINE_PIC = "http://www.cnyangjiu.com/html/UploadFiles/201051975110330.jpg"
   val SHOP_AT_DIANPING = "http://www.dianping.com/shop/17180808/photos"
+    
+     //val MAX_FILE_SIZE:Int=10*1024*1024
 }

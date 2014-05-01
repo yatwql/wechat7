@@ -1,4 +1,4 @@
-package wechat7.controller
+package wechat7.filesize
 
 import org.scalatra.test.specs2._
 import wechat7.MyController
