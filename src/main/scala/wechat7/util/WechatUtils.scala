@@ -10,10 +10,10 @@ import org.json4s.DefaultFormats
 import org.json4s.jackson.JsonMethods.parse
 import org.json4s.jvalue2extractable
 import org.json4s.jvalue2monadic
-import org.json4s.string2JsonInput
+import org.json4s._
 object WechatUtils {
   implicit val formats = DefaultFormats
-  
+
   def checkSignature(params: org.scalatra.Params): String =
     {
       val signature = params.getOrElse("signature", "")
@@ -109,15 +109,36 @@ object WechatUtils {
 
   def getMenu(): String = {
     val menu_url = "https://api.weixin.qq.com/cgi-bin/menu/get?access_token="
-    visitPageByToken("Get menu", menu_url)
+    val message = getPageByToken("Get menu", menu_url)
+    val responseMsg = "URL -> " + menu_url + " </br></br>  Menu -> " + message
+
+    responseMsg
   }
 
   def deleteMenu(): String = {
     val menu_url = "https://api.weixin.qq.com/cgi-bin/menu/delete?access_token="
-    visitPageByToken("Delete menu", menu_url)
+    val message = getPageByToken("Delete menu", menu_url)
+    val responseMsg = "URL -> " + menu_url + " </br></br>  Menu -> " + message
+
+    responseMsg
   }
 
-  def visitPageByToken(action: String, url: String): String = {
+  def getUserInfo(openId: String): JValue = {
+    val url = "https://api.weixin.qq.com/cgi-bin/user/info?openid=" + openId + "&lang=zh_CN&access_token="
+    val message = getPageByToken("Get User Info for open user id " + openId, url)
+    val json = parse(message)
+    val nickname = (json \ "nickname").extract[String]
+    val sex = (json \ "sex").extract[String]
+    val language = (json \ "language").extract[String]
+    val city = (json \ "city").extract[String]
+    val province = (json \ "province").extract[String]
+    val country = (json \ "country").extract[String]
+    val headimgurl = (json \ "headimgurl").extract[String]
+    val subscribeTime = (json \ "subscribe_time").extract[String]
+    json
+  }
+
+  def getPageByToken(action: String, url: String): String = {
     try {
       val access_token = WechatUtils.getAccess_token
 
@@ -127,10 +148,7 @@ object WechatUtils {
       val message = HttpUtils.get(menu_url)
 
       println(action + " -> " + message)
-
-      val responseMsg = "URL -> " + menu_url + " </br></br>  Menu -> " + message
-
-      responseMsg
+      message
 
     } catch {
       case e: Exception => e.printStackTrace(); "";
@@ -152,15 +170,15 @@ object WechatUtils {
 
   }
 
-  def getNewsMsg(fromUser: String, toUser: String, title:String,content: String,picUrl:String,url:String): Node = {
+  def getNewsMsg(fromUser: String, toUser: String, title: String, content: String, picUrl: String, url: String): Node = {
     val item = <item>
-                 <Title>{title}</Title>
-                 <Description>{content }</Description>
-                 <PicUrl>{picUrl}</PicUrl>
-                 <Url>{url}</Url>
+                 <Title>{ title }</Title>
+                 <Description>{ content }</Description>
+                 <PicUrl>{ picUrl }</PicUrl>
+                 <Url>{ url }</Url>
                </item>
     val items = Seq(item)
-    getNewsMsg(fromUser, toUser,  items)
+    getNewsMsg(fromUser, toUser, items)
 
   }
 
