@@ -8,7 +8,7 @@ import org.json4s.string2JsonInput
 import java.sql.Timestamp
 import java.sql.Date
 class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) extends DomainComponent with Profile {
-   implicit val formats = DefaultFormats
+  implicit val formats = DefaultFormats
   import profile.simple._
   val conn = new DBConnection(profile)
   def dropTables: String = {
@@ -18,69 +18,67 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
-       try {
+      try {
         articles.ddl.drop
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
-       try {
+      try {
         voteTopics.ddl.drop
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
-       try {
+      try {
         voteResults.ddl.drop
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
-      
-        try {
+
+      try {
         auditLogs.ddl.drop
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
-      
-      try{
+
+      try {
         users.ddl.drop
-      } catch{
+      } catch {
         case ex: Exception => println(ex.getMessage)
       }
       "Table decreation - OK"
     }
   }
-  
-  
-  
-   def createTables: String = {
+
+  def createTables: String = {
     conn.dbObject withSession { implicit session: Session =>
       try {
         appUsers.ddl.create
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
-       try {
+      try {
         articles.ddl.create
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
-       try {
+      try {
         voteTopics.ddl.create
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
-       try {
+      try {
         voteResults.ddl.create
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
-      
-       try {
+
+      try {
         auditLogs.ddl.create
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
-      
-      try{
+
+      try {
         users.ddl.create
       } catch {
         case ex: Exception => println(ex.getMessage)
@@ -88,11 +86,10 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
       "Table creation - OK"
     }
   }
-   
-   def populate: String = {
-      conn.dbObject withSession { implicit session: Session =>
+
+  def populate: String = {
+    conn.dbObject withSession { implicit session: Session =>
       // create  table  selected environment
-     
 
       // insert AppUser into database
       appUsers.insert(AppUser("stallman", "Stallman", "stallman.wang@foxmail.com", "stallman", "admin"))
@@ -114,20 +111,20 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
     createTables
     populate
   }
-  
+
   def audit(fromUser: String, toUser: String, msgType: String, requestXmlContent: String): Unit = {
     conn.dbObject withSession { implicit session: Session =>
       auditLogs.insert(AuditLog(fromUser, toUser, msgType, requestXmlContent))
     }
   }
-  
-  def addUser(openId: String, nickname: String, sex: String = "", city: String = "", country: String = "", province: String = "", language: String = "", headimgurl: String = "", subscribeTime: Timestamp = new Timestamp(new java.util.Date().getTime()), locationX: String = "", locationY: String = ""){
+
+  def addUser(openId: String, nickname: String, sex: String = "", city: String = "", country: String = "", province: String = "", language: String = "", headimgurl: String = "", subscripted:Int =1,subscribeTime: Timestamp = new Timestamp(new java.util.Date().getTime()), locationX: String = "", locationY: String = "") {
     conn.dbObject withSession { implicit session: Session =>
-      users.insert(User(openId, nickname, sex, city,country,province,language,headimgurl,subscribeTime,locationX,locationY))
+      users.insert(User(openId, nickname, sex, city, country, province, language, headimgurl, subscripted,subscribeTime, locationX, locationY))
     }
   }
-  
-  def addUser(json:JValue):Unit={
+
+  def addUser(json: JValue): String = {
     val openid = (json \ "openid").extract[String]
     val nickname = (json \ "nickname").extract[String]
     val sex = (json \ "sex").extract[String]
@@ -137,17 +134,24 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
     val country = (json \ "country").extract[String]
     val headimgurl = (json \ "headimgurl").extract[String]
     val subscribeTime = (json \ "subscribe_time").extract[String]
-    addUser(openid,nickname,sex,city,country,province,language,headimgurl)
+    addUser(openid, nickname, sex, city, country, province, language, headimgurl)
+    nickname
   }
-  
-  def removeUser(openId:String):Unit ={
+
+  def removeUser(openId: String): Unit = {
     conn.dbObject withSession { implicit session: Session =>
-   //  val t=for (u <- users if u.userId=openId) yield u
+      val l = users.filter(_.userId.===(openId))
+      l.delete
     }
   }
 
-  
- 
+  def getNickname(openId: String): Option[String] = {
+    val query = for (u <- users if u.userId === (openId)) yield u.nickname
+    conn.dbObject withSession { implicit session: Session =>
+      query.firstOption
+    }
+  }
+
 }
 object SlickRepoApp extends App {
   (new SlickRepo).flush

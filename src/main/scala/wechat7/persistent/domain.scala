@@ -81,7 +81,7 @@ trait DomainComponent { this: Profile =>
   
    tables + ("auditLogs" -> auditLogs)
 
-  case class User(openId: String, nickname: String, sex: String = "", city: String = "", country: String = "", province: String = "", language: String = "", headimgurl: String = "", subscriptTime: Timestamp = new Timestamp(new Date().getTime()), locationX: String = "", locationY: String = "")
+  case class User(openId: String, nickname: String, sex: String = "", city: String = "", country: String = "", province: String = "", language: String = "", headimgurl: String = "", subscripted:Int = 1, subscriptTime: Timestamp = new Timestamp(new Date().getTime()), locationX: String = "", locationY: String = "")
   class Users(tag: Tag) extends Table[User](tag, "users") {
 
     def userId = column[String]("openId", O.PrimaryKey, O.NotNull)
@@ -95,7 +95,8 @@ trait DomainComponent { this: Profile =>
     def subscriptTime = column[Timestamp]("subscript_time", O.Default(now()), O.DBType("Timestamp"))
     def locationX = column[String]("locationX", O.Default(""), O.DBType("VARCHAR(100)"))
     def locationY = column[String]("locationY", O.Default(""), O.DBType("VARCHAR(100)"))
-    def * = (userId, nickname, sex, city, country, province, language, headimgurl, subscriptTime, locationX, locationY) <> (User.tupled, User.unapply)
+    def subscripted = column[Int]("subscripted", O.Default(1), O.DBType("Int"))
+    def * = (userId, nickname, sex, city, country, province, language, headimgurl, subscripted,subscriptTime, locationX, locationY) <> (User.tupled, User.unapply)
   }
 
   val users = TableQuery[Users]

@@ -3,14 +3,15 @@ import wechat7.util._
 import scala.xml._
 class TextRouter extends Router {
   override def responseImpl(fromUser: String, appUserId: String, msgType: String, requestXml:  Option[Elem],requestContent: String): Node = {
+    val nickname =getNickname(fromUser)
     val Pattern = "(\\d+)".r
     requestContent match {
       case "news" => {
         val item1 = <item>
-                      <Title>Here is news</Title>
+                      <Title>news for { nickname }</Title>
                       <Description>I love redwine</Description>
-                      <PicUrl>http://www.cnyangjiu.com/html/UploadFiles/201051975110330.jpg</PicUrl>
-                      <Url>http://www.dianping.com/shop/17180808/photos</Url>
+                       <PicUrl>{Constants.REDWINE_PIC}</PicUrl>
+                      <Url>{Constants.SHOP_AT_DIANPING}</Url>
                     </item>
 
 
@@ -20,9 +21,9 @@ class TextRouter extends Router {
       case Pattern(s) => {
         val item = <item>
                      <Title>Here is news till {s} </Title>
-                     <Description>I love redwine</Description>
-                     <PicUrl>http://www.cnyangjiu.com/html/UploadFiles/201051975110330.jpg</PicUrl>
-                     <Url>http://www.dianping.com/shop/17180808/photos</Url>
+                     <Description>I love redwine,{ nickname }</Description>
+                     <PicUrl>{Constants.REDWINE_PIC}</PicUrl>
+                      <Url>{Constants.SHOP_AT_DIANPING}</Url>
                    </item>
         val items = Seq(item,item,item)
        
@@ -30,7 +31,7 @@ class TextRouter extends Router {
       }
 
       case _ => {
-        val responseContent = " Thanks for your information '" + requestContent + "' with msg type " + msgType
+        val responseContent = nickname+" say '" + requestContent + "'  " 
         WechatUtils.getTextMsg(appUserId, fromUser, responseContent)
       }
     }

@@ -12,30 +12,30 @@ class EventRouter extends Router {
 
     event match {
       case Constants.EVT_TYP_SUBSCRIBE => {
+        val nickname =addUser(WechatUtils.getUserInfo(fromUser))
         val item1 = <item>
-                      <Title>Welcome you - { fromUser }</Title>
+                      <Title>Welcome you - { nickname }</Title>
                       <Description>I love redwine</Description>
-                      <PicUrl>http://www.cnyangjiu.com/html/UploadFiles/201051975110330.jpg</PicUrl>
-                      <Url>http://www.dianping.com/shop/17180808/photos</Url>
+                      <PicUrl>{Constants.REDWINE_PIC}</PicUrl>
+                      <Url>{Constants.SHOP_AT_DIANPING}</Url>
                     </item>
 
         val items = Seq(item1)
-        //users.insert(User(openId, nickname, sex, city,country,province,language,headimgurl,subscriptTime,locationX,locationY))
-        val node = WechatUtils.getNewsMsg(appUserId, fromUser, items)
-        addUser(WechatUtils.getUserInfo(fromUser))
+        val node = WechatUtils.getNewsMsg(appUserId, fromUser, items)    
         node
       }
       case Constants.EVT_TYP_UNSUBSCRIBE => {
         val item1 = <item>
                       <Title>bye bye- { fromUser }</Title>
                       <Description>I love redwine</Description>
-                      <PicUrl>http://www.cnyangjiu.com/html/UploadFiles/201051975110330.jpg</PicUrl>
-                      <Url>http://www.dianping.com/shop/17180808/photos</Url>
+                       <PicUrl>{Constants.REDWINE_PIC}</PicUrl>
+                      <Url>{Constants.SHOP_AT_DIANPING}</Url>
                     </item>
 
         val items = Seq(item1)
-        WechatUtils.getNewsMsg(appUserId, fromUser, items)
-
+        val node=WechatUtils.getNewsMsg(appUserId, fromUser, items)
+        removeUser(fromUser)
+        node
       }
       case Constants.EVT_TYP_SCAN => WechatUtils.getNewsMsg(appUserId, fromUser, "Hello world ", responseContent, Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING);
       case Constants.EVT_TYP_LOCATION => WechatUtils.getNewsMsg(appUserId, fromUser, "Hello world ", responseContent, Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING);

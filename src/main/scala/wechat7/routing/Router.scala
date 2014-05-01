@@ -27,6 +27,18 @@ class Router extends SlickRepo  {
     val responseContent = " Thanks for your information '" + requestContent + "' with msg type " + msgType
     WechatUtils.getTextMsg(appUserId, fromUser, responseContent);
   }
+  
+  override def getNickname(openId:String):Option[String]={
+    val s=super.getNickname(openId)
+    val nickname=s match {
+      case Some(t) => t
+      case None => {
+         addUser(WechatUtils.getUserInfo(openId))
+      }
+      case _ => "not found"
+    }
+    Some(nickname)
+  }
 
   
 
