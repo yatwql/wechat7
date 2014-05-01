@@ -1,8 +1,8 @@
 package wechat7.routing
 import wechat7.util._
 class EventRouter extends Router {
-  override def responseImpl(fromUser:String,appUserId:String,msgType:String,requestXmlContent:String,requestContent:String):String = {
-     val responseContent = " Thanks for your information '" + requestContent + "' this is news "
-     WechatUtils.getNewsMsg(appUserId, fromUser, responseContent);
-      }
+  override def responseImpl(fromUser: String, appUserId: String, msgType: String, requestXmlContent: String, requestContent: String): String = {
+    val responseContent = " Thanks for your information '" + requestContent + "' this is news "
+    WechatUtils.getNewsMsg(appUserId, fromUser, responseContent);
+  }
 }

@@ -5,9 +5,8 @@ import scala.slick.driver.JdbcProfile
 import wechat7.persistent._
 
 import scala.xml._
-class Router(override val profile: JdbcProfile = SlickDBDriver.getDriver) extends DomainComponent with Profile {
-  import profile.simple._
-  val conn = new DBConnection(profile)
+class Router extends SlickRepo  {
+ import profile.simple._
 
   def response(requestXml: Option[Elem]): String = {
     val appUserId = (requestXml.get \ "ToUserName").text
@@ -16,9 +15,9 @@ class Router(override val profile: JdbcProfile = SlickDBDriver.getDriver) extend
     val msgType = (requestXml.get \ "MsgType").text
     val requestXmlContent = requestXml.toString
     println("Get Message Type  " + msgType + " from user " + fromUser)
-    savedb(fromUser, appUserId, msgType, requestXmlContent)
+    save(fromUser, appUserId, msgType, requestXmlContent)
     val responseContent = responseImpl(fromUser, appUserId, msgType, requestXmlContent, requestContent)
-    savedb(appUserId, fromUser, msgType, responseContent)
+    save(appUserId, fromUser, msgType, responseContent)
     responseContent.toString()
   }
 
@@ -27,9 +26,9 @@ class Router(override val profile: JdbcProfile = SlickDBDriver.getDriver) extend
     WechatUtils.getTextMsg(appUserId, fromUser, responseContent);
   }
 
-  def savedb(fromUser: String, appUserId: String, msgType: String, requestXmlContent: String): Unit = {
+  def save(fromUser: String, toUser: String, msgType: String, requestXmlContent: String): Unit = {
     conn.dbObject withSession { implicit session: Session =>
-      messages.insert(Message(fromUser, appUserId, msgType, requestXmlContent))
+      logMessages.insert(LogMessage(fromUser, toUser, msgType, requestXmlContent))
     }
   }
 

@@ -13,7 +13,7 @@ import org.json4s.jvalue2monadic
 import org.json4s.string2JsonInput
 object WechatUtils {
   implicit val formats = DefaultFormats
-  val slick = new SlickUtils
+  
   def checkSignature(params: org.scalatra.Params): String =
     {
       val signature = params.getOrElse("signature", "")

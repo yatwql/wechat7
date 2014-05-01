@@ -1,14 +1,12 @@
 package wechat7.persistent
 import scala.slick.driver.JdbcProfile
 import java.sql.Date
-class SlickUtils(override val profile: JdbcProfile = SlickDBDriver.getDriver) extends DomainComponent with Profile {
+class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) extends DomainComponent with Profile {
   import profile.simple._
   val conn = new DBConnection(profile)
   def dropTables: Unit = {
     conn.dbObject withSession { implicit session: Session =>
       try {
-        println(appUsers.getClass().getName())
-        println(appUsers.ddl.getClass().getName())
         appUsers.ddl.drop
       } catch {
         case ex: Exception => println(ex.getMessage)
@@ -30,8 +28,14 @@ class SlickUtils(override val profile: JdbcProfile = SlickDBDriver.getDriver) ex
       }
       
         try {
-        messages.ddl.drop
+        logMessages.ddl.drop
       } catch {
+        case ex: Exception => println(ex.getMessage)
+      }
+      
+      try{
+        users.ddl.drop
+      } catch{
         case ex: Exception => println(ex.getMessage)
       }
     }
@@ -61,17 +65,19 @@ class SlickUtils(override val profile: JdbcProfile = SlickDBDriver.getDriver) ex
       }
       
        try {
-        messages.ddl.create
+        logMessages.ddl.create
+      } catch {
+        case ex: Exception => println(ex.getMessage)
+      }
+      
+      try{
+        users.ddl.create
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
     }
   }
-   def insert(message:Message):Unit ={
-         conn.dbObject withSession { implicit session: Session =>
-           messages.insert(message)
-         }
-   }
+   
    def populate: Unit = {
       conn.dbObject withSession { implicit session: Session =>
       // create  table  selected environment
@@ -97,17 +103,8 @@ class SlickUtils(override val profile: JdbcProfile = SlickDBDriver.getDriver) ex
     populate
   }
   
-  def test:Unit ={
-     conn.dbObject withSession { implicit session: Session =>
-     
-       try {
-        messages.ddl.create
-      } catch {
-        case ex: Exception => println(ex.getMessage)
-      }
-    }
-  }
+ 
 }
-object SlickUtilsApp extends App {
-  (new SlickUtils).flush
+object SlickRepoApp extends App {
+  (new SlickRepo).flush
 }
