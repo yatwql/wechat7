@@ -1,4 +1,5 @@
 package wechat7.persistent
+import java.util.Date
 import org.json4s.DefaultFormats
 import org.json4s.jackson.JsonMethods.parse
 import org.json4s.jvalue2extractable
@@ -9,9 +10,9 @@ import java.sql._
 trait UserRepo extends SlickRepo  {
  
  import profile.simple._
- def addUser(openId: String, nickname: String, sex: String = "", city: String = "", country: String = "", province: String = "", language: String = "", headimgurl: String = "", subscripted:Int =1,subscribeTime: Timestamp = new Timestamp(new java.util.Date().getTime()), locationX: String = "", locationY: String = "") {
+ def addUser(openId: String, nickname: String, sex: String = "", city: String = "", country: String = "", province: String = "", language: String = "", headimgurl: String = "", subscripted:Int =1,lastUpdateTime: Timestamp = new Timestamp(new Date().getTime()),subscribeTime: Timestamp = new Timestamp(new java.util.Date().getTime()), locationX: String = "", locationY: String = "") {
     conn.dbObject withSession { implicit session: Session =>
-      users.insert(User(openId, nickname, sex, city, country, province, language, headimgurl, subscripted,subscribeTime, locationX, locationY))
+      users.insert(User(openId, nickname, sex, city, country, province, language, headimgurl, subscripted,lastUpdateTime,subscribeTime, locationX, locationY))
     }
   }
 
@@ -31,20 +32,20 @@ trait UserRepo extends SlickRepo  {
 
   def removeUser(openId: String): Unit = {
     conn.dbObject withSession { implicit session: Session =>
-      val l = users.filter(_.userId.===(openId))
+      val l = users.filter(_.openId.===(openId))
       l.delete
     }
   }
   
   def updateSubscriptStatus(openId:String,subscripted:Int): Unit = {
     conn.dbObject withSession { implicit session: Session =>
-      val l = users.filter(_.userId.===(openId)).map(_.subscripted)
+      val l = users.filter(_.openId.===(openId)).map(_.subscripted)
       l.update(subscripted)
     }
   }
 
   def getNickname(openId: String): Option[String] = {
-    val query = for (u <- users if u.userId === (openId)) yield u.nickname
+    val query = for (u <- users if u.openId === (openId)) yield u.nickname
     conn.dbObject withSession { implicit session: Session =>
       query.firstOption
     }

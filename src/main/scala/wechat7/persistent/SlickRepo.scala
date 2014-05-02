@@ -14,7 +14,7 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
   def dropTables: String = {
     conn.dbObject withSession { implicit session: Session =>
       try {
-        appUsers.ddl.drop
+        accounts.ddl.drop
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
@@ -45,6 +45,14 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
+      
+       try {
+        userStates.ddl.drop
+      } catch {
+        case ex: Exception => println(ex.getMessage)
+      }
+      
+      
       "Table decreation - OK"
     }
   }
@@ -52,7 +60,7 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
   def createTables: String = {
     conn.dbObject withSession { implicit session: Session =>
       try {
-        appUsers.ddl.create
+        accounts.ddl.create
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
@@ -83,6 +91,12 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
+      
+       try {
+        userStates.ddl.create
+      } catch {
+        case ex: Exception => println(ex.getMessage)
+      }
       "Table creation - OK"
     }
   }
@@ -92,16 +106,16 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
       // create  table  selected environment
 
       // insert AppUser into database
-      appUsers.insert(AppUser("stallman", "Stallman", "stallman.wang@foxmail.com", "stallman", "admin"))
-      appUsers.insert(AppUser("yatwql", "joe", "yatwql@qq.com", "yatwql", "admin"))
-      appUsers.insert(AppUser("test", "joe", "yatwql@qq.com", "test", "admin"))
+      accounts.insert(Account("stallman", "Stallman", "stallman.wang@foxmail.com", "stallman", "admin"))
+      accounts.insert(Account("yatwql", "joe", "yatwql@qq.com", "yatwql", "admin"))
+      accounts.insert(Account("test", "joe", "yatwql@qq.com", "test", "admin"))
       println("======================retrieve from database ====================")
-      appUsers.list foreach println
+      accounts.list foreach println
       // delete
-      val query = for { emp <- appUsers if (emp.name === "test") } yield emp
+      val query = for { emp <- accounts if (emp.name === "test") } yield emp
       query.delete
       println("======================retrieve after delete ====================")
-      appUsers.list foreach println
+      accounts.list foreach println
       voteTopics.insert(VoteTopic("redwine","Favour contry"))
       "population OK"
     }

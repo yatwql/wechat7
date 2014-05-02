@@ -18,7 +18,7 @@ class TextRouter extends Router {
         val items = Seq(item1)
         WechatUtils.getNewsMsg(appUserId, openId, items)
       }
-      case Pattern(s) => {
+      case Pattern(actionKey) => {
         val item = <item>
                      <Title>News till {s} for { nickname } </Title>
                      <Description>I love redwine,{ nickname }</Description>

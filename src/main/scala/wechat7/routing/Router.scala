@@ -5,7 +5,7 @@ import scala.slick.driver.JdbcProfile
 import wechat7.persistent._
 
 import scala.xml._
-class Router extends SlickRepo with AdminRepo with UserRepo with VoteRepo {
+class Router extends SlickRepo with AdminRepo with UserRepo with VoteRepo with ArticleRepo {
  import profile.simple._
 
   def response(requestXml: Option[Elem]): Node = {
