@@ -46,14 +46,13 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
-      
-       try {
+
+      try {
         userStates.ddl.drop
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
-      
-      
+
       "Table decreation - OK"
     }
   }
@@ -92,8 +91,8 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
-      
-       try {
+
+      try {
         userStates.ddl.create
       } catch {
         case ex: Exception => println(ex.getMessage)
@@ -117,14 +116,14 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
       query.delete
       println("======================retrieve after delete ====================")
       accounts.list foreach println
-      voteTopics.insert(VoteTopic("redwine","Favour contry"))
-      
-      articles.insert(Article("New Title 1","Description","1","text"))
-      articles.insert(Article("New Title 2A","New Description 2A","2","news",Constants.REDWINE_PIC,Constants.SHOP_AT_DIANPING))
-      articles.insert(Article("New Title 2B","New Description 2B","2","news",Constants.REDWINE_PIC,Constants.SHOP_AT_DIANPING))
-       articles.insert(Article("New Title 3","New Description","3","news",Constants.REDWINE_PIC,Constants.SHOP_AT_DIANPING))
-       articles.insert(Article("Helps","This is for helping","?","news",Constants.REDWINE_PIC,Constants.SHOP_AT_DIANPING))
-        articles.insert(Article("Helps","This is for helping","help","news",Constants.REDWINE_PIC,Constants.SHOP_AT_DIANPING))
+      voteTopics.insert(VoteTopic("redwine", "Favour contry"))
+
+      articles.insert(Article("New Title 1", "Description", "1", "text"))
+      articles.insert(Article("New Title 2A", "New Description 2A", "2", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
+      articles.insert(Article("New Title 2B", "New Description 2B", "2", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
+      articles.insert(Article("New Title 3", "New Description", "3", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
+      articles.insert(Article("Helps", "This is for helping", "?", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
+      articles.insert(Article("Helps", "This is for helping", "help", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
       "population OK"
     }
   }
@@ -134,10 +133,6 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
     createTables
     populate
   }
-
-  
-
-  
 
 }
 object SlickRepoApp extends App {
