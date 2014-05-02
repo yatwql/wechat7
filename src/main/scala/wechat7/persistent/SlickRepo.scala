@@ -1,5 +1,6 @@
 package wechat7.persistent
 import scala.slick.driver.JdbcProfile
+import wechat7.util._
 import org.json4s.DefaultFormats
 import org.json4s.jackson.JsonMethods.parse
 import org.json4s.jvalue2extractable
@@ -117,6 +118,11 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
       println("======================retrieve after delete ====================")
       accounts.list foreach println
       voteTopics.insert(VoteTopic("redwine","Favour contry"))
+      
+      articles.insert(Article("New Title 1","Description","1"))
+      articles.insert(Article("New Title 2","New Description","2","news",Constants.REDWINE_PIC,Constants.SHOP_AT_DIANPING))
+      articles.insert(Article("New Title A2","New Description 2","2","news",Constants.REDWINE_PIC,Constants.SHOP_AT_DIANPING))
+       articles.insert(Article("New Title 4","New Description","3","news",Constants.REDWINE_PIC,Constants.SHOP_AT_DIANPING))
       "population OK"
     }
   }
