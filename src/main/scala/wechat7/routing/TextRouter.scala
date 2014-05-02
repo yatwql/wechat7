@@ -40,10 +40,6 @@ class TextRouter extends Router {
             val items = getItems(articleList)
             WechatUtils.getNewsMsg(appUserId, openId, items)
           }
-          case b :: Nil => {
-            val items = getItems(articleList)
-            WechatUtils.getNewsMsg(appUserId, openId, items)
-          }
           case Nil => {
             val responseContent = nickname + " ,I can not get the aticle for '" + actionKey + "'  "
             WechatUtils.getTextMsg(appUserId, openId, responseContent)
