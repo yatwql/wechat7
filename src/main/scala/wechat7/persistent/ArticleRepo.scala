@@ -11,7 +11,7 @@ trait ArticleRepo extends SlickRepo  {
     }
   }
  
- def getArticles(actionKey: String): Unit = {
+ def getArticles(actionKey: String) = {
     conn.dbObject withSession { implicit session: Session =>
       val query = articles.filter(_.actionKey.===(actionKey))
     val result= query.list()
