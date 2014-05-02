@@ -35,20 +35,21 @@ class TextRouter extends Router {
       }
       case Pattern(actionKey) => {
         val articleList = getArticles(actionKey)
-        println("articles size " + articleList.size)
-       // val items = Seq[Node]()
-        /*  val item = <item>
-                     <Title>News till {actionKey} for { nickname } </Title>
-                     <Description>I love redwine,{ nickname }</Description>
-                     <PicUrl>{Constants.REDWINE_PIC}</PicUrl>
-                      <Url>{Constants.SHOP_AT_DIANPING}</Url>
-                   </item> */
-        // val items = Seq(item,item,item)
- val items =getItems(articleList)
+        articleList match {
+          case a :: b => {
+            val items = getItems(articleList)
+            WechatUtils.getNewsMsg(appUserId, openId, items)
+          }
+          case b :: Nil => {
+            val items = getItems(articleList)
+            WechatUtils.getNewsMsg(appUserId, openId, items)
+          }
+          case Nil => {
+            val responseContent = nickname + " ,I can not get the aticle for '" + actionKey + "'  "
+            WechatUtils.getTextMsg(appUserId, openId, responseContent)
+          }
+        }
 
-        println(items.size)
-
-        WechatUtils.getNewsMsg(appUserId, openId, items)
       }
 
       case _ => {
