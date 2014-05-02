@@ -119,10 +119,12 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
       accounts.list foreach println
       voteTopics.insert(VoteTopic("redwine","Favour contry"))
       
-      articles.insert(Article("New Title 1","Description","1"))
-      articles.insert(Article("New Title 2","New Description","2","news",Constants.REDWINE_PIC,Constants.SHOP_AT_DIANPING))
-      articles.insert(Article("New Title A2","New Description 2","2","news",Constants.REDWINE_PIC,Constants.SHOP_AT_DIANPING))
-       articles.insert(Article("New Title 4","New Description","3","news",Constants.REDWINE_PIC,Constants.SHOP_AT_DIANPING))
+      articles.insert(Article("New Title 1","Description","1","text"))
+      articles.insert(Article("New Title 2A","New Description 2A","2","news",Constants.REDWINE_PIC,Constants.SHOP_AT_DIANPING))
+      articles.insert(Article("New Title 2B","New Description 2B","2","news",Constants.REDWINE_PIC,Constants.SHOP_AT_DIANPING))
+       articles.insert(Article("New Title 3","New Description","3","news",Constants.REDWINE_PIC,Constants.SHOP_AT_DIANPING))
+       articles.insert(Article("Helps","This is for helping","?","news",Constants.REDWINE_PIC,Constants.SHOP_AT_DIANPING))
+        articles.insert(Article("Helps","This is for helping","help","news",Constants.REDWINE_PIC,Constants.SHOP_AT_DIANPING))
       "population OK"
     }
   }
