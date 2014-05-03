@@ -20,7 +20,7 @@ class TextRouter extends Router {
       case Nil => Seq[Node]()
     }
   }
-  override def responseImpl(openId: String, appUserId: String, msgType: String, requestXml: Option[Elem], requestContent: String): Node = {
+  override def responseImpl(openId: String, appUserId: String, msgType: String, requestXml: Option[Elem], requestContent: String): Option[Node] = {
     val nickname = getNickname(openId).get
     val Pattern = "(\\d+)".r
 
@@ -28,7 +28,7 @@ class TextRouter extends Router {
     articleList match {
       case a :: b => {
         val items = getItems(articleList)
-        WechatUtils.getNewsMsg(appUserId, openId, items)
+        Some(WechatUtils.getNewsMsg(appUserId, openId, items))
       }
       case Nil => {
         dontknow(openId, appUserId, nickname, requestContent)
@@ -36,8 +36,8 @@ class TextRouter extends Router {
     }
 
   }
-  def dontknow(openId: String, appUserId: String, nickname: String, requestContent: String): Node = {
-    val responseContent = nickname + " ,I can not understand '" + requestContent + "', you can try to type ?  "
-    WechatUtils.getTextMsg(appUserId, openId, responseContent)
+  def dontknow(openId: String, appUserId: String, nickname: String, requestContent: String): Option[Node] = {
+    val responseContent = nickname + " ,I can not understand '" + requestContent + "', try to type 'help'  "
+    Some(WechatUtils.getTextMsg(appUserId, openId, responseContent))
   }
 }

@@ -1,6 +1,7 @@
 package wechat7.routing
 
 import wechat7.util._
+import scala.concurrent.duration._
 import scala.concurrent.Future
 import akka.actor.ActorSystem
 import spray.caching.{ LruCache, Cache }
@@ -14,9 +15,8 @@ class Router extends SlickRepo with AdminRepo with UserRepo with VoteRepo with A
   import profile.simple._
   val system = ActorSystem()
   import system.dispatcher
-  val nicknames: Cache[Option[String]] = LruCache(maxCapacity = 500)
 
-  def response(requestXml: Option[Elem]): Node = {
+  def response(requestXml: Option[Elem]): Option[Node] = {
     val appUserId = (requestXml.get \ "ToUserName").text
     val openId = (requestXml.get \ "FromUserName").text
     val requestContent = (requestXml.get \ "Content").text
@@ -25,19 +25,19 @@ class Router extends SlickRepo with AdminRepo with UserRepo with VoteRepo with A
     println("Get Message Type  " + msgType + " from user " + openId)
     audit(openId, appUserId, msgType, requestXmlContent)
     val responseXml = responseImpl(openId, appUserId, msgType, requestXml, requestContent)
-    val responseContent = responseXml.toString()
-    val responseMsgType = (responseXml \\ "MsgType").text
+    val responseContent = responseXml.get.toString()
+    val responseMsgType = (responseXml.get \\ "MsgType").text
     audit(appUserId, openId, responseMsgType, responseContent)
     responseXml
   }
 
-  def responseImpl(openId: String, appUserId: String, msgType: String, requestXml: Option[Elem], requestContent: String): Node = {
+  def responseImpl(openId: String, appUserId: String, msgType: String, requestXml: Option[Elem], requestContent: String): Option[Node] = {
     val responseContent = " Thanks for your information '" + requestContent + "' with msg type " + msgType
-    WechatUtils.getTextMsg(appUserId, openId, responseContent);
+    Some(WechatUtils.getTextMsg(appUserId, openId, responseContent));
   }
 
   def getNicknameFromDB(openId: String): Option[String] = {
-    println(" Visit DB to get nickname for openid "+openId)
+    println(" Visit DB to get nickname for openid " + openId)
     val s = super.getNickname(openId)
     val nickname = s match {
       case Some(t) => t
@@ -51,14 +51,15 @@ class Router extends SlickRepo with AdminRepo with UserRepo with VoteRepo with A
   }
 
   override def getNickname(openId: String): Option[String] = {
-     println(" Get nickname for openid "+openId)
-    nicknames(openId) {
+    println(" Get nickname for openid " + openId)
+    Rounter.nicknames(openId) {
       getNicknameFromDB(openId)
     }.await()
   }
 }
 
 object Rounter {
+  val nicknames: Cache[Option[String]] = LruCache(maxCapacity = 300)
   def response(requestXml: Option[Elem]): String = {
 
     val msgType = (requestXml.get \ "MsgType").text

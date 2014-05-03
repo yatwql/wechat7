@@ -5,7 +5,7 @@ import scala.xml._
 import wechat7.util._
 class EventRouter extends Router {
 
-  override def responseImpl(openId: String, appUserId: String, msgType: String, requestXml: Option[Elem], requestContent: String): Node = {
+  override def responseImpl(openId: String, appUserId: String, msgType: String, requestXml: Option[Elem], requestContent: String): Option[Node] = {
     import wechat7.util.Constants
     val event = (requestXml.get \ "Event").text
     val nickname = getNickname(openId).get
@@ -23,31 +23,22 @@ class EventRouter extends Router {
 
         val items = Seq(item1)
         val node = WechatUtils.getNewsMsg(appUserId, openId, items)
-        node
+        Some(node)
       }
       case Constants.EVT_TYP_UNSUBSCRIBE => {
-        val item1 = <item>
-                      <Title>bye bye- { nickname }</Title>
-                      <Description>I love redwine</Description>
-                      <PicUrl>{ Constants.REDWINE_PIC }</PicUrl>
-                      <Url>{ Constants.SHOP_AT_DIANPING }</Url>
-                    </item>
-
-        val items = Seq(item1)
-        val node = WechatUtils.getNewsMsg(appUserId, openId, items)
+        Rounter.nicknames.remove(openId)
         updateSubscriptStatus(openId, 0)
-        node
+        None
       }
-      case Constants.EVT_TYP_SCAN => WechatUtils.getNewsMsg(appUserId, openId, "Hello world ", responseContent, Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING);
-      case Constants.EVT_TYP_LOCATION => WechatUtils.getNewsMsg(appUserId, openId, "Hello world ", responseContent, Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING);
+      case Constants.EVT_TYP_SCAN => Some(WechatUtils.getNewsMsg(appUserId, openId, "Hello world ", responseContent, Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING));
+      case Constants.EVT_TYP_LOCATION => Some(WechatUtils.getNewsMsg(appUserId, openId, "Hello world ", responseContent, Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING));
       case Constants.EVT_TYP_CLICK => {
         val eventKey = (requestXml.get \ "EventKey").text
         addVoteResult(openId, 1, eventKey)
-        WechatUtils.getNewsMsg(appUserId, openId, "Hello world ", responseContent, Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING);
+        Some(WechatUtils.getNewsMsg(appUserId, openId, "Hello world ", responseContent, Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING));
       }
-      case Constants.EVT_TYP_VIEW => WechatUtils.getNewsMsg(appUserId, openId, "Hello world ", responseContent, Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING);
-      case _ => WechatUtils.getNewsMsg(appUserId, openId, "Hello world ", responseContent, Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING);
+      case Constants.EVT_TYP_VIEW => None
+      case _ => None;
     }
-
   }
 }
