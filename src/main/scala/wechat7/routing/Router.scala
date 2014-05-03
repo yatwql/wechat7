@@ -14,7 +14,7 @@ class Router extends SlickRepo with AdminRepo with UserRepo with VoteRepo with A
   import profile.simple._
   val system = ActorSystem()
   import system.dispatcher
-  val nicknames: Cache[Option[String]] = LruCache()
+  val nicknames: Cache[Option[String]] = LruCache(maxCapacity = 500)
 
   def response(requestXml: Option[Elem]): Node = {
     val appUserId = (requestXml.get \ "ToUserName").text
@@ -42,6 +42,7 @@ class Router extends SlickRepo with AdminRepo with UserRepo with VoteRepo with A
     val nickname = s match {
       case Some(t) => t
       case None => {
+        println(" Get user info from wechat site")
         addUser(WechatUtils.getUserInfo(openId))
       }
       case _ => "not found"
