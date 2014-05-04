@@ -12,8 +12,6 @@ trait Profile {
 
 trait DomainComponent { this: Profile =>
   import profile.simple._
-  
-  val tables= Map[String, TableQuery[_]]()
 
   case class Account(name: String, email: String, fullName: String, password: String, role: String, id: Int = 0)
   class Accounts(tag: Tag) extends Table[Account](tag, "app_users") {
@@ -26,23 +24,19 @@ trait DomainComponent { this: Profile =>
     def * = (name, email, fullName, password, role, id) <> (Account.tupled, Account.unapply)
   }
   val accounts = TableQuery[Accounts]
-  
-  tables + ("accounts" -> accounts)
 
-  case class Article(title: String, description: String, actionKey:String,msgTyp:String ="text",picUrl: String="", url: String="", id: Int = 0)
+  case class Article(title: String, description: String, actionKey: String, msgTyp: String = "text", picUrl: String = "", url: String = "", id: Int = 0)
   class Articles(tag: Tag) extends Table[Article](tag, "articles") {
     def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
-    def actionKey=column[String]("action_key", O.NotNull, O.DBType("VARCHAR(30)"))
-    def msgTyp =column[String]("msg_type", O.NotNull, O.DBType("VARCHAR(10)"))
+    def actionKey = column[String]("action_key", O.NotNull, O.DBType("VARCHAR(30)"))
+    def msgTyp = column[String]("msg_type", O.NotNull, O.DBType("VARCHAR(10)"))
     def title = column[String]("title", O.NotNull, O.DBType("VARCHAR(100)"))
     def description = column[String]("description", O.NotNull, O.DBType("VARCHAR(5000)"))
     def picUrl = column[String]("picUrl", O.NotNull, O DBType ("VARCHAR(300)"))
     def url = column[String]("url", O.NotNull, O DBType ("VARCHAR(300)"))
-    def * = (title, description, actionKey,msgTyp,picUrl, url, id) <> (Article.tupled, Article.unapply)
+    def * = (title, description, actionKey, msgTyp, picUrl, url, id) <> (Article.tupled, Article.unapply)
   }
   val articles = TableQuery[Articles]
-  
-  tables + ("articles" -> articles)
 
   case class VoteTopic(name: String, description: String, id: Int = 0)
   class VoteTopics(tag: Tag) extends Table[VoteTopic](tag, "vote_topics") {
@@ -52,22 +46,18 @@ trait DomainComponent { this: Profile =>
     def * = (name, description, id) <> (VoteTopic.tupled, VoteTopic.unapply)
   }
   val voteTopics = TableQuery[VoteTopics]
-  
-  tables + ("voteTopics" -> voteTopics)
 
-  case class VoteResult(openId: String, voteId: Int, option:String,fromLocationX: String = "", fromLocationY: String = "", id: Int = 0)
+  case class VoteResult(openId: String, voteId: Int, option: String, fromLocationX: String = "", fromLocationY: String = "", id: Int = 0)
   class VoteResults(tag: Tag) extends Table[VoteResult](tag, "vote_results") {
     def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
     def openId = column[String]("openId", O.NotNull, O.DBType("VARCHAR(100)"))
     def voteId = column[Int]("voteId", O.NotNull)
-     def option = column[String]("option", O.NotNull)
+    def option = column[String]("option", O.NotNull)
     def fromLocationX = column[String]("fromLocationX", O.Default(""), O.DBType("VARCHAR(100)"))
     def fromLocationY = column[String]("fromLocationY", O.Default(""), O.DBType("VARCHAR(100)"))
-    def * = (openId, voteId, option,fromLocationX, fromLocationY, id) <> (VoteResult.tupled, VoteResult.unapply)
+    def * = (openId, voteId, option, fromLocationX, fromLocationY, id) <> (VoteResult.tupled, VoteResult.unapply)
   }
   val voteResults = TableQuery[VoteResults]
-  
-   tables + ("voteResults" -> voteResults)
 
   case class AuditLog(fromUser: String, toUser: String, msgType: String, content: String, creationTime: Timestamp = new Timestamp(new Date().getTime()), id: Int = 0)
   class AuditLogs(tag: Tag) extends Table[AuditLog](tag, "audit_logs") {
@@ -81,10 +71,8 @@ trait DomainComponent { this: Profile =>
   }
 
   val auditLogs = TableQuery[AuditLogs]
-  
-   tables + ("auditLogs" -> auditLogs)
 
-  case class User(openId: String, nickname: String, sex: String = "", city: String = "", country: String = "", province: String = "", language: String = "", headimgurl: String = "", subscripted:Int = 1, lastUpdateTime: Timestamp = new Timestamp(new Date().getTime()), subscriptTime: Timestamp = new Timestamp(new Date().getTime()), locationX: String = "", locationY: String = "")
+  case class User(openId: String, nickname: String, sex: String = "", city: String = "", country: String = "", province: String = "", language: String = "", headimgurl: String = "", subscripted: Int = 1, lastUpdateTime: Timestamp = new Timestamp(new Date().getTime()), subscriptTime: Timestamp = new Timestamp(new Date().getTime()), locationX: String = "", locationY: String = "")
   class Users(tag: Tag) extends Table[User](tag, "users") {
 
     def openId = column[String]("openId", O.PrimaryKey, O.NotNull)
@@ -100,29 +88,38 @@ trait DomainComponent { this: Profile =>
     def locationX = column[String]("locationX", O.Default(""), O.DBType("VARCHAR(100)"))
     def locationY = column[String]("locationY", O.Default(""), O.DBType("VARCHAR(100)"))
     def subscripted = column[Int]("subscripted", O.Default(1), O.DBType("Int"))
-    def * = (openId, nickname, sex, city, country, province, language, headimgurl, subscripted,lastUpdateTime,subscriptTime, locationX, locationY) <> (User.tupled, User.unapply)
+    def * = (openId, nickname, sex, city, country, province, language, headimgurl, subscripted, lastUpdateTime, subscriptTime, locationX, locationY) <> (User.tupled, User.unapply)
   }
-  
-   val users = TableQuery[Users]
-  
-   tables + ("users" -> users)
 
-  
-  case class UserState(openId:String, nextAction:String,nextActionType:String="get",lastActionTime:Timestamp = new Timestamp(new Date().getTime()))
+  val users = TableQuery[Users]
+
+  case class UserState(openId: String, nextAction: String, nextActionType: String = "get", lastActionTime: Timestamp = new Timestamp(new Date().getTime()))
   class UserStates(tag: Tag) extends Table[UserState](tag, "user_states") {
     def openId = column[String]("openId", O.PrimaryKey, O.NotNull)
     def nextAction = column[String]("next_action", O.NotNull, O.DBType("VARCHAR(200)"))
-    def nextActionType= column[String]("next_action", O.Default("get"), O.DBType("VARCHAR(200)"))
-   def lastActionTime = column[Timestamp]("last_action_time", O.Default(now()), O.DBType("Timestamp")) 
+    def nextActionType = column[String]("next_action", O.Default("get"), O.DBType("VARCHAR(200)"))
+    def lastActionTime = column[Timestamp]("last_action_time", O.Default(now()), O.DBType("Timestamp"))
     def * = (openId, nextAction, nextActionType, lastActionTime) <> (UserState.tupled, UserState.unapply)
   }
-   
-    val userStates = TableQuery[UserStates]
-  
-   tables + ("userStates" -> userStates)
-  
 
- 
+  val userStates = TableQuery[UserStates]
+  
+   case class Setting(name: String, content: String,  updateTime: Timestamp = new Timestamp(new Date().getTime()), id: Int = 0)
+  class Settings(tag: Tag) extends Table[Setting](tag, "settings") {
+    def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
+    def name = column[String]("name", O.NotNull, O.DBType("VARCHAR(100)"))
+    def content = column[String]("content", O.NotNull, O.DBType("VARCHAR(2000)"))
+    
+    def updateTime = column[Timestamp]("updateTime", O.Default(now()), O.DBType("Timestamp"))
+    def * = (name, content, updateTime, id) <> (Setting.tupled, Setting.unapply)
+  }
+
+  val settings = TableQuery[Settings]
+
+  val tables = Map[String, TableQuery[_]]("accounts" -> accounts, 
+                                "articles" -> articles, "voteTopics" -> voteTopics, "voteResults" -> voteResults,
+                                "auditLogs" -> auditLogs, "users" -> users, "userStates" -> userStates,"settings"->settings)
+
   def now(): Timestamp = {
     new Timestamp(new Date().getTime())
   }

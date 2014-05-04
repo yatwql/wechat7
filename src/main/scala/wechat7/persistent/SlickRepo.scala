@@ -8,10 +8,28 @@ import org.json4s._
 import org.json4s.string2JsonInput
 import java.sql.Timestamp
 import java.sql.Date
+//import scala.slick.lifted.TableQuery
 class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) extends DomainComponent with Profile {
   implicit val formats = DefaultFormats
   import profile.simple._
   val conn = new DBConnection(profile)
+
+  def createTable(tableName: String) = {
+    tables.get(tableName) match {
+      case Some(table) => {
+        conn.dbObject withSession { implicit session: Session =>
+          try {
+            accounts.ddl.create
+          } catch {
+            case ex: Exception => println(ex.getMessage)
+          }
+        }
+      }
+
+      case _ => None
+    }
+
+  }
   def dropTables: String = {
     conn.dbObject withSession { implicit session: Session =>
       try {
@@ -49,6 +67,12 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
 
       try {
         userStates.ddl.drop
+      } catch {
+        case ex: Exception => println(ex.getMessage)
+      }
+
+      try {
+        sysParams.ddl.drop
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
@@ -97,6 +121,12 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
+
+      try {
+        sysParams.ddl.create
+      } catch {
+        case ex: Exception => println(ex.getMessage)
+      }
       "Table creation - OK"
     }
   }
@@ -108,21 +138,24 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
       // insert AppUser into database
       accounts.insert(Account("stallman", "Stallman", "stallman.wang@foxmail.com", "stallman", "admin"))
       accounts.insert(Account("yatwql", "joe", "yatwql@qq.com", "yatwql", "admin"))
-      accounts.insert(Account("test", "joe", "yatwql@qq.com", "test", "admin"))
-      println("======================retrieve from database ====================")
+      println("======================retrieve accounts from database ====================")
       accounts.list foreach println
-      // delete
-      val query = for { emp <- accounts if (emp.name === "test") } yield emp
-      query.delete
-      println("======================retrieve after delete ====================")
-      accounts.list foreach println
+      println("======================retrieve voteTopics from database ====================")
       voteTopics.insert(VoteTopic("redwine", "Favour contry"))
+      voteTopics.list foreach println
 
-      articles.insert(Article("题目1", "Description", "1", "text"))
+      articles.insert(Article("题目1", "Description", "1", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
       articles.insert(Article("New Title 2A", "New Description 2A", "2", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
-      articles.insert(Article("New Title 2B", "New Description 2B", "2", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
+      articles.insert(Article("题目2", "New Description 2B", "2", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
       articles.insert(Article("New Title 3", "New Description", "3", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
-      articles.insert(Article("Helps", "This is for helping", "help", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
+      articles.insert(Article("帮助", "打help出此页面,history列出最新二十篇文章,vote参加投票 ", "help", "text"))
+      println("======================retrieve articles from database ====================")
+      articles.list foreach println
+      
+      settings.insert(Setting("menu",WechatUtils.loadMenuFromFile))
+      println("======================retrieve sysParams from database ====================")
+      settings.list foreach println
+
       "population OK"
     }
   }

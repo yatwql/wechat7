@@ -68,7 +68,7 @@ object WechatUtils {
 
   }
 
-  def loadMenuItems: String = {
+  def loadMenuFromFile: String = {
     val in: InputStream = getClass().getResourceAsStream("/menu.json")
     val size = in.available();
     val data = new Array[Byte](size)
@@ -83,7 +83,7 @@ object WechatUtils {
       //val access_token = "Testing"
       println(" access_token -> " + access_token)
       val menu_url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + access_token;
-      val menu = loadMenuItems
+      val menu = loadMenuFromFile
       println(" Will post to " + menu_url)
       val message = HttpUtils.post(menu_url, menu);
       val json = parse(message)

@@ -28,7 +28,7 @@ trait MenuController extends WechatAppStack with FileUploadSupport {
   get("/wechat/menu/delete") {
     contentType = "text/html"
     println("This is route for delete menu")
-    val responseMsg = WechatUtils.getMenu()
+    val responseMsg = WechatUtils.deleteMenu()
     responseMsg
   }
 
