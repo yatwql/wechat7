@@ -76,14 +76,13 @@ object WechatUtils {
     val message = new String(data, "UTF-8");
     message
   }
-
-  def createMenu(): String = {
+  
+  def createMenu(menu:String):String ={
     try {
       val access_token = WechatUtils.getAccess_token
       //val access_token = "Testing"
       println(" access_token -> " + access_token)
       val menu_url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + access_token;
-      val menu = loadMenuFromFile
       println(" Will post to " + menu_url)
       val message = HttpUtils.post(menu_url, menu);
       val json = parse(message)
@@ -106,6 +105,8 @@ object WechatUtils {
       case e: Exception => e.printStackTrace(); "";
     }
   }
+
+  
 
   def getMenu(): String = {
     val menu_url = "https://api.weixin.qq.com/cgi-bin/menu/get?access_token="

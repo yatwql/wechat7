@@ -7,4 +7,12 @@ trait AdminRepo extends SlickRepo {
       auditLogs.insert(AuditLog(fromUser, toUser, msgType, requestXmlContent))
     }
   }
+
+  def loadLatestMenu() :Option[String]= {
+    conn.dbObject withSession { implicit session: Session =>
+      val query = settings.filter(_.name.===("menu")).map(_.content)
+      val result = query.list()
+      Some(result.last)
+    }
+  }
 }

@@ -1,6 +1,7 @@
 package wechat7.controller
 
 import wechat7.WechatAppStack
+import wechat7.persistent._
 import wechat7.util._
 import javax.servlet.annotation.MultipartConfig
 import org.scalatra.servlet.FileUploadSupport
@@ -8,13 +9,24 @@ import org.scalatra.ScalatraServlet
 import org.scalatra.servlet.FileItem
 
 @MultipartConfig(maxFileSize = 10240, location = "src/main/resources/")
-trait MenuController extends WechatAppStack with FileUploadSupport {
+trait MenuController extends WechatAppStack with FileUploadSupport with AdminRepo {
   self: ScalatraServlet =>
 
   get("/wechat/menu/create") {
     contentType = "text/html"
     println("This is route for create menu")
-    val responseMsg = WechatUtils.createMenu()
+    val menuFromDB = loadLatestMenu
+    val menu = menuFromDB match {
+      case Some(menu1) => {
+        println(" Use menu from db")
+        menu1
+      }
+      case None => {
+        println(" Use menu from file ")
+        WechatUtils.loadMenuFromFile
+      } 
+    }
+    val responseMsg = WechatUtils.createMenu(menu)
     responseMsg
   }
 
