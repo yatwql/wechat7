@@ -11,20 +11,10 @@ trait VoteRepo extends SlickRepo {
           createTable("voteTopics") + " , " + createTable("voteResults") + " , " + super.createTable(tableName)
         }
         case "voteTopics" => {
-          try {
-            voteTopics.ddl.create
-            "voteTopics "
-          } catch {
-            case ex: Exception => println(ex.getMessage); ""
-          }
+         doCreate(voteTopics)
         }
         case "voteResults" => {
-          try {
-            voteResults.ddl.create
-            "voteResults "
-          } catch {
-            case ex: Exception => println(ex.getMessage); ""
-          }
+          doCreate(voteResults)
         }
 
         case _ => super.createTable(tableName)
@@ -39,20 +29,10 @@ trait VoteRepo extends SlickRepo {
           dropTable("voteTopics") + " , " + dropTable("voteResults") + " , " + super.dropTable(tableName)
         }
         case "voteTopics" => {
-          try {
-            voteTopics.ddl.drop
-            "voteTopics "
-          } catch {
-            case ex: Exception => println(ex.getMessage); ""
-          }
+         doDrop(voteResults)
         }
         case "voteResults" => {
-          try {
-            voteResults.ddl.drop
-            "voteResults "
-          } catch {
-            case ex: Exception => println(ex.getMessage); ""
-          }
+          doDrop(voteResults)
         }
 
         case _ => super.dropTable(tableName)

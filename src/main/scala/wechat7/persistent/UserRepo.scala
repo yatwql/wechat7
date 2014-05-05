@@ -17,21 +17,10 @@ trait UserRepo extends SlickRepo {
           createTable("accoutns") + " , " + createTable("users") + " , " + super.createTable(tableName)
         }
         case "accounts" => {
-          try {
-            accounts.ddl.create
-            "accounts "
-          } catch {
-            case ex: Exception => println(ex.getMessage); ""
-          }
+          doCreate(accounts)
         }
         case "users" => {
-          try {
-
-            users.ddl.create
-            "users "
-          } catch {
-            case ex: Exception => println(ex.getMessage); ""
-          }
+           doCreate(users)
         }
 
         case _ => super.createTable(tableName)
@@ -46,22 +35,10 @@ trait UserRepo extends SlickRepo {
           dropTable("accounts") + " , " + dropTable("users") + " , " + super.dropTable(tableName)
         }
         case "accounts" => {
-          try {
-
-            accounts.ddl.drop
-            "accounts "
-          } catch {
-            case ex: Exception => println(ex.getMessage); ""
-          }
+           doDrop(accounts)
         }
         case "users" => {
-          try {
-            users.ddl.drop
-            "users "
-          } catch {
-            case ex: Exception => println(ex.getMessage); ""
-          }
-
+           doDrop(users)
         }
 
         case _ => super.dropTable(tableName)

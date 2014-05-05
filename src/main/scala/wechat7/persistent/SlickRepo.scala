@@ -1,14 +1,9 @@
 package wechat7.persistent
+
 import scala.slick.driver.JdbcProfile
-import wechat7.util._
+
 import org.json4s.DefaultFormats
-import org.json4s.jackson.JsonMethods.parse
-import org.json4s.jvalue2extractable
-import org.json4s._
-import org.json4s.string2JsonInput
-import java.sql.Timestamp
-import java.sql.Date
-//import scala.slick.lifted.TableQuery
+
 class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) extends DomainComponent with Profile {
   implicit val formats = DefaultFormats
   import profile.simple._
@@ -30,6 +25,35 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
     dropTable("all")
     createTable("all")
     populateTable("all")
+  }
+
+  def doAction(tableQuery: TableQuery[_ <: Table[_]], action: String): String = {
+    conn.dbObject withSession { implicit session: Session =>
+      try {
+        action match {
+          case "create" => {
+            tableQuery.ddl.create
+            "Create table " + tableQuery.baseTableRow.tableName + ";"
+          }
+          case "drop" => {
+            tableQuery.ddl.drop
+            "Drop table " + tableQuery.baseTableRow.tableName + ";"
+          }
+          case _ => ""
+        }
+
+      } catch {
+        case ex: Exception => println(ex.getMessage); ""
+      }
+    }
+  }
+
+  def doCreate(tableQuery: TableQuery[_ <: Table[_]]): String = {
+    doAction(tableQuery, "create")
+  }
+
+  def doDrop(tableQuery: TableQuery[_ <: Table[_]]): String = {
+    doAction(tableQuery, "drop")
   }
 
 }

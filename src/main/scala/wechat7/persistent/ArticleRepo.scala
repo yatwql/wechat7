@@ -12,12 +12,7 @@ trait ArticleRepo extends SlickRepo {
           createTable("articles") + " , " + super.createTable(tableName)
         }
         case "articles" => {
-           try {
-          articles.ddl.create
-          "articles "
-          } catch {
-            case ex: Exception => println(ex.getMessage); ""
-          }
+          doCreate(articles)
         }
 
         case _ => super.createTable(tableName)
@@ -32,12 +27,7 @@ trait ArticleRepo extends SlickRepo {
           dropTable("articles") + " , " + super.dropTable(tableName)
         }
         case "articles" => {
-           try {
-          articles.ddl.drop
-          "articles "
-          } catch {
-            case ex: Exception => println(ex.getMessage); ""
-          }
+          doDrop(articles)
         }
 
         case _ => super.dropTable(tableName)

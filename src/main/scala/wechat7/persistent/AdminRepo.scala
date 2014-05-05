@@ -10,20 +10,10 @@ trait AdminRepo extends SlickRepo {
           createTable("auditLogs") + " , " + createTable("settings") + " , " + super.createTable(tableName)
         }
         case "auditLogs" => {
-          try {
-            auditLogs.ddl.create
-            "auditLogs "
-          } catch {
-            case ex: Exception => println(ex.getMessage); ""
-          }
+          doCreate(auditLogs)
         }
         case "settings" => {
-          try {
-            settings.ddl.create
-            "settings "
-          } catch {
-            case ex: Exception => println(ex.getMessage); ""
-          }
+           doCreate(settings)
         }
 
         case _ => super.createTable(tableName)
@@ -38,21 +28,10 @@ trait AdminRepo extends SlickRepo {
           dropTable("auditLogs") + " , " + dropTable("settings") + " , " + super.dropTable(tableName)
         }
         case "auditLogs" => {
-          try {
-            auditLogs.ddl.drop
-            "auditLogs "
-          } catch {
-            case ex: Exception => println(ex.getMessage); ""
-          }
+           doDrop(auditLogs)
         }
         case "settings" => {
-          try {
-
-            settings.ddl.drop
-            "settings "
-          } catch {
-            case ex: Exception => println(ex.getMessage); ""
-          }
+          doDrop(settings)
         }
 
         case _ => super.dropTable(tableName)
