@@ -3,41 +3,6 @@ import wechat7.util._
 
 trait AdminRepo extends SlickRepo {
   import profile.simple._
-  override def createTable(tableName: String = "all"): String = {
-    conn.dbObject withSession { implicit session: Session =>
-      tableName match {
-        case "all" => {
-          createTable("auditLogs") + " , " + createTable("settings") + " , " + super.createTable(tableName)
-        }
-        case "auditLogs" => {
-          doCreate(auditLogs)
-        }
-        case "settings" => {
-           doCreate(settings)
-        }
-
-        case _ => super.createTable(tableName)
-      }
-    }
-  }
-
-  override def dropTable(tableName: String = "all"): String = {
-    conn.dbObject withSession { implicit session: Session =>
-      tableName match {
-        case "all" => {
-          dropTable("auditLogs") + " , " + dropTable("settings") + " , " + super.dropTable(tableName)
-        }
-        case "auditLogs" => {
-           doDrop(auditLogs)
-        }
-        case "settings" => {
-          doDrop(settings)
-        }
-
-        case _ => super.dropTable(tableName)
-      }
-    }
-  }
 
   override def populateTable(tableName: String = "all"): String = {
     conn.dbObject withSession { implicit session: Session =>
@@ -52,7 +17,7 @@ trait AdminRepo extends SlickRepo {
             settings.insert(Setting(Constants.MENU, WechatUtils.loadMenuFromFile))
             println("======================retrieve settings from database ====================")
             settings.list foreach println
-            "settings "
+            "Populate settings; "
           } catch {
             case ex: Exception => println(ex.getMessage); ""
           }

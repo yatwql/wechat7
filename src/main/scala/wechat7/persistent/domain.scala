@@ -14,7 +14,7 @@ trait DomainComponent { this: Profile =>
   import profile.simple._
 
   case class Account(name: String, email: String, fullName: String, password: String, role: String, id: Int = 0)
-  class Accounts(tag: Tag) extends Table[Account](tag, "app_users") {
+  class Accounts(tag: Tag) extends Table[Account](tag, "accounts") {
     def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
     def name = column[String]("name", O.NotNull, O.DBType("VARCHAR(100)"))
     def fullName = column[String]("fullname", O.NotNull, O.DBType("VARCHAR(100)"))
@@ -116,7 +116,7 @@ trait DomainComponent { this: Profile =>
 
   val settings = TableQuery[Settings]
 
-  val tables = Map[String, TableQuery[_]]("accounts" -> accounts, 
+  val tables = Map[String, TableQuery[_ <: Table[_]]]("accounts" -> accounts, 
                                 "articles" -> articles, "voteTopics" -> voteTopics, "voteResults" -> voteResults,
                                 "auditLogs" -> auditLogs, "users" -> users, "userStates" -> userStates,"settings"->settings)
 

@@ -5,36 +5,6 @@ trait ArticleRepo extends SlickRepo {
 
   import profile.simple._
 
-  override def createTable(tableName: String = "all"): String = {
-    conn.dbObject withSession { implicit session: Session =>
-      tableName match {
-        case "all" => {
-          createTable("articles") + " , " + super.createTable(tableName)
-        }
-        case "articles" => {
-          doCreate(articles)
-        }
-
-        case _ => super.createTable(tableName)
-      }
-    }
-  }
-
-  override def dropTable(tableName: String = "all"): String = {
-    conn.dbObject withSession { implicit session: Session =>
-      tableName match {
-        case "all" => {
-          dropTable("articles") + " , " + super.dropTable(tableName)
-        }
-        case "articles" => {
-          doDrop(articles)
-        }
-
-        case _ => super.dropTable(tableName)
-      }
-    }
-  }
-
   override def populateTable(tableName: String = "all"): String = {
     conn.dbObject withSession { implicit session: Session =>
       tableName match {
@@ -53,7 +23,7 @@ trait ArticleRepo extends SlickRepo {
           println("======================retrieve articles from database ====================")
           articles.list foreach println
 
-          "articles "
+          "Populate articles; "
           } catch {
             case ex: Exception => println(ex.getMessage); ""
           }

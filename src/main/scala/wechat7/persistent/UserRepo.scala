@@ -10,41 +10,6 @@ import java.sql._
 trait UserRepo extends SlickRepo {
 
   import profile.simple._
-  override def createTable(tableName: String = "all"): String = {
-    conn.dbObject withSession { implicit session: Session =>
-      tableName match {
-        case "all" => {
-          createTable("accoutns") + " , " + createTable("users") + " , " + super.createTable(tableName)
-        }
-        case "accounts" => {
-          doCreate(accounts)
-        }
-        case "users" => {
-           doCreate(users)
-        }
-
-        case _ => super.createTable(tableName)
-      }
-    }
-  }
-
-  override def dropTable(tableName: String = "all"): String = {
-    conn.dbObject withSession { implicit session: Session =>
-      tableName match {
-        case "all" => {
-          dropTable("accounts") + " , " + dropTable("users") + " , " + super.dropTable(tableName)
-        }
-        case "accounts" => {
-           doDrop(accounts)
-        }
-        case "users" => {
-           doDrop(users)
-        }
-
-        case _ => super.dropTable(tableName)
-      }
-    }
-  }
 
   override def populateTable(tableName: String = "all"): String = {
     conn.dbObject withSession { implicit session: Session =>
@@ -60,7 +25,7 @@ trait UserRepo extends SlickRepo {
             accounts.insert(Account("yatwql", "joe", "yatwql@qq.com", "yatwql", "admin"))
             println("======================retrieve accounts from database ====================")
             accounts.list foreach println
-            "accounts "
+            "Populate accounts; "
           } catch {
             case ex: Exception => println(ex.getMessage); ""
           }
