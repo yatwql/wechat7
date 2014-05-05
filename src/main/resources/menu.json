@@ -14,9 +14,9 @@
                     "type": "click"
                 },
                  {
+                    "key": "history", 
                     "name": "更多文章", 
-                    "type": "view", 
-                    "url": "http://www.google.com/ncr"
+                    "type": "click"
                 }
             ]
         }, 
@@ -24,18 +24,18 @@
             "name": "红酒调查", 
             "sub_button": [
                 {
-                    "key": "21", 
-                    "name": "智利", 
+                    "key": "vote21", 
+                    "name": "你喜欢智利?", 
                     "type": "click"
                 }, 
                 {
-                    "key": "22", 
-                    "name": "法国", 
+                    "key": "vote22", 
+                    "name": "还是法国?", 
                     "type": "click"
                 },
                 {
-                    "key": "23", 
-                    "name": "巴拉圭", 
+                    "key": "vote23", 
+                    "name": "或者巴拉圭?", 
                     "type": "click"
                 }
             ]
@@ -44,20 +44,16 @@
             "name": "更多体验", 
             "sub_button": [
                 {
-                    "key": "31", 
+                    "key": "about", 
                     "name": "关于我们", 
                     "type": "click"
                 }, 
                  {
-                    "key": "32", 
-                    "name": "如何投稿", 
+                    "key": "help", 
+                    "name": "帮助", 
                     "type": "click"
                 }, 
-                {
-                    "key": "33", 
-                    "name": "商务联系", 
-                    "type": "click"
-                }, 
+              
                 {
                     "name": "利设商贸-淘宝店", 
                     "type": "view", 

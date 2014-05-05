@@ -72,7 +72,7 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
       }
 
       try {
-        sysParams.ddl.drop
+        settings.ddl.drop
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
@@ -123,7 +123,7 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
       }
 
       try {
-        sysParams.ddl.create
+        settings.ddl.create
       } catch {
         case ex: Exception => println(ex.getMessage)
       }
@@ -135,7 +135,7 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
     conn.dbObject withSession { implicit session: Session =>
       // create  table  selected environment
 
-      // insert AppUser into database
+      println("======================Will insert data for accounts ====================")
       accounts.insert(Account("stallman", "Stallman", "stallman.wang@foxmail.com", "stallman", "admin"))
       accounts.insert(Account("yatwql", "joe", "yatwql@qq.com", "yatwql", "admin"))
       println("======================retrieve accounts from database ====================")

@@ -1,6 +1,7 @@
 package wechat7.util
 
 import java.io.InputStream
+
 import wechat7.persistent._
 import java.util.Date
 
@@ -13,7 +14,7 @@ import org.json4s.jvalue2monadic
 import org.json4s._
 object WechatUtils {
   implicit val formats = DefaultFormats
-
+  
   def checkSignature(params: org.scalatra.Params): String =
     {
       val signature = params.getOrElse("signature", "")

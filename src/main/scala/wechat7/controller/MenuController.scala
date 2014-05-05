@@ -9,13 +9,16 @@ import org.scalatra.ScalatraServlet
 import org.scalatra.servlet.FileItem
 
 @MultipartConfig(maxFileSize = 10240, location = "src/main/resources/")
-trait MenuController extends WechatAppStack with FileUploadSupport with AdminRepo {
+trait MenuController extends WechatAppStack with FileUploadSupport  {
   self: ScalatraServlet =>
-
+  class AdminRepoImpl extends AdminRepo{
+    
+  }
+  val adminRepo =new AdminRepoImpl
   get("/wechat/menu/create") {
     contentType = "text/html"
     println("This is route for create menu")
-    val menuFromDB = loadLatestMenu
+    val menuFromDB = adminRepo.loadLatestMenu
     val menu = menuFromDB match {
       case Some(menu1) => {
         println(" Use menu from db")

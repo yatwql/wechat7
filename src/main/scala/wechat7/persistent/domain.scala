@@ -108,7 +108,7 @@ trait DomainComponent { this: Profile =>
   class Settings(tag: Tag) extends Table[Setting](tag, "settings") {
     def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
     def name = column[String]("name", O.NotNull, O.DBType("VARCHAR(100)"))
-    def content = column[String]("content", O.NotNull, O.DBType("VARCHAR(2000)"))
+    def content = column[String]("content", O.NotNull, O.DBType("VARCHAR(10000)"))
     
     def updateTime = column[Timestamp]("updateTime", O.Default(now()), O.DBType("Timestamp"))
     def * = (name, content, updateTime, id) <> (Setting.tupled, Setting.unapply)
