@@ -14,159 +14,25 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
   import profile.simple._
   val conn = new DBConnection(profile)
 
-  def createTable(tableName: String) = {
-    tables.get(tableName) match {
-      case Some(table) => {
-        conn.dbObject withSession { implicit session: Session =>
-          try {
-            accounts.ddl.create
-          } catch {
-            case ex: Exception => println(ex.getMessage)
-          }
-        }
-      }
-
-      case _ => None
-    }
-
-  }
-  def dropTables: String = {
-    conn.dbObject withSession { implicit session: Session =>
-      try {
-        accounts.ddl.drop
-      } catch {
-        case ex: Exception => println(ex.getMessage)
-      }
-      try {
-        articles.ddl.drop
-      } catch {
-        case ex: Exception => println(ex.getMessage)
-      }
-      try {
-        voteTopics.ddl.drop
-      } catch {
-        case ex: Exception => println(ex.getMessage)
-      }
-      try {
-        voteResults.ddl.drop
-      } catch {
-        case ex: Exception => println(ex.getMessage)
-      }
-
-      try {
-        auditLogs.ddl.drop
-      } catch {
-        case ex: Exception => println(ex.getMessage)
-      }
-
-      try {
-        users.ddl.drop
-      } catch {
-        case ex: Exception => println(ex.getMessage)
-      }
-
-      try {
-        userStates.ddl.drop
-      } catch {
-        case ex: Exception => println(ex.getMessage)
-      }
-
-      try {
-        settings.ddl.drop
-      } catch {
-        case ex: Exception => println(ex.getMessage)
-      }
-
-      "Table decreation - OK"
-    }
+  def createTable(tableName: String = "all"): String = {
+    ""
   }
 
-  def createTables: String = {
-    conn.dbObject withSession { implicit session: Session =>
-      try {
-        accounts.ddl.create
-      } catch {
-        case ex: Exception => println(ex.getMessage)
-      }
-      try {
-        articles.ddl.create
-      } catch {
-        case ex: Exception => println(ex.getMessage)
-      }
-      try {
-        voteTopics.ddl.create
-      } catch {
-        case ex: Exception => println(ex.getMessage)
-      }
-      try {
-        voteResults.ddl.create
-      } catch {
-        case ex: Exception => println(ex.getMessage)
-      }
-
-      try {
-        auditLogs.ddl.create
-      } catch {
-        case ex: Exception => println(ex.getMessage)
-      }
-
-      try {
-        users.ddl.create
-      } catch {
-        case ex: Exception => println(ex.getMessage)
-      }
-
-      try {
-        userStates.ddl.create
-      } catch {
-        case ex: Exception => println(ex.getMessage)
-      }
-
-      try {
-        settings.ddl.create
-      } catch {
-        case ex: Exception => println(ex.getMessage)
-      }
-      "Table creation - OK"
-    }
+  def dropTable(tableName: String = "all") = {
+    ""
   }
 
-  def populate: String = {
-    conn.dbObject withSession { implicit session: Session =>
-      // create  table  selected environment
-
-      println("======================Will insert data for accounts ====================")
-      accounts.insert(Account("stallman", "Stallman", "stallman.wang@foxmail.com", "stallman", "admin"))
-      accounts.insert(Account("yatwql", "joe", "yatwql@qq.com", "yatwql", "admin"))
-      println("======================retrieve accounts from database ====================")
-      accounts.list foreach println
-      println("======================retrieve voteTopics from database ====================")
-      voteTopics.insert(VoteTopic("redwine", "Favour contry"))
-      voteTopics.list foreach println
-
-      articles.insert(Article("题目1", "Description", "1", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
-      articles.insert(Article("New Title 2A", "New Description 2A", "2", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
-      articles.insert(Article("题目2", "New Description 2B", "2", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
-      articles.insert(Article("New Title 3", "New Description", "3", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
-      articles.insert(Article("帮助", "打help出此页面,history列出最新二十篇文章,vote参加投票 ", "help", "text"))
-      println("======================retrieve articles from database ====================")
-      articles.list foreach println
-      
-      settings.insert(Setting("menu",WechatUtils.loadMenuFromFile))
-      println("======================retrieve sysParams from database ====================")
-      settings.list foreach println
-
-      "population OK"
-    }
+  def populateTable(tableName: String = "all") = {
+    ""
   }
 
-  def flush: String = {
-    dropTables
-    createTables
-    populate
+  def test: String = {
+    dropTable("all")
+    createTable("all")
+    populateTable("all")
   }
 
 }
 object SlickRepoApp extends App {
-  (new SlickRepo).flush
+  (new SlickRepo with AdminRepo with ArticleRepo with UserRepo with VoteRepo).test
 }

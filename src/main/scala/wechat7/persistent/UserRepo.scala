@@ -7,12 +7,96 @@ import org.json4s._
 import org.json4s.string2JsonInput
 import java.sql._
 
-trait UserRepo extends SlickRepo  {
- 
- import profile.simple._
- def addUser(openId: String, nickname: String, sex: String = "", city: String = "", country: String = "", province: String = "", language: String = "", headimgurl: String = "", subscripted:Int =1,lastUpdateTime: Timestamp = new Timestamp(new Date().getTime()),subscribeTime: Timestamp = new Timestamp(new java.util.Date().getTime()), locationX: String = "", locationY: String = "") {
+trait UserRepo extends SlickRepo {
+
+  import profile.simple._
+  override def createTable(tableName: String = "all"): String = {
     conn.dbObject withSession { implicit session: Session =>
-      users.insert(User(openId, nickname, sex, city, country, province, language, headimgurl, subscripted,lastUpdateTime,subscribeTime, locationX, locationY))
+      tableName match {
+        case "all" => {
+          createTable("accoutns") + " , " + createTable("users") + " , " + super.createTable(tableName)
+        }
+        case "accounts" => {
+          try {
+            accounts.ddl.create
+            "accounts "
+          } catch {
+            case ex: Exception => println(ex.getMessage); ""
+          }
+        }
+        case "users" => {
+          try {
+
+            users.ddl.create
+            "users "
+          } catch {
+            case ex: Exception => println(ex.getMessage); ""
+          }
+        }
+
+        case _ => super.createTable(tableName)
+      }
+    }
+  }
+
+  override def dropTable(tableName: String = "all"): String = {
+    conn.dbObject withSession { implicit session: Session =>
+      tableName match {
+        case "all" => {
+          dropTable("accounts") + " , " + dropTable("users") + " , " + super.dropTable(tableName)
+        }
+        case "accounts" => {
+          try {
+
+            accounts.ddl.drop
+            "accounts "
+          } catch {
+            case ex: Exception => println(ex.getMessage); ""
+          }
+        }
+        case "users" => {
+          try {
+            users.ddl.drop
+            "users "
+          } catch {
+            case ex: Exception => println(ex.getMessage); ""
+          }
+
+        }
+
+        case _ => super.dropTable(tableName)
+      }
+    }
+  }
+
+  override def populateTable(tableName: String = "all"): String = {
+    conn.dbObject withSession { implicit session: Session =>
+      tableName match {
+        case "all" => {
+          populateTable("accounts") + " , " + populateTable("users") + " , " + super.populateTable(tableName)
+        }
+
+        case "accounts" => {
+          try {
+            println("======================Will insert data for accounts ====================")
+            accounts.insert(Account("stallman", "Stallman", "stallman.wang@foxmail.com", "stallman", "admin"))
+            accounts.insert(Account("yatwql", "joe", "yatwql@qq.com", "yatwql", "admin"))
+            println("======================retrieve accounts from database ====================")
+            accounts.list foreach println
+            "accounts "
+          } catch {
+            case ex: Exception => println(ex.getMessage); ""
+          }
+        }
+
+        case _ => super.populateTable(tableName)
+      }
+    }
+  }
+
+  def addUser(openId: String, nickname: String, sex: String = "", city: String = "", country: String = "", province: String = "", language: String = "", headimgurl: String = "", subscripted: Int = 1, lastUpdateTime: Timestamp = new Timestamp(new Date().getTime()), subscribeTime: Timestamp = new Timestamp(new java.util.Date().getTime()), locationX: String = "", locationY: String = "") {
+    conn.dbObject withSession { implicit session: Session =>
+      users.insert(User(openId, nickname, sex, city, country, province, language, headimgurl, subscripted, lastUpdateTime, subscribeTime, locationX, locationY))
     }
   }
 
@@ -36,8 +120,8 @@ trait UserRepo extends SlickRepo  {
       l.delete
     }
   }
-  
-  def updateSubscriptStatus(openId:String,subscripted:Int): Unit = {
+
+  def updateSubscriptStatus(openId: String, subscripted: Int): Unit = {
     conn.dbObject withSession { implicit session: Session =>
       val l = users.filter(_.openId.===(openId)).map(_.subscripted)
       l.update(subscripted)
