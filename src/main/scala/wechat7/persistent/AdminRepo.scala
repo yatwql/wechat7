@@ -1,4 +1,5 @@
 package wechat7.persistent
+import wechat7.util._
 
 trait AdminRepo extends SlickRepo {
   import profile.simple._
@@ -8,11 +9,17 @@ trait AdminRepo extends SlickRepo {
     }
   }
 
-  def loadLatestMenu() :Option[String]= {
+  def loadLatestMenu(): Option[String] = {
     conn.dbObject withSession { implicit session: Session =>
-      val query = settings.filter(_.name.===("menu")).map(_.content)
+      val query = settings.filter(_.name.===(Constants.MENU)).map(_.content)
       val result = query.list()
       Some(result.last)
+    }
+  }
+
+  def saveMenu(menu: String) {
+    conn.dbObject withSession { implicit session: Session =>
+      settings.insert(Setting(Constants.MENU, menu))
     }
   }
 }

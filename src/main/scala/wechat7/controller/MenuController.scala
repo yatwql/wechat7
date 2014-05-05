@@ -64,20 +64,19 @@ trait MenuController extends WechatAppStack with FileUploadSupport  {
 
   post("/wechat/menu/update") {
     val item: FileItem = fileParams.get("document").getOrElse(halt(500))
-    val mediaBase = "./media"
-    val uuid = java.util.UUID.randomUUID()
-    val tm = "menu22.json"
-    val targetFile = "%s/%s".format(mediaBase, tm)
-    item.write(targetFile)
+    val arr =item.get()
+    val menu =new String(arr)
+    adminRepo.saveMenu(menu)
+   
     <html>
       <head>
         <title>Upload successful.</title>
       </head>
       <body>
-        <p>Name: { item.name }</p>
+        <p>File Name: { item.name }</p>
         <p>content type: { item.contentType.getOrElse("unknown") }</p>
-        <p>Size: { item.size }</p>
-        <p>Saved to: { targetFile }</p>
+        <p>File Size: { item.size }</p>
+        <p>Saved content: { menu}</p>
       </body>
     </html>
 
