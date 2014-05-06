@@ -1,7 +1,7 @@
 package wechat7.controller
 
 import scala.xml.Elem
-import wechat7.routing._
+import wechat7.act._
 import scala.xml.XML
 
 import wechat7.WechatAppStack
@@ -22,7 +22,7 @@ trait WechatController extends WechatAppStack  {
   post("/wechatauth") {
     println("request body is -> " + request.body)
     val requestXml = XML.loadString(request.body)
-    wechatRouter(Some(requestXml))
+    wechat(Some(requestXml))
   }
 
   post("/wechat") {
@@ -39,7 +39,7 @@ trait WechatController extends WechatAppStack  {
                        <MsgType><![CDATA[text]]></MsgType>
                      </xml>
     contentType = "xml;charset=utf-8"
-    wechatRouter(Some(requestXml))
+    wechat(Some(requestXml))
   }
 
   get("/test/news/:slug") {
@@ -52,10 +52,10 @@ trait WechatController extends WechatAppStack  {
                        <MsgType><![CDATA[text]]></MsgType>
                      </xml>
     contentType = "xml;charset=utf-8"
-    wechatRouter(Some(requestXml))
+    wechat(Some(requestXml))
   }
 
-  def wechatRouter(requestXml: Option[Elem]) {
+  def wechat(requestXml: Option[Elem]) {
     contentType = "xml;charset=utf-8"
     write(Rounter.response(requestXml))
   }

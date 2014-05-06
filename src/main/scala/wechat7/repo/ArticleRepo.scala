@@ -14,8 +14,10 @@ trait ArticleRepo extends SlickRepo {
         case "actions" => {
           try {
             println("======================Insert actions into database ====================")
-            actions.insert(Action("vote", "","", "\\vote"))
-            actions.insert(Action("投票", "", "","\\vote"))
+            actions.insert(Action("vote", "", "", "\\vote"))
+            actions.insert(Action("投票", "", "", "\\vote"))
+            actions.insert(Action("投稿", "", "", "\\articles\\add"))
+            actions.insert(Action("articles", "", "", "\\articles\\add"))
             println("======================retrieve actions from database ====================")
             actions.list foreach println
 
@@ -31,6 +33,11 @@ trait ArticleRepo extends SlickRepo {
             articles.insert(Article("Test 2A", "New Description 2A", "2", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
             articles.insert(Article("Test 题目2B", "New Description 2B", "2", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
             articles.insert(Article("New Title 3", "New Description", "3", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
+            articles.insert(Article("红酒鉴赏小知识", "红酒鉴赏小知识", "11", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
+            articles.insert(Article("南美农产品", "南美农产品", "12", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
+            articles.insert(Article("智利", "智利", "vote21", "news", "", ""))
+            articles.insert(Article("法国", "法国", "vote22", "news", "", ""))
+            articles.insert(Article("巴拉圭", "巴拉圭", "vote23", "news", "", ""))
             articles.insert(Article("帮助", "打help出此页面,history列出最新二十篇文章,vote参加投票 ", "help", "text"))
             articles.insert(Article("帮助", "打help出此页面,history列出最新二十篇文章,vote参加投票 ", "帮助", "text"))
             println("======================retrieve articles from database ====================")
