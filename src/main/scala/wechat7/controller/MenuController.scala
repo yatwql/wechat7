@@ -1,7 +1,7 @@
 package wechat7.controller
 
 import wechat7.WechatAppStack
-import wechat7.persistent._
+import wechat7.repo._
 import wechat7.util._
 import javax.servlet.annotation.MultipartConfig
 import org.scalatra.servlet.FileUploadSupport

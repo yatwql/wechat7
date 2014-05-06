@@ -8,7 +8,7 @@ import spray.caching.{ LruCache, Cache }
 import spray.util._
 
 import scala.slick.driver.JdbcProfile
-import wechat7.persistent._
+import wechat7.repo._
 
 import scala.xml._
 class Router extends SlickRepo with AdminRepo with UserRepo with VoteRepo with ArticleRepo {
@@ -60,6 +60,7 @@ class Router extends SlickRepo with AdminRepo with UserRepo with VoteRepo with A
 
 object Rounter {
   val nicknames: Cache[Option[String]] = LruCache(maxCapacity = 300)
+ // val userStates
   def response(requestXml: Option[Elem]): String = {
 
     val msgType = (requestXml.get \ "MsgType").text

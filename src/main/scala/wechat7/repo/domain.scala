@@ -1,4 +1,4 @@
-package wechat7.persistent
+package wechat7.repo
 
 import java.sql.Timestamp
 import java.util.Date
@@ -37,6 +37,18 @@ trait DomainComponent { this: Profile =>
     def * = (title, description, actionKey, msgTyp, picUrl, url, id) <> (Article.tupled, Article.unapply)
   }
   val articles = TableQuery[Articles]
+
+  case class Action(actionKey: String, currentAction: String, nextAction: String, nextActionType:String,id: Int = 0)
+  class Actions(tag: Tag) extends Table[Action](tag, "actions") {
+    def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
+    def actionKey = column[String]("action_key", O.NotNull, O.DBType("VARCHAR(30)"))
+    def currentAction = column[String]("currentAction", O.NotNull, O.DBType("VARCHAR(200)"))
+    def nextAction = column[String]("nextAction", O.NotNull, O.DBType("VARCHAR(200)"))
+    def nextActionType = column[String]("nextActionType", O.NotNull, O.DBType("VARCHAR(100)"))
+    
+    def * = (actionKey, currentAction, nextAction,nextActionType, id) <> (Action.tupled, Action.unapply)
+  }
+  val actions = TableQuery[Actions]
 
   case class VoteTopic(name: String, description: String, id: Int = 0)
   class VoteTopics(tag: Tag) extends Table[VoteTopic](tag, "vote_topics") {
@@ -93,32 +105,21 @@ trait DomainComponent { this: Profile =>
 
   val users = TableQuery[Users]
 
-  case class UserState(openId: String, nextAction: String, nextActionType: String = "get", lastActionTime: Timestamp = new Timestamp(new Date().getTime()))
-  class UserStates(tag: Tag) extends Table[UserState](tag, "user_states") {
-    def openId = column[String]("openId", O.PrimaryKey, O.NotNull)
-    def nextAction = column[String]("next_action", O.NotNull, O.DBType("VARCHAR(200)"))
-    def nextActionType = column[String]("next_action", O.Default("get"), O.DBType("VARCHAR(200)"))
-    def lastActionTime = column[Timestamp]("last_action_time", O.Default(now()), O.DBType("Timestamp"))
-    def * = (openId, nextAction, nextActionType, lastActionTime) <> (UserState.tupled, UserState.unapply)
-  }
-
-  val userStates = TableQuery[UserStates]
-  
-   case class Setting(name: String, content: String,  updateTime: Timestamp = new Timestamp(new Date().getTime()), id: Int = 0)
+  case class Setting(name: String, content: String, updateTime: Timestamp = new Timestamp(new Date().getTime()), id: Int = 0)
   class Settings(tag: Tag) extends Table[Setting](tag, "settings") {
     def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
     def name = column[String]("name", O.NotNull, O.DBType("VARCHAR(100)"))
     def content = column[String]("content", O.NotNull, O.DBType("VARCHAR(10000)"))
-    
+
     def updateTime = column[Timestamp]("updateTime", O.Default(now()), O.DBType("Timestamp"))
     def * = (name, content, updateTime, id) <> (Setting.tupled, Setting.unapply)
   }
 
   val settings = TableQuery[Settings]
 
-  val tables = Map[String, TableQuery[_ <: Table[_]]]("accounts" -> accounts, 
-                                "articles" -> articles, "voteTopics" -> voteTopics, "voteResults" -> voteResults,
-                                "auditLogs" -> auditLogs, "users" -> users, "userStates" -> userStates,"settings"->settings)
+  val tables = Map[String, TableQuery[_ <: Table[_]]]("accounts" -> accounts,
+    "articles" -> articles, "actions" -> actions, "voteTopics" -> voteTopics, "voteResults" -> voteResults,
+    "auditLogs" -> auditLogs, "users" -> users,  "settings" -> settings)
 
   def now(): Timestamp = {
     new Timestamp(new Date().getTime())

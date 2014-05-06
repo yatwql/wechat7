@@ -1,4 +1,4 @@
-package wechat7.persistent
+package wechat7.repo
 import java.util.Date
 import org.json4s.DefaultFormats
 import org.json4s.jackson.JsonMethods.parse

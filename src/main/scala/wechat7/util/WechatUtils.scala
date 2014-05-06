@@ -2,7 +2,7 @@ package wechat7.util
 
 import java.io.InputStream
 
-import wechat7.persistent._
+import wechat7.repo._
 import java.util.Date
 
 import scala.xml._

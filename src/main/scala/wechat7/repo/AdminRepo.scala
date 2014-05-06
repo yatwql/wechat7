@@ -1,4 +1,4 @@
-package wechat7.persistent
+package wechat7.repo
 import wechat7.util._
 
 trait AdminRepo extends SlickRepo {

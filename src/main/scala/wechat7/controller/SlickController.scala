@@ -1,5 +1,5 @@
 package wechat7.controller
-import wechat7.persistent._
+import wechat7.repo._
 import wechat7.WechatAppStack
 
 trait SlickController extends WechatAppStack {

@@ -1,9 +1,8 @@
-package wechat7.persistent
+package wechat7.repo
 
 trait VoteRepo extends SlickRepo {
 
   import profile.simple._
-
 
   override def populateTable(tableName: String = "all"): String = {
     conn.dbObject withSession { implicit session: Session =>

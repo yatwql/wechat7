@@ -4,7 +4,7 @@ import java.util.Date
 import scala.concurrent.ExecutionContext.Implicits.global
 import wechat7.AtmosphereStack
 import wechat7.WechatAppStack
-import wechat7.persistent.PageDao
+import wechat7.repo.PageDao
 import org.json4s.JValue
 import org.json4s.JsonDSL.jobject2assoc
 import org.json4s.JsonDSL.pair2Assoc

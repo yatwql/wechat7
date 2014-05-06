@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Dragon Studio App</title>
+    <title>Wechat7 App Site</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <style type="text/css">
@@ -20,7 +20,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Dragon Studio App</a>
+          <a class="brand" href="#">Wechat7 App Site</a>
         </div>
       </div>
     </div>

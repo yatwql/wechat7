@@ -1,4 +1,4 @@
-package wechat7.persistent
+package wechat7.repo
 
 import scala.slick.driver.JdbcProfile
 import scala.slick.driver.H2Driver

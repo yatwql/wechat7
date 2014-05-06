@@ -1,4 +1,4 @@
-package wechat7.persistent
+package wechat7.repo
 
 import scala.slick.driver.JdbcProfile
 
@@ -63,10 +63,7 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
             populateTable(tableQuery.baseTableRow.tableName)
           }
 
-          // case "flush" => {
-          //doAction(tableQuery, "drop") + doAction(tableQuery, "create") + populateTable(tableQuery.baseTableRow.tableName)
-          // ""
-          // }
+ 
           case _ => "Unknown action " + action + " for table " + tableQuery.baseTableRow.tableName + ";"
         }
 

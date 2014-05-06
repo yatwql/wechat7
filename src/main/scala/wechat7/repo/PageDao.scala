@@ -1,4 +1,4 @@
-package wechat7.persistent
+package wechat7.repo
 case class Page(slug: String, title: String, summary: String, body: String)
 object PageDao {
   val pages = List(
