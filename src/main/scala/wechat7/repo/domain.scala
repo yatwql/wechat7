@@ -38,15 +38,15 @@ trait DomainComponent { this: Profile =>
   }
   val articles = TableQuery[Articles]
 
-  case class Action(actionKey: String, currentAction: String, nextAction: String, nextActionType:String,id: Int = 0)
+  case class Action(actionKey: String, currentAction: String, nextAction: String, id: Int = 0)
   class Actions(tag: Tag) extends Table[Action](tag, "actions") {
     def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
     def actionKey = column[String]("action_key", O.NotNull, O.DBType("VARCHAR(30)"))
     def currentAction = column[String]("currentAction", O.NotNull, O.DBType("VARCHAR(200)"))
     def nextAction = column[String]("nextAction", O.NotNull, O.DBType("VARCHAR(200)"))
-    def nextActionType = column[String]("nextActionType", O.NotNull, O.DBType("VARCHAR(100)"))
+   
     
-    def * = (actionKey, currentAction, nextAction,nextActionType, id) <> (Action.tupled, Action.unapply)
+    def * = (actionKey, currentAction, nextAction, id) <> (Action.tupled, Action.unapply)
   }
   val actions = TableQuery[Actions]
 

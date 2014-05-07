@@ -14,10 +14,11 @@ trait ArticleRepo extends SlickRepo {
         case "actions" => {
           try {
             println("======================Insert actions into database ====================")
-            actions.insert(Action("vote", "", "", "\\vote"))
-            actions.insert(Action("投票", "", "", "\\vote"))
-            actions.insert(Action("投稿", "", "", "\\articles\\add"))
-            actions.insert(Action("articles", "", "", "\\articles\\add"))
+            actions.insert(Action("vote", "", "vote"))
+            actions.insert(Action("投票", "", "vote"))
+            actions.insert(Action("投稿", "", "articles\\add"))
+            actions.insert(Action("articles", "", "articles\\add"))
+            actions.insert(Action("vote21", "",  "vote22"))
             println("======================retrieve actions from database ====================")
             actions.list foreach println
 
@@ -75,5 +76,14 @@ trait ArticleRepo extends SlickRepo {
       result
     }
   }
+  
+  def getAction(actionKey: String) :Action = {
+    conn.dbObject withSession { implicit session: Session =>
+      val query = actions.filter(_.actionKey.===(actionKey))
+      val result = query.list()
+      result.last
+    }
+  }
+
 
 }

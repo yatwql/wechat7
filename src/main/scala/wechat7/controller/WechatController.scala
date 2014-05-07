@@ -57,7 +57,7 @@ trait WechatController extends WechatAppStack  {
 
   def wechat(requestXml: Option[Elem]) {
     contentType = "xml;charset=utf-8"
-    write(Rounter.response(requestXml))
+    write(Router.response(requestXml))
   }
 
 }

@@ -1,12 +1,33 @@
 package wechat7.act
 
-import wechat7.repo._
-import wechat7.util._
-import scala.xml._
-import scala.collection._
+import scala.collection.Seq
+import scala.xml.Node
 
-trait ActionRouter extends ArticleRepo with VoteRepo {
-  def getItems(articleList: List[Articles#TableElementType]): Seq[Node] = {
+import akka.actor.ActorSystem
+import spray.caching.ValueMagnet.fromAny
+import spray.util.pimpFuture
+import wechat7.repo.ArticleRepo
+import wechat7.util.WechatUtils
+
+trait ActionRouter extends ArticleRepo with Plugin with ActionPlugin {
+   import system.dispatcher
+ 
+  def getNewsItems(actionKey: String): Seq[Node] = {
+    Router.articleCache(actionKey) {
+      val articleList = getArticles(actionKey)
+      val items = articleList match {
+        case a :: b => {
+          getNewsItems(articleList)
+
+        }
+        case Nil => {
+          Seq[Node]()
+        }
+      }
+      items
+    }.await
+  }
+  def getNewsItems(articleList: List[Articles#TableElementType]): Seq[Node] = {
     articleList match {
       case article :: rest => {
         val item = <item>
@@ -16,22 +37,26 @@ trait ActionRouter extends ArticleRepo with VoteRepo {
                      <Url>{ article.url }</Url>
                    </item>
 
-        item +: getItems(rest)
+        item +: getNewsItems(rest)
 
       }
       case Nil => Seq[Node]()
     }
   }
+  override def process(openId: String, nickname: String, appUserId: String, msgType: String, actionKey: String) {
+    super.process(openId, nickname, appUserId, msgType, actionKey)
+    println(" process from ActionRouter ")
+  }
 
   def response(openId: String, nickname: String, appUserId: String, msgType: String, actionKey: String): Option[Node] = {
     val Pattern = "(\\d+)".r
-    val articleList = getArticles(actionKey)
-    articleList match {
+    process(openId, nickname, appUserId, msgType, actionKey)
+    val items = getNewsItems(actionKey)
+    items match {
       case a :: b => {
-        val items = getItems(articleList)
         Some(WechatUtils.getNewsMsg(appUserId, openId, items))
       }
-      case Nil => {
+      case _ => {
         dontknow(openId, appUserId, nickname, actionKey)
       }
     }

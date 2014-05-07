@@ -10,9 +10,8 @@ import scala.slick.driver.JdbcProfile
 import wechat7.repo._
 
 import scala.xml._
-class Agent extends SlickRepo with AdminRepo with UserRepo with VoteRepo with ArticleRepo {
+class Agent extends SlickRepo with AdminRepo with UserRepo with VoteRepo with ArticleRepo with Plugin{
   import profile.simple._
-  val system = ActorSystem()
   import system.dispatcher
 
   def process(requestXml: Option[Elem]): Option[Node] = {
@@ -52,7 +51,7 @@ class Agent extends SlickRepo with AdminRepo with UserRepo with VoteRepo with Ar
 
   override def getNickname(openId: String): Option[String] = {
     println(" Get nickname for openid " + openId)
-    Rounter.nicknames(openId) {
+    Router.nicknames(openId) {
       getNicknameFromDB(openId)
     }.await()
   }
