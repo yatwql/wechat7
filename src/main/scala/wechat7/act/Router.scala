@@ -10,41 +10,74 @@ import scala.slick.driver.JdbcProfile
 import wechat7.repo._
 import scala.xml._
 
-trait Plugin extends ArticleRepo{
+trait Plugin extends ArticleRepo with UserRepo {
+  import profile.simple._
   val system = ActorSystem()
   import system.dispatcher
-    def getNextAction(actionKey: String): Option[String] = {
+  def getNextAction(actionKey: String): Option[String] = {
     Router.actionCache(actionKey) {
-      //this.getAction(actionKey)
-      val action=getAction(actionKey)
+      val action = getAction(actionKey)
       action.nextAction match {
         case "" => None
         case _ => Some(action.nextAction)
       }
     }.await
   }
-  
-  def getUserAction(openId:String):Option[String] ={
-  val f= Router.userActions.get(openId)
- // f.get.await
-  
-  f match {
-    case None => None
-    case _ => f.get.await
+
+  def getCurrentAction(actionKey: String): Option[String] = {
+    Router.actionCache(actionKey) {
+      val action = getAction(actionKey)
+      action.currentAction match {
+        case "" => None
+        case _ => Some(action.currentAction)
+      }
+    }.await
   }
-  }
-  
-  def updateUserAction(openId:String,actionKey:String) ={
-    Router.userActions(openId) {
-      getNextAction(actionKey)
+
+  def getUserAction(openId: String): Option[String] = {
+    val f = Router.userActions.get(openId)
+
+    f match {
+      case None => None
+      case _ => f.get.await
     }
   }
-  def process(openId: String, nickname: String, appUserId: String, msgType: String, actionKey: String) {
+
+  def updateUserAction(openId: String, actionKey: String) = {
+    
+    Router.userActions(openId) {
+      val action=getNextAction(actionKey)
+      println(" Update the next action of "+openId+" to "+action)
+      action
+    }
+  }
+
+  def getNicknameFromDB(openId: String): Option[String] = {
+    println(" Visit DB to get nickname for openid " + openId)
+    val s = super.getNickname(openId)
+    val nickname = s match {
+      case Some(t) => t
+      case None => {
+        println(" Get user info from wechat site")
+        addUser(WechatUtils.getUserInfo(openId))
+      }
+      case _ => "not found"
+    }
+    Some(nickname)
+  }
+
+  override def getNickname(openId: String): Option[String] = {
+    println(" Get nickname for openid " + openId)
+    Router.nicknames(openId) {
+      getNicknameFromDB(openId)
+    }.await()
+  }
+  def process(openId: String, nickname: String, appUserId: String, msgType: String, actionKey: String, requestContent: String) {
 
   }
 }
 
-object Router {
+object Router extends ArticleRepo {
   val nicknames: Cache[Option[String]] = LruCache(maxCapacity = 300)
   val userActions: Cache[Option[String]] = LruCache(maxCapacity = 2000)
   val actionCache: Cache[Option[String]] = LruCache(maxCapacity = 50)
@@ -65,7 +98,7 @@ object Router {
         case _ => new DefaultAgent
       }
 
-    agent.process(requestXml).toString()
+    agent.go(requestXml).toString()
 
   }
 }

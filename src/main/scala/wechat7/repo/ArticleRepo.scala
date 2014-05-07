@@ -18,7 +18,9 @@ trait ArticleRepo extends SlickRepo {
             actions.insert(Action("投票", "", "vote"))
             actions.insert(Action("投稿", "", "articles\\add"))
             actions.insert(Action("articles", "", "articles\\add"))
-            actions.insert(Action("vote21", "",  "vote22"))
+            actions.insert(Action("vote21", "",  "vote21"))
+            actions.insert(Action("vote22", "vote22",  "ignore"))
+            actions.insert(Action("vote23", "",  "vote11"))
             println("======================retrieve actions from database ====================")
             actions.list foreach println
 

@@ -5,7 +5,7 @@ import scala.xml._
 import wechat7.util._
 class EventAgent extends Agent with ActionRouter {
 
-  override def process(openId: String, appUserId: String, msgType: String, requestXml: Option[Elem], requestContent: String): Option[Node] = {
+  override def go(openId: String, appUserId: String, msgType: String, requestXml: Option[Elem], requestContent: String): Option[Node] = {
     import wechat7.util.Constants
     val event = (requestXml.get \ "Event").text
     val nickname = getNickname(openId).get
@@ -35,7 +35,7 @@ class EventAgent extends Agent with ActionRouter {
       case Constants.EVT_TYP_CLICK => {
         val eventKey = (requestXml.get \ "EventKey").text
         //addVoteResult(openId, 1, eventKey)
-        response(openId, nickname, appUserId, msgType, eventKey)
+        response(openId, nickname, appUserId, msgType, eventKey,eventKey)
       }
       case Constants.EVT_TYP_VIEW => None
       case _ => None;

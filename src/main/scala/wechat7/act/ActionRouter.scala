@@ -43,14 +43,14 @@ trait ActionRouter extends ArticleRepo with Plugin with ActionPlugin {
       case Nil => Seq[Node]()
     }
   }
-  override def process(openId: String, nickname: String, appUserId: String, msgType: String, actionKey: String) {
-    super.process(openId, nickname, appUserId, msgType, actionKey)
+  override def process(openId: String, nickname: String, appUserId: String, msgType: String, actionKey: String,requestContent:String) {
+    super.process(openId, nickname, appUserId, msgType, actionKey,requestContent)
     println(" process from ActionRouter ")
   }
 
-  def response(openId: String, nickname: String, appUserId: String, msgType: String, actionKey: String): Option[Node] = {
+  def response(openId: String, nickname: String, appUserId: String, msgType: String, actionKey: String,requestContent:String): Option[Node] = {
     val Pattern = "(\\d+)".r
-    process(openId, nickname, appUserId, msgType, actionKey)
+    process(openId, nickname, appUserId, msgType, actionKey,requestContent)
     val items = getNewsItems(actionKey)
     items match {
       case a :: b => {
