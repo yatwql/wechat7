@@ -16,21 +16,33 @@ trait Plugin extends ActionRepo with UserRepo {
   import system.dispatcher
   def getNextAction(actionKey: String): Option[String] = {
     Router.nextActionCache(actionKey) {
-      val action = getAction(actionKey)
-      action.nextAction match {
-        case "" => None
-        case _ => Some(action.nextAction)
+     val action = getAction(actionKey)
+      action match {
+        case Some(action1) => {
+          action1.currentAction match {
+            case "" => None
+            case _ => Some(action1.nextAction)
+          }
+        }
+        case _ => None
       }
+
     }.await
   }
 
   def getCurrentAction(actionKey: String): Option[String] = {
     Router.currentActionCache(actionKey) {
       val action = getAction(actionKey)
-      action.currentAction match {
-        case "" => None
-        case _ => Some(action.currentAction)
+      action match {
+        case Some(action1) => {
+          action1.currentAction match {
+            case "" => None
+            case _ => Some(action1.currentAction)
+          }
+        }
+        case _ => None
       }
+
     }.await
   }
 
@@ -44,10 +56,10 @@ trait Plugin extends ActionRepo with UserRepo {
   }
 
   def updateUserAction(openId: String, actionKey: String) = {
-    println(" prepare to update the next action of "+openId)
+    println(" prepare to update the next action of " + openId)
     Router.userActions(openId) {
-      val action=getNextAction(actionKey)
-      println(" Update the next action of "+openId+" to "+action)
+      val action = getNextAction(actionKey)
+      println(" Update the next action of " + openId + " to " + action)
       action
     }
   }
@@ -83,7 +95,7 @@ object Router extends ActionRepo {
   val nextActionCache: Cache[Option[String]] = LruCache(maxCapacity = 50)
   val currentActionCache: Cache[Option[String]] = LruCache(maxCapacity = 50)
   val articleCache: Cache[Seq[Node]] = LruCache(maxCapacity = 100)
-  def response(requestXml: Option[Elem]): String = {
+  def response(requestXml: Option[Elem]): Seq[String] = {
 
     val msgType = (requestXml.get \ "MsgType").text
 
@@ -99,7 +111,7 @@ object Router extends ActionRepo {
         case _ => new DefaultAgent
       }
 
-    agent.go(requestXml).get.toString()
+    Seq(agent.go(requestXml).get.toString(), "test")
 
   }
 }

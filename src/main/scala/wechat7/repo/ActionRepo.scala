@@ -80,11 +80,16 @@ trait ActionRepo extends SlickRepo {
     }
   }
   
-  def getAction(actionKey: String) :Action = {
+  def getAction(actionKey: String) :Option[Action] = {
     conn.dbObject withSession { implicit session: Session =>
       val query = actions.filter(_.actionKey.===(actionKey))
       val result = query.list()
-      result.last
+      result match 
+      {
+        case a::_=> Some(result.last)
+        case Nil => None
+        case _ => None
+      }
     }
   }
 

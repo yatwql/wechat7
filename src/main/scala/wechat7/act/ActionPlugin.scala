@@ -26,25 +26,25 @@ trait ActionPlugin extends ActionRepo with VoteRepo with Plugin {
   def handle(openId: String, currentAction: Option[String], previousAction: Option[String], requestContent: String) {
     val vote = "vote(\\d+)".r
     val voting = "voting(\\d+)".r
+    //val pa = previousAction.get
     currentAction match {
       case Some(action) => {
         action match {
+          case "ignore" => {}
+          case "" => {}
           case vote(voteId) => {
             println(" vote " + voteId + " from user " + openId)
             addVoteResult(openId, voteId.toInt, "")
           }
-           case voting(voteId) => {
+          case voting(voteId) => {
             println(" Voting " + voteId + " from user " + openId)
             updateVoteResult(openId, voteId.toInt, requestContent)
           }
-          case previousAction => {
-            println(" Same action as previous one,will ignore it")
-          }
-          case "ignore" => {}
-          case "" => {}
+         
           case _ => {}
         }
       }
+ case previousAction => { println(" Same action as previous one,will ignore it") }
       case _ => println(" process from ActionPlugin - no  action")
     }
 
