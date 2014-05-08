@@ -39,7 +39,9 @@ trait WechatAppStack extends ScalatraServlet with ScalateSupport{
   def write(seq:Seq[String]){
     val writer = response.getWriter()
     try {
-      for (content <- seq) writer.write(content)
+      for (content <- seq) {
+        writer.write(content)
+        println(content)}
     } catch {
       case e: Exception =>
     } finally {
