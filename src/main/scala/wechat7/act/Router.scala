@@ -98,7 +98,7 @@ object Router extends ArticleRepo {
         case _ => new DefaultAgent
       }
 
-    agent.go(requestXml).toString()
+    agent.go(requestXml).get.toString()
 
   }
 }
