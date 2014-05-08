@@ -21,21 +21,21 @@
             ]
         }, 
         {
-            "name": "红酒调查", 
+            "name": "小调查", 
             "sub_button": [
                 {
                     "key": "vote21", 
-                    "name": "你喜欢智利?", 
+                    "name": "喜欢哪的红酒?", 
                     "type": "click"
                 }, 
                 {
                     "key": "vote22", 
-                    "name": "还是法国?", 
+                    "name": "喜欢什么口味的?", 
                     "type": "click"
                 },
                 {
                     "key": "vote23", 
-                    "name": "或者巴拉圭?", 
+                    "name": "接受的价位是?", 
                     "type": "click"
                 }
             ]
