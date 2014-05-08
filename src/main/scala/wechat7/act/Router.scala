@@ -95,7 +95,7 @@ object Router extends ActionRepo {
   val nextActionCache: Cache[Option[String]] = LruCache(maxCapacity = 50)
   val currentActionCache: Cache[Option[String]] = LruCache(maxCapacity = 50)
   val articleCache: Cache[Seq[Node]] = LruCache(maxCapacity = 100)
-  def response(requestXml: Option[Elem]): Seq[String] = {
+  def response(requestXml: Option[Elem]): Option[String] = {
 
     val msgType = (requestXml.get \ "MsgType").text
 
@@ -110,11 +110,11 @@ object Router extends ActionRepo {
         case Constants.REQ_MSG_TYP_EVENT => new EventAgent
         case _ => new DefaultAgent
       }
-val responseContent = "You are typing?  "
-   val appUserId = (requestXml.get \ "ToUserName").text
-    val openId = (requestXml.get \ "FromUserName").text
-    val t=WechatUtils.getTextMsg(appUserId, openId, responseContent)
-    Seq(agent.go(requestXml).get.toString(),t.toString())
+
+    agent.go(requestXml) match{
+      case Some(node) => Some(node.toString())
+      case _ => None
+    }
 
   }
 }

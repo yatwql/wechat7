@@ -28,11 +28,18 @@ trait WechatAppStack extends ScalatraServlet with ScalateSupport{
   def write(content:String) {
     val writer = response.getWriter()
     try {
-      writer.write(content.toString())
+      writer.write(content)
     } catch {
       case e: Exception =>
     } finally {
       writer.close()
+    }
+  }
+  
+  def write(content:Option[String]) {
+    content match  {
+      case Some(msg) => write(msg)
+      case _ =>
     }
   }
   
@@ -41,7 +48,7 @@ trait WechatAppStack extends ScalatraServlet with ScalateSupport{
     try {
       for (content <- seq) {
         writer.write(content)
-        println(content)}
+        //println(content)}
     } catch {
       case e: Exception =>
     } finally {
