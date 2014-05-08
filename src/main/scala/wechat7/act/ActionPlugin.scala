@@ -40,11 +40,11 @@ trait ActionPlugin extends ActionRepo with VoteRepo with Plugin {
             println(" Voting " + voteId + " from user " + openId)
             updateVoteResult(openId, voteId.toInt, requestContent)
           }
-         
+
           case _ => {}
         }
       }
- case previousAction => { println(" Same action as previous one,will ignore it") }
+      case previousAction => { println(" Same action as previous one,will ignore it") }
       case _ => println(" process from ActionPlugin - no  action")
     }
 
