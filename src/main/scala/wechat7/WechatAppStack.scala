@@ -49,6 +49,7 @@ trait WechatAppStack extends ScalatraServlet with ScalateSupport{
       for (content <- seq) {
         writer.write(content)
         //println(content)}
+      }
     } catch {
       case e: Exception =>
     } finally {
