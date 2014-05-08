@@ -110,8 +110,11 @@ object Router extends ActionRepo {
         case Constants.REQ_MSG_TYP_EVENT => new EventAgent
         case _ => new DefaultAgent
       }
-
-    Seq(agent.go(requestXml).get.toString())
+val responseContent = " ,you are typing?  "
+   val appUserId = (requestXml.get \ "ToUserName").text
+    val openId = (requestXml.get \ "FromUserName").text
+    val t=WechatUtils.getTextMsg(appUserId, openId, responseContent)
+    Seq(agent.go(requestXml).get.toString(),t.toString())
 
   }
 }
