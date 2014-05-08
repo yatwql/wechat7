@@ -111,7 +111,7 @@ object Router extends ActionRepo {
         case _ => new DefaultAgent
       }
 
-    Seq(agent.go(requestXml).get.toString(), "test")
+    Seq(agent.go(requestXml).get.toString())
 
   }
 }
