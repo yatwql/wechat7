@@ -75,5 +75,5 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
 
 }
 object SlickRepoApp extends App {
-  (new SlickRepo with AdminRepo with ArticleRepo with UserRepo with VoteRepo).test
+  (new SlickRepo with AdminRepo with ActionRepo with UserRepo with VoteRepo).test
 }

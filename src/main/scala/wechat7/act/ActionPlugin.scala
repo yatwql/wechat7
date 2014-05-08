@@ -7,36 +7,42 @@ import spray.caching.ValueMagnet.fromAny
 import spray.util.pimpFuture
 import wechat7.repo._
 import wechat7.util.WechatUtils
-trait ActionPlugin extends ArticleRepo with VoteRepo with Plugin {
+trait ActionPlugin extends ActionRepo with VoteRepo with Plugin {
   override def process(openId: String, nickname: String, appUserId: String, msgType: String, actionKey: String, requestContent: String) = {
     super.process(openId, nickname, appUserId, msgType, actionKey, requestContent)
     println(" process from ActionPlugin ")
 
     val userAction = getUserAction(openId)
     println(" process from ActionPlugin user action " + userAction)
-    handle(openId, userAction, requestContent)
-
+    handle(openId, userAction, None, requestContent)
+    Router.userActions.remove(openId)
     val current = getCurrentAction(actionKey)
     println(" process from ActionPlugin currrent action " + current)
-    handle(openId, current, requestContent)
+    handle(openId, current, userAction, requestContent)
     updateUserAction(openId, actionKey)
 
   }
 
-  def handle(openId: String, actionO: Option[String], requestContent: String) {
-    val Pattern = "vote(\\d+)".r
-    actionO match {
+  def handle(openId: String, currentAction: Option[String], previousAction: Option[String], requestContent: String) {
+    val vote = "vote(\\d+)".r
+    val voting = "voting(\\d+)".r
+    currentAction match {
       case Some(action) => {
         action match {
-          case Pattern(voteId) => {
+          case vote(voteId) => {
             println(" vote " + voteId + " from user " + openId)
-            addVoteResult(openId, voteId.toInt, requestContent)
+            addVoteResult(openId, voteId.toInt, "")
           }
-          case "ignore" => Router.userActions.remove(openId)
-          case "" => Router.userActions.remove(openId)
-          case _ => {
-
+           case voting(voteId) => {
+            println(" Voting " + voteId + " from user " + openId)
+            updateVoteResult(openId, voteId.toInt, requestContent)
           }
+          case previousAction => {
+            println(" Same action as previous one,will ignore it")
+          }
+          case "ignore" => {}
+          case "" => {}
+          case _ => {}
         }
       }
       case _ => println(" process from ActionPlugin - no  action")

@@ -10,7 +10,7 @@ import scala.slick.driver.JdbcProfile
 import wechat7.repo._
 
 import scala.xml._
-class Agent extends SlickRepo with AdminRepo with UserRepo with VoteRepo with ArticleRepo with Plugin{
+class Agent extends SlickRepo with AdminRepo with UserRepo with VoteRepo with ActionRepo with Plugin{
   import profile.simple._
   import system.dispatcher
 

@@ -6,10 +6,10 @@ import scala.xml.Node
 import akka.actor.ActorSystem
 import spray.caching.ValueMagnet.fromAny
 import spray.util.pimpFuture
-import wechat7.repo.ArticleRepo
+import wechat7.repo.ActionRepo
 import wechat7.util.WechatUtils
 
-trait ActionRouter extends ArticleRepo with Plugin with ActionPlugin {
+trait ActionRouter extends ActionRepo with Plugin with ActionPlugin {
    import system.dispatcher
  
   def getNewsItems(actionKey: String): Seq[Node] = {

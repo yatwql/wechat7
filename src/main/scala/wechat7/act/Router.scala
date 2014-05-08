@@ -10,12 +10,12 @@ import scala.slick.driver.JdbcProfile
 import wechat7.repo._
 import scala.xml._
 
-trait Plugin extends ArticleRepo with UserRepo {
+trait Plugin extends ActionRepo with UserRepo {
   import profile.simple._
   val system = ActorSystem()
   import system.dispatcher
   def getNextAction(actionKey: String): Option[String] = {
-    Router.actionCache(actionKey) {
+    Router.nextActionCache(actionKey) {
       val action = getAction(actionKey)
       action.nextAction match {
         case "" => None
@@ -25,7 +25,7 @@ trait Plugin extends ArticleRepo with UserRepo {
   }
 
   def getCurrentAction(actionKey: String): Option[String] = {
-    Router.actionCache(actionKey) {
+    Router.currentActionCache(actionKey) {
       val action = getAction(actionKey)
       action.currentAction match {
         case "" => None
@@ -44,7 +44,7 @@ trait Plugin extends ArticleRepo with UserRepo {
   }
 
   def updateUserAction(openId: String, actionKey: String) = {
-    
+    println(" prepare to update the next action of "+openId)
     Router.userActions(openId) {
       val action=getNextAction(actionKey)
       println(" Update the next action of "+openId+" to "+action)
@@ -77,10 +77,11 @@ trait Plugin extends ArticleRepo with UserRepo {
   }
 }
 
-object Router extends ArticleRepo {
+object Router extends ActionRepo {
   val nicknames: Cache[Option[String]] = LruCache(maxCapacity = 300)
   val userActions: Cache[Option[String]] = LruCache(maxCapacity = 2000)
-  val actionCache: Cache[Option[String]] = LruCache(maxCapacity = 50)
+  val nextActionCache: Cache[Option[String]] = LruCache(maxCapacity = 50)
+  val currentActionCache: Cache[Option[String]] = LruCache(maxCapacity = 50)
   val articleCache: Cache[Seq[Node]] = LruCache(maxCapacity = 100)
   def response(requestXml: Option[Elem]): String = {
 

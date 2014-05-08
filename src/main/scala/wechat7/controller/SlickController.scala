@@ -3,7 +3,7 @@ import wechat7.repo._
 import wechat7.WechatAppStack
 
 trait SlickController extends WechatAppStack {
-  val slick = new SlickRepo with AdminRepo with ArticleRepo with UserRepo with VoteRepo
+  val slick = new SlickRepo with AdminRepo with ActionRepo with UserRepo with VoteRepo
   get("/tables/:action/:slug") {
     contentType = "text/html"
     val slug = params("slug")

@@ -32,4 +32,10 @@ trait VoteRepo extends SlickRepo {
       voteResults.insert(VoteResult(openId, voteId, option, fromLocationX, fromLocationY))
     }
   }
+  
+   def updateVoteResult(openId: String, voteId: Int, option: String, fromLocationX: String = "", fromLocationY: String = "") {
+    conn.dbObject withSession { implicit session: Session =>
+      voteResults.insert(VoteResult(openId, voteId, option, fromLocationX, fromLocationY))
+    }
+  }
 }

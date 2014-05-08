@@ -1,7 +1,7 @@
 package wechat7.repo
 
 import wechat7.util._
-trait ArticleRepo extends SlickRepo {
+trait ActionRepo extends SlickRepo {
 
   import profile.simple._
 
@@ -18,9 +18,10 @@ trait ArticleRepo extends SlickRepo {
             actions.insert(Action("投票", "", "vote"))
             actions.insert(Action("投稿", "", "articles\\add"))
             actions.insert(Action("articles", "", "articles\\add"))
-            actions.insert(Action("vote21", "",  "vote21"))
-            actions.insert(Action("vote22", "vote22",  "ignore"))
-            actions.insert(Action("vote23", "",  "vote11"))
+            actions.insert(Action("vote21", "",  "voting21"))
+            actions.insert(Action("vote22", "vote22",  "voting22"))
+            actions.insert(Action("vote23", "",  "voting23"))
+            actions.insert(Action("history", "history",  "ignore"))
             println("======================retrieve actions from database ====================")
             actions.list foreach println
 
@@ -38,9 +39,9 @@ trait ArticleRepo extends SlickRepo {
             articles.insert(Article("New Title 3", "New Description", "3", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
             articles.insert(Article("红酒鉴赏小知识", "红酒鉴赏小知识", "11", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
             articles.insert(Article("南美农产品", "南美农产品", "12", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
-            articles.insert(Article("智利", "智利", "vote21", "news", "", ""))
-            articles.insert(Article("法国", "法国", "vote22", "news", "", ""))
-            articles.insert(Article("巴拉圭", "巴拉圭", "vote23", "news", "", ""))
+            articles.insert(Article("欢迎参加红酒调查(地点)", "您喜欢以下哪个产地的红酒: 1.智利; 2.法国; 3.巴拉圭; 4.中国; 5.其他;", "vote21", "news", "", ""))
+            articles.insert(Article("欢迎参加红酒调查(口味)", "您喜欢哪种葡萄酒: 1.白葡萄酒; 2.红葡萄酒;", "vote22", "news", "", ""))
+            articles.insert(Article("欢迎参加红酒调查(价格)", "您觉得可接受的红酒价格为: 1. 100以下; 2. 200至500; 3.我不想花钱; 4.大爷有钱,好喝就行;", "vote23", "news", "", ""))
             articles.insert(Article("帮助", "打help出此页面,history列出最新二十篇文章,vote参加投票 ", "help", "text"))
             articles.insert(Article("帮助", "打help出此页面,history列出最新二十篇文章,vote参加投票 ", "帮助", "text"))
             println("======================retrieve articles from database ====================")
