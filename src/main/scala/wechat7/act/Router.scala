@@ -56,7 +56,7 @@ trait Plugin extends ActionRepo with UserRepo {
   }
 
   def updateUserAction(openId: String, actionKey: String) = {
-    println(" prepare to update the next action of " + openId)
+    println(" prepare to update the next action of " + openId +" to "+getNextAction(actionKey))
     Router.userActions(openId) {
       val action = getNextAction(actionKey)
       println(" Update the next action of " + openId + " to " + action)

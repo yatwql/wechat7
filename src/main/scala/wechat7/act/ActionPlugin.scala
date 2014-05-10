@@ -10,14 +10,14 @@ import wechat7.util.WechatUtils
 trait ActionPlugin extends ActionRepo with VoteRepo with Plugin {
   override def process(openId: String, nickname: String, appUserId: String, msgType: String, actionKey: String, requestContent: String) = {
     super.process(openId, nickname, appUserId, msgType, actionKey, requestContent)
-    println(" process from ActionPlugin ")
+    println(" process from ActionPlugin actionkey "+actionKey)
 
     val userAction = getUserAction(openId)
     println(" process from ActionPlugin user action " + userAction)
     handle(openId, userAction, None, requestContent)
     Router.userActions.remove(openId)
     val current = getCurrentAction(actionKey)
-    println(" process from ActionPlugin currrent action " + current)
+    println(" process from ActionPlugin currrent action " + current +" of action key "+actionKey)
     handle(openId, current, userAction, requestContent)
     updateUserAction(openId, actionKey)
 
@@ -44,7 +44,7 @@ trait ActionPlugin extends ActionRepo with VoteRepo with Plugin {
           case _ => {}
         }
       }
-      case previousAction => { println(" Same action as previous one,will ignore it") }
+      //case previousAction => { println(" Same action as previous one,will ignore it") }
       case _ => println(" process from ActionPlugin - no  action")
     }
 

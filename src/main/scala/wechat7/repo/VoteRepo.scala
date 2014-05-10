@@ -33,9 +33,11 @@ trait VoteRepo extends SlickRepo {
     }
   }
   
-   def updateVoteResult(openId: String, voteId: Int, option: String, fromLocationX: String = "", fromLocationY: String = "") {
+   def updateVoteResult(openId: String, voteId: Int, option: String) {
     conn.dbObject withSession { implicit session: Session =>
-      voteResults.insert(VoteResult(openId, voteId, option, fromLocationX, fromLocationY))
+      val c=voteResults.filter(_.openId===openId).filter(_.voteId===voteId).map(_.option)
+      c.update(option)
+    
     }
   }
 }
