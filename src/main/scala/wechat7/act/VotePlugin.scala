@@ -12,7 +12,7 @@ trait VotePlugin extends VoteRepo with Plugin {
 
     addVoteResult(openId, voteId, requestContent)
     val responseContent = getVoteThread(voteId) match {
-      case Some(voteThread) => nickname + ", welcome to  " + voteThread.name + " , " + voteThread.description
+      case Some(voteThread) => nickname + ", 欢迎参加  '" + voteThread.name + "' , " + voteThread.description
       case _ => nickname + " ,vote '" + requestContent + "' to a invalide vote id  " + voteId
     }
     Some(WechatUtils.getTextMsg(appUserId, openId, responseContent))
@@ -23,7 +23,7 @@ trait VotePlugin extends VoteRepo with Plugin {
     updateVoteResult(openId, voteId, requestContent)
 
     val responseContent = getVoteThread(voteId) match {
-      case Some(voteThread) => nickname + ", you are voting   '" + requestContent + "' to " + voteThread.name
+      case Some(voteThread) => nickname + ", 您投了   '" + requestContent + "' 给 '" + voteThread.name+"'"
       case _ => nickname + " ,voting '" + requestContent + "' to a invalide vote id  " + voteId
     }
     Some(WechatUtils.getTextMsg(appUserId, openId, responseContent))
