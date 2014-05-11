@@ -50,14 +50,25 @@ trait DomainComponent { this: Profile =>
   }
   val actions = TableQuery[Actions]
 
-  case class VoteTopic(name: String, description: String, id: Int = 0)
-  class VoteTopics(tag: Tag) extends Table[VoteTopic](tag, "vote_topics") {
-    def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
+  case class VoteThread(name: String, description: String, voteId: Int,voteMethod:Int=1)
+  class VoteThreads(tag: Tag) extends Table[VoteThread](tag, "vote_threads") {
+    def voteId = column[Int]("vote_id", O.PrimaryKey)
     def name = column[String]("name", O.NotNull, O.DBType("VARCHAR(100)"))
-    def description = column[String]("description", O.NotNull, O.DBType("VARCHAR(1000)"))
-    def * = (name, description, id) <> (VoteTopic.tupled, VoteTopic.unapply)
+    def description = column[String]("description", O.NotNull, O.DBType("VARCHAR(2000)"))
+    def voteMethod = column[Int]("voteMethod", O.NotNull,O.Default(1))
+    def * = (name, description, voteMethod,voteId) <> (VoteThread.tupled, VoteThread.unapply)
   }
-  val voteTopics = TableQuery[VoteTopics]
+  val voteThreads = TableQuery[VoteThreads]
+  
+  case class VoteOption(voteId:Int,option:String,optionDesc:String,id:Int=0)
+  class VoteOptions(tag: Tag) extends Table[VoteOption](tag, "vote_options") {
+    def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
+    def option = column[String]("option", O.NotNull, O.DBType("VARCHAR(100)"))
+    def optionDesc = column[String]("optionDesc", O.NotNull, O.DBType("VARCHAR(1000)"))
+    def voteId = column[Int]("voteId", O.NotNull)
+    def * = (voteId, option, optionDesc,id) <> (VoteOption.tupled, VoteOption.unapply)
+  }
+  val voteOptions = TableQuery[VoteOptions]
 
   case class VoteResult(openId: String, voteId: Int, option: String, fromLocationX: String = "", fromLocationY: String = "", id: Int = 0)
   class VoteResults(tag: Tag) extends Table[VoteResult](tag, "vote_results") {
@@ -118,7 +129,7 @@ trait DomainComponent { this: Profile =>
   val settings = TableQuery[Settings]
 
   val tables = Map[String, TableQuery[_ <: Table[_]]]("accounts" -> accounts,
-    "articles" -> articles, "actions" -> actions, "voteTopics" -> voteTopics, "voteResults" -> voteResults,
+    "articles" -> articles, "actions" -> actions, "voteThreads" -> voteThreads, "voteOptions" -> voteOptions,"voteResults" -> voteResults,
     "auditLogs" -> auditLogs, "users" -> users,  "settings" -> settings)
 
   def now(): Timestamp = {

@@ -16,7 +16,7 @@ trait Plugin extends ActionRepo with UserRepo {
   import system.dispatcher
   def getNextAction(actionKey: String): Option[String] = {
     Router.nextActionCache(actionKey) {
-     val action = getAction(actionKey)
+      val action = getAction(actionKey)
       action match {
         case Some(action1) => {
           action1.currentAction match {
@@ -56,7 +56,7 @@ trait Plugin extends ActionRepo with UserRepo {
   }
 
   def updateUserAction(openId: String, actionKey: String) = {
-    println(" prepare to update the next action of " + openId +" to "+getNextAction(actionKey))
+    println(" prepare to update the next action of " + openId + " to " + getNextAction(actionKey))
     Router.userActions(openId) {
       val action = getNextAction(actionKey)
       println(" Update the next action of " + openId + " to " + action)
@@ -84,8 +84,13 @@ trait Plugin extends ActionRepo with UserRepo {
       getNicknameFromDB(openId)
     }.await()
   }
-  def process(openId: String, nickname: String, appUserId: String, msgType: String, actionKey: String, requestContent: String) {
+  def response(openId: String, nickname: String, appUserId: String, msgType: String, actionKey: String, requestContent: String): Option[Node] ={
+    None
+  }
 
+  def dontknow(openId: String, appUserId: String, nickname: String, requestContent: String): Option[Node] = {
+    val responseContent = nickname + " ,I can not understand '" + requestContent + "', try to type 'help'  "
+    Some(WechatUtils.getTextMsg(appUserId, openId, responseContent))
   }
 }
 
@@ -102,16 +107,16 @@ object Router extends ActionRepo {
     val agent: Agent =
       msgType match {
         case Constants.REQ_MSG_TYP_TEXT => new TextAgent
-        case Constants.REQ_MSG_TYP_IMAGE => new ImageAgent
-        case Constants.REQ_MSG_TYP_VOICE => new VoiceAgent
-        case Constants.REQ_MSG_TYP_VIDEO => new VideoAgent
-        case Constants.REQ_MSG_TYP_LOCATION => new LocationAgent
-        case Constants.REQ_MSG_TYP_LINK => new LinkAgent
+        case Constants.REQ_MSG_TYP_IMAGE => new DefaultAgent
+        case Constants.REQ_MSG_TYP_VOICE => new DefaultAgent
+        case Constants.REQ_MSG_TYP_VIDEO => new DefaultAgent
+        case Constants.REQ_MSG_TYP_LOCATION => new DefaultAgent
+        case Constants.REQ_MSG_TYP_LINK => new DefaultAgent
         case Constants.REQ_MSG_TYP_EVENT => new EventAgent
         case _ => new DefaultAgent
       }
 
-    agent.go(requestXml) match{
+    agent.go(requestXml) match {
       case Some(node) => Some(node.toString())
       case _ => None
     }

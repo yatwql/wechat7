@@ -12,6 +12,7 @@ trait UserRepo extends SlickRepo {
   import profile.simple._
 
   override def populateTable(tableName: String = "all"): String = {
+    println("execute UserRepo")
     conn.dbObject withSession { implicit session: Session =>
       tableName match {
         case "all" => {
@@ -25,10 +26,14 @@ trait UserRepo extends SlickRepo {
             accounts.insert(Account("yatwql", "joe", "yatwql@qq.com", "yatwql", "admin"))
             println("======================retrieve accounts from database ====================")
             accounts.list foreach println
-            "Populate accounts; "
+            "<UserRepo>Populate accounts; "
           } catch {
             case ex: Exception => println(ex.getMessage); ""
           }
+        }
+        
+        case "users" => {
+          ""
         }
 
         case _ => super.populateTable(tableName)

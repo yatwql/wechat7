@@ -5,6 +5,7 @@ trait AdminRepo extends SlickRepo {
   import profile.simple._
 
   override def populateTable(tableName: String = "all"): String = {
+     println("execute AdminRepo")
     conn.dbObject withSession { implicit session: Session =>
       tableName match {
         case "all" => {
@@ -17,7 +18,7 @@ trait AdminRepo extends SlickRepo {
             settings.insert(Setting(Constants.MENU, WechatUtils.loadMenuFromFile))
             println("======================retrieve settings from database ====================")
             settings.list foreach println
-            "Populate settings; "
+            "<AdminRepo>Populate settings; "
           } catch {
             case ex: Exception => println(ex.getMessage); ""
           }
