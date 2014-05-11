@@ -8,19 +8,24 @@ import spray.util.pimpFuture
 import wechat7.repo._
 import wechat7.util.WechatUtils
 trait VotePlugin extends VoteRepo with Plugin {
-def vote(openId: String, nickname: String, appUserId: String, voteId: Int,requestContent:String): Option[Node] = {
-   
-    addVoteResult(openId,voteId,requestContent)
- val responseContent = nickname + " ,vote '" + requestContent + "' to vote id  "+voteId
+  def vote(openId: String, nickname: String, appUserId: String, voteId: Int, requestContent: String): Option[Node] = {
+
+    addVoteResult(openId, voteId, requestContent)
+    val responseContent = getVoteThread(voteId) match {
+      case Some(voteThread) => nickname + ", welcome to  " + voteThread.name + " , " + voteThread.description
+      case _ => nickname + " ,vote '" + requestContent + "' to a invalide vote id  " + voteId
+    }
     Some(WechatUtils.getTextMsg(appUserId, openId, responseContent))
   }
 
+  def voting(openId: String, nickname: String, appUserId: String, voteId: Int, requestContent: String): Option[Node] = {
 
+    updateVoteResult(openId, voteId, requestContent)
 
-def voting(openId: String, nickname: String, appUserId: String, voteId: Int,requestContent:String): Option[Node] = {
-   
-      updateVoteResult(openId,voteId,requestContent)
- val responseContent = nickname + " ,voting '" + requestContent + "' to vote id  "+voteId
+    val responseContent = getVoteThread(voteId) match {
+      case Some(voteThread) => nickname + ", you are voting   '" + requestContent + "' to " + voteThread.name
+      case _ => nickname + " ,voting '" + requestContent + "' to a invalide vote id  " + voteId
+    }
     Some(WechatUtils.getTextMsg(appUserId, openId, responseContent))
 
   }

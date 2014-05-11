@@ -9,7 +9,7 @@ import wechat7.repo.ActionRepo
 import wechat7.util.WechatUtils
 
 trait ArticlePlugin extends ActionRepo with Plugin {
-import system.dispatcher
+  import system.dispatcher
 
   def getNewsItems(actionKey: String): Seq[Node] = {
     Router.articleCache(actionKey) {
@@ -42,9 +42,9 @@ import system.dispatcher
       case Nil => Seq[Node]()
     }
   }
-  
-  def article(openId: String, nickname: String, appUserId: String, actionKey: String,requestContent:String): Option[Node] = {
-   
+
+  def article(openId: String, nickname: String, appUserId: String, actionKey: String, requestContent: String): Option[Node] = {
+
     val items = getNewsItems(actionKey)
     items match {
       case a :: b => {

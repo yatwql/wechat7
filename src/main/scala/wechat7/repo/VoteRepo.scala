@@ -5,7 +5,7 @@ trait VoteRepo extends SlickRepo {
   import profile.simple._
 
   override def populateTable(tableName: String = "all"): String = {
-    println("execute VoteRepo "+tableName)
+    println("execute VoteRepo " + tableName)
     conn.dbObject withSession { implicit session: Session =>
       tableName match {
         case "all" => {
@@ -14,9 +14,9 @@ trait VoteRepo extends SlickRepo {
         case "voteThreads" => {
           try {
             println("======================Insert voteThreads into database ====================")
-            voteThreads.insert(VoteThread(21,"欢迎参加红酒调查(地点)", "您喜欢以下哪个产地的红酒: 1.智利; 2.法国; 3.巴拉圭; 4.中国; 5.其他;", 2))
-            voteThreads.insert(VoteThread(22,"欢迎参加红酒调查(口味)", "您喜欢哪种葡萄酒: 1.白葡萄酒; 2.红葡萄酒;", 1))
-            voteThreads.insert(VoteThread(23,"欢迎参加红酒调查(价格)", "您觉得可接受的红酒价格为: 1. 100以下; 2. 200至500; 3.我不想花钱; 4.大爷有钱,好喝就行;", 1))
+            voteThreads.insert(VoteThread(21, "欢迎参加红酒调查(地点)", "您喜欢以下哪个产地的红酒: 1.智利; 2.法国; 3.巴拉圭; 4.中国; 5.其他;", 2))
+            voteThreads.insert(VoteThread(22, "欢迎参加红酒调查(口味)", "您喜欢哪种葡萄酒: 1.白葡萄酒; 2.红葡萄酒;", 1))
+            voteThreads.insert(VoteThread(23, "欢迎参加红酒调查(价格)", "您觉得可接受的红酒价格为: 1. 100以下; 2. 200至500; 3.我不想花钱; 4.大爷有钱,好喝就行;", 1))
             println("======================retrieve voteThreads from database ====================")
             voteThreads.list foreach println
             "<VoteRepo>Populate voteThreads;"
@@ -45,13 +45,30 @@ trait VoteRepo extends SlickRepo {
             case ex: Exception => println(ex.getMessage); ""
           }
         }
-        
-         case "voteResults" => {
+
+        case "voteResults" => {
           ""
         }
 
         case _ => super.populateTable(tableName)
       }
+    }
+  }
+
+  def getVoteThread(voteId: Int):Option[VoteThread] = {
+    conn.dbObject withSession { implicit session: Session =>
+      val result = voteThreads.filter(_.voteId === voteId).list
+      result match {
+        case a :: _ => Some(result.last)
+        case Nil => None
+        case _ => None
+      }
+    }
+  }
+  
+   def getVoteOptions(voteId: Int):List[VoteOptions#TableElementType] = {
+    conn.dbObject withSession { implicit session: Session =>
+      voteOptions.filter(_.voteId === voteId).list
     }
   }
 
