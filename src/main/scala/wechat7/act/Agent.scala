@@ -23,9 +23,15 @@ class Agent extends SlickRepo with AdminRepo with UserRepo with VoteRepo with Ac
     println("Get Message Type  " + msgType + " from user " + openId)
     audit(openId, appUserId, msgType, requestXmlContent)
     val responseXml = go(openId, appUserId, msgType, requestXml, requestContent)
-    val responseContent = responseXml.get.toString()
-    val responseMsgType = (responseXml.get \\ "MsgType").text
-    audit(appUserId, openId, responseMsgType, responseContent)
+    responseXml match {
+      case Some(s) => {
+        val responseContent = responseXml.get.toString()
+        val responseMsgType = (responseXml.get \\ "MsgType").text
+        audit(appUserId, openId, responseMsgType, responseContent)
+      }
+      case _ =>
+    }
+
     responseXml
   }
 

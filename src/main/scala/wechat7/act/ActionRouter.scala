@@ -19,8 +19,8 @@ trait ActionRouter extends ActionRepo with Plugin with VotePlugin with ArticlePl
     currentAction match {
       case Some(actionKey) => {
         actionKey match {
-          case "ignore" => {None}
-          case "" => {None}
+          case "ignore" => { None }
+          case "" => { None }
           case votePattern(voteId) => {
             vote(openId, nickname, appUserId, voteId.toInt, "")
           }
@@ -28,19 +28,15 @@ trait ActionRouter extends ActionRepo with Plugin with VotePlugin with ArticlePl
             voting(openId, nickname, appUserId, voteId.toInt, requestContent)
           }
 
-          case articlePattern(articleId) => {
-            article(openId, nickname, appUserId, articleId, requestContent)
-          }
-
           case _ => {
-            dontknow(openId, appUserId, nickname, actionKey)
+            article(openId, nickname, appUserId, actionKey, requestContent)
           }
         }
       }
 
       case _ => {
         println(" process from ActionPlugin - no  action")
-        None
+        article(openId, nickname, appUserId, requestContent, requestContent)
       }
     }
 

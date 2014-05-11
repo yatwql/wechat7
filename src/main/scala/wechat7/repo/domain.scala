@@ -50,13 +50,13 @@ trait DomainComponent { this: Profile =>
   }
   val actions = TableQuery[Actions]
 
-  case class VoteThread(name: String, description: String, voteId: Int,voteMethod:Int=1)
+  case class VoteThread(voteId:Int,name: String, description: String, voteMethod:Int=1)
   class VoteThreads(tag: Tag) extends Table[VoteThread](tag, "vote_threads") {
     def voteId = column[Int]("vote_id", O.PrimaryKey)
     def name = column[String]("name", O.NotNull, O.DBType("VARCHAR(100)"))
     def description = column[String]("description", O.NotNull, O.DBType("VARCHAR(2000)"))
     def voteMethod = column[Int]("voteMethod", O.NotNull,O.Default(1))
-    def * = (name, description, voteMethod,voteId) <> (VoteThread.tupled, VoteThread.unapply)
+    def * = (voteId,name,description,voteMethod) <> (VoteThread.tupled, VoteThread.unapply)
   }
   val voteThreads = TableQuery[VoteThreads]
   

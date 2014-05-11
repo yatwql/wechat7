@@ -39,14 +39,14 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
 
       case _ => {
         tables.get(tableName) match {
-          case Some(table) => doActionImpl(table, action)
+          case Some(table) => doActionImpl(tableName,table, action)
           case None => "Table " + tableName + " not found; "
         }
       }
 
     }
   }
-  def doActionImpl(tableQuery: TableQuery[_ <: Table[_]], action: String): String = {
+  def doActionImpl(tableName: String,tableQuery: TableQuery[_ <: Table[_]], action: String): String = {
     conn.dbObject withSession { implicit session: Session =>
       try {
         action match {
@@ -60,7 +60,7 @@ class SlickRepo(override val profile: JdbcProfile = SlickDBDriver.getDriver) ext
           }
 
           case "populate" => {
-            populateTable(tableQuery.baseTableRow.tableName)
+            populateTable(tableName)
           }
 
  
