@@ -13,33 +13,33 @@ import scala.concurrent._
 import ExecutionContext.Implicits.global
 
 trait VotePlugin extends VoteRepo with Plugin {
-  
-  def splitVoteOptions(list:List[VoteOptions#TableElementType]):Option[(String,Seq[String])]={
-    list match{
-      case a::rest => {
-        val option=a.option
-        val optionDesc=a.optionDesc
+
+  def splitVoteOptions(list: List[VoteOptions#TableElementType]): Option[(String, Seq[String])] = {
+    list match {
+      case a :: rest => {
+        val option = a.option
+        val optionDesc = a.optionDesc
         splitVoteOptions(rest) match {
-          case Some((restDesc,restSeq)) =>Some((option+":"+optionDesc+"; "+restDesc,restSeq :+option))
-          case  _ => Some((option+":"+optionDesc,Seq(option)))
+          case Some((restDesc, restSeq)) => Some((option + ":" + optionDesc + "; " + restDesc, restSeq :+ option))
+          case _ => Some((option + ":" + optionDesc, Seq(option)))
         }
       }
-      case _=> None
+      case _ => None
     }
   }
 
-  def getVoteThreadFromCache(voteId: Int): Option[(String, String, Int,Seq[String])] = {
+  def getVoteThreadFromCache(voteId: Int): Option[(String, String, Int, Seq[String])] = {
     Router.voteThreadCache(voteId) {
       val responseContent = getVoteThread(voteId)
       getVoteThread(voteId) match {
         case Some(voteThread) => {
-          val (voteId,name, threadDesc, voteMethod) = (voteThread.voteId,voteThread.name, voteThread.description, voteThread.voteMethod)
-          val list:List[VoteOptions#TableElementType]=this.getVoteOptions(voteId)
-          val (description,voteOptions) =splitVoteOptions(list) match {
-            case Some((s,t)) => (threadDesc+" - "+s,t)
-            case _ => (threadDesc,Seq())
+          val (voteId, name, threadDesc, voteMethod) = (voteThread.voteId, voteThread.name, voteThread.description, voteThread.voteMethod)
+          val list: List[VoteOptions#TableElementType] = this.getVoteOptions(voteId)
+          val (description, voteOptions) = splitVoteOptions(list) match {
+            case Some((optionDesc, t)) => (threadDesc + " -> " + optionDesc, t)
+            case _ => (threadDesc, Seq())
           }
-          Some((name, description, voteMethod,voteOptions))
+          Some((name, description, voteMethod, voteOptions))
         }
         case _ => None
       }
@@ -47,9 +47,22 @@ trait VotePlugin extends VoteRepo with Plugin {
   }
   def vote(openId: String, nickname: String, appUserId: String, voteId: Int, requestContent: String): Option[Node] = {
 
-    addVoteResult(openId, voteId, requestContent)
+    val voteResultOption = getVoteResult(openId, voteId) match {
+      case Some(voteResult) => Some(voteResult.option)
+      case _ => {
+        addVoteResult(openId, voteId, requestContent)
+        None
+      }
+    }
     val responseContent = getVoteThreadFromCache(voteId) match {
-      case Some((voteName,description,voteMethod,voteOptions)) => nickname + ", 欢迎参加  '" + voteName+ "' , " + description
+      case Some((voteName, description, voteMethod, voteOptions)) => {
+        val desc1 = nickname + ", 欢迎参加  '" + voteName + "'. "
+        val desc2 = voteResultOption match {
+          case Some(s) => " 您已经投票 (" + s + "). "
+          case _ => ""
+        }
+        desc1 + desc2 + description
+      }
       case _ => nickname + " ,vote '" + requestContent + "' to a invalide vote id  " + voteId
     }
     Some(WechatUtils.getTextMsg(appUserId, openId, responseContent))
