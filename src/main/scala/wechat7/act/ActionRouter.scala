@@ -17,8 +17,8 @@ trait ActionRouter extends ActionRepo with Plugin with VotePlugin with ArticlePl
     val votingPattern = "voting(\\d+)".r
     val articlePattern = "(\\d+)".r
     currentAction match {
-      case Some(actionKey) => {
-        actionKey match {
+      case Some(action) => {
+        action match {
           case "ignore" => { None }
           case "" => { None }
           case votePattern(voteId) => {
@@ -37,7 +37,7 @@ trait ActionRouter extends ActionRepo with Plugin with VotePlugin with ArticlePl
             
 
           case _ => {
-            getArticle(openId, nickname, appUserId, actionKey, requestContent)
+            getArticle(openId, nickname, appUserId, action, requestContent)
           }
         }
       }

@@ -32,7 +32,11 @@ trait VotePlugin extends VoteRepo with Plugin {
     val list = getvoteTopics(20)
     val desc = splitListIntoDesc(list)
 
-    val responseContent = nickname + ". 您可参加以下 " + list.size + " 类调查 -> " + desc
+    //val responseContent = nickname + ". 您可参加以下 " + list.size + " 类调查 -> " + desc
+    val responseContent = splitListIntoDesc(list) match {
+      case Some(desc) =>  nickname + ". 您可参加以下 " + list.size + " 类调查 -> " + desc
+      case _ => nickname + ". 最近的没有调查呀 " 
+    }
     Some(WechatUtils.getTextMsg(appUserId, openId, responseContent))
   }
 

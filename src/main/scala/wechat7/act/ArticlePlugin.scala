@@ -43,9 +43,13 @@ trait ArticlePlugin extends ActionRepo with Plugin {
     }
   }
   def getArticleTopics(openId: String, nickname: String, appUserId: String): Option[Node] = {
-    val articleList = getArticleList(20)
-    val desc = splitListIntoDesc(articleList)
-    val responseContent = nickname + ". 最近的 "+articleList.size+" 篇文章列表 -> " + desc 
+    val list = getArticleList(20)
+    
+    val responseContent = splitListIntoDesc(list) match {
+      case Some(desc) => nickname + ". 最近的 "+list.size+" 篇文章列表 -> " + desc 
+      case _ => nickname + ". 最近的没有文章呀 " 
+    }
+   // val responseContent = nickname + ". 最近的 "+articleList.size+" 篇文章列表 -> " + desc 
     Some(WechatUtils.getTextMsg(appUserId, openId, responseContent))
   }
   def getArticle(openId: String, nickname: String, appUserId: String, actionKey: String, requestContent: String): Option[Node] = {
