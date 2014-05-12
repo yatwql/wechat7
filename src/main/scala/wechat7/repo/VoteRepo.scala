@@ -14,9 +14,9 @@ trait VoteRepo extends SlickRepo {
         case "voteThreads" => {
           try {
             println("======================Insert voteThreads into database ====================")
-            voteThreads.insert(VoteThread(21, "红酒调查(地点)", "您喜欢以下哪个产地的红酒: 1.智利; 2.法国; 3.巴拉圭; 4.中国; 5.其他;", 2))
-            voteThreads.insert(VoteThread(22, "红酒调查(口味)", "您喜欢哪种葡萄酒: 1.白葡萄酒; 2.红葡萄酒;", 1))
-            voteThreads.insert(VoteThread(23, "红酒调查(价格)", "您觉得可接受的红酒价格为: 1. 100以下; 2. 200至500; 3.我不想花钱; 4.大爷有钱,好喝就行;", 1))
+            voteThreads.insert(VoteThread(21, "红酒调查(地点)", "您喜欢以下哪个产地的红酒: ", 2))
+            voteThreads.insert(VoteThread(22, "红酒调查(口味)", "您喜欢哪种葡萄酒: ", 1))
+            voteThreads.insert(VoteThread(23, "红酒调查(价格)", "您觉得可接受的红酒价格为:", 1))
             println("======================retrieve voteThreads from database ====================")
             voteThreads.list foreach println
             "<VoteRepo>Populate voteThreads;"
@@ -60,7 +60,6 @@ trait VoteRepo extends SlickRepo {
       val result = voteThreads.filter(_.voteId === voteId).list
       result match {
         case a :: _ => Some(result.last)
-        case Nil => None
         case _ => None
       }
     }
@@ -69,6 +68,16 @@ trait VoteRepo extends SlickRepo {
    def getVoteOptions(voteId: Int):List[VoteOptions#TableElementType] = {
     conn.dbObject withSession { implicit session: Session =>
       voteOptions.filter(_.voteId === voteId).list
+    }
+  }
+   
+   def getVoteResult(openId:String,voteId:Int) = {
+      conn.dbObject withSession { implicit session: Session =>
+      val result=voteResults.filter(_.openId===openId).filter(_.voteId===voteId).list
+      result match {
+        case a::_ => Some(result.last)
+        case _ => None
+      }
     }
   }
 

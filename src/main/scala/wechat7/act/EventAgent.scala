@@ -26,7 +26,7 @@ class EventAgent extends Agent with ActionRouter {
         Some(node)
       }
       case Constants.EVT_TYP_UNSUBSCRIBE => {
-        Router.nicknames.remove(openId)
+        Router.nicknameCache.remove(openId)
         updateSubscriptStatus(openId, 0)
         None
       }

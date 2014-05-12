@@ -1,10 +1,9 @@
 package wechat7.controller
 
 import java.util.Date
+
 import scala.concurrent.ExecutionContext.Implicits.global
-import wechat7.AtmosphereStack
-import wechat7.WechatAppStack
-import wechat7.repo.PageDao
+
 import org.json4s.JValue
 import org.json4s.JsonDSL.jobject2assoc
 import org.json4s.JsonDSL.pair2Assoc
@@ -20,6 +19,11 @@ import org.scalatra.atmosphere.Disconnected
 import org.scalatra.atmosphere.JsonMessage
 import org.scalatra.atmosphere.ServerDisconnected
 import org.scalatra.atmosphere.TextMessage
+import scala.concurrent._
+import ExecutionContext.Implicits.global
+
+import wechat7.AtmosphereStack
+import wechat7.WechatAppStack
  
 trait ChatRoomController extends WechatAppStack with AtmosphereStack {
   //implicit protected val jsonFormats: Formats = DefaultFormats

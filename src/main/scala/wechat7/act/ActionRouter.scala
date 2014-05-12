@@ -50,7 +50,7 @@ trait ActionRouter extends ActionRepo with Plugin with VotePlugin with ArticlePl
     val content = userAction match {
       case Some(action) => {
         val s = process(openId, nickname, appUserId, userAction, requestContent)
-        Router.userActions.remove(openId)
+        Router.userActionCache.remove(openId)
         s
       }
       case _ => {

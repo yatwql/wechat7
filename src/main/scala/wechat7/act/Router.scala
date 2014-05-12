@@ -47,17 +47,17 @@ trait Plugin extends ActionRepo with UserRepo {
   }
 
   def getUserAction(openId: String): Option[String] = {
-    val f = Router.userActions.get(openId)
+    val action = Router.userActionCache.get(openId)
 
-    f match {
+    action match {
       case None => None
-      case _ => f.get.await
+      case _ => action.get.await
     }
   }
 
   def updateUserAction(openId: String, actionKey: String) = {
     println(" prepare to update the next action of " + openId + " to " + getNextAction(actionKey))
-    Router.userActions(openId) {
+    Router.userActionCache(openId) {
       val action = getNextAction(actionKey)
       println(" Update the next action of " + openId + " to " + action)
       action
@@ -80,7 +80,7 @@ trait Plugin extends ActionRepo with UserRepo {
 
   override def getNickname(openId: String): Option[String] = {
     println(" Get nickname for openid " + openId)
-    Router.nicknames(openId) {
+    Router.nicknameCache(openId) {
       getNicknameFromDB(openId)
     }.await()
   }
@@ -94,12 +94,13 @@ trait Plugin extends ActionRepo with UserRepo {
   }
 }
 
-object Router extends ActionRepo {
-  val nicknames: Cache[Option[String]] = LruCache(maxCapacity = 300)
-  val userActions: Cache[Option[String]] = LruCache(maxCapacity = 2000)
+object Router {
+  val nicknameCache: Cache[Option[String]] = LruCache(maxCapacity = 300)
+  val userActionCache: Cache[Option[String]] = LruCache(maxCapacity = 2000)
   val nextActionCache: Cache[Option[String]] = LruCache(maxCapacity = 50)
   val currentActionCache: Cache[Option[String]] = LruCache(maxCapacity = 50)
   val articleCache: Cache[Seq[Node]] = LruCache(maxCapacity = 100)
+  val voteThreadCache: Cache[Option[(String,String,Int,Seq[String])]] = LruCache(maxCapacity = 100)
   def response(requestXml: Option[Elem]): Option[String] = {
 
     val msgType = (requestXml.get \ "MsgType").text
