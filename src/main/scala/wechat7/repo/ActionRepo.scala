@@ -72,10 +72,10 @@ trait ActionRepo extends SlickRepo {
       articles.insert(Article(title, description, actionKey, msgTyp, picUrl, url, id))
     }
   }
-  def getArticleList(drop: Int) = {
+  def getArticleList(take: Int) = {
     conn.dbObject withSession { implicit session: Session =>
       val query = for (a <- articles) yield (a.actionKey, a.title)
-      val result = query.drop(drop).list()
+      val result = query.take(take).list()
       result
     }
   }

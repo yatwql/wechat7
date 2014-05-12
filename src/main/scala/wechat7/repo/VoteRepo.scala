@@ -65,10 +65,10 @@ trait VoteRepo extends SlickRepo {
     }
   }
   
-  def getvoteTopics(drop:Int) = {
+  def getvoteTopics(take:Int) = {
       conn.dbObject withSession { implicit session: Session =>
        val query = for (a <-voteThreads) yield ("vote"+a.voteId,a.name)
-      val result = query.drop(drop).list()
+      val result = query.take(take).list()
       result
     }
   }

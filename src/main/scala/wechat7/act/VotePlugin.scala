@@ -27,11 +27,12 @@ trait VotePlugin extends VoteRepo with Plugin {
       case _ => None
     }
   }
-  
-   def getvoteTopics(openId: String, nickname: String, appUserId: String): Option[Node] = {
+
+  def getvoteTopics(openId: String, nickname: String, appUserId: String): Option[Node] = {
     val list = getvoteTopics(20)
     val desc = splitListIntoDesc(list)
-    val responseContent = nickname + ". 您可以参加以下调查 ->  '" + desc
+
+    val responseContent = nickname + ". 您可参加以下 " + list.size + " 类调查 -> " + desc
     Some(WechatUtils.getTextMsg(appUserId, openId, responseContent))
   }
 
@@ -88,7 +89,7 @@ trait VotePlugin extends VoteRepo with Plugin {
           }
         }
 
-      case _ =>nickname + " ,您投了 '" + requestContent + "' 给了一个无效的调查 " + voteId
+      case _ => nickname + " ,您投了 '" + requestContent + "' 给了一个无效的调查 " + voteId
     }
     Some(WechatUtils.getTextMsg(appUserId, openId, responseContent))
 

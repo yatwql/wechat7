@@ -28,7 +28,7 @@ trait ActionRouter extends ActionRepo with Plugin with VotePlugin with ArticlePl
             voting(openId, nickname, appUserId, voteId.toInt, requestContent)
           }
           case "history" => {
-            getArticleList(openId, nickname, appUserId)
+            getArticleTopics(openId, nickname, appUserId)
           }
           
           case "vote" =>{
