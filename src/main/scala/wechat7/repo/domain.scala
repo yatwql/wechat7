@@ -1,6 +1,7 @@
 package wechat7.repo
 
 import java.sql.Timestamp
+import wechat7.util._
 import java.util.Date
 
 import scala.slick.driver.JdbcProfile
@@ -55,7 +56,7 @@ trait DomainComponent { this: Profile =>
     def voteId = column[Int]("vote_id", O.PrimaryKey)
     def name = column[String]("name", O.NotNull, O.DBType("VARCHAR(100)"))
     def description = column[String]("description", O.NotNull, O.DBType("VARCHAR(2000)"))
-    def voteMethod = column[Int]("voteMethod", O.NotNull,O.Default(1))
+    def voteMethod = column[Int]("voteMethod", O.NotNull,O.Default(Constants.VOTE_METHOD_LIMIT))
     def * = (voteId,name,description,voteMethod) <> (VoteThread.tupled, VoteThread.unapply)
   }
   val voteThreads = TableQuery[VoteThreads]

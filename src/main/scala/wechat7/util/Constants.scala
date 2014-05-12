@@ -19,11 +19,14 @@ object Constants {
   val EVT_TYP_SCAN = "SCAN"
   val EVT_TYP_VIEW = "VIEW"
   val EVT_TYP_LOCATION = "LOCATION"
-    
-    val MENU="menu"
+
+  val MENU = "menu"
 
   val REDWINE_PIC = "http://www.cnyangjiu.com/html/UploadFiles/201051975110330.jpg"
   val SHOP_AT_DIANPING = "http://www.dianping.com/shop/17180808/photos"
-    
-     //val MAX_FILE_SIZE:Int=10*1024*1024
+
+  val VOTE_METHOD_LIMIT = 1
+  val VOTE_METHOD_ALL = 2
+
+  //val MAX_FILE_SIZE:Int=10*1024*1024
 }

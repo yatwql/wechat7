@@ -72,8 +72,16 @@ trait VotePlugin extends VoteRepo with Plugin {
 
     updateVoteResult(openId, voteId, requestContent)
 
-    val responseContent = getVoteThread(voteId) match {
-      case Some(voteThread) => nickname + ", 您投了   '" + requestContent + "' 给 '" + voteThread.name + "'"
+    val responseContent = getVoteThreadFromCache(voteId) match {
+      case Some((voteName, description, voteMethod, voteOptions)) =>
+        {
+          if (voteMethod==Constants.VOTE_METHOD_ALL || voteOptions.contains(requestContent.trim())) {
+            nickname + ", 您投了   '" + requestContent + "' 给 '" + voteName + "'"
+          } else {
+            nickname + ", 您投了  无效选项 '" + requestContent + "' 给 '" + voteName + "'"
+          }
+        }
+
       case _ => nickname + " ,voting '" + requestContent + "' to a invalide vote id  " + voteId
     }
     Some(WechatUtils.getTextMsg(appUserId, openId, responseContent))
