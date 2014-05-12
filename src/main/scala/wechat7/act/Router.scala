@@ -84,13 +84,26 @@ trait Plugin extends ActionRepo with UserRepo {
       getNicknameFromDB(openId)
     }.await()
   }
-  def response(openId: String, nickname: String, appUserId: String, msgType: String, actionKey: String, requestContent: String): Option[Node] ={
+  def response(openId: String, nickname: String, appUserId: String, msgType: String, actionKey: String, requestContent: String): Option[Node] = {
     None
   }
 
   def dontknow(openId: String, appUserId: String, nickname: String, requestContent: String): Option[Node] = {
     val responseContent = nickname + " ,没能理解您的意思 '" + requestContent + "', 输入 help 可获取帮助  "
     Some(WechatUtils.getTextMsg(appUserId, openId, responseContent))
+  }
+
+  def splitListIntoDesc(list: List[(String, String)]): Option[String] = {
+    list match {
+      case data :: rest => {
+        val (a, b) = data
+        splitListIntoDesc(rest) match {
+          case Some((restDesc)) => Some((a + "," + b + "; " + restDesc))
+          case _ => Some((a + " , " + b))
+        }
+      }
+      case _ => None
+    }
   }
 }
 
@@ -100,7 +113,7 @@ object Router {
   val nextActionCache: Cache[Option[String]] = LruCache(maxCapacity = 50)
   val currentActionCache: Cache[Option[String]] = LruCache(maxCapacity = 50)
   val articleCache: Cache[Seq[Node]] = LruCache(maxCapacity = 100)
-  val voteThreadCache: Cache[Option[(String,String,Int,Seq[String])]] = LruCache(maxCapacity = 100)
+  val voteThreadCache: Cache[Option[(String, String, Int, Seq[String])]] = LruCache(maxCapacity = 100)
   def response(requestXml: Option[Elem]): Option[String] = {
 
     val msgType = (requestXml.get \ "MsgType").text

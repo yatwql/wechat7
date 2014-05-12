@@ -27,6 +27,13 @@ trait VotePlugin extends VoteRepo with Plugin {
       case _ => None
     }
   }
+  
+   def getvoteTopics(openId: String, nickname: String, appUserId: String): Option[Node] = {
+    val list = getvoteTopics(20)
+    val desc = splitListIntoDesc(list)
+    val responseContent = nickname + ". 您可以参加以下调查 ->  '" + desc
+    Some(WechatUtils.getTextMsg(appUserId, openId, responseContent))
+  }
 
   def getVoteThreadFromCache(voteId: Int): Option[(String, String, Int, Seq[String])] = {
     Router.voteThreadCache(voteId) {
