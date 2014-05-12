@@ -89,7 +89,7 @@ trait Plugin extends ActionRepo with UserRepo {
   }
 
   def dontknow(openId: String, appUserId: String, nickname: String, requestContent: String): Option[Node] = {
-    val responseContent = nickname + " ,I can not understand '" + requestContent + "', try to type 'help'  "
+    val responseContent = nickname + " ,没能理解您的意思 '" + requestContent + "', 输入 help 可获取帮助  "
     Some(WechatUtils.getTextMsg(appUserId, openId, responseContent))
   }
 }

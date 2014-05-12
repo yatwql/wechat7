@@ -63,7 +63,7 @@ trait VotePlugin extends VoteRepo with Plugin {
         }
         desc1 + desc2 + description
       }
-      case _ => nickname + " ,vote '" + requestContent + "' to a invalide vote id  " + voteId
+      case _ => nickname + " ,您投了 '" + requestContent + "' 给了一个无效的调查  " + voteId
     }
     Some(WechatUtils.getTextMsg(appUserId, openId, responseContent))
   }
@@ -75,13 +75,13 @@ trait VotePlugin extends VoteRepo with Plugin {
         {
           if (voteMethod == Constants.VOTE_METHOD_ALL || voteOptions.contains(requestContent.trim())) {
             updateVoteResult(openId, voteId, requestContent)
-            nickname + ", 您投了   '" + requestContent + "' 给 '" + voteName + "'"
+            nickname + ", 您投了  '" + requestContent + "' 给 '" + voteName + "'"
           } else {
-            nickname + ", 您投了  无效选项 '" + requestContent + "' 给 '" + voteName + "'"
+            nickname + ", 您投了无效选项 '" + requestContent + "' 给 '" + voteName + "'"
           }
         }
 
-      case _ => nickname + " ,voting '" + requestContent + "' to a invalide vote id  " + voteId
+      case _ =>nickname + " ,您投了 '" + requestContent + "' 给了一个无效的调查 " + voteId
     }
     Some(WechatUtils.getTextMsg(appUserId, openId, responseContent))
 
