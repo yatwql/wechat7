@@ -10,20 +10,22 @@ trait ActionRepo extends SlickRepo {
     conn.dbObject withSession { implicit session: Session =>
       tableName match {
         case "all" => {
-          populateTable("articles") + " , " +populateTable("actions") + " , "+ super.populateTable(tableName)
+          populateTable("articles") + " , " + populateTable("actions") + " , " + super.populateTable(tableName)
         }
         case "actions" => {
           try {
             println("======================Insert actions into database ====================")
-            actions.insert(Action("vote", "", "vote"))
-            actions.insert(Action("投票", "", "vote"))
+            actions.insert(Action("vote", "vote", ""))
+            actions.insert(Action("投票", "vote", ""))
             actions.insert(Action("投稿", "", "articles\\add"))
             actions.insert(Action("articles", "", "articles\\add"))
             actions.insert(Action("vote21", "vote21", "voting21"))
             actions.insert(Action("vote22", "vote22", "voting22"))
             actions.insert(Action("vote23", "vote23", "voting23"))
-            actions.insert(Action("history", "history", "ignore"))
-            actions.insert(Action("help", "help", "ignore"))
+            actions.insert(Action("history", "history", ""))
+            actions.insert(Action("list", "history", ""))
+            actions.insert(Action("help", "help", ""))
+            actions.insert(Action("帮助", "help", ""))
             println("======================retrieve actions from database ====================")
             actions.list foreach println
 
@@ -70,14 +72,14 @@ trait ActionRepo extends SlickRepo {
       articles.insert(Article(title, description, actionKey, msgTyp, picUrl, url, id))
     }
   }
-  def getArticleList(drop:Int) = {
+  def getArticleList(drop: Int) = {
     conn.dbObject withSession { implicit session: Session =>
-      val query = for (a <-articles) yield (a.actionKey,a.title)
+      val query = for (a <- articles) yield (a.actionKey, a.title)
       val result = query.drop(drop).list()
       result
     }
   }
-  
+
   def getArticles(actionKey: String) = {
     conn.dbObject withSession { implicit session: Session =>
       val query = articles.filter(_.actionKey.===(actionKey))
