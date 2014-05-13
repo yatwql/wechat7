@@ -1,19 +1,12 @@
 package wechat7.agent
 
 import scala.xml.Elem
-import scala.xml.Node
 
-import spray.caching.Cache
-import spray.caching.LruCache
 import wechat7.util.Constants
 
-object Router {
-  val nicknameCache: Cache[Option[String]] = LruCache(maxCapacity = 300)
-  val userActionCache: Cache[Option[String]] = LruCache(maxCapacity = 2000)
-  val nextActionCache: Cache[Option[String]] = LruCache(maxCapacity = 50)
-  val currentActionCache: Cache[Option[String]] = LruCache(maxCapacity = 50)
-  val articleCache: Cache[Seq[Node]] = LruCache(maxCapacity = 100)
-  val voteThreadCache: Cache[Option[(String, String, Int, Seq[String])]] = LruCache(maxCapacity = 100)
+
+trait AgentProxy {
+ 
   
   def response(requestXml: Option[Elem]): Option[String] = {
 

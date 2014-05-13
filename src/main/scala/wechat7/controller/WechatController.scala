@@ -4,10 +4,10 @@ import scala.xml.Elem
 import scala.xml.XML
 
 import wechat7.WechatAppStack
-import wechat7.agent.Router
+import wechat7.agent._
 import wechat7.util.WechatUtils
 
-trait WechatController extends WechatAppStack  {
+trait WechatController extends WechatAppStack with AgentProxy  {
   get("/wechatauth") {
     contentType = "text/html"
     val result = WechatUtils.checkSignature(params)
@@ -58,7 +58,7 @@ trait WechatController extends WechatAppStack  {
   def wechat(requestXml: Option[Elem]) {
     contentType = "xml;charset=utf-8"
      // for( s <- Router.response(requestXml)) write(s)
-    write(Router.response(requestXml))
+    write(response(requestXml))
   }
 
 }

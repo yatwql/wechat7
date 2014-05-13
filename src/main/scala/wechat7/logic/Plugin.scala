@@ -1,7 +1,6 @@
 package wechat7.logic
 
 import scala.xml.Node
-
 import akka.actor.ActorSystem
 import spray.caching.ValueMagnet.fromAny
 import spray.util.pimpFuture
@@ -9,13 +8,14 @@ import wechat7.agent.Router
 import wechat7.repo.ActionRepo
 import wechat7.repo.UserRepo
 import wechat7.util.WechatUtils
+import wechat7.util.CacheMgr
 
 trait Plugin extends ActionRepo with UserRepo {
   import profile.simple._
   val system = ActorSystem()
   import system.dispatcher
   def getNextAction(actionKey: String): Option[String] = {
-    Router.nextActionCache(actionKey) {
+    CacheMgr.nextActionCache(actionKey) {
       val action = getAction(actionKey)
       action match {
         case Some(action1) => {
@@ -31,7 +31,7 @@ trait Plugin extends ActionRepo with UserRepo {
   }
 
   def getCurrentAction(actionKey: String): Option[String] = {
-    Router.currentActionCache(actionKey) {
+    CacheMgr.currentActionCache(actionKey) {
       val action = getAction(actionKey)
       action match {
         case Some(action1) => {
@@ -47,7 +47,7 @@ trait Plugin extends ActionRepo with UserRepo {
   }
 
   def getUserAction(openId: String): Option[String] = {
-    val action = Router.userActionCache.get(openId)
+    val action = CacheMgr.userActionCache.get(openId)
 
     action match {
       case None => None
@@ -57,7 +57,7 @@ trait Plugin extends ActionRepo with UserRepo {
 
   def updateUserAction(openId: String, actionKey: String) = {
     println(" prepare to update the next action of " + openId + " to " + getNextAction(actionKey))
-    Router.userActionCache(openId) {
+    CacheMgr.userActionCache(openId) {
       val action = getNextAction(actionKey)
       action match {
         case Some("ignore") => None
@@ -88,7 +88,7 @@ trait Plugin extends ActionRepo with UserRepo {
 
   override def getNickname(openId: String): Option[String] = {
     println(" Get nickname for openid " + openId)
-    Router.nicknameCache(openId) {
+    CacheMgr.nicknameCache(openId) {
       getNicknameFromDB(openId)
     }.await()
   }

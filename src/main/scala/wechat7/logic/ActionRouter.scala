@@ -1,9 +1,9 @@
 package wechat7.logic
 
 import scala.xml.Node
-
 import wechat7.agent.Router
 import wechat7.repo.ActionRepo
+import wechat7.util.CacheMgr
 
 
 
@@ -57,7 +57,7 @@ trait ActionRouter extends ActionRepo with Plugin with VotePlugin with ArticlePl
       case Some(action) => {
         println(" process from ActionPlugin User action " + action)
         val s = process(openId, nickname, appUserId, msgType,userAction, requestContent)
-        Router.userActionCache.remove(openId)
+        CacheMgr.userActionCache.remove(openId)
         s
       }
       case _ => {

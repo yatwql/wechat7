@@ -6,12 +6,13 @@ import spray.util.pimpFuture
 import wechat7.repo.ActionRepo
 import wechat7.util.WechatUtils
 import wechat7.agent.Router
+import wechat7.util.CacheMgr
 
 trait ArticlePlugin extends ActionRepo with Plugin {
   import system.dispatcher
 
   def getNewsItems(actionKey: String): Seq[Node] = {
-    Router.articleCache(actionKey) {
+    CacheMgr.articleCache(actionKey) {
       val articleList = getArticles(actionKey)
       val items = articleList match {
         case a :: b => {

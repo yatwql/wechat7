@@ -2,13 +2,13 @@ package wechat7.logic
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.xml.Node
-
 import spray.caching.ValueMagnet.fromAny
 import spray.util.pimpFuture
 import wechat7.agent.Router
 import wechat7.repo.VoteRepo
 import wechat7.util.Constants
 import wechat7.util.WechatUtils
+import wechat7.util.CacheMgr
 
 trait VotePlugin extends VoteRepo with Plugin {
 
@@ -39,7 +39,7 @@ trait VotePlugin extends VoteRepo with Plugin {
   }
 
   def getVoteThreadFromCache(voteId: Int): Option[(String, String, Int, Seq[String])] = {
-    Router.voteThreadCache(voteId) {
+    CacheMgr.voteThreadCache(voteId) {
       val responseContent = getVoteThread(voteId)
       getVoteThread(voteId) match {
         case Some(voteThread) => {

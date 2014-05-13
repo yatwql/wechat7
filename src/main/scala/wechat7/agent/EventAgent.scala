@@ -2,10 +2,10 @@ package wechat7.agent
 
 import scala.xml.Elem
 import scala.xml.Node
-
 import wechat7.logic.ActionRouter
 import wechat7.util.Constants
 import wechat7.util.WechatUtils
+import wechat7.util.CacheMgr
 class EventAgent extends Agent with ActionRouter {
 
   override def go(openId: String, appUserId: String, msgType: String, requestXml: Option[Elem], requestContent: String): Option[Node] = {
@@ -29,7 +29,7 @@ class EventAgent extends Agent with ActionRouter {
         Some(node)
       }
       case Constants.EVT_TYP_UNSUBSCRIBE => {
-        Router.nicknameCache.remove(openId)
+        CacheMgr.nicknameCache.remove(openId)
         updateSubscriptStatus(openId, 0)
         None
       }
