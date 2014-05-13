@@ -48,18 +48,7 @@ trait MenuController extends WechatAppStack with FileUploadSupport  {
   }
 
   get("/wechat/menu/upload") {
-    contentType = "text/html"
-    <html>
-      <head>
-        <title>Upload a document</title>
-      </head>
-      <body>
-        <form action="/wechat/menu/update" enctype="multipart/form-data" method="post">
-          <input type="file" name="document"/>
-          <input type="submit"/>
-        </form>
-      </body>
-    </html>
+     ssp("/admin/menu-upload")
   }
 
   post("/wechat/menu/update") {
@@ -70,13 +59,14 @@ trait MenuController extends WechatAppStack with FileUploadSupport  {
    
     <html>
       <head>
-        <title>Upload successful.</title>
+        <title>Upload menu file successful.</title>
       </head>
       <body>
         <p>File Name: { item.name }</p>
         <p>content type: { item.contentType.getOrElse("unknown") }</p>
         <p>File Size: { item.size }</p>
         <p>Saved content: { menu}</p>
+        <p><a href="/wechat/menu/create" >Create the menu</a></p>
       </body>
     </html>
 
