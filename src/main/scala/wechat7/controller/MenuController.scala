@@ -30,25 +30,26 @@ trait MenuController extends WechatAppStack with FileUploadSupport  {
       } 
     }
     val responseMsg = WechatUtils.createMenu(menu)
-    responseMsg
+    
+    ssp("/pages/showMessage", "title" -> "Create wechat menu", "message" -> responseMsg)
   }
 
   get("/wechat/menu/get") {
     contentType = "text/html"
     println("This is route for get menu")
     val responseMsg = WechatUtils.getMenu()
-    responseMsg
+     ssp("/pages/showMessage", "title" -> "Get wechat menu", "message" -> responseMsg)
   }
 
   get("/wechat/menu/delete") {
     contentType = "text/html"
     println("This is route for delete menu")
     val responseMsg = WechatUtils.deleteMenu()
-    responseMsg
+     ssp("/pages/showMessage", "title" -> "Delete wechat menu", "message" -> responseMsg)
   }
 
   get("/wechat/menu/upload") {
-     ssp("/wechat/menu/upload")
+     ssp("/wechat/menu/upload","title" -> "Upload wechat menu file")
   }
 
   post("/wechat/menu/update") {
@@ -56,21 +57,7 @@ trait MenuController extends WechatAppStack with FileUploadSupport  {
     val arr =item.get()
     val menu =new String(arr)
     adminRepo.saveMenu(menu)
-    ssp("/wechat/menu/update","item" ->item,"menu" -> menu)
-   /*
-    <html>
-      <head>
-        <title>Upload menu file successful.</title>
-      </head>
-      <body>
-        <p>File Name: { item.name }</p>
-        <p>content type: { item.contentType.getOrElse("unknown") }</p>
-        <p>File Size: { item.size }</p>
-        <p>Saved content: { menu}</p>
-        <p><a href="/wechat/menu/create" >Create the menu</a></p>
-      </body>
-    </html>
-*/
+    ssp("/wechat/menu/update","title" -> "Updated wechat menu into db","item" ->item,"menu" -> menu)
   }
 
 }
