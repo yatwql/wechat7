@@ -4,7 +4,6 @@ import scala.xml.Node
 import akka.actor.ActorSystem
 import spray.caching.ValueMagnet.fromAny
 import spray.util.pimpFuture
-import wechat7.agent.Router
 import wechat7.repo.ActionRepo
 import wechat7.repo.UserRepo
 import wechat7.util.WechatUtils

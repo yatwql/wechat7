@@ -1,7 +1,6 @@
 package wechat7.logic
 
 import scala.xml.Node
-import wechat7.agent.Router
 import wechat7.repo.ActionRepo
 import wechat7.util.CacheMgr
 

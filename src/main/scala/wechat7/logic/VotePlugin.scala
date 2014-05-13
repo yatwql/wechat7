@@ -4,7 +4,6 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.xml.Node
 import spray.caching.ValueMagnet.fromAny
 import spray.util.pimpFuture
-import wechat7.agent.Router
 import wechat7.repo.VoteRepo
 import wechat7.util.Constants
 import wechat7.util.WechatUtils

@@ -5,7 +5,6 @@ import spray.caching.ValueMagnet.fromAny
 import spray.util.pimpFuture
 import wechat7.repo.ActionRepo
 import wechat7.util.WechatUtils
-import wechat7.agent.Router
 import wechat7.util.CacheMgr
 
 trait ArticlePlugin extends ActionRepo with Plugin {
