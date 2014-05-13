@@ -55,20 +55,27 @@ trait Plugin extends ActionRepo with UserRepo {
   }
 
   def updateUserAction(openId: String, actionKey: String) = {
-    println(" prepare to update the next action of " + openId + " to " + getNextAction(actionKey))
+    println(" prepare to update the next action of " + openId )
     CacheMgr.userActionCache(openId) {
       val action = getNextAction(actionKey)
       action match {
-        case Some("ignore") => None
-        case Some("") => None
+        case Some("ignore") => {
+          println(" Ignore the save action of " + openId )
+          None}
+        case Some("") => {
+           println(" Ignore the save action of " + openId )
+          None}
         case Some(action1) => {
           println(" Update the next action of " + openId + " to " + action)
           action
         }
-        case _ => None
+        case _ => {
+          println(" Ignore the save action of " + openId )
+          None}
       }
 
     }
+    //println(" The user action of  " + openId +" is "+CacheMgr.userActionCache.get(openId).get.value )
   }
 
   def getNicknameFromDB(openId: String): Option[String] = {
