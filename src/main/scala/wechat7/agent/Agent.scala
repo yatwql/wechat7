@@ -1,15 +1,15 @@
-package wechat7.act
-import wechat7.util._
-import scala.concurrent.duration._
-import scala.concurrent.Future
-import akka.actor.ActorSystem
-import spray.caching.{ LruCache, Cache }
-import spray.util._
+package wechat7.agent
 
-import scala.slick.driver.JdbcProfile
-import wechat7.repo._
+import scala.xml.Elem
+import scala.xml.Node
 
-import scala.xml._
+import wechat7.logic.Plugin
+import wechat7.repo.ActionRepo
+import wechat7.repo.AdminRepo
+import wechat7.repo.SlickRepo
+import wechat7.repo.UserRepo
+import wechat7.repo.VoteRepo
+import wechat7.util.WechatUtils
 class Agent extends SlickRepo with AdminRepo with UserRepo with VoteRepo with ActionRepo with Plugin {
   import profile.simple._
   import system.dispatcher

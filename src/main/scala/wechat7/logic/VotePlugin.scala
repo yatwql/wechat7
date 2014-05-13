@@ -1,16 +1,14 @@
-package wechat7.act
+package wechat7.logic
 
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.xml.Node
 
-import spray.caching.Cache
 import spray.caching.ValueMagnet.fromAny
 import spray.util.pimpFuture
-import wechat7.repo._
-import wechat7.util._
+import wechat7.agent.Router
+import wechat7.repo.VoteRepo
+import wechat7.util.Constants
 import wechat7.util.WechatUtils
-import scala.concurrent._
-
-import ExecutionContext.Implicits.global
 
 trait VotePlugin extends VoteRepo with Plugin {
 
@@ -96,6 +94,5 @@ trait VotePlugin extends VoteRepo with Plugin {
       case _ => nickname + " ,您投了 '" + requestContent + "' 给了一个无效的调查 " + voteId
     }
     Some(WechatUtils.getTextMsg(appUserId, openId, responseContent))
-
   }
 }

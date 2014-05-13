@@ -67,7 +67,7 @@ trait VoteRepo extends SlickRepo {
   
   def getvoteTopics(take:Int) = {
       conn.dbObject withSession { implicit session: Session =>
-       val query = for (a <-voteThreads) yield ("vote"+a.voteId,a.name)
+       val query = for (v <-voteThreads) yield (v.name,"vote"+v.voteId)
       val result = query.take(take).list()
       result
     }

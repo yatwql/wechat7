@@ -1,18 +1,16 @@
-package wechat7.act
+package wechat7.logic
 
-import scala.collection.Seq
 import scala.xml.Node
 
-import akka.actor.ActorSystem
-import spray.caching.ValueMagnet.fromAny
-import spray.util.pimpFuture
+import wechat7.agent.Router
 import wechat7.repo.ActionRepo
-import wechat7.util.WechatUtils
+
+
 
 trait ActionRouter extends ActionRepo with Plugin with VotePlugin with ArticlePlugin {
   import system.dispatcher
 
-  def process(openId: String, nickname: String, appUserId: String, currentAction: Option[String], requestContent: String): Option[Node] = {
+  override def process(openId: String, nickname: String, appUserId: String, msgType: String, currentAction: Option[String], requestContent: String): Option[Node] = {
     val votePattern = "vote(\\d+)".r
     val votingPattern = "voting(\\d+)".r
     val articlePattern = "(\\d+)".r
@@ -50,21 +48,22 @@ trait ActionRouter extends ActionRepo with Plugin with VotePlugin with ArticlePl
 
   }
 
-  override def response(openId: String, nickname: String, appUserId: String, msgType: String, actionKey: String, requestContent: String): Option[Node] = {
+  def response(openId: String, nickname: String, appUserId: String, msgType: String, actionKey: String, requestContent: String): Option[Node] = {
     println(" process from ActionPlugin actionkey " + actionKey)
     val userAction = getUserAction(openId)
-    println(" process from ActionPlugin user action " + userAction)
+    println(" The user action is " + userAction)
 
     val content = userAction match {
       case Some(action) => {
-        val s = process(openId, nickname, appUserId, userAction, requestContent)
+        println(" process from ActionPlugin User action " + action)
+        val s = process(openId, nickname, appUserId, msgType,userAction, requestContent)
         Router.userActionCache.remove(openId)
         s
       }
       case _ => {
         val current = getCurrentAction(actionKey)
         println(" process from ActionPlugin currrent action " + current + " of action key " + actionKey)
-        val t = process(openId, nickname, appUserId, current, requestContent)
+        val t = process(openId, nickname, appUserId, msgType,current, requestContent)
         updateUserAction(openId, actionKey)
         t
       }

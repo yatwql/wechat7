@@ -1,8 +1,11 @@
-package wechat7.act
+package wechat7.agent
 
-import scala.xml._
+import scala.xml.Elem
+import scala.xml.Node
 
-import wechat7.util._
+import wechat7.logic.ActionRouter
+import wechat7.util.Constants
+import wechat7.util.WechatUtils
 class EventAgent extends Agent with ActionRouter {
 
   override def go(openId: String, appUserId: String, msgType: String, requestXml: Option[Elem], requestContent: String): Option[Node] = {
@@ -34,7 +37,6 @@ class EventAgent extends Agent with ActionRouter {
       case Constants.EVT_TYP_LOCATION => Some(WechatUtils.getNewsMsg(appUserId, openId, "Hello world ", responseContent, Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING));
       case Constants.EVT_TYP_CLICK => {
         val eventKey = (requestXml.get \ "EventKey").text
-        //addVoteResult(openId, 1, eventKey)
         response(openId, nickname, appUserId, msgType, eventKey,eventKey)
       }
       case Constants.EVT_TYP_VIEW => None

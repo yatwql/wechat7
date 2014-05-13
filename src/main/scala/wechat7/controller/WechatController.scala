@@ -1,10 +1,10 @@
 package wechat7.controller
 
 import scala.xml.Elem
-import wechat7.act._
 import scala.xml.XML
 
 import wechat7.WechatAppStack
+import wechat7.agent.Router
 import wechat7.util.WechatUtils
 
 trait WechatController extends WechatAppStack  {

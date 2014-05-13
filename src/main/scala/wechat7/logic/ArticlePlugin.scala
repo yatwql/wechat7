@@ -1,12 +1,11 @@
-package wechat7.act
+package wechat7.logic
 import scala.collection.Seq
 import scala.xml.Node
-
-import akka.actor.ActorSystem
 import spray.caching.ValueMagnet.fromAny
 import spray.util.pimpFuture
 import wechat7.repo.ActionRepo
 import wechat7.util.WechatUtils
+import wechat7.agent.Router
 
 trait ArticlePlugin extends ActionRepo with Plugin {
   import system.dispatcher
@@ -49,7 +48,6 @@ trait ArticlePlugin extends ActionRepo with Plugin {
       case Some(desc) => nickname + ". 最近的 "+list.size+" 篇文章列表 -> " + desc 
       case _ => nickname + ". 最近的没有文章呀 " 
     }
-   // val responseContent = nickname + ". 最近的 "+articleList.size+" 篇文章列表 -> " + desc 
     Some(WechatUtils.getTextMsg(appUserId, openId, responseContent))
   }
   def getArticle(openId: String, nickname: String, appUserId: String, actionKey: String, requestContent: String): Option[Node] = {

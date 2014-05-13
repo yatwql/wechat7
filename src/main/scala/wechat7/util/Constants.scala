@@ -28,5 +28,4 @@ object Constants {
   val VOTE_METHOD_LIMIT = 1
   val VOTE_METHOD_ALL = 2
 
-  //val MAX_FILE_SIZE:Int=10*1024*1024
 }

@@ -1,14 +1,14 @@
-package wechat7.act
+package wechat7.logic
 
-import wechat7.util._
-import scala.concurrent.duration._
-import scala.concurrent.Future
+import scala.xml.Node
+
 import akka.actor.ActorSystem
-import spray.caching.{ LruCache, Cache }
-import spray.util._
-import scala.slick.driver.JdbcProfile
-import wechat7.repo._
-import scala.xml._
+import spray.caching.ValueMagnet.fromAny
+import spray.util.pimpFuture
+import wechat7.agent.Router
+import wechat7.repo.ActionRepo
+import wechat7.repo.UserRepo
+import wechat7.util.WechatUtils
 
 trait Plugin extends ActionRepo with UserRepo {
   import profile.simple._
@@ -59,8 +59,16 @@ trait Plugin extends ActionRepo with UserRepo {
     println(" prepare to update the next action of " + openId + " to " + getNextAction(actionKey))
     Router.userActionCache(openId) {
       val action = getNextAction(actionKey)
-      println(" Update the next action of " + openId + " to " + action)
-      action
+      action match {
+        case Some("ignore") => None
+        case Some("") => None
+        case Some(action1) => {
+          println(" Update the next action of " + openId + " to " + action)
+          action
+        }
+        case _ => None
+      }
+
     }
   }
 
@@ -84,7 +92,7 @@ trait Plugin extends ActionRepo with UserRepo {
       getNicknameFromDB(openId)
     }.await()
   }
-  def response(openId: String, nickname: String, appUserId: String, msgType: String, actionKey: String, requestContent: String): Option[Node] = {
+  def process(openId: String, nickname: String, appUserId: String, msgType: String, currentAction: Option[String], requestContent: String): Option[Node] = {
     None
   }
 
@@ -104,36 +112,5 @@ trait Plugin extends ActionRepo with UserRepo {
       }
       case _ => None
     }
-  }
-}
-
-object Router {
-  val nicknameCache: Cache[Option[String]] = LruCache(maxCapacity = 300)
-  val userActionCache: Cache[Option[String]] = LruCache(maxCapacity = 2000)
-  val nextActionCache: Cache[Option[String]] = LruCache(maxCapacity = 50)
-  val currentActionCache: Cache[Option[String]] = LruCache(maxCapacity = 50)
-  val articleCache: Cache[Seq[Node]] = LruCache(maxCapacity = 100)
-  val voteThreadCache: Cache[Option[(String, String, Int, Seq[String])]] = LruCache(maxCapacity = 100)
-  def response(requestXml: Option[Elem]): Option[String] = {
-
-    val msgType = (requestXml.get \ "MsgType").text
-
-    val agent: Agent =
-      msgType match {
-        case Constants.REQ_MSG_TYP_TEXT => new TextAgent
-        case Constants.REQ_MSG_TYP_IMAGE => new DefaultAgent
-        case Constants.REQ_MSG_TYP_VOICE => new DefaultAgent
-        case Constants.REQ_MSG_TYP_VIDEO => new DefaultAgent
-        case Constants.REQ_MSG_TYP_LOCATION => new DefaultAgent
-        case Constants.REQ_MSG_TYP_LINK => new DefaultAgent
-        case Constants.REQ_MSG_TYP_EVENT => new EventAgent
-        case _ => new DefaultAgent
-      }
-
-    agent.go(requestXml) match {
-      case Some(node) => Some(node.toString())
-      case _ => None
-    }
-
   }
 }
