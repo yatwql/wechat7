@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="btn-group">
-    <button data-toggle="dropdown" class="btn btn-warning dropdown-toggle">Database Action <span class="caret"></span></button>
+    <button data-toggle="dropdown" class="btn btn-danger dropdown-toggle">数据库 <span class="caret"></span></button>
     <ul class="dropdown-menu">
         <li><a href="/tables/drop/all">Drop All Tables</a></li>
         <li><a href="/tables/create/all">Create All Tables</a></li>
@@ -34,13 +34,39 @@
     </ul>
    </div>
     <div class="btn-group">
-    <button data-toggle="dropdown" class="btn btn-warning dropdown-toggle">Wechat Menu Action <span class="caret"></span></button>
+    <button data-toggle="dropdown" class="btn btn-warning dropdown-toggle">微信菜单<span class="caret"></span></button>
     <ul class="dropdown-menu">
         <li><a href="/wechat/menu/upload">Upload menu file</a></li>
         <li><a href="/wechat/menu/create">Re-create wechat menu</a></li>
          <li><a href="/wechat/menu/get">Get wechat menu</a></li>
         <li class="divider"></li>
         <li><a href="/wechat/menu/delete">Delete wechat menu</a></li>
+    </ul>
+   </div>
+     <div class="btn-group">
+    <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">文章 <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        <li><a href="/wechat/articles/list">过往文章</a></li>
+        <li><a href="/wechat/articles/create">发表文章</a></li>
+       <li><a href="/wechat/articles/manage">管理文章</a></li>
+    </ul>
+   </div>
+   <div class="btn-group">
+    <button data-toggle="dropdown" class="btn btn-info dropdown-toggle">调查结果 <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        <li><a href="/wechat/vote/list">管理调查列表</a></li>
+        <li><a href="/wechat/vote/create">新调查</a></li>
+       <li><a href="/wechat/vote/list">查看调查结果</a></li>
+    </ul>
+   </div>
+    <div class="btn-group">
+    <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">管理 <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        <li><a href="/user/list">管理用户</a></li>
+        <li><a href="/user/create">新用户</a></li>
+        <li><a href="/audit/list">Audit Logs</a></li>
+        <li class="divider"></li>
+        <li><a href="/user/manage/current">当前用户管理</a></li>
     </ul>
    </div>
     </div>
