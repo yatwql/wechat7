@@ -23,6 +23,26 @@
           <a class="brand" href="#">Wechat7 App Site</a>
         </div>
       </div>
+      <div class="btn-group">
+    <button data-toggle="dropdown" class="btn btn-warning dropdown-toggle">Database Action <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        <li><a href="/tables/drop/all">Drop All Tables</a></li>
+        <li><a href="/tables/create/all">Create All Tables</a></li>
+         <li><a href="/tables/populate/all">Populate All Tables</a></li>
+        <li class="divider"></li>
+        <li><a href="/tables/flush/all">Flush All Tables</a></li>
+    </ul>
+   </div>
+    <div class="btn-group">
+    <button data-toggle="dropdown" class="btn btn-warning dropdown-toggle">Wechat Menu Action <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        <li><a href="/wechat/menu/upload">Upload menu file</a></li>
+        <li><a href="/wechat/menu/create">Re-create wechat menu</a></li>
+         <li><a href="/wechat/menu/get">Get wechat menu</a></li>
+        <li class="divider"></li>
+        <li><a href="/wechat/menu/delete">Delete wechat menu</a></li>
+    </ul>
+   </div>
     </div>
 
     <div class="container">
