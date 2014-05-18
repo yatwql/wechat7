@@ -23,16 +23,7 @@
           <a class="brand" href="#">Wechat7 App Site</a>
         </div>
       </div>
-      <div class="btn-group">
-    <button data-toggle="dropdown" class="btn btn-danger dropdown-toggle">数据库 <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-        <li><a href="/tables/drop/all">Drop All Tables</a></li>
-        <li><a href="/tables/create/all">Create All Tables</a></li>
-         <li><a href="/tables/populate/all">Populate All Tables</a></li>
-        <li class="divider"></li>
-        <li><a href="/tables/flush/all">Flush All Tables</a></li>
-    </ul>
-   </div>
+    
     <div class="btn-group">
     <button data-toggle="dropdown" class="btn btn-warning dropdown-toggle">微信菜单<span class="caret"></span></button>
     <ul class="dropdown-menu">
@@ -67,6 +58,16 @@
         <li><a href="/audit/list">Audit Logs</a></li>
         <li class="divider"></li>
         <li><a href="/user/manage/current">当前用户管理</a></li>
+    </ul>
+   </div>
+     <div class="btn-group">
+    <button data-toggle="dropdown" class="btn btn-danger dropdown-toggle">数据库 <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        <li><a href="/tables/drop/all">Drop All Tables</a></li>
+        <li><a href="/tables/create/all">Create All Tables</a></li>
+         <li><a href="/tables/populate/all">Populate All Tables</a></li>
+        <li class="divider"></li>
+        <li><a href="/tables/flush/all">Flush All Tables</a></li>
     </ul>
    </div>
     </div>

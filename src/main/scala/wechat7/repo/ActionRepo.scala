@@ -63,7 +63,7 @@ trait ActionRepo extends SlickRepo {
     conn.dbObject withSession { implicit session: Session =>
       val query = articles.filter(_.msgTyp.===("news"))
       val result = query.list()
-      // result
+       result
     }
   }
 
@@ -72,7 +72,7 @@ trait ActionRepo extends SlickRepo {
       articles.insert(Article(title, description, actionKey, msgTyp, picUrl, url, id))
     }
   }
-  def getArticleList(take: Int) = {
+  def getArticleList(take: Int =20) = {
     conn.dbObject withSession { implicit session: Session =>
       val query = for (a <- articles) yield (a.actionKey, a.title)
       val result = query.take(take).list()
@@ -85,6 +85,17 @@ trait ActionRepo extends SlickRepo {
       val query = articles.filter(_.actionKey.===(actionKey))
       val result = query.list()
       result
+    }
+  }
+  
+   def getArticle(id: Int) = {
+    conn.dbObject withSession { implicit session: Session =>
+      val query = articles.filter(_.id===(id))
+      val result = query.list()
+      result match {
+        case a::b=> Some(result.last)
+        case _ => None
+      }
     }
   }
 
