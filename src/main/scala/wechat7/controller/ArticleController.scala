@@ -8,21 +8,21 @@ import org.scalatra.servlet.FileUploadSupport
 import org.scalatra.ScalatraServlet
 import org.scalatra.servlet.FileItem
 
-trait ArticleController extends WechatAppStack with FileUploadSupport {
+trait ArticleController extends WechatAppStack {
   self: ScalatraServlet =>
   class ActionRepoImpl extends ActionRepo {
 
   }
-  val repo = new ActionRepoImpl
+  val articleRepo = new ActionRepoImpl
 
-  get("/wechat/articles") {
-    val list = repo.getArticleList(20)
+  get("/articles") {
+    val list = articleRepo.getArticleList(20)
     ssp("/wechat/articles", "title" -> "List articles", "list" -> list)
   }
 
-  get("/wechat/article/:slug") {
+  get("/article/:slug") {
     val slug = params("slug")
-    val article = repo.getArticle(slug.toInt)
+    val article = articleRepo.getArticle(slug.toInt)
     ssp("/wechat/article/view", "title" -> "Show article", "article" -> article)
   }
 
