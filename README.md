@@ -1,9 +1,9 @@
-# Dragon Studio Webchat App #
+# Dragon Studio Webchat7 App #
 
 ## Build & Run ##
 
 ```sh
-$ cd Dragon_Studio_Webchat_App
+$ cd wechat7
 $ ./sbt
 > container:start
 > browse
