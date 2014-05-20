@@ -15,15 +15,15 @@ trait VoteController extends WechatAppStack {
   }
   val voteRepo = new VoteRepoImpl
 
-  get("/votes") {
+  get("/vote/list") {
     val list = voteRepo.getvoteTopics(20)
-    ssp("/wechat/vote/votes", "title" -> "List Votes", "list" -> list)
+    ssp("/pages/vote/votes", "title" -> "List Votes", "list" -> list)
   }
 
-  get("/vote/:slug") {
+  get("/vote/view/:slug") {
     val slug = params("slug")
     val vote = voteRepo.getVoteThread(slug.toInt)
-    ssp("/wechat/vote/view", "title" -> "Show Vote detail", "vote" -> vote)
+    ssp("/pages/vote/view", "title" -> "Show Vote detail", "vote" -> vote)
   }
 
 }

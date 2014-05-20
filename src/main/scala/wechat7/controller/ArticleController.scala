@@ -15,15 +15,15 @@ trait ArticleController extends WechatAppStack {
   }
   val articleRepo = new ActionRepoImpl
 
-  get("/articles") {
+  get("/article/list") {
     val list = articleRepo.getArticleList(20)
-    ssp("/wechat/articles", "title" -> "List articles", "list" -> list)
+    ssp("/pages/articles", "title" -> "List articles", "list" -> list)
   }
 
-  get("/article/:slug") {
+  get("/article/view/:slug") {
     val slug = params("slug")
     val article = articleRepo.getArticle(slug.toInt)
-    ssp("/wechat/article/view", "title" -> "Show article", "article" -> article)
+    ssp("/pages/article/view", "title" -> "Show article", "article" -> article)
   }
 
 }

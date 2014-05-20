@@ -49,7 +49,7 @@ trait MenuController extends WechatAppStack with FileUploadSupport  {
   }
 
   get("/wechat/menu/upload") {
-     ssp("/wechat/menu/upload","title" -> "Upload wechat menu file")
+     ssp("/pages/menu/upload","title" -> "Upload wechat menu file")
   }
 
   post("/wechat/menu/update") {
@@ -57,7 +57,7 @@ trait MenuController extends WechatAppStack with FileUploadSupport  {
     val arr =item.get()
     val menu =new String(arr)
     adminRepo.saveMenu(menu)
-    ssp("/wechat/menu/update","title" -> "Updated wechat menu into db","item" ->item,"menu" -> menu)
+    ssp("/pages/menu/update","title" -> "Updated wechat menu into db","item" ->item,"menu" -> menu)
   }
 
 }
