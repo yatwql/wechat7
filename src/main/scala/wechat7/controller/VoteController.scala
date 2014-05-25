@@ -26,8 +26,8 @@ trait VoteController extends WechatAppStack {
     ssp("/pages/vote/view", "title" -> "Show Vote detail", "vote" -> vote)
   }
 
-get("/vote/create"){
-ssp("/pages/vote/create", "title" -> "Create Vote detail")
-}
+  get("/vote/create") {
+    ssp("/pages/vote/create", "title" -> "Create Vote detail")
+  }
 
 }

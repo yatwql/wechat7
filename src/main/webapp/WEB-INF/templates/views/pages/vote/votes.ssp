@@ -1,0 +1,15 @@
+<%@ var list: List[(String,Int,String)] %>
+<div class="head">
+    <div class="span6">
+        <h2>投票主题  - 微信关键字</p>     
+    </div>
+
+</div>
+#for ((name:String,id:Int,remark:String) <- list)
+<div class="row">
+    <div class="span6">
+        <p class="lead">${name} - vote${id}</p>     
+    </div>
+
+</div>
+#end

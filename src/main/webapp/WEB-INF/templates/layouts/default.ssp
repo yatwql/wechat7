@@ -45,7 +45,7 @@
    <div class="btn-group">
     <button data-toggle="dropdown" class="btn btn-info dropdown-toggle">调查结果 <span class="caret"></span></button>
     <ul class="dropdown-menu">
-        <li><a href="/vote/votes">管理调查列表</a></li>
+        <li><a href="/vote/list">管理调查列表</a></li>
         <li><a href="/vote/create">新调查</a></li>
        <li><a href="/vote/result">查看调查结果</a></li>
     </ul>

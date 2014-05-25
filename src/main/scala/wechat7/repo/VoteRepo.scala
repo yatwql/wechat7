@@ -55,7 +55,7 @@ trait VoteRepo extends SlickRepo {
     }
   }
 
-  def getVoteThread(voteId: Int):Option[VoteThread] = {
+  def getVoteThread(voteId: Int): Option[VoteThread] = {
     conn.dbObject withSession { implicit session: Session =>
       val result = voteThreads.filter(_.voteId === voteId).list
       result match {
@@ -64,26 +64,27 @@ trait VoteRepo extends SlickRepo {
       }
     }
   }
-  
-  def getvoteTopics(take:Int =20) = {
-      conn.dbObject withSession { implicit session: Session =>
-       val query = for (v <-voteThreads) yield (v.name,"vote"+v.voteId)
+
+  def getvoteTopics(take: Int = 20) = {
+    conn.dbObject withSession { implicit session: Session =>
+      // val query = for (v <-voteThreads) yield (v.name,"vote"+v.voteId)
+      val query = voteThreads.map(v => (v.name, v.voteId,"vote" + (v.voteId).toString()))
       val result = query.take(take).list()
       result
     }
   }
-  
-   def getVoteOptions(voteId: Int):List[VoteOptions#TableElementType] = {
+
+  def getVoteOptions(voteId: Int): List[VoteOptions#TableElementType] = {
     conn.dbObject withSession { implicit session: Session =>
       voteOptions.filter(_.voteId === voteId).list
     }
   }
-   
-   def getVoteResult(openId:String,voteId:Int) = {
-      conn.dbObject withSession { implicit session: Session =>
-      val result=voteResults.filter(_.openId===openId).filter(_.voteId===voteId).list
+
+  def getVoteResult(openId: String, voteId: Int) = {
+    conn.dbObject withSession { implicit session: Session =>
+      val result = voteResults.filter(_.openId === openId).filter(_.voteId === voteId).list
       result match {
-        case a::_ => Some(result.last)
+        case a :: _ => Some(result.last)
         case _ => None
       }
     }

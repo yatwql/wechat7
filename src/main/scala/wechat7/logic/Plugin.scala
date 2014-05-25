@@ -107,13 +107,13 @@ trait Plugin extends ActionRepo with UserRepo {
     Some(WechatUtils.getTextMsg(appUserId, openId, responseContent))
   }
 
-  def splitListIntoDesc(list: List[(String, String)]): Option[String] = {
+  def splitListIntoDesc(list: List[(String, Int,String)]): Option[String] = {
     list match {
       case data :: rest => {
-        val (a, b) = data
+        val (name, id,remark) = data
         splitListIntoDesc(rest) match {
-          case Some((restDesc)) => Some((a + "," + b + "; " + restDesc))
-          case _ => Some((a + " , " + b))
+          case Some((restDesc)) => Some((name + "," + remark + "; " + restDesc))
+          case _ => Some((name + " , " + remark))
         }
       }
       case _ => None

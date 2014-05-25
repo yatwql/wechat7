@@ -74,7 +74,7 @@ trait ActionRepo extends SlickRepo {
   }
   def getArticleList(take: Int =20) = {
     conn.dbObject withSession { implicit session: Session =>
-      val query = for (a <- articles) yield (a.actionKey, a.title)
+      val query = for (a <- articles) yield (a.actionKey, a.id,a.title)
       val result = query.take(take).list()
       result
     }
