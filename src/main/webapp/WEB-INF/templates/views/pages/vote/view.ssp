@@ -1,0 +1,30 @@
+<%@ var voteName: String %>
+<%@ var voteId: Int %>
+<%@ var description: String %>
+<%@ var voteMethod: Int %>
+<div class="row">
+    <div class="span6">
+    ID: ${voteId}
+    </div>
+ </div>   
+ 
+ <div class="row">
+    <div class="span6">
+    调查题目: ${voteName}
+    </div>
+ </div>  
+ 
+ 
+ <div class="row">
+    <div class="span6">
+    描述: ${description}
+    </div>
+ </div>  
+ 
+ 
+ <div class="row">
+    <div class="span6">
+    方法: ${voteMethod}
+    </div>
+ </div>  
+ 

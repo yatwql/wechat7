@@ -23,7 +23,13 @@ trait VoteController extends WechatAppStack {
   get("/vote/view/:slug") {
     val slug = params("slug")
     val vote = voteRepo.getVoteThread(slug.toInt)
-    ssp("/pages/vote/view", "title" -> "Show Vote detail", "vote" -> vote)
+    vote match {
+      case Some(v) => {
+         ssp("/pages/vote/view", "title" -> "Show Vote detail ", "voteName" -> v.name,"description" -> v.description, "voteId"->v.voteId,"voteMethod"->v.voteMethod)
+      }
+      case _ => { "file not found"}
+    }
+   
   }
 
   get("/vote/create") {
