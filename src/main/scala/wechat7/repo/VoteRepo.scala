@@ -14,9 +14,9 @@ trait VoteRepo extends SlickRepo {
         case "voteThreads" => {
           try {
             println("======================Insert voteThreads into database ====================")
-            voteThreads.insert(VoteThread(21, "红酒调查(地点)", "您喜欢以下哪个产地的红酒: ", 2))
-            voteThreads.insert(VoteThread(22, "红酒调查(口味)", "您喜欢哪种葡萄酒: ", 1))
-            voteThreads.insert(VoteThread(23, "红酒调查(价格)", "您觉得可接受的红酒价格为: ", 1))
+            voteThreads.insert(VoteThread("红酒调查(地点)", "您喜欢以下哪个产地的红酒: ", 2,21))
+            voteThreads.insert(VoteThread("红酒调查(口味)", "您喜欢哪种葡萄酒: ", 1,22))
+            voteThreads.insert(VoteThread("红酒调查(价格)", "您觉得可接受的红酒价格为: ", 1,23))
             println("======================retrieve voteThreads from database ====================")
             voteThreads.list foreach println
             "<VoteRepo>Populate voteThreads;"

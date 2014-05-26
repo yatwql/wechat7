@@ -25,15 +25,60 @@ trait VoteController extends WechatAppStack {
     val vote = voteRepo.getVoteThread(slug.toInt)
     vote match {
       case Some(v) => {
-         ssp("/pages/vote/view", "title" -> "Show Vote detail ", "voteName" -> v.name,"description" -> v.description, "voteId"->v.voteId,"voteMethod"->v.voteMethod)
+        ssp("/pages/vote/view", "title" -> "Show Vote detail ", "voteName" -> v.name, "description" -> v.description, "voteId" -> v.voteId, "voteMethod" -> v.voteMethod)
       }
-      case _ => { "file not found"}
+      case _ => { "file not found" }
     }
-   
+
   }
 
-  get("/vote/create") {
-    ssp("/pages/vote/create", "title" -> "Create Vote detail")
+  get("/vote/edit/:slug") {
+    val slug = params("slug")
+    val vote = voteRepo.getVoteThread(slug.toInt)
+    vote match {
+      case Some(v) => {
+        ssp("/pages/vote/edit", "title" -> "Edit Vote detail ", "voteName" -> v.name, "description" -> v.description, "voteId" -> v.voteId, "voteMethod" -> v.voteMethod)
+      }
+      case _ => { "file not found" }
+    }
+
+  }
+
+  post("/vote/update") {
+    // val voteId = params("voteId")
+    val voteName= params("voteName")
+    val description=params("description")
+    val voteMethod=params("voteMethod")
+    val vote = params.get("voteId") match {
+      case Some(voteId) => {
+        try{
+          val id=voteId.toInt
+          val v=VoteThread(voteName,description,voteMethod,id)
+        }catch{
+          case e=> None
+        }
+        voteRepo.getVoteThread(voteId.toInt)
+      }
+      case _ => {
+       // voteRepo.getVoteThread(voteId.toInt)
+      }
+    }
+
+    //val vote = voteRepo.getVoteThread(voteId.toInt)
+    vote match {
+      case Some(v) => {
+        ssp("/pages/vote/view", "title" -> "Show Vote detail ", "voteName" -> v.name, "description" -> v.description, "voteId" -> v.voteId, "voteMethod" -> v.voteMethod, "message" -> "Successful Update!")
+      }
+      case _ => { "file not found" }
+    }
+  }
+
+  get("/vote/list") {
+    val list = voteRepo.getvoteTopics(20)
+    ssp("/pages/vote/votes", "title" -> "List Votes", "list" -> list)
+  }
+  get("/vote/new") {
+    ssp("/pages/vote/edit", "title" -> "Create Vote detail")
   }
 
 }

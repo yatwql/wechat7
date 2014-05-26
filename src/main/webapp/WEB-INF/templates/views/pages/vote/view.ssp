@@ -2,29 +2,41 @@
 <%@ var voteId: Int %>
 <%@ var description: String %>
 <%@ var voteMethod: Int %>
-<div class="row">
-    <div class="span6">
-    ID: ${voteId}
+<%@ var message: String %>
+  <div class="row">
+    <div class="span6 alert">
+   ${message}
     </div>
- </div>   
+ </div>  
  
  <div class="row">
     <div class="span6">
-    调查题目: ${voteName}
+   <h2> 调查题目: ${voteName}</h2>
     </div>
  </div>  
  
  
  <div class="row">
     <div class="span6">
-    描述: ${description}
+    <b>描述:</b> ${description}
     </div>
  </div>  
  
  
  <div class="row">
     <div class="span6">
-    方法: ${voteMethod}
+    <b>方法:</b> ${voteMethod}
     </div>
  </div>  
  
+ 
+ <div class="row">
+    <div class="span6">
+    <b>ID:</b> ${voteId} (关键字 vote${voteId})
+    </div>
+ </div> 
+ 
+ </br>
+ <a  class="btn btn-warning" href="/vote/edit/${voteId}">编辑</a>
+ <a  class="btn btn-warning" href="/vote/delete/${voteId}">删除</a>
+ <a  class="btn btn-primary" href="/vote/list">回到列表</a>

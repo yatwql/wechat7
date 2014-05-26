@@ -38,7 +38,7 @@
     <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">文章 <span class="caret"></span></button>
     <ul class="dropdown-menu">
         <li><a href="/article/list">过往文章</a></li>
-        <li><a href="/article//create">发表文章</a></li>
+        <li><a href="/article//new">发表文章</a></li>
        <li><a href="/article/manage">管理文章</a></li>
     </ul>
    </div>
@@ -46,7 +46,7 @@
     <button data-toggle="dropdown" class="btn btn-info dropdown-toggle">调查结果 <span class="caret"></span></button>
     <ul class="dropdown-menu">
         <li><a href="/vote/list">管理调查列表</a></li>
-        <li><a href="/vote/create">新调查</a></li>
+        <li><a href="/vote/new">新调查</a></li>
        <li><a href="/vote/result">查看调查结果</a></li>
     </ul>
    </div>
