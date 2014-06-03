@@ -3,36 +3,35 @@
 <%@ var description: String %>
 <%@ var voteMethod: Int %>
   
- <form method="post" action="/vote/update">
+ 
  <div class="row">
     <div class="span6">
-    调查题目: <input name="voteName" type="text" value="${voteName}" />
+   <h2> 调查题目:<input name="voteName"> ${voteName}</input><h2>
     </div>
  </div>  
  
  
  <div class="row">
     <div class="span6">
-    <b>描述:</b> <input name="description" type="text" value="${description}" />
+    描述: <textarea name="descripyion">${description}</>
     </div>
  </div>  
  
  
  <div class="row">
     <div class="span6">
-    <b>方法:</b> <input name="voteMethod" type="text" value="${voteMethod}" />
+    方法: ${voteMethod}
     </div>
  </div>  
  
  
  <div class="row">
     <div class="span6">
-    <b>ID:</b> ${voteId} (关键字 vote${voteId}) <input name="voteId" type="hidden" value="${voteId}" />
+    ID: ${voteId} 
     </div>
  </div> 
  
  </br>
- <a  class="btn btn-warning" onclick="submit();return false;">保存</a>
- <a  class="btn btn-info" href="/vote/view/${voteId}">放弃</a>
- <a  class="btn btn-primary" href="/vote/list">回到列表</a>
- </form>
+ <a href="/vote/update/${voteId}"> save</a>
+ 
+  <a href="/vote/list"> list </a>

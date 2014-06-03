@@ -48,12 +48,12 @@ trait VoteController extends WechatAppStack {
     // val voteId = params("voteId")
     val voteName= params("voteName")
     val description=params("description")
-    val voteMethod=params("voteMethod")
+    val voteMethod=params("voteMethod").toInt
     val vote = params.get("voteId") match {
       case Some(voteId) => {
         try{
           val id=voteId.toInt
-          val v=VoteThread(voteName,description,voteMethod,id)
+          val v=voteRepo.updateVoteThread(voteName, description, voteMethod, id)
         }catch{
           case e=> None
         }
@@ -67,7 +67,7 @@ trait VoteController extends WechatAppStack {
     //val vote = voteRepo.getVoteThread(voteId.toInt)
     vote match {
       case Some(v) => {
-        ssp("/pages/vote/view", "title" -> "Show Vote detail ", "voteName" -> v.name, "description" -> v.description, "voteId" -> v.voteId, "voteMethod" -> v.voteMethod, "message" -> "Successful Update!")
+        ssp("/pages/vote/view", "title" -> "Show Vote detail ", "voteName" -> voteName, "description" -> description, "voteId" -> vote, "voteMethod" -> voteMethod, "message" -> "Successful Update!")
       }
       case _ => { "file not found" }
     }

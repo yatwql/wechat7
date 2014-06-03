@@ -64,6 +64,14 @@ trait VoteRepo extends SlickRepo {
       }
     }
   }
+  
+  def updateVoteThread(voteName:String,description:String,voteMethod:Int,voteId:Int) ={
+     conn.dbObject withSession { implicit session: Session =>
+        val q=voteThreads.filter(_.voteId === voteId).map (s =>(s.name,s.description,s.voteMethod))
+        q.update(voteName,description,voteMethod)
+        q
+     }
+  }
 
   def getvoteTopics(take: Int = 20) = {
     conn.dbObject withSession { implicit session: Session =>
@@ -89,6 +97,7 @@ trait VoteRepo extends SlickRepo {
       }
     }
   }
+  
 
   def addVoteResult(openId: String, voteId: Int, option: String, fromLocationX: String = "", fromLocationY: String = "") {
     conn.dbObject withSession { implicit session: Session =>
