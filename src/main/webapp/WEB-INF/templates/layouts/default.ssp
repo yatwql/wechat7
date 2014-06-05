@@ -33,6 +33,7 @@
         <li class="divider"></li>
         <li><a href="/wechat/menu/delete">Delete wechat menu</a></li>
     </ul>
+    
    </div>
      <div class="btn-group">
     <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">文章 <span class="caret"></span></button>
@@ -69,6 +70,9 @@
         <li class="divider"></li>
         <li><a href="/tables/flush/all">Flush All Tables</a></li>
     </ul>
+   </div>
+   <div class="btn-group">
+   <input type="image" src="/img/WeChatAcct0.jpeg" height="150px" width="150px"/>
    </div>
     </div>
 

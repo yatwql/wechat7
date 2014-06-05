@@ -72,6 +72,13 @@ trait VoteRepo extends SlickRepo {
         q
      }
   }
+  
+  def newVoteThread(voteName:String,description:String,voteMethod:Int) ={
+     conn.dbObject withSession { implicit session: Session =>
+         voteThreads.insert(VoteThread(voteName, description, voteMethod))
+       
+     }
+  }
 
   def getvoteTopics(take: Int = 20) = {
     conn.dbObject withSession { implicit session: Session =>
