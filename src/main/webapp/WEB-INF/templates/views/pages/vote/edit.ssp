@@ -3,7 +3,7 @@
 <%@ var description: String %>
 <%@ var voteMethod: Int %>
   
- 
+ <form method="post" action="/vote/update">
  <div class="row">
     <div class="span6">
    <h2> 调查题目:<input type="text" name="voteName" value="${voteName}" /><h2>
@@ -30,8 +30,11 @@
     ID: ${voteId} 
     </div>
  </div> 
+ <input type="hidden" name="voteId" value="${voteId}"/>
  
  </br>
- <a href="/vote/update/${voteId}"> save</a>
+ <input type="submit" class="btn btn-warning" value="save"/>
  
-  <a href="/vote/list"> list </a>
+  <a class="btn btn-primary" href="/vote/list"> list </a>
+  
+  </form>
