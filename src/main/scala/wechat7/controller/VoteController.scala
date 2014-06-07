@@ -25,7 +25,7 @@ trait VoteController extends WechatAppStack {
     val vote = voteRepo.getVoteThread(slug.toInt)
     vote match {
       case Some(v) => {
-        ssp("/pages/vote/view", "title" -> "Show Vote detail ", "voteName" -> v.name, "description" -> v.description, "voteId" -> v.voteId, "voteMethod" -> v.voteMethod,"message"->"")
+        ssp("/pages/vote/view", "title" -> "Show Vote detail ", "voteName" -> v.name, "description" -> v.description, "voteId" -> v.voteId, "voteMethod" -> v.voteMethod)
       }
       case _ => { "file not found" }
     }
@@ -45,31 +45,23 @@ trait VoteController extends WechatAppStack {
   }
 
   post("/vote/update") {
-    // val voteId = params("voteId")
-    val voteName= params("voteName")
-    val description=params("description")
-    val voteMethod=params("voteMethod").toInt
-    val vote = params.get("voteId") match {
-      case Some(voteId) => {
-        try{
-          val id=voteId.toInt
-          voteRepo.updateVoteThread(voteName, description, voteMethod, id)
-        }catch{
-          case e:Throwable=> None
-        }
-      }
-      case _ => {
-       voteRepo.newVoteThread(voteName, description, voteMethod)
-      }
-    }
+    val voteId = params("voteId")
+    val voteName = params("voteName")
+    val description = params("description")
+    val voteMethod = params("voteMethod").toInt
 
-    //val vote = voteRepo.getVoteThread(voteId.toInt)
-    vote match {
-      case Some(v) => {
-        ssp("/pages/vote/view", "title" -> "Show Vote detail ", "voteName" -> voteName, "description" -> description, "voteId" -> vote, "voteMethod" -> voteMethod, "message" -> "Successful Update!")
-      }
-      case _ => { "file not found" }
+    try {
+      val id = voteId.toInt
+      voteRepo.updateVoteThread(voteName, description, voteMethod, id)
+      val message="Successful Update " + id + " !"
+      ssp("/pages/vote/view", "title" -> "Show Vote detail ", "voteName" -> voteName, "description" -> description, "voteId" -> id, "voteMethod" -> voteMethod, "message" -> message)
+    } catch {
+      case e: Throwable =>
+        None
+        "Have exception to update "
     }
+    
+
   }
 
   get("/vote/list") {

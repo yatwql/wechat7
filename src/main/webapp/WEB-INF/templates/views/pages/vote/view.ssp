@@ -2,7 +2,7 @@
 <%@ var voteId: Int %>
 <%@ var description: String %>
 <%@ var voteMethod: Int %>
-<%@ var message: String %>
+<%@ var message: String ="" %>
   <div class="row">
     <div class="span6 alert">
    ${message}
@@ -38,5 +38,5 @@
  
  </br>
  <a  class="btn btn-warning" href="/vote/edit/${voteId}">编辑</a>
- <a  class="btn btn-warning" href="/vote/delete/${voteId}">删除</a>
+ <a  class="btn btn-danger" href="/vote/delete/${voteId}">删除</a>
  <a  class="btn btn-primary" href="/vote/list">回到列表</a>

@@ -13,28 +13,28 @@
  
  <div class="row">
     <div class="span6">
-    描述: <textarea name="descripyion" >${description}</textarea>
+    描述: <textarea name="description" rows="5" >${description}</textarea>
     </div>
  </div>  
  
  
  <div class="row">
     <div class="span6">
-    方法: ${voteMethod}
+    方法: ${voteMethod} <input type="hidden" name="voteMethod" value="${voteMethod}"/>
     </div>
  </div>  
  
  
  <div class="row">
     <div class="span6">
-    ID: ${voteId} 
+    ID: ${voteId} <input type="hidden" name="voteId" value="${voteId}"/>
     </div>
  </div> 
- <input type="hidden" name="voteId" value="${voteId}"/>
+ 
  
  </br>
- <input type="submit" class="btn btn-warning" value="save"/>
- 
-  <a class="btn btn-primary" href="/vote/list"> list </a>
+ <input type="submit" class="btn btn-warning" value="保存"/>
+ <a  class="btn btn-danger" href="/vote/delete/${voteId}">删除</a>
+  <a class="btn btn-primary" href="/vote/list">回到列表</a>
   
   </form>
