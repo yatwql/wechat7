@@ -3,6 +3,7 @@
 <%@ var description: String %>
 <%@ var voteMethod: Int %>
 <%@ var message: String ="" %>
+<%@ var voteOptions:List[(Int,String,String)] %>
   <div class="row">
     <div class="span6 alert">
    ${message}
@@ -37,6 +38,18 @@
  </div> 
  
  </br>
+ <table class="table table-striped">
+<thead><tr><td>选项</td><td>描述</td></tr></thead>  
+
+<tbody>
+#for ((id:Int,option:String,optionDesc:String) <- voteOptions)
+<tr>
+    <td>${option}</td><td> ${optionDesc} </td>     
+</tr>
+#end
+
+</tbody>
+</table>
  <a  class="btn btn-warning" href="/vote/edit/${voteId}">编辑</a>
  <a  class="btn btn-danger" href="/vote/delete/${voteId}">删除</a>
  <a  class="btn btn-primary" href="/vote/list">回到列表</a>
