@@ -4,10 +4,10 @@
 <%@ var voteMethod: Int %>
   
  <form method="post" action="/vote/update">
- <div class="row">
-    <div class="span6">
-   <h2> 调查题目:<input type="text" name="voteName" value="${voteName}" /><h2>
-    </div>
+ <div class="input-group">
+    
+   调查题目:<input type="text" name="voteName" value="${voteName}"  class="form-control"/>
+    
  </div>  
  
  
