@@ -114,6 +114,16 @@ trait VoteRepo extends SlickRepo {
       voteOptions.filter(_.voteId === voteId).map(o => (o.id ,o.option,o.optionDesc)).list
     }
   }
+  
+  def getVoteResult(voteId:Int) ={
+     conn.dbObject withSession { implicit session: Session =>
+      val result = voteResults.filter(_.voteId === voteId).list
+      result match {
+        case a :: _ => Some(result.last)
+        case _ => None
+      }
+    }
+  }
 
   def getVoteResult(openId: String, voteId: Int) = {
     conn.dbObject withSession { implicit session: Session =>
