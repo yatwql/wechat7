@@ -7,9 +7,12 @@
 <tbody>
 #for ((name:String,id:Int,remark:String) <- list)
 <tr>
-    <td><a href="/vote/view/${id}">${name}</a></td><td> vote${id} </td>     
+    <td><a href="/vote/view/${id}">${name}</a></td>
+    <td> vote${id} </td>     
 </tr>
 #end
 
 </tbody>
 </table>
+
+ <a  class="btn btn-danger" href="/vote/new">新增调查</a>

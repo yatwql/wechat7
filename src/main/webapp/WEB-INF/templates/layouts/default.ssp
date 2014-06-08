@@ -52,7 +52,6 @@
     <ul class="dropdown-menu">
         <li><a href="/vote/list">管理调查列表</a></li>
         <li><a href="/vote/new">新调查</a></li>
-       <li><a href="/vote/result">查看调查结果</a></li>
     </ul> 
    </div>
    
