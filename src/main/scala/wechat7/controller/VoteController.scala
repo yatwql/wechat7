@@ -23,10 +23,10 @@ trait VoteController extends WechatAppStack {
   get("/vote/view/:slug") {
     val slug = params("slug")
     val vote = voteRepo.getVoteThread(slug.toInt)
-    val voteOptions=voteRepo.getVoteOptionsToTuples(slug.toInt)
+    val voteOptions = voteRepo.getVoteOptionsToTuples(slug.toInt)
     vote match {
       case Some(v) => {
-        ssp("/pages/vote/view", "title" -> "Show Vote detail ", "voteName" -> v.name, "description" -> v.description, "voteId" -> v.voteId, "voteMethod" -> v.voteMethod,"voteOptions" -> voteOptions)
+        ssp("/pages/vote/view", "title" -> "Show Vote detail ", "voteName" -> v.name, "description" -> v.description, "voteId" -> v.voteId, "voteMethod" -> v.voteMethod, "voteOptions" -> voteOptions)
       }
       case _ => { "file not found" }
     }
@@ -36,9 +36,10 @@ trait VoteController extends WechatAppStack {
   get("/vote/edit/:slug") {
     val slug = params("slug")
     val vote = voteRepo.getVoteThread(slug.toInt)
+    val voteOptions = voteRepo.getVoteOptionsToTuples(slug.toInt)
     vote match {
       case Some(v) => {
-        ssp("/pages/vote/edit", "title" -> "Edit Vote detail ", "voteName" -> v.name, "description" -> v.description, "voteId" -> v.voteId, "voteMethod" -> v.voteMethod)
+        ssp("/pages/vote/edit", "title" -> "Edit Vote detail ", "voteName" -> v.name, "description" -> v.description, "voteId" -> v.voteId, "voteMethod" -> v.voteMethod, "voteOptions" -> voteOptions)
       }
       case _ => { "file not found" }
     }
@@ -46,22 +47,37 @@ trait VoteController extends WechatAppStack {
   }
 
   post("/vote/update") {
-    val voteId = params("voteId")
+  
     val voteName = params("voteName")
     val description = params("description")
     val voteMethod = params("voteMethod").toInt
 
-    try {
-      val id = voteId.toInt
-      voteRepo.updateVoteThread(voteName, description, voteMethod, id)
-      val message="Successful Update " + id + " !"
-      ssp("/pages/vote/view", "title" -> "Show Vote detail ", "voteName" -> voteName, "description" -> description, "voteId" -> id, "voteMethod" -> voteMethod, "message" -> message)
-    } catch {
-      case e: Throwable =>
-        None
-        "Have exception to update "
-    }
+    val optionIds: Seq[String] = multiParams("optionId")
+    println("option ids " + optionIds)
     
+    params.getAs[Int]("voteId") match {
+      case Some(voteId) => {
+        try {
+          voteRepo.updateVoteThread(voteName, description, voteMethod, voteId)
+          for (optionId<-optionIds){
+            val option=params("option-"+optionId)
+            val optionDesc=params("optionDesc="+optionId)
+            val id=optionId.toInt
+            voteRepo.updateVoteOpton(voteId, option, optionDesc, id)
+          }
+          CacheMgr.voteThreadCache.remove(voteId)
+           val message = "Successful Update " + voteId + " !"
+          val voteOptions = voteRepo.getVoteOptionsToTuples(voteId)
+          ssp("/pages/vote/view", "title" -> "Show Vote detail ", "voteName" -> voteName, "description" -> description, "voteId" -> voteId, "voteMethod" -> voteMethod, "voteOptions" -> voteOptions, "message" -> message)
+        } catch {
+          case e: Throwable =>
+            "Have exception to update -> " + e.getMessage()
+        }
+      }
+      case _=>{
+        " Can not get a valid vote Id"
+      }
+    }
 
   }
 

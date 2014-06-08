@@ -2,18 +2,23 @@
 <%@ var voteId: Int %>
 <%@ var description: String %>
 <%@ var voteMethod: Int %>
+<%@ var voteOptions:List[(Int,String,String)] %>
   
  <form method="post" action="/vote/update">
+ <div class="row">
+    <div class="span6">
+    ID: ${voteId} <input type="hidden" name="voteId" value="${voteId}"/>
+    </div>
+ </div> 
+ 
  <div class="input-group">
-    
    调查题目:<input type="text" name="voteName" value="${voteName}"  class="form-control"/>
-    
  </div>  
  
  
  <div class="row">
     <div class="span6">
-    描述: <textarea name="description" rows="5" >${description}</textarea>
+    描述: <textarea name="description" rows="5" class="form-control" >${description}</textarea>
     </div>
  </div>  
  
@@ -24,15 +29,32 @@
     </div>
  </div>  
  
- 
- <div class="row">
-    <div class="span6">
-    ID: ${voteId} <input type="hidden" name="voteId" value="${voteId}"/>
-    </div>
- </div> 
- 
+
  
  </br>
+ <table class="table table-striped">
+<thead>
+<tr>
+ <td>选项</td>
+ <td>描述</td>
+</tr>
+</thead>  
+
+<tbody>
+#for ((id:Int,option:String,optionDesc:String) <- voteOptions)
+<tr>
+    <td><input type="hidden" name="optionId" value="${id}" />
+       <input type="text" name="option-${id}" value="${option}"  class="form-control"/> 
+    </td>
+    <td> 
+    <input type="text"  name="optionDesc-{$id}" class="form-control" value="${optionDesc}" />
+     </td>     
+</tr>
+#end
+
+</tbody>
+</table>
+
  <input type="submit" class="btn btn-warning" value="保存"/>
  <a  class="btn btn-danger" href="/vote/delete/${voteId}">删除</a>
   <a class="btn btn-primary" href="/vote/list">回到列表</a>

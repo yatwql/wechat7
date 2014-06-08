@@ -73,6 +73,20 @@ trait VoteRepo extends SlickRepo {
      }
   }
   
+  def updateVoteOpton(voteId:Int,option:String,optionDesc:String,id:Int) ={
+     conn.dbObject withSession { implicit session: Session =>
+        val q=voteOptions.filter(_.id === id).map (s =>(s.option,s.optionDesc))
+        q.update(option,optionDesc)
+        q
+     }
+  }
+  
+  def newVoteOpton(voteId:Int,option:String,optionDesc:String,id:Int=0) ={
+     conn.dbObject withSession { implicit session: Session =>
+        voteOptions.insert(VoteOption(voteId, option, optionDesc,id))
+     }
+  }
+  
   def newVoteThread(voteName:String,description:String,voteMethod:Int) ={
      conn.dbObject withSession { implicit session: Session =>
          voteThreads.insert(VoteThread(voteName, description, voteMethod))
