@@ -30,11 +30,11 @@
        <div class="btn-group">
     <button data-toggle="dropdown" class="btn btn-warning dropdown-toggle">微信菜单<span class="caret"></span></button>
     <ul class="dropdown-menu">
-        <li><a href="/wechat/menu/upload">Upload menu file</a></li>
-        <li><a href="/wechat/menu/create">Re-create wechat menu</a></li>
-         <li><a href="/wechat/menu/get">Get wechat menu</a></li>
+        <li><a href="/wechat/menu/upload">上传微信菜单文件(并建立菜单)</a></li>
+        <li><a href="/wechat/menu/create">重建微信菜单</a></li>
+         <li><a href="/wechat/menu/get">获取微信菜单信息</a></li>
         <li class="divider"></li>
-        <li><a href="/wechat/menu/delete">Delete wechat menu</a></li>
+        <li><a href="/wechat/menu/delete">删除微信菜单</a></li>
     </ul>
      </div>
   
@@ -65,11 +65,11 @@
         <li><a href="/audit/list">Audit Logs</a></li>
         <li><a href="/user/manage/current">当前用户管理</a></li>
         <li class="divider"></li>
-        <li><a href="/tables/drop/all">Drop All Tables</a></li>
-        <li><a href="/tables/create/all">Create All Tables</a></li>
-         <li><a href="/tables/populate/all">Populate All Tables</a></li>
+        <li><a href="/tables/drop/all">删除所有数据库表</a></li>
+        <li><a href="/tables/create/all">建立所有数据库表</a></li>
+         <li><a href="/tables/populate/all">重新加载数据到数据库表中</a></li>
         
-        <li><a href="/tables/flush/all">Flush All Tables</a></li>
+        <li><a href="/tables/flush/all">重建数据库并加载数据</a></li>
     </ul>
    </div>
    <img src="/img/WeChatAcct0.jpeg" height="80px" width="80px"/>
