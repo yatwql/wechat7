@@ -7,7 +7,7 @@
  <form method="post" action="/vote/update">
  <div class="row">
     <div class="span6">
-    ID: ${voteId} <input type="hidden" name="voteId" value="${voteId}"/>
+    ID: <input type="text" name="voteId" value="${voteId}"/>
     </div>
  </div> 
  
@@ -32,6 +32,7 @@
 
  
  </br>
+ <input type="hidden" name="sizeOfVoteOptions" value ="${voteOptions.size}" >
  <table class="table table-striped">
 <thead>
 <tr>
@@ -41,13 +42,16 @@
 </thead>  
 
 <tbody>
+<% var seq:Int=0%>
 #for ((id:Int,option:String,optionDesc:String) <- voteOptions)
 <tr>
-    <td><input type="hidden" name="optionId" value="${id}" />
-       <input type="text" name="option-${id}" value="${option}"  class="form-control"/> 
+    <td>
+    <% seq=seq+1%>
+    <input type="hidden" name="optionId-${seq}" value="${id}" />
+       <input type="text" name="option-${seq}" value="${option}"  class="form-control"/> 
     </td>
     <td> 
-    <input type="text"  name="optionDesc-${id}" class="form-control" value="${optionDesc}" />
+    <input type="text"  name="optionDesc-${seq}" class="form-control" value="${optionDesc}" />
      </td>     
 </tr>
 #end
