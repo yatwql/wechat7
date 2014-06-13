@@ -14,9 +14,9 @@ trait VoteRepo extends SlickRepo {
         case "voteThreads" => {
           try {
             println("======================Insert voteThreads into database ====================")
-            voteThreads.insert(VoteThread("红酒调查(地点)", "您喜欢以下哪个产地的红酒: ", 2, 21))
-            voteThreads.insert(VoteThread("红酒调查(口味)", "您喜欢哪种葡萄酒: ", 1, 22))
-            voteThreads.insert(VoteThread("红酒调查(价格)", "您觉得可接受的红酒价格为: ", 1, 23))
+            voteThreads.insert(VoteThread(21,"红酒调查(地点)", "您喜欢以下哪个产地的红酒: "))
+            voteThreads.insert(VoteThread(23,"红酒调查(口味)", "您喜欢哪种葡萄酒: "))
+            voteThreads.insert(VoteThread(23,"红酒调查(价格)", "您觉得可接受的红酒价格为: "))
             println("======================retrieve voteThreads from database ====================")
             voteThreads.list foreach println
             "<VoteRepo>Populate voteThreads;"
@@ -87,9 +87,9 @@ trait VoteRepo extends SlickRepo {
     }
   }
 
-  def newVoteThread(voteName: String, description: String, voteMethod: Int) = {
+  def newVoteThread(voteName: String, description: String, voteId:Int,voteMethod:Int=1) = {
     conn.dbObject withSession { implicit session: Session =>
-      voteThreads.insert(VoteThread(voteName, description, voteMethod))
+      voteThreads.insert(VoteThread( voteId,voteName, description,voteMethod))
 
     }
   }
