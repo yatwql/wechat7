@@ -46,7 +46,7 @@ trait VoteController extends WechatAppStack {
 
   }
 
-  get("/voteId/result/:slug") {
+  get("/vote/result/:slug") {
     val voteId = params.getAs[Int]("slug").get
     val vote = voteRepo.getVoteThread(voteId)
     val voteOptions = voteRepo.getVoteOptionsToTuples(voteId)
