@@ -34,7 +34,7 @@
 
  
  </br>
- <input type="hidden" name="sizeOfVoteOptions" value ="${voteOptions.size}" >
+ <input type="hidden" name="sizeOfVoteOptions" value ="100" >
  <table class="table table-striped" id="tab_logic">
 <thead>
 <tr>
@@ -58,7 +58,7 @@
      </td>     
 </tr>
 #end
-<tr id='voteOption${voteOptions.size+1}'></tr>
+
 </tbody>
 </table>
  <a id="add_row" class="btn btn-default">增加选项</a>
@@ -73,14 +73,14 @@
  $(document).ready(function(){
       var i=${voteOptions.size+1};
      $("#add_row").click(function(){
-      $('#voteOption'+i).html("<td><input name='optionId-"+i+"' type='hidden'  />  <input name='option-"+i+"' type='text'  class='form-control'  placeholder='option' /> </td><td><input name='optionDesc-"+i+"' type='text'  class='form-control'  placeholder='optionDesc' /></td>");
+    
 
-      $('#tab_logic').append('<tr id="voteOption'+(i+1)+'"></tr>');
+      $('#tab_logic').append("<tr id='voteOption"+(i)+"'><td><input name='optionId-"+i+"' type='hidden'  />  <input name='option-"+i+"' type='text'  class='form-control'  placeholder='option' /> </td><td><input name='optionDesc-"+i+"' type='text'  class='form-control'  placeholder='optionDesc' /></td></tr>");
       i++; 
   });
      $("#delete_row").click(function(){
     	 if(i>1){
-		 $("#voteOption"+(i-1)).html('');
+		 $("#voteOption"+(i)).html('');
 		 i--;
 		 }
 	 });
