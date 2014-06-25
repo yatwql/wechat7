@@ -41,15 +41,21 @@ trait VotePlugin extends VoteRepo with Plugin {
       val responseContent = getVoteThread(voteId)
       getVoteThread(voteId) match {
         case Some(voteThread) => {
+       
           val (voteId, name, threadDesc, voteMethod) = (voteThread.voteId, voteThread.name, voteThread.description, voteThread.voteMethod)
           val list: List[VoteOptions#TableElementType] = this.getVoteOptions(voteId)
           val (description, voteOptions) = splitVoteOptions(list) match {
-            case Some((optionDesc, t)) => (threadDesc + " -> " + optionDesc, t)
-            case _ => (threadDesc, Seq())
+            case Some((optionDesc, t)) => { 
+              (threadDesc + " -> " + optionDesc, t) 
+              }
+            case _ => {
+              (threadDesc, Seq()) }
           }
+           
           Some((name, description, voteMethod, voteOptions))
         }
-        case _ => None
+        case _ => {
+          None}
       }
     }.await
   }

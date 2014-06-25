@@ -40,7 +40,7 @@ trait ActionRouter extends ActionRepo with Plugin with VotePlugin with ArticlePl
       }
 
       case _ => {
-        println(" process from ActionPlugin - no  action")
+        println(" process from ActionRouter - no  action")
         getArticle(openId, nickname, appUserId, requestContent, requestContent)
       }
     }
@@ -48,20 +48,20 @@ trait ActionRouter extends ActionRepo with Plugin with VotePlugin with ArticlePl
   }
 
   def response(openId: String, nickname: String, appUserId: String, msgType: String, actionKey: String, requestContent: String): Option[Node] = {
-    println(" process from ActionPlugin actionkey " + actionKey)
+    println(" process from ActionRouter actionkey " + actionKey)
     val userAction = getUserAction(openId)
     println(" The user action is " + userAction)
 
     val content = userAction match {
       case Some(action) => {
-        println(" process from ActionPlugin User action " + action)
+        println(" process from ActionRouter User action " + action)
         val s = process(openId, nickname, appUserId, msgType,userAction, requestContent)
         CacheMgr.userActionCache.remove(openId)
         s
       }
       case _ => {
         val current = getCurrentAction(actionKey)
-        println(" process from ActionPlugin currrent action " + current + " of action key " + actionKey)
+        println(" process from ActionRouter currrent action " + current + " of action key " + actionKey)
         val t = process(openId, nickname, appUserId, msgType,current, requestContent)
         updateUserAction(openId, actionKey)
         t
