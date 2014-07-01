@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-sources>
+	<data-source id="postgresql-1404061213189-1718324718" provider="generic" driver="postgresql" name="PostgreSQL - wechatdb" create-date="1404061226307" save-password="true" show-system-objects="true" read-only="false">
+		<connection host="localhost" port="5432" server="" database="wechatdb" url="jdbc:postgresql://localhost:5432/wechatdb" user="" type="dev">
+			<network-handler type="TUNNEL" id="ssh_tunnel" enabled="false" user="" save-password="false">
+				<property name="port" value="22"/>
+				<property name="keyPath" value=""/>
+				<property name="host" value=""/>
+				<property name="authType" value="PASSWORD"/>
+			</network-handler>
+			<network-handler type="PROXY" id="socks_proxy" enabled="false" user="" save-password="false">
+				<property name="socks-host" value=""/>
+				<property name="socks-port" value="1080"/>
+			</network-handler>
+		</connection>
+	</data-source>
+</data-sources>

@@ -29,7 +29,7 @@ trait ActionRouter extends ActionRepo with Plugin with VotePlugin with ArticlePl
           }
           
           case "vote" =>{
-            getvoteTopics(openId, nickname, appUserId)
+            getVoteTopics(openId, nickname, appUserId)
           }
             
 

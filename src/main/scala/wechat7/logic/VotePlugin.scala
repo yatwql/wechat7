@@ -25,8 +25,8 @@ trait VotePlugin extends VoteRepo with Plugin {
     }
   }
 
-  def getvoteTopics(openId: String, nickname: String, appUserId: String): Option[Node] = {
-    val list = getvoteTopics(20)
+  def getVoteTopics(openId: String, nickname: String, appUserId: String): Option[Node] = {
+    val list = getVoteTopics(20)
     val desc = splitListIntoDesc(list)
 
     val responseContent = splitListIntoDesc(list) match {
