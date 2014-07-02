@@ -4,6 +4,7 @@
 <%@ var voteMethod: Int %>
 <%@ var message: String ="" %>
 <%@ var voteOptions:List[(Int,String,String)] %>
+<%@ var voteResult:Map[String,Int] %>
   <div class="row">
     <div class="span6 alert">
    ${message}
@@ -51,7 +52,13 @@
 <tr>
     <td>${option}</td>
     <td> ${optionDesc} </td>   
-    <td></td>  
+    <td>
+    <%=voteResult.get(option) match{
+       case Some(count) => count
+       case _ => 0
+     }
+    %>
+    </td>  
 </tr>
 #end
 

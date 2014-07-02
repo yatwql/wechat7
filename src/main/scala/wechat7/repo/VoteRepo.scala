@@ -128,10 +128,11 @@ trait VoteRepo extends SlickRepo {
 
   def getVoteGrpResult(voteId: Int) = {
     conn.dbObject withSession { implicit session: Session =>
-     val result= voteResults.filter(_.voteId === voteId).groupBy(_.openId).map {
-        case (openId, ps) => (openId, ps.length)
+     val result= voteResults.filter(_.voteId === voteId).groupBy(_.option).map {
+        case (option, ps) => (option, ps.length)
       }
-result.list()
+     //result
+result.list().toMap
     }
   }
 
