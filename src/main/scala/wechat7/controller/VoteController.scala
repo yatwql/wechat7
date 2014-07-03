@@ -21,7 +21,7 @@ trait VoteController extends WechatAppStack {
     val voteOptions = voteRepo.getVoteOptionsToTuples(slug.toInt)
     vote match {
       case Some(v) => {
-        ssp("/pages/vote/view", "title" -> "Show Vote detail ", "voteName" -> v.name, "description" -> v.description, "voteId" -> v.voteId, "voteMethod" -> v.voteMethod, "voteOptions" -> voteOptions)
+        ssp("/pages/vote/view", "title" -> "Show Vote detail ", "voteName" -> v.name, "description" -> v.description, "voteId" -> v.voteId.toString(), "voteMethod" -> v.voteMethod, "voteOptions" -> voteOptions)
       }
       case _ => { "file not found" }
     }
@@ -34,7 +34,7 @@ trait VoteController extends WechatAppStack {
     val voteOptions = voteRepo.getVoteOptionsToTuples(slug.toInt)
     vote match {
       case Some(v) => {
-        ssp("/pages/vote/edit", "title" -> "Edit Vote detail ", "voteName" -> v.name, "description" -> v.description, "voteId" -> v.voteId, "voteMethod" -> v.voteMethod, "voteOptions" -> voteOptions)
+        ssp("/pages/vote/edit", "title" -> "Edit Vote detail ", "voteName" -> v.name, "description" -> v.description, "voteId" -> v.voteId.toString(), "voteMethod" -> v.voteMethod, "voteOptions" -> voteOptions)
       }
       case _ => { "file not found" }
     }
@@ -48,7 +48,7 @@ trait VoteController extends WechatAppStack {
     val voteResult = voteRepo.getVoteGrpResult(voteId)
     vote match {
       case Some(v) => {
-        ssp("/pages/vote/viewresult", "title" -> "Show Vote Result ", "voteName" -> v.name, "description" -> v.description, "voteId" -> v.voteId, "voteMethod" -> v.voteMethod, "voteOptions" -> voteOptions, "voteResult" -> voteResult)
+        ssp("/pages/vote/viewresult", "title" -> "Show Vote Result ", "voteName" -> v.name, "description" -> v.description, "voteId" -> v.voteId.toString(), "voteMethod" -> v.voteMethod, "voteOptions" -> voteOptions, "voteResult" -> voteResult)
       }
       case _ => { "file not found" }
     }
@@ -87,7 +87,7 @@ trait VoteController extends WechatAppStack {
           CacheMgr.voteThreadCache.remove(voteId)
           val message = "Successful Update " + voteId + " !"
           val voteOptions = voteRepo.getVoteOptionsToTuples(voteId)
-          ssp("/pages/vote/view", "title" -> "Show Vote detail ", "voteName" -> voteName, "description" -> description, "voteId" -> voteId, "voteMethod" -> voteMethod, "voteOptions" -> voteOptions, "message" -> message)
+          ssp("/pages/vote/view", "title" -> "Show Vote detail ", "voteName" -> voteName, "description" -> description, "voteId" -> voteId.toString(), "voteMethod" -> voteMethod, "voteOptions" -> voteOptions, "message" -> message)
         } catch {
           case e: Throwable =>
             "Have exception to update -> " + e.getMessage()
@@ -105,7 +105,14 @@ trait VoteController extends WechatAppStack {
     ssp("/pages/vote/votes", "title" -> "List Votes", "list" -> list)
   }
   get("/vote/new") {
-    ssp("/pages/vote/edit", "title" -> "Create Vote detail")
+    var voteOptions :List[(Int,String,String)] =List[(Int,String,String)]()
+    for (i<- 1 to 5 ){
+      //voteOptions += (i,"","")
+     voteOptions= voteOptions.+:((i,i.toString(),""))
+    }
+
+        ssp("/pages/vote/edit", "title" -> "Create Vote detail ", "voteName" -> "", "description" -> "", "voteId" -> "", "voteMethod" -> 1, "voteOptions" -> voteOptions)
+    
   }
 
 }

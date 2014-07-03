@@ -1,5 +1,5 @@
 <%@ var voteName: String %>
-<%@ var voteId: Int %>
+<%@ var voteId: String %>
 <%@ var description: String %>
 <%@ var voteMethod: Int %>
 <%@ var message: String ="" %>
