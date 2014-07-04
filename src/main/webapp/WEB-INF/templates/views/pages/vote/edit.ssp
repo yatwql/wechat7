@@ -3,13 +3,16 @@
 <%@ var description: String %>
 <%@ var voteMethod: Int %>
 <%@ var voteOptions:List[(Int,String,String)] %>
+<%@ var action: String %>
  
             
  
- <form method="post" action="/vote/update">
+ <form method="post" action="/vote/save">
+ <input type="hidden" name="action" value="${action}"
  <div class="row">
     <div class="span6">
-    ID: <input type="text" name="voteId" value="${voteId}"/>
+    VOTE ID: <input type="text" name="voteId" value="${voteId}"/>
+    <input type="hidden" name="qVoteId" value="${voteId}"/>
     </div>
  </div> 
  

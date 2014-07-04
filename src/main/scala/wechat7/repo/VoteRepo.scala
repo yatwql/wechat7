@@ -14,9 +14,9 @@ trait VoteRepo extends SlickRepo {
         case "voteThreads" => {
           try {
             println("======================Insert voteThreads into database ====================")
-            voteThreads.insert(VoteThread(21,"红酒调查(地点)", "您喜欢以下哪个产地的红酒: "))
-            voteThreads.insert(VoteThread(22,"红酒调查(口味)", "您喜欢哪种葡萄酒: "))
-            voteThreads.insert(VoteThread(23,"红酒调查(价格)", "您觉得可接受的红酒价格为: "))
+            voteThreads.insert(VoteThread(21, "红酒调查(地点)", "您喜欢以下哪个产地的红酒: "))
+            voteThreads.insert(VoteThread(22, "红酒调查(口味)", "您喜欢哪种葡萄酒: "))
+            voteThreads.insert(VoteThread(23, "红酒调查(价格)", "您觉得可接受的红酒价格为: "))
             println("======================retrieve voteThreads from database ====================")
             voteThreads.list foreach println
             "<VoteRepo>Populate voteThreads;"
@@ -65,19 +65,29 @@ trait VoteRepo extends SlickRepo {
     }
   }
 
-  def updateVoteThread(voteName: String, description: String, voteMethod: Int, voteId: Int) = {
+  def updateVoteThread(voteName: String, description: String, voteMethod: Int, newVoteId: Int, qVoteId: Int, saveNew: Boolean = false) = {
     conn.dbObject withSession { implicit session: Session =>
-      val q = voteThreads.filter(_.voteId === voteId).map(s => (s.name, s.description, s.voteMethod))
-      q.update(voteName, description, voteMethod)
-      q
+      if (saveNew) {
+        voteThreads.insert(VoteThread(newVoteId, voteName, description, voteMethod))
+      } else {
+        val q = voteThreads.filter(_.voteId === qVoteId).map(s => (s.voteId, s.name, s.description, s.voteMethod))
+        q.update(newVoteId, voteName, description, voteMethod)
+        q
+      }
+      newVoteId
     }
   }
 
-  def updateVoteOpton(voteId: Int, option: String, optionDesc: String, id: Int) = {
+  def updateVoteOpton(newVoteId: Int, option: String, optionDesc: String, id: Int, qVoteId: Int, saveNew: Boolean = false) = {
     conn.dbObject withSession { implicit session: Session =>
-      val q = voteOptions.filter(_.id === id).map(s => (s.option, s.optionDesc))
-      q.update(option, optionDesc)
-      q
+      if (saveNew) {
+        voteOptions.insert(VoteOption(newVoteId, option, optionDesc, id))
+      } else {
+        val q = voteOptions.filter(_.id === id).filter(_.voteId === qVoteId).map(s => (s.voteId, s.option, s.optionDesc))
+        q.update(newVoteId, option, optionDesc)
+        q
+      }
+      newVoteId
     }
   }
 
@@ -87,9 +97,9 @@ trait VoteRepo extends SlickRepo {
     }
   }
 
-  def newVoteThread(voteName: String, description: String, voteId:Int,voteMethod:Int=1) = {
+  def newVoteThread(voteName: String, description: String, voteId: Int, voteMethod: Int = 1) = {
     conn.dbObject withSession { implicit session: Session =>
-      voteThreads.insert(VoteThread( voteId,voteName, description,voteMethod))
+      voteThreads.insert(VoteThread(voteId, voteName, description, voteMethod))
 
     }
   }
@@ -115,13 +125,12 @@ trait VoteRepo extends SlickRepo {
     }
   }
 
-
   def getVoteGrpResult(voteId: Int) = {
     conn.dbObject withSession { implicit session: Session =>
-     val result= voteResults.filter(_.voteId === voteId).groupBy(_.option).map {
+      val result = voteResults.filter(_.voteId === voteId).groupBy(_.option).map {
         case (option, ps) => (option, ps.length)
       }
-     result.list().toMap
+      result.list().toMap
     }
   }
 
