@@ -78,6 +78,16 @@ trait VoteRepo extends SlickRepo {
     }
   }
 
+  def deleteVoteThread(voteId: Int) {
+    conn.dbObject withSession { implicit session: Session =>
+
+      val queryForThread = voteThreads.filter(_.voteId === voteId)
+      queryForThread.delete
+      val queryForOption = voteOptions.filter(_.voteId === voteId)
+      queryForOption.delete
+    }
+  }
+
   def updateVoteOpton(newVoteId: Int, option: String, optionDesc: String, id: Int, qVoteId: Int, saveNew: Boolean = false) = {
     conn.dbObject withSession { implicit session: Session =>
       if (saveNew) {

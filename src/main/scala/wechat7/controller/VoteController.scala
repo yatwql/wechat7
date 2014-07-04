@@ -40,6 +40,12 @@ trait VoteController extends WechatAppStack {
     }
 
   }
+  
+   get("/vote/delete/:slug") {
+    val voteId = params("slug").toInt
+    voteRepo.deleteVoteThread(voteId)
+    redirect("/vote/list")
+  }
 
   get("/vote/result/:slug") {
     val voteId = params.getAs[Int]("slug").get
