@@ -69,10 +69,12 @@ trait VoteRepo extends SlickRepo {
     conn.dbObject withSession { implicit session: Session =>
       if (saveNew) {
         voteThreads.insert(VoteThread(newVoteId, voteName, description, voteMethod))
+        actions.insert(Action("vote"+newVoteId,"vote"+newVoteId,"voting"+newVoteId))
       } else {
-        val q = voteThreads.filter(_.voteId === qVoteId).map(s => (s.voteId, s.name, s.description, s.voteMethod))
-        q.update(newVoteId, voteName, description, voteMethod)
-        q
+        val queryForThread = voteThreads.filter(_.voteId === qVoteId).map(s => (s.voteId, s.name, s.description, s.voteMethod))
+        queryForThread.update(newVoteId, voteName, description, voteMethod)
+        val queryForAction= actions.filter(_.actionKey=== "vote"+qVoteId).map(s=> (s.actionKey,s.currentAction,s.nextAction))
+        queryForAction.update("vote"+newVoteId,"vote"+newVoteId,"voting"+newVoteId)
       }
       newVoteId
     }
@@ -85,6 +87,8 @@ trait VoteRepo extends SlickRepo {
       queryForThread.delete
       val queryForOption = voteOptions.filter(_.voteId === voteId)
       queryForOption.delete
+       val queryForAction= actions.filter(_.actionKey=== "vote"+voteId)
+       queryForAction.delete
     }
   }
 

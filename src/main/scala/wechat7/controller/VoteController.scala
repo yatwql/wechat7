@@ -118,7 +118,7 @@ trait VoteController extends WechatAppStack {
     var voteOptions :List[(Int,String,String)] =List[(Int,String,String)]()
     for (i<- 1 to 5 ){
       //voteOptions += (i,"","")
-     voteOptions= voteOptions.+:((i,i.toString(),""))
+     voteOptions= voteOptions.:+((i,i.toString(),""))
     }
 
         ssp("/pages/vote/edit", "title" -> "Create Vote detail ", "voteName" -> "", "description" -> "", "voteId" -> "", "voteMethod" -> 1, "voteOptions" -> voteOptions,"action"->"new")
