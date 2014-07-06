@@ -39,10 +39,6 @@ trait ActionRepo extends SlickRepo {
         case "articles" => {
           try {
             println("======================Insert articles into database ====================")
-            articles.insert(Article("Test 题目1", "Description", "1", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
-            articles.insert(Article("Test 2A", "New Description 2A", "2", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
-            articles.insert(Article("Test 题目2B", "New Description 2B", "2", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
-            articles.insert(Article("New Title 3", "New Description", "3", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
             articles.insert(Article("红酒鉴赏小知识", "红酒鉴赏小知识", "11", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
             articles.insert(Article("南美农产品", "南美农产品", "12", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
             articles.insert(Article("帮助", "打help出此页面,history列出最新二十篇文章,vote参加投票 ", "help", "text"))
