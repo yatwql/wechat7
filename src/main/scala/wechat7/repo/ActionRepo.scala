@@ -25,6 +25,8 @@ trait ActionRepo extends SlickRepo {
             actions.insert(Action("history", "history", ""))
             actions.insert(Action("list", "history", ""))
             actions.insert(Action("help", "help", ""))
+            actions.insert(Action("about", "about", ""))
+            actions.insert(Action("contact", "contact", ""))
             actions.insert(Action("帮助", "help", ""))
             println("======================retrieve actions from database ====================")
             actions.list foreach println
@@ -45,6 +47,8 @@ trait ActionRepo extends SlickRepo {
             articles.insert(Article("南美农产品", "南美农产品", "12", "news", Constants.REDWINE_PIC, Constants.SHOP_AT_DIANPING))
             articles.insert(Article("帮助", "打help出此页面,history列出最新二十篇文章,vote参加投票 ", "help", "text"))
             articles.insert(Article("帮助", "打help出此页面,history列出最新二十篇文章,vote参加投票 ", "帮助", "text"))
+            articles.insert(Article("关于我们", "利设商贸提供的葡萄酒咨询平台", "about", "text"))
+            articles.insert(Article("联系我们", "阮先生 电话/微信 18819805342", "contact", "text"))
             println("======================retrieve articles from database ====================")
             articles.list foreach println
 

@@ -64,7 +64,7 @@
 
 </tbody>
 </table>
- <!--a id="add_row" class="btn btn-default"/-->
+ <a id="add_row" class="btn btn-default"> add </a>
  <!--a id='delete_row' class="btn btn-default"/-->
  <input type="submit" class="btn btn-warning" value="保存"/>
  <a class="btn btn-danger" href="/vote/delete/${voteId}">删除</a>

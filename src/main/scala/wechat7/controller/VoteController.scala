@@ -34,16 +34,17 @@ trait VoteController extends WechatAppStack {
     val voteOptions = voteRepo.getVoteOptionsToTuples(slug.toInt)
     vote match {
       case Some(v) => {
-        ssp("/pages/vote/edit", "title" -> "Edit Vote detail ", "voteName" -> v.name, "description" -> v.description, "voteId" -> v.voteId.toString(), "voteMethod" -> v.voteMethod, "voteOptions" -> voteOptions,"action"->"update")
+        ssp("/pages/vote/edit", "title" -> "Edit Vote detail ", "voteName" -> v.name, "description" -> v.description, "voteId" -> v.voteId.toString(), "voteMethod" -> v.voteMethod, "voteOptions" -> voteOptions, "action" -> "update")
       }
       case _ => { "file not found" }
     }
 
   }
-  
-   get("/vote/delete/:slug") {
+
+  get("/vote/delete/:slug") {
     val voteId = params("slug").toInt
     voteRepo.deleteVoteThread(voteId)
+    CacheMgr.voteThreadCache.remove(voteId)
     redirect("/vote/list")
   }
 
@@ -66,35 +67,35 @@ trait VoteController extends WechatAppStack {
     val voteName = params("voteName")
     val description = params("description")
     val voteMethod = params("voteMethod").toInt
-    val (saveNew,qVoteId) =params("action") match{
-      case "new" => (true,0)
-      case _ => (false,params("qVoteId").toInt)
+    val (saveNew, qVoteId) = params("action") match {
+      case "new" => (true, 0)
+      case _ => (false, params("qVoteId").toInt)
     }
 
     val sizeOfVoteOptions = params("sizeOfVoteOptions").toInt
 
     params.getAs[Int]("voteId") match {
       case Some(voteId) => {
-        try {      
-          voteRepo.updateVoteThread(voteName, description, voteMethod, voteId,qVoteId,saveNew)           
+        try {
+          voteRepo.updateVoteThread(voteName, description, voteMethod, voteId, qVoteId, saveNew)
           for (seq <- (1 to sizeOfVoteOptions)) {
             params.getAs[Int]("optionId-" + seq) match {
               case Some(optionId) => {
-           
+
                 val option = params("option-" + seq)
                 val optionDesc = params("optionDesc-" + seq)
                 val id = optionId.toInt
-            
-                voteRepo.updateVoteOpton(voteId, option, optionDesc, id,qVoteId,saveNew)               
+
+                voteRepo.updateVoteOpton(voteId, option, optionDesc, id, qVoteId, saveNew)
               }
-              
-              case _ =>{
-          
+
+              case _ => {
+
                 " Can not get a valid option id"
               }
             }
           }
-          CacheMgr.voteThreadCache.remove(voteId)
+          CacheMgr.voteThreadCache.remove(qVoteId)
           val message = "Successful Update " + voteId + " !"
           val voteOptions = voteRepo.getVoteOptionsToTuples(voteId)
           ssp("/pages/vote/view", "title" -> "Show Vote detail ", "voteName" -> voteName, "description" -> description, "voteId" -> voteId.toString(), "voteMethod" -> voteMethod, "voteOptions" -> voteOptions, "message" -> message)
@@ -115,14 +116,14 @@ trait VoteController extends WechatAppStack {
     ssp("/pages/vote/votes", "title" -> "List Votes", "list" -> list)
   }
   get("/vote/new") {
-    var voteOptions :List[(Int,String,String)] =List[(Int,String,String)]()
-    for (i<- 1 to 5 ){
+    var voteOptions: List[(Int, String, String)] = List[(Int, String, String)]()
+    for (i <- 1 to 5) {
       //voteOptions += (i,"","")
-     voteOptions= voteOptions.:+((i,i.toString(),""))
+      voteOptions = voteOptions.:+((i, i.toString(), ""))
     }
 
-        ssp("/pages/vote/edit", "title" -> "Create Vote detail ", "voteName" -> "", "description" -> "", "voteId" -> "", "voteMethod" -> 1, "voteOptions" -> voteOptions,"action"->"new")
-    
+    ssp("/pages/vote/edit", "title" -> "Create Vote detail ", "voteName" -> "", "description" -> "", "voteId" -> "", "voteMethod" -> 1, "voteOptions" -> voteOptions, "action" -> "new")
+
   }
 
 }
