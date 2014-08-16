@@ -12,8 +12,8 @@ object DragonStudioWebchatAppBuild extends Build {
   val Name = "Dragon Studio Wechat7 App"
     
   val Version = "0.1.0-SNAPSHOT"
-  val ScalaVersion = "2.10.3"
-  val ScalatraVersion = "2.2.2"      
+  val ScalaVersion = "2.10.4"
+  val ScalatraVersion = "2.3.0"    
       
   lazy val project = Project (    
     "dragon-studio-webchat-app",
@@ -34,6 +34,7 @@ object DragonStudioWebchatAppBuild extends Build {
       libraryDependencies ++= Seq(
         "org.scalatra" %% "scalatra" % ScalatraVersion,
         "org.scalatra" %% "scalatra-scalate" % ScalatraVersion,
+         "org.scalatra" %% "scalatra-auth" % ScalatraVersion,
         "org.scalatra" %% "scalatra-specs2" % ScalatraVersion % "test",
         "ch.qos.logback" % "logback-classic" % "1.0.6" % "runtime",
         "org.scalatra" %% "scalatra-atmosphere" %  ScalatraVersion,
