@@ -8,7 +8,7 @@ object Constants {
   val appId = config.getString("wechat.appId")
   val appSecret =  config.getString("wechat.appSecret")
   val TOKEN =  config.getString("wechat.TOKEN")
-  val USE_ADVANCED_VERSION = config.getString("wechat.USE_ADVANCED_VERSION")
+  val USE_ADVANCED_VERSION = config.getBoolean("wechat.USE_ADVANCED_VERSION")
 
   val REQ_MSG_TYP_TEXT = "text"
   val REQ_MSG_TYP_IMAGE = "image"
